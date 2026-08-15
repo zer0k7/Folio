@@ -53,7 +53,6 @@ jobs:
             echo "Keystore secret detected. Decoding and signing..."
             echo "$KEYSTORE_BASE64" | base64 -d > /tmp/release.keystore
             
-            # Find latest apksigner in Android SDK
             APKSIGNER=$(find $ANDROID_SDK_ROOT/build-tools -name apksigner | sort -V | tail -n 1)
             ZIPALIGN=$(find $ANDROID_SDK_ROOT/build-tools -name zipalign | sort -V | tail -n 1)
             
@@ -93,49 +92,54 @@ jobs:
             COMMITS=$(git log --pretty=format:"%s")
           fi
 
-          FEATS=$(echo "$COMMITS" | grep -E '^feat' | sed 's/^/- /' || echo "")
-          FIXES=$(echo "$COMMITS" | grep -E '^fix' | sed 's/^/- /' || echo "")
-          CHORES=$(echo "$COMMITS" | grep -E '^(chore|init|refactor|docs|test)' | sed 's/^/- /' || echo "")
-          OTHER=$(echo "$COMMITS" | grep -v -E '^(feat|fix|chore|init|refactor|docs|test)' | sed 's/^/- /' || echo "")
-
-          CHANGELOG=""
-          if [ -n "$FEATS" ]; then
-            CHANGELOG="${CHANGELOG}#### Features\n${FEATS}\n\n"
-          fi
-          if [ -n "$FIXES" ]; then
-            CHANGELOG="${CHANGELOG}#### Fixes\n${FIXES}\n\n"
-          fi
-          if [ -n "$CHORES" ]; then
-            CHANGELOG="${CHANGELOG}#### Maintenance\n${CHORES}\n\n"
-          fi
-          if [ -n "$OTHER" ]; then
-            CHANGELOG="${CHANGELOG}#### Other\n${OTHER}\n\n"
-          fi
-          if [ -z "$CHANGELOG" ]; then
-            CHANGELOG="- Initial release\n"
-          fi
+          FEATS=$(echo "$COMMITS" | grep -E '^feat' | sed 's/^/- /' || true)
+          FIXES=$(echo "$COMMITS" | grep -E '^fix' | sed 's/^/- /' || true)
+          CHORES=$(echo "$COMMITS" | grep -E '^(chore|init|refactor|docs|test)' | sed 's/^/- /' || true)
+          OTHER=$(echo "$COMMITS" | grep -v -E '^(feat|fix|chore|init|refactor|docs|test)' | sed 's/^/- /' || true)
 
           BUILD_DATE=$(date -u +"%Y-%m-%d")
 
-          cat << EOF > release_notes.md
-## Folio ${TAG_NAME}
-
-### Changes
-$(echo -e "$CHANGELOG")
-
-### Build Info
-- Build date: ${BUILD_DATE}
-- Commit SHA: ${COMMIT_SHA}
-- Min SDK: 26
-- Target SDK: 35
-
-### Installation
-Download the APK below and install via:
-\`\`\`bash
-adb install folio-${TAG_NAME}.apk
-\`\`\`
-or enable "Install unknown apps" on your Android device and open the APK directly.
-EOF
+          {
+            echo "## Folio ${TAG_NAME}"
+            echo ""
+            echo "### Changes"
+            if [ -n "$FEATS" ]; then
+              echo "#### Features"
+              echo "$FEATS"
+              echo ""
+            fi
+            if [ -n "$FIXES" ]; then
+              echo "#### Fixes"
+              echo "$FIXES"
+              echo ""
+            fi
+            if [ -n "$CHORES" ]; then
+              echo "#### Maintenance"
+              echo "$CHORES"
+              echo ""
+            fi
+            if [ -n "$OTHER" ]; then
+              echo "#### Other"
+              echo "$OTHER"
+              echo ""
+            fi
+            if [ -z "$FEATS" ] && [ -z "$FIXES" ] && [ -z "$CHORES" ] && [ -z "$OTHER" ]; then
+              echo "- Initial release"
+              echo ""
+            fi
+            echo "### Build Info"
+            echo "- Build date: ${BUILD_DATE}"
+            echo "- Commit SHA: ${COMMIT_SHA}"
+            echo "- Min SDK: 26"
+            echo "- Target SDK: 35"
+            echo ""
+            echo "### Installation"
+            echo "Download the APK below and install via:"
+            echo '```bash'
+            echo "adb install folio-${TAG_NAME}.apk"
+            echo '```'
+            echo 'or enable "Install unknown apps" on your Android device and open the APK directly.'
+          } > release_notes.md
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
