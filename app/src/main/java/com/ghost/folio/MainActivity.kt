@@ -52,6 +52,7 @@ import com.ghost.folio.ui.theme.FolioTheme
 import com.ghost.folio.widget.DailyTermWidgetProvider
 import com.ghost.folio.widget.DailyTermWidgetWorker
 import androidx.compose.material3.ExperimentalMaterial3Api
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
