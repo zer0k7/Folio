@@ -5,6 +5,7 @@ import com.ghost.folio.data.local.dao.CategoryDao
 import com.ghost.folio.data.local.entity.ArticleEntity
 import com.ghost.folio.data.local.entity.CategoryEntity
 import com.ghost.folio.data.model.Article
+import com.ghost.folio.data.model.BodyBlock
 import com.ghost.folio.data.model.Category
 import com.ghost.folio.data.model.Difficulty
 import kotlinx.coroutines.flow.Flow
@@ -58,20 +59,20 @@ class ArticleRepository(
             Difficulty.BASIC
         }
 
-        val bodyBlocks = try {
-            json.decodeFromString(bodyJson)
+        val bodyBlocks: List<BodyBlock> = try {
+            json.decodeFromString<List<BodyBlock>>(bodyJson)
         } catch (_: Exception) {
             emptyList()
         }
 
-        val tagsList = try {
-            json.decodeFromString(tagsJson)
+        val tagsList: List<String> = try {
+            json.decodeFromString<List<String>>(tagsJson)
         } catch (_: Exception) {
             emptyList()
         }
 
-        val relatedList = try {
-            json.decodeFromString(relatedIdsJson)
+        val relatedList: List<String> = try {
+            json.decodeFromString<List<String>>(relatedIdsJson)
         } catch (_: Exception) {
             emptyList()
         }

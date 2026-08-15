@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Bookmark
 import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material.icons.outlined.AccountTree
 import androidx.compose.material3.Card
@@ -114,7 +115,7 @@ fun ArticleCard(
                     }
                     if (article.isSaved) {
                         Icon(
-                            imageVector = Icons.Filled.Bookmark,
+                            imageVector = Icons.Outlined.Bookmark,
                             contentDescription = "Saved",
                             tint = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.size(16.dp)
