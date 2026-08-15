@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="champion_blue">#151130</color>
+    <color name="white_convolvulus">#F5F2F3</color>
+    <color name="lavender_mist">#C8C5F0</color>
+    <color name="royal_ink">#1A1AAD</color>
+    <color name="surface_dark">#1E1A3A</color>
+    <color name="surface_light">#ECEAF0</color>
+    <color name="muted_dark">#6B6880</color>
+    <color name="muted_light">#8A8799</color>
+</resources>

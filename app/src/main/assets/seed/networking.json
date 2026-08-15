@@ -1,0 +1,272 @@
+[
+  {
+    "id": "what-is-latency",
+    "title": "What is Latency?",
+    "category": "networking",
+    "summary": "Latency is the total time delay incurred for data packets to travel from a source endpoint to a destination across a network, measured in milliseconds.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Network Latency",
+        "definition": "The elapsed time between the transmission of a data frame and its successful receipt at the remote destination, often expressed as Round-Trip Time (RTT)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Latency is bounded by the physical speed of light through fiber optics (~200,000 km/s in glass), intermediate routing hops, packet queue serialization, and server processing overhead. Even on a gigabit connection, a packet crossing oceans takes tens of milliseconds due to physical distance."
+      },
+      {
+        "type": "heading",
+        "text": "Sources of Latency"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Propagation Delay: Time for electromagnetic signals to travel along physical media.",
+          "Serialization Delay: Time required to clock packet bits onto the physical wire.",
+          "Queuing Delay: Time packets wait in router buffer queues during network congestion (bufferbloat).",
+          "Processing Delay: Time routers take to examine packet headers and determine route tables."
+        ]
+      },
+      {
+        "type": "diagram",
+        "key": "latency_timeline"
+      },
+      {
+        "type": "note",
+        "text": "Ping measures RTT (Round Trip Time). A 20ms ping means it takes 10ms for your packet to reach the host and 10ms for the echo reply to return."
+      }
+    ],
+    "tags": ["networking", "latency", "ping", "rtt", "bufferbloat"],
+    "relatedIds": ["what-is-bandwidth", "what-is-throughput", "tcp-vs-udp"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": true
+  },
+  {
+    "id": "what-is-bandwidth",
+    "title": "Network Bandwidth",
+    "category": "networking",
+    "summary": "Bandwidth is the maximum theoretical volume of digital information that a transmission medium or channel can transfer per unit of time.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Bandwidth",
+        "definition": "The maximum data transfer capacity of a network link or communication channel, measured in bits per second (e.g. Mbps, Gbps)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Bandwidth is like the diameter of a water pipe: a wider pipe allows more volume of water to pass through simultaneously, but does not increase the speed of the water itself. High bandwidth allows many concurrent data streams without bottlenecking."
+      },
+      {
+        "type": "heading",
+        "text": "Bits vs Bytes: The 8x Difference"
+      },
+      {
+        "type": "paragraph",
+        "text": "Internet Service Providers advertise bandwidth in megabits per second (Mbps), while file downloads are displayed in megabytes per second (MB/s). Because 1 Byte = 8 bits, a 100 Mbps internet connection yields a theoretical maximum download rate of 12.5 MB/s."
+      },
+      {
+        "type": "note",
+        "text": "Bandwidth dictates capacity, whereas latency dictates delay. High bandwidth with high latency is suitable for bulk file transfers, but terrible for real-time multiplayer gaming or VoIP."
+      }
+    ],
+    "tags": ["networking", "bandwidth", "mbps", "capacity", "speed"],
+    "relatedIds": ["what-is-throughput", "what-is-latency", "what-is-a-cdn"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-throughput",
+    "title": "Network Throughput",
+    "category": "networking",
+    "summary": "Throughput is the actual, measured quantity of successful payload data delivered across a network connection in real-world operating conditions.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Throughput",
+        "definition": "The rate at which usable application data is successfully transmitted over a network channel after subtracting protocol overhead, packet loss, and retransmissions."
+      },
+      {
+        "type": "paragraph",
+        "text": "While bandwidth represents the ideal theoretical ceiling, throughput is what your applications actually achieve. Factors like TCP window scaling, encryption overhead (TLS/IPsec), packet loss, and electromagnetic interference on Wi-Fi reduce actual throughput below maximum bandwidth."
+      },
+      {
+        "type": "heading",
+        "text": "Goodput vs Throughput"
+      },
+      {
+        "type": "paragraph",
+        "text": "Throughput includes transport and IP protocol header overhead as well as duplicate retransmissions. Goodput measures exclusively the application payload bytes delivered to the end process."
+      },
+      {
+        "type": "note",
+        "text": "According to the Bandwidth-Delay Product (BDP = Bandwidth x RTT), achieving maximum throughput over high-latency links requires sufficiently large TCP receive buffer windows."
+      }
+    ],
+    "tags": ["networking", "throughput", "goodput", "bdp", "tcp"],
+    "relatedIds": ["what-is-bandwidth", "what-is-latency", "tcp-vs-udp"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-dns",
+    "title": "Domain Name System (DNS)",
+    "category": "networking",
+    "summary": "DNS is the decentralized naming system that translates human-readable domain names like example.com into machine-routable IP addresses.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Domain Name System (DNS)",
+        "definition": "A hierarchical distributed database system that maps hostnames to IP addresses, mail exchange records, and cryptographic public keys."
+      },
+      {
+        "type": "paragraph",
+        "text": "When you enter a web address into a browser, your system queries a recursive resolver (like 1.1.1.1 or 8.8.8.8), which navigates the root nameservers, TLD nameservers (.com), and authoritative nameservers to fetch the matching A or AAAA records."
+      },
+      {
+        "type": "heading",
+        "text": "Resolution Hierarchy"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Root Zone: 13 named root authority server clusters coordinating top-level delegations.",
+          "Top-Level Domain (TLD): Servers handling extensions like .com, .org, or country codes.",
+          "Authoritative Nameserver: The final server holding the actual domain zone records.",
+          "Time-To-Live (TTL): A cache duration indicator dictating how long resolvers may store answers."
+        ]
+      },
+      {
+        "type": "diagram",
+        "key": "dns_resolution"
+      },
+      {
+        "type": "note",
+        "text": "Modern privacy protocols like DNS over HTTPS (DoH) and DNS over TLS (DoT) encrypt DNS lookups, preventing ISPs from observing which domains you query."
+      }
+    ],
+    "tags": ["networking", "dns", "ip", "doh", "nameserver"],
+    "relatedIds": ["what-is-a-cdn", "what-is-nat", "what-is-latency"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": true
+  },
+  {
+    "id": "what-is-nat",
+    "title": "Network Address Translation (NAT)",
+    "category": "networking",
+    "summary": "NAT maps entire private local networks to a single public IP address by translating port numbers in IP packet headers at the router boundary.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Network Address Translation (NAT)",
+        "definition": "A method that modifies network address information in IP packet headers while in transit across a routing device, multiplexing private IPs over public IPs."
+      },
+      {
+        "type": "paragraph",
+        "text": "Because IPv4 addresses are limited (only ~4.3 billion exist), home and corporate routers assign devices private IPs (such as 192.168.1.x or 10.x.x.x). When your phone requests a website, the router replaces the local private IP and port with its own public IP and a unique source port, maintaining a translation table to route the reply back."
+      },
+      {
+        "type": "heading",
+        "text": "NAT Types in Consumer Routers"
+      },
+      {
+        "type": "comparison",
+        "headers": ["NAT Type", "Filter Behavior", "P2P Gaming Impact"],
+        "rows": [
+          {
+            "label": "Type 1 (Open / No NAT)",
+            "values": ["Direct public IP on device", "Best connectivity"]
+          },
+          {
+            "label": "Type 2 (Moderate / Port-Restricted)",
+            "values": ["Standard NAT with UPnP / port forwarding", "Works with most peers"]
+          },
+          {
+            "label": "Type 3 (Strict / Symmetric NAT)",
+            "values": ["Dynamic random port mapping per destination", "Blocks incoming P2P connections"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Carrier-Grade NAT (CGNAT) places an additional layer of NAT at the ISP level, making port forwarding impossible without public IPv6 or tunneling."
+      }
+    ],
+    "tags": ["networking", "nat", "ipv4", "router", "port-forwarding"],
+    "relatedIds": ["what-is-dns", "tcp-vs-udp", "what-is-latency"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "tcp-vs-udp",
+    "title": "TCP vs UDP Protocols",
+    "category": "networking",
+    "summary": "TCP guarantees reliable, ordered packet delivery via handshakes, whereas UDP prioritizes minimal latency with connectionless, unordered transmission.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Transmission Control Protocol (TCP)",
+        "definition": "A connection-oriented transport protocol that ensures reliable, ordered, and error-checked delivery of a stream of octets between applications."
+      },
+      {
+        "type": "paragraph",
+        "text": "TCP establishes connections using a three-way handshake (SYN, SYN-ACK, ACK). It numbers each packet, sends acknowledgments for received segments, and retransmits lost packets. This makes it ideal for web pages, APIs, and file downloads where every byte must arrive intact."
+      },
+      {
+        "type": "heading",
+        "text": "User Datagram Protocol (UDP)"
+      },
+      {
+        "type": "paragraph",
+        "text": "UDP is connectionless. It fires packets (datagrams) toward the destination with zero handshaking, zero acknowledgment, and zero ordering guarantees. If a packet drops, it is ignored. This zero-overhead architecture makes UDP essential for live video streams, voice calls, and real-time gaming."
+      },
+      {
+        "type": "note",
+        "text": "QUIC and HTTP/3 run on top of UDP, implementing modern reliability, congestion control, and TLS encryption in userspace without TCP head-of-line blocking."
+      }
+    ],
+    "tags": ["networking", "tcp", "udp", "transport", "quic", "http3"],
+    "relatedIds": ["what-is-latency", "what-is-throughput", "what-is-dns"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-cdn",
+    "title": "Content Delivery Networks (CDN)",
+    "category": "networking",
+    "summary": "A CDN is a geographically distributed network of proxy servers and data centers that cache content physically close to end users to slash latency.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Content Delivery Network (CDN)",
+        "definition": "A globally distributed cluster of edge caching servers that serve cached static and dynamic web assets from points of presence nearest to the requesting client."
+      },
+      {
+        "type": "paragraph",
+        "text": "Without a CDN, a user in Tokyo requesting assets from an origin server in Frankfurt suffers ~250ms round-trip latency on every asset. A CDN edge server in Tokyo caches the images, CSS, and API responses, returning them in under 10ms over local peering links."
+      },
+      {
+        "type": "heading",
+        "text": "Edge Caching & Anycast Routing"
+      },
+      {
+        "type": "paragraph",
+        "text": "CDNs use BGP Anycast routing so that a single IP address directs incoming traffic to the topologically closest healthy edge point-of-presence (PoP), mitigating DDoS attacks while load balancing traffic."
+      },
+      {
+        "type": "note",
+        "text": "CDNs do not merely cache images: modern Edge compute workers allow executing JavaScript / WebAssembly logic directly at the edge before hitting origin databases."
+      }
+    ],
+    "tags": ["networking", "cdn", "edge", "anycast", "caching"],
+    "relatedIds": ["what-is-latency", "what-is-dns", "what-is-bandwidth"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

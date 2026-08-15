@@ -1,0 +1,56 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="800dp"
+    android:height="400dp"
+    android:viewportWidth="800"
+    android:viewportHeight="400">
+
+    <!-- Background card container -->
+    <path
+        android:fillColor="@color/surface_dark"
+        android:pathData="M 40,20 L 760,20 A 20,20 0 0 1 780,40 L 780,360 A 20,20 0 0 1 760,380 L 40,380 A 20,20 0 0 1 20,360 L 20,40 A 20,20 0 0 1 40,20 Z" />
+
+    <!-- Outer Pixel Boundary -->
+    <path
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="3"
+        android:strokeLineJoin="round"
+        android:pathData="M 120,70 L 680,70 L 680,330 L 120,330 Z" />
+
+    <!-- Red Sub-pixel -->
+    <path
+        android:fillColor="@color/muted_dark"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="2"
+        android:pathData="M 150,100 L 290,100 L 290,300 L 150,300 Z" />
+
+    <!-- Green Sub-pixel -->
+    <path
+        android:fillColor="@color/surface_light"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="2"
+        android:pathData="M 330,100 L 470,100 L 470,300 L 330,300 Z" />
+
+    <!-- Blue Sub-pixel -->
+    <path
+        android:fillColor="@color/royal_ink"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="2"
+        android:pathData="M 510,100 L 650,100 L 650,300 L 510,300 Z" />
+
+    <!-- Sub-pixel inner grid lines -->
+    <path
+        android:strokeColor="@color/white_convolvulus"
+        android:strokeWidth="1.5"
+        android:pathData="M 220,130 L 220,270 M 400,130 L 400,270 M 580,130 L 580,270" />
+
+    <!-- Indicator Accent Markers -->
+    <path
+        android:fillColor="@color/lavender_mist"
+        android:pathData="M 215,200 A 5,5 0 1 1 225,200 A 5,5 0 1 1 215,200 Z" />
+    <path
+        android:fillColor="@color/champion_blue"
+        android:pathData="M 395,200 A 5,5 0 1 1 405,200 A 5,5 0 1 1 395,200 Z" />
+    <path
+        android:fillColor="@color/white_convolvulus"
+        android:pathData="M 575,200 A 5,5 0 1 1 585,200 A 5,5 0 1 1 575,200 Z" />
+</vector>

@@ -1,0 +1,176 @@
+[
+  {
+    "id": "what-is-a-soc",
+    "title": "System on a Chip (SoC)",
+    "category": "hardware",
+    "summary": "An SoC integrates the CPU, GPU, memory controller, neural processing unit, and wireless modems onto a single compact silicon die.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "System on a Chip (SoC)",
+        "definition": "An integrated circuit that packages an entire computing system — including CPU, GPU, NPU, ISP, and wireless radios — on a single substrate."
+      },
+      {
+        "type": "paragraph",
+        "text": "In desktop computers, components like the CPU, graphics card, and Wi-Fi adapter are distinct chips connected via motherboard buses. In mobile devices, thermal limits and battery constraints require consolidating everything onto an SoC to eliminate bus trace resistance and save circuit board space."
+      },
+      {
+        "type": "heading",
+        "text": "Key Components Inside a Mobile SoC"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "CPU Clusters: Heterogeneous cores (such as ARM Cortex-X prime cores alongside high-efficiency Cortex-A55 cores).",
+          "GPU: Vector compute engines rendering UI graphics and 3D scenes.",
+          "ISP (Image Signal Processor): Real-time computational photography pipelines processing camera sensor data.",
+          "NPU (Neural Processing Unit): Dedicated matrix multiplication units executing on-device machine learning models.",
+          "5G / Wi-Fi Modem: Baseband processors modulating RF communication."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Unified Memory Architecture (UMA) in modern SoCs (like Apple Silicon) allows CPU and GPU to access the same high-bandwidth RAM pool without costly PCIe memory copies."
+      }
+    ],
+    "tags": ["hardware", "soc", "silicon", "arm", "npu", "cpu"],
+    "relatedIds": ["cpu-vs-gpu", "what-is-ram", "emmc-vs-ufs"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "cpu-vs-gpu",
+    "title": "CPU vs GPU Architecture",
+    "category": "hardware",
+    "summary": "CPUs excel at low-latency sequential logic with deep caches, while GPUs utilize thousands of smaller cores to execute massively parallel computations.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Central Processing Unit (CPU)",
+        "definition": "The primary general-purpose microprocessor designed to execute complex, sequential branch-heavy instruction sets with high single-thread clock speeds."
+      },
+      {
+        "type": "paragraph",
+        "text": "A modern CPU consists of 4 to 24 complex cores backed by multi-level caches and aggressive out-of-order execution logic. It is optimized to complete unpredictable sequential operations with minimal latency."
+      },
+      {
+        "type": "heading",
+        "text": "Graphics Processing Unit (GPU) Parallelism"
+      },
+      {
+        "type": "paragraph",
+        "text": "A GPU possesses thousands of stream processors organized for SIMD (Single Instruction, Multiple Data). Rather than accelerating one complex task, a GPU runs thousands of simple arithmetic calculations concurrently — perfect for rasterizing millions of pixels or computing neural network matrix weights."
+      },
+      {
+        "type": "comparison",
+        "headers": ["Metric", "CPU", "GPU"],
+        "rows": [
+          {
+            "label": "Core Count",
+            "values": ["4 - 32 complex cores", "Thousands of ALUs (1,000 - 16,000+)"]
+          },
+          {
+            "label": "Optimization Goal",
+            "values": ["Low single-thread latency", "High throughput data parallelism"]
+          },
+          {
+            "label": "Best Workloads",
+            "values": ["Operating systems, compilers, sequential logic", "3D graphics, matrix multiplication, shaders"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "GPGPU (General-Purpose computing on GPUs) using frameworks like CUDA or Vulkan Compute enables accelerating data science and cryptography workloads on graphics silicon."
+      }
+    ],
+    "tags": ["hardware", "cpu", "gpu", "parallelism", "simd"],
+    "relatedIds": ["what-is-a-soc", "what-is-ram", "what-is-a-pixel"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-ram",
+    "title": "Random Access Memory (RAM)",
+    "category": "hardware",
+    "summary": "RAM is high-speed volatile semiconductor memory that holds the operating system, running applications, and working data for immediate CPU access.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Dynamic RAM (DRAM)",
+        "definition": "A volatile memory technology storing each bit of data in a microscopic capacitor/transistor pair that must be refreshed thousands of times per second."
+      },
+      {
+        "type": "paragraph",
+        "text": "RAM access latency is measured in nanoseconds (~10–50ns), thousands of times faster than solid-state NVMe storage (~50,000ns). Because DRAM is volatile, all stored state is lost when electrical power is cut."
+      },
+      {
+        "type": "heading",
+        "text": "LPDDR vs Standard DDR"
+      },
+      {
+        "type": "paragraph",
+        "text": "Mobile devices utilize Low-Power DDR (LPDDR) SDRAM. LPDDR reduces operating voltages (down to ~0.5V on LPDDR5X), employs aggressive sleep states, and is often stacked directly atop the SoC via Package-on-Package (PoP) mounting to shorten bus lengths and minimize impedance."
+      },
+      {
+        "type": "note",
+        "text": "Virtual memory swap / zRAM compresses pages of idle RAM before writing them to flash storage, mitigating out-of-memory crashes on memory-constrained devices."
+      }
+    ],
+    "tags": ["hardware", "ram", "dram", "lpddr", "memory"],
+    "relatedIds": ["what-is-a-soc", "emmc-vs-ufs", "cpu-vs-gpu"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "emmc-vs-ufs",
+    "title": "eMMC vs UFS Storage",
+    "category": "hardware",
+    "summary": "eMMC uses a shared half-duplex parallel interface, whereas UFS utilizes full-duplex differential serial lanes for multi-gigabit mobile flash speeds.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Universal Flash Storage (UFS)",
+        "definition": "A high-performance flash storage standard utilizing full-duplex serial architecture and SCSI command queuing for concurrent read/write operations."
+      },
+      {
+        "type": "paragraph",
+        "text": "Older budget devices use eMMC (embedded MultiMediaCard), which relies on an 8-bit parallel bus operating in half-duplex mode: it can read or write data, but never both simultaneously. UFS operates over dedicated transmit and receive differential serial lines in full duplex."
+      },
+      {
+        "type": "heading",
+        "text": "Command Queuing & Speed Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Standard", "Interface Type", "Sequential Read", "Command Queuing"],
+        "rows": [
+          {
+            "label": "eMMC 5.1",
+            "values": ["Half-Duplex Parallel", "~300 MB/s", "Single Command Queue"]
+          },
+          {
+            "label": "UFS 2.2",
+            "values": ["Full-Duplex Serial", "~1000 MB/s", "Command Queuing (32 slots)"]
+          },
+          {
+            "label": "UFS 4.0",
+            "values": ["Full-Duplex Serial (2 Lanes)", "~4200 MB/s", "Deep SCSI Command Queuing"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Fast random I/O (IOPS) in UFS storage prevents Android UI micro-stutters during app launches and background database writes."
+      }
+    ],
+    "tags": ["hardware", "storage", "ufs", "emmc", "flash", "nvme"],
+    "relatedIds": ["what-is-a-soc", "what-is-ram", "cpu-vs-gpu"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  }
+]

@@ -1,0 +1,76 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="800dp"
+    android:height="400dp"
+    android:viewportWidth="800"
+    android:viewportHeight="400">
+
+    <!-- Background card container -->
+    <path
+        android:fillColor="@color/surface_dark"
+        android:pathData="M 40,20 L 760,20 A 20,20 0 0 1 780,40 L 780,360 A 20,20 0 0 1 760,380 L 40,380 A 20,20 0 0 1 20,360 L 20,40 A 20,20 0 0 1 40,20 Z" />
+
+    <!-- Node 1: Primary Bootloader (ROM) -->
+    <path
+        android:fillColor="@color/champion_blue"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="2"
+        android:pathData="M 60,140 L 190,140 A 10,10 0 0 1 200,150 L 200,250 A 10,10 0 0 1 190,260 L 60,260 A 10,10 0 0 1 50,250 L 50,150 A 10,10 0 0 1 60,140 Z" />
+
+    <!-- Arrow 1 to 2 -->
+    <path
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="3"
+        android:pathData="M 200,200 L 240,200 M 235,193 L 243,200 L 235,207" />
+
+    <!-- Node 2: Secondary Bootloader (XBL/ABOOT) -->
+    <path
+        android:fillColor="@color/royal_ink"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="2"
+        android:pathData="M 250,140 L 380,140 A 10,10 0 0 1 390,150 L 390,250 A 10,10 0 0 1 380,260 L 250,260 A 10,10 0 0 1 240,250 L 240,150 A 10,10 0 0 1 250,140 Z" />
+
+    <!-- Arrow 2 to 3 -->
+    <path
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="3"
+        android:pathData="M 390,200 L 430,200 M 425,193 L 433,200 L 425,207" />
+
+    <!-- Node 3: Linux Kernel (boot.img) -->
+    <path
+        android:fillColor="@color/muted_dark"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="2"
+        android:pathData="M 440,140 L 570,140 A 10,10 0 0 1 580,150 L 580,250 A 10,10 0 0 1 570,260 L 440,260 A 10,10 0 0 1 430,250 L 430,150 A 10,10 0 0 1 440,140 Z" />
+
+    <!-- Arrow 3 to 4 -->
+    <path
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="3"
+        android:pathData="M 580,200 L 620,200 M 615,193 L 623,200 L 615,207" />
+
+    <!-- Node 4: Android Userspace (init / system) -->
+    <path
+        android:fillColor="@color/surface_light"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="2"
+        android:pathData="M 630,140 L 750,140 A 10,10 0 0 1 760,150 L 760,250 A 10,10 0 0 1 750,260 L 630,260 A 10,10 0 0 1 620,250 L 620,150 A 10,10 0 0 1 630,140 Z" />
+
+    <!-- Hardware Root of Trust Key Indicator -->
+    <path
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="2"
+        android:strokeDashArray="4,4"
+        android:pathData="M 125,110 L 690,110" />
+    <path
+        android:fillColor="@color/lavender_mist"
+        android:pathData="M 120,110 A 5,5 0 1 1 130,110 A 5,5 0 1 1 120,110 Z" />
+    <path
+        android:fillColor="@color/lavender_mist"
+        android:pathData="M 310,110 A 5,5 0 1 1 320,110 A 5,5 0 1 1 310,110 Z" />
+    <path
+        android:fillColor="@color/lavender_mist"
+        android:pathData="M 500,110 A 5,5 0 1 1 510,110 A 5,5 0 1 1 500,110 Z" />
+    <path
+        android:fillColor="@color/lavender_mist"
+        android:pathData="M 685,110 A 5,5 0 1 1 695,110 A 5,5 0 1 1 685,110 Z" />
+</vector>

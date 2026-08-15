@@ -1,0 +1,475 @@
+[
+  {
+    "id": "what-is-http",
+    "title": "Hypertext Transfer Protocol (HTTP)",
+    "category": "web",
+    "summary": "HTTP is the foundational application-layer protocol for the World Wide Web, operating as a stateless request-response protocol between clients and servers.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "HTTP",
+        "definition": "An application-layer protocol based on client-server request-response messaging, transferring HTML documents, media, and API payloads across the internet."
+      },
+      {
+        "type": "paragraph",
+        "text": "HTTP is inherently stateless: every individual request sent by a browser is independent, and the server retains no memory of previous interactions by default. Statefulness is achieved by sending session identifiers in HTTP headers (such as Cookies)."
+      },
+      {
+        "type": "heading",
+        "text": "Core HTTP Methods & Status Codes"
+      },
+      {
+        "type": "comparison",
+        "headers": ["HTTP Method", "Intended Action", "Idempotent"],
+        "rows": [
+          {
+            "label": "GET",
+            "values": ["Retrieve resource data from the server", "Yes"]
+          },
+          {
+            "label": "POST",
+            "values": ["Submit data to create a new resource or execute a command", "No"]
+          },
+          {
+            "label": "PUT / PATCH",
+            "values": ["Replace / Modify an existing resource payload", "PUT: Yes, PATCH: No"]
+          },
+          {
+            "label": "DELETE",
+            "values": ["Remove the target resource", "Yes"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "HTTP/2 introduced binary framing and multiplexing over a single TCP connection, and HTTP/3 replaced TCP with UDP-based QUIC to eliminate head-of-line blocking."
+      }
+    ],
+    "tags": ["web", "http", "rest", "protocols", "networking"],
+    "relatedIds": ["what-is-https", "what-is-an-api", "what-is-a-web-server"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-https",
+    "title": "HTTPS & Secure Web Browsing",
+    "category": "web",
+    "summary": "HTTPS encrypts standard HTTP communication using TLS, safeguarding user data against interception, tampering, and impersonation.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "HTTPS",
+        "definition": "The secure implementation of HTTP that encapsulates all web traffic inside an authenticated TLS cryptographic tunnel over TCP port 443."
+      },
+      {
+        "type": "paragraph",
+        "text": "Under plaintext HTTP, any router or wireless snooper along the network path can read login credentials and session tokens in cleartext. HTTPS encrypts the URL path, query parameters, cookies, and response body, making data unreadable to intermediaries."
+      },
+      {
+        "type": "heading",
+        "text": "Security Guarantees"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Data Encryption: Obfuscates all payload bytes against network eavesdropping.",
+          "Data Integrity: Prevents ISPs or bad actors from altering page contents or injecting ads in transit.",
+          "Server Authentication: Verifies the server digital certificate against trusted Certificate Authorities."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "HTTP Strict Transport Security (HSTS) is a response header that instructs browsers to automatically upgrade all future requests to HTTPS, preventing downgrade attacks."
+      }
+    ],
+    "tags": ["web", "https", "security", "tls", "encryption"],
+    "relatedIds": ["what-is-http", "what-is-a-cookie", "what-is-cors"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-an-api",
+    "title": "Application Programming Interfaces (API)",
+    "category": "web",
+    "summary": "An API is a defined set of rules, protocols, and endpoints that allow different software applications to communicate and exchange data programmatically.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Application Programming Interface (API)",
+        "definition": "A formal contract defining how client software can request data or trigger behaviors on a remote service or library without knowing internal implementation details."
+      },
+      {
+        "type": "paragraph",
+        "text": "Instead of a human clicking buttons in a graphical user interface, an API allows computer programs to interact directly. For example, a weather app on your smartphone queries a meteorological server API via an HTTP GET request and receives structured JSON data containing current temperatures."
+      },
+      {
+        "type": "heading",
+        "text": "Common API Paradigms"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Paradigm", "Data Format", "Primary Use Case"],
+        "rows": [
+          {
+            "label": "REST (HTTP/JSON)",
+            "values": ["JSON, XML", "Standard web services, CRUD operations, public APIs"]
+          },
+          {
+            "label": "GraphQL",
+            "values": ["JSON (Client-specified schema)", "Complex client applications requiring exact query fields without overfetching"]
+          },
+          {
+            "label": "gRPC (HTTP/2)",
+            "values": ["Binary Protocol Buffers", "High-performance internal microservice communication and low-latency RPCs"]
+          },
+          {
+            "label": "WebSocket",
+            "values": ["Full-duplex text/binary frames", "Real-time chat, live financial tickers, multiplayer games"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "API rate limiting uses algorithms like Token Bucket or Leaky Bucket to restrict excessive requests from individual client IP addresses, protecting servers from denial-of-service."
+      }
+    ],
+    "tags": ["web", "api", "rest", "graphql", "grpc", "json"],
+    "relatedIds": ["what-is-rest", "what-is-json", "what-is-http"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-rest",
+    "title": "REST Architecture & RESTful APIs",
+    "category": "web",
+    "summary": "REST is a software architectural style that treats server entities as unique URIs manipulated through standard stateless HTTP methods.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Representational State Transfer (REST)",
+        "definition": "An architectural model designed by Roy Fielding that leverages standard HTTP conventions, resource URIs, and stateless messaging for distributed systems."
+      },
+      {
+        "type": "paragraph",
+        "text": "In a RESTful design, resources are represented by clean noun-based URLs (e.g. /api/users/42). Actions are not encoded in the URL path (such as /getUser or /deleteUser); instead, standard HTTP verbs dictate the operation (GET /api/users/42 or DELETE /api/users/42)."
+      },
+      {
+        "type": "heading",
+        "text": "The Six Architectural Constraints of REST"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Client-Server Separation: UI and client logic are separated from server data storage and business rules.",
+          "Statelessness: Each request from client to server must contain all information necessary to understand and process the request.",
+          "Cacheability: Responses must implicitly or explicitly define themselves as cacheable or non-cacheable.",
+          "Uniform Interface: Resources are identified by URIs, manipulated through representations, and self-descriptive messages.",
+          "Layered System: Clients cannot ordinarily tell whether they are connected directly to the end server or an intermediate proxy/load balancer.",
+          "Code on Demand (Optional): Servers can temporarily extend client functionality by transferring executable scripts."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "HATEOAS (Hypermedia As The Engine Of Application State) is a REST constraint where API responses contain hypermedia links guiding the client to related available actions."
+      }
+    ],
+    "tags": ["web", "rest", "api", "http", "crud", "architecture"],
+    "relatedIds": ["what-is-an-api", "what-is-http", "what-is-json"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-cookie",
+    "title": "HTTP Cookies & Web Sessions",
+    "category": "web",
+    "summary": "A cookie is a small key-value data packet stored by the web browser on behalf of a website to maintain stateful login sessions and preferences.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "HTTP Cookie",
+        "definition": "A state mechanism where a web server sends a Set-Cookie header to a browser, which the browser automatically attaches to future requests to that domain."
+      },
+      {
+        "type": "paragraph",
+        "text": "Because HTTP is stateless, a server has no natural way of knowing that request #2 comes from the same logged-in user as request #1. When you log in, the server generates a cryptographically random session token, returns it in a Set-Cookie header, and the browser sends it back on every subsequent page request."
+      },
+      {
+        "type": "heading",
+        "text": "Critical Security Attributes"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Cookie Flag", "Security Protection", "Attack Vector Prevented"],
+        "rows": [
+          {
+            "label": "HttpOnly",
+            "values": ["Blocks client-side JavaScript (document.cookie) from reading the cookie", "Cross-Site Scripting (XSS) session theft"]
+          },
+          {
+            "label": "Secure",
+            "values": ["Instructs the browser to only transmit the cookie over encrypted HTTPS", "Man-in-the-Middle plaintext interception"]
+          },
+          {
+            "label": "SameSite=Strict/Lax",
+            "values": ["Restricts cookie transmission on cross-origin requests from third-party sites", "Cross-Site Request Forgery (CSRF)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Third-party cookies (set by external ad trackers embedded in iframes) are increasingly blocked by modern web browsers to protect user privacy."
+      }
+    ],
+    "tags": ["web", "cookie", "session", "httponly", "security", "xss", "csrf"],
+    "relatedIds": ["what-is-http", "what-is-cache", "what-is-cors"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-cache",
+    "title": "Web Caching Mechanisms",
+    "category": "web",
+    "summary": "Caching temporarily stores copies of computed responses or static files in fast local memory to eliminate redundant network round-trips and database lookups.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Web Cache",
+        "definition": "A temporary high-speed data store located on the client browser, intermediate proxy, CDN edge, or application server holding copies of recently requested assets."
+      },
+      {
+        "type": "paragraph",
+        "text": "Fetching large image files, scripts, and stylesheets over the internet costs cellular bandwidth and introduces latency. When a browser downloads a cached file once, subsequent page visits load the resource directly from local flash memory in 0 milliseconds."
+      },
+      {
+        "type": "heading",
+        "text": "HTTP Cache Control Headers"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Cache-Control: max-age=31536000, immutable: Instructs the browser to cache the file for 1 year without revalidating (used for content-hashed assets).",
+          "Cache-Control: no-cache: Requires the browser to validate with the origin server via ETag before using the cached copy.",
+          "Cache-Control: no-store: Strictly prohibits any device or intermediate proxy from storing the response to disk (used for banking and sensitive data).",
+          "ETag: A cryptographic fingerprint of the file contents. If unchanged, the server responds with 304 Not Modified without sending the body."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Cache invalidation is famously one of the hardest problems in computer science: serving stale data can cause broken application states when new code is deployed."
+      }
+    ],
+    "tags": ["web", "cache", "etag", "performance", "cdn", "http"],
+    "relatedIds": ["what-is-http", "what-is-a-web-server", "what-is-a-cookie"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-web-server",
+    "title": "Web Servers",
+    "category": "web",
+    "summary": "A web server is software and underlying hardware that listens on network ports, processes incoming HTTP requests, and serves static files or dynamic application responses.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Web Server",
+        "definition": "A computer system running specialized daemon software (such as NGINX, Apache, or Caddy) that accepts incoming TCP connections and serves HTTP content."
+      },
+      {
+        "type": "paragraph",
+        "text": "When you type a web URL into your browser, DNS maps the domain to an IP address. The browser establishes a TCP handshake with the web server on port 80 (HTTP) or 443 (HTTPS). The server reads the request header, fetches the requested file from disk or passes the request to an application backend, and returns an HTTP response."
+      },
+      {
+        "type": "heading",
+        "text": "Reverse Proxies & Load Balancers"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Reverse Proxy: An intermediary server sitting in front of application backends, terminating SSL/TLS certificates and routing requests.",
+          "Load Balancing: Distributing incoming web traffic across dozens of backend worker containers to prevent server overload.",
+          "Static File Offloading: NGINX and Caddy can serve cached images, HTML, and CSS directly with high efficiency using kernel sendfile system calls."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern server architectures use event-driven, non-blocking I/O (epoll / kqueue) to handle tens of thousands of concurrent client connections per process without exhausting RAM."
+      }
+    ],
+    "tags": ["web", "server", "nginx", "apache", "proxy", "load-balancer"],
+    "relatedIds": ["what-is-http", "what-is-localhost", "what-is-a-port"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-localhost",
+    "title": "Localhost & Loopback Address",
+    "category": "web",
+    "summary": "Localhost is a reserved hostname representing the local machine itself, routing network traffic internally through a virtual loopback network interface.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Localhost (Loopback)",
+        "definition": "The standard host name assigned to the local computer network loopback interface, resolving to IPv4 address 127.0.0.1 and IPv6 address ::1."
+      },
+      {
+        "type": "paragraph",
+        "text": "When software sends network packets to localhost (or 127.0.0.1), the operating system TCP/IP stack bypasses physical Ethernet or Wi-Fi hardware adapters entirely. The packets are short-circuited in system memory and delivered immediately back to listening local processes."
+      },
+      {
+        "type": "heading",
+        "text": "Local Development & Isolation"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Development Servers: Running test web servers locally (e.g. localhost:3000) during development without exposing software to the local Wi-Fi network.",
+          "Binding to 127.0.0.1 vs 0.0.0.0: Binding a server to 127.0.0.1 allows connections only from the local machine. Binding to 0.0.0.0 listens on all interfaces, exposing the port to the entire local LAN.",
+          "Etc/hosts: The operating system local DNS override file where localhost is mapped statically to 127.0.0.1."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "In the Android emulator, 10.0.2.2 is a special alias router address used by the guest emulator to access the development host machine localhost."
+      }
+    ],
+    "tags": ["web", "localhost", "loopback", "networking", "ip", "development"],
+    "relatedIds": ["what-is-a-port", "what-is-a-web-server", "what-is-http"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-port",
+    "title": "Network Ports",
+    "category": "web",
+    "summary": "A network port is a 16-bit numeric identifier that allows the operating system to multiplex multiple network services over a single IP address.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Network Port",
+        "definition": "A 16-bit integer (0 to 65535) in TCP and UDP packet headers designating the specific endpoint process or service on a host."
+      },
+      {
+        "type": "paragraph",
+        "text": "An IP address identifies a physical machine on the network, like a building street address. A port number identifies the specific room or apartment inside that building, ensuring web traffic goes to the web server rather than the email or database daemon."
+      },
+      {
+        "type": "heading",
+        "text": "Standard Port Ranges"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Port Range", "Category", "Well-Known Standard Ports"],
+        "rows": [
+          {
+            "label": "0 - 1023",
+            "values": ["Well-Known / System (Requires root/admin privileges)", "22 (SSH), 53 (DNS), 80 (HTTP), 443 (HTTPS)"]
+          },
+          {
+            "label": "1024 - 49151",
+            "values": ["Registered Ports", "3306 (MySQL), 5432 (PostgreSQL), 6379 (Redis), 8080 (Web Dev)"]
+          },
+          {
+            "label": "49152 - 65535",
+            "values": ["Dynamic / Ephemeral Ports", "Allocated temporarily by the OS for outbound client socket connections"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "A network socket is uniquely defined by a 5-tuple: (Source IP, Source Port, Destination IP, Destination Port, Transport Protocol)."
+      }
+    ],
+    "tags": ["web", "port", "networking", "tcp", "udp", "sockets"],
+    "relatedIds": ["what-is-localhost", "what-is-http", "what-is-a-web-server"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-json",
+    "title": "JavaScript Object Notation (JSON)",
+    "category": "web",
+    "summary": "JSON is a lightweight, human-readable text format for structured data serialization, universally supported across programming languages and web APIs.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "JSON",
+        "definition": "An open standard text-based data interchange format derived from JavaScript object syntax, representing key-value maps, lists, and primitives."
+      },
+      {
+        "type": "paragraph",
+        "text": "JSON replaced heavy, verbose XML as the dominant format for web APIs. It is language-agnostic: a Python server can serialize a dictionary to JSON, transmit it across HTTP, and a Kotlin Android app can deserialize the string into a typed data class."
+      },
+      {
+        "type": "heading",
+        "text": "Supported Data Types"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "String: Unicode characters wrapped in double quotes (\"title\").",
+          "Number: Integer or floating-point decimals (42, 3.1415).",
+          "Boolean: Literal true or false.",
+          "Null: Literal empty value null.",
+          "Object: An unordered collection of key-value pairs wrapped in curly braces { }.",
+          "Array: An ordered list of values wrapped in square brackets [ ]."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Standard JSON strictly forbids trailing commas, single-quoted strings, comments, and binary representations."
+      }
+    ],
+    "tags": ["web", "json", "data", "serialization", "api", "rest"],
+    "relatedIds": ["what-is-an-api", "what-is-rest", "what-is-http"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-cors",
+    "title": "Cross-Origin Resource Sharing (CORS)",
+    "category": "web",
+    "summary": "CORS is a browser security mechanism that uses HTTP headers to allow or restrict web applications running at one origin from requesting resources from a different origin.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Cross-Origin Resource Sharing (CORS)",
+        "definition": "A browser security protocol relaxing the strict Same-Origin Policy (SOP) via HTTP response headers from the destination server."
+      },
+      {
+        "type": "paragraph",
+        "text": "Under the browser Same-Origin Policy, JavaScript on siteA.com is prohibited from reading API data on api.siteB.com to prevent malicious scripts from stealing private banking sessions. CORS allows api.siteB.com to explicitly authorize siteA.com by returning header Access-Control-Allow-Origin: https://siteA.com."
+      },
+      {
+        "type": "heading",
+        "text": "Preflight OPTIONS Requests"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Complex Requests: For HTTP methods like PUT, DELETE, or requests containing custom Authorization headers, the browser automatically sends an HTTP OPTIONS preflight request first.",
+          "Server Authorization: The server must respond to the OPTIONS probe with allowed origins, headers, and methods.",
+          "Browser Enforcement: If the preflight fails, the browser cancels the actual request and throws a CORS network error in the console."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "CORS is strictly a browser-side enforcement policy. Mobile apps (Android/iOS) and backend CLI tools (curl, Postman) do not enforce CORS restrictions."
+      }
+    ],
+    "tags": ["web", "cors", "sop", "security", "api", "browser"],
+    "relatedIds": ["what-is-an-api", "what-is-http", "what-is-a-cookie"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  }
+]

@@ -1,0 +1,61 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="800dp"
+    android:height="400dp"
+    android:viewportWidth="800"
+    android:viewportHeight="400">
+
+    <!-- Background card container -->
+    <path
+        android:fillColor="@color/surface_dark"
+        android:pathData="M 40,20 L 760,20 A 20,20 0 0 1 780,40 L 780,360 A 20,20 0 0 1 760,380 L 40,380 A 20,20 0 0 1 20,360 L 20,40 A 20,20 0 0 1 40,20 Z" />
+
+    <!-- Divider Line -->
+    <path
+        android:strokeColor="@color/muted_dark"
+        android:strokeWidth="2"
+        android:pathData="M 400,50 L 400,350" />
+
+    <!-- Left Side: LCD Architecture -->
+    <!-- Backlight (Always on) -->
+    <path
+        android:fillColor="@color/lavender_mist"
+        android:pathData="M 80,90 L 140,90 L 140,310 L 80,310 Z" />
+    <!-- Liquid Crystal Valve (Blocking light) -->
+    <path
+        android:fillColor="@color/champion_blue"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="1.5"
+        android:pathData="M 180,90 L 240,90 L 240,310 L 180,310 Z" />
+    <!-- Color Filter -->
+    <path
+        android:fillColor="@color/royal_ink"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="1"
+        android:pathData="M 280,90 L 340,90 L 340,310 L 280,310 Z" />
+
+    <!-- Right Side: OLED Architecture -->
+    <!-- Self-Emissive Organic Diodes -->
+    <path
+        android:fillColor="@color/lavender_mist"
+        android:strokeColor="@color/white_convolvulus"
+        android:strokeWidth="2"
+        android:pathData="M 460,90 L 550,90 L 550,180 L 460,180 Z" />
+    <!-- Emitting Light Ray -->
+    <path
+        android:strokeColor="@color/white_convolvulus"
+        android:strokeWidth="3"
+        android:pathData="M 550,135 L 720,135" />
+
+    <!-- Dark OLED Pixel (Turned completely off) -->
+    <path
+        android:fillColor="@color/champion_blue"
+        android:strokeColor="@color/muted_dark"
+        android:strokeWidth="2"
+        android:pathData="M 460,220 L 550,220 L 550,310 L 460,310 Z" />
+    <!-- Zero light output indicator -->
+    <path
+        android:strokeColor="@color/muted_dark"
+        android:strokeWidth="2"
+        android:strokeDashArray="6,6"
+        android:pathData="M 550,265 L 720,265" />
+</vector>

@@ -1,0 +1,394 @@
+[
+  {
+    "id": "what-is-fps",
+    "title": "Frames Per Second (FPS)",
+    "category": "gaming",
+    "summary": "FPS measures the frequency at which a graphics rendering engine produces and outputs consecutive full-screen image frames to a display.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Frames Per Second (FPS)",
+        "definition": "The metric of temporal graphics performance quantifying how many unique 3D rendered frames the GPU computes and outputs each second."
+      },
+      {
+        "type": "paragraph",
+        "text": "At 30 FPS, each frame stays on screen for 33.3 milliseconds. At 60 FPS, frame time drops to 16.6ms, making camera panning feel significantly smoother. At competitive refresh rates like 144 FPS or 240 FPS (6.9ms down to 4.1ms frame time), motion blur decreases and tracking moving targets becomes drastically easier."
+      },
+      {
+        "type": "heading",
+        "text": "Frame Rate Tiers & Perceived Latency"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Frame Rate", "Frame Time (ms)", "Gaming Experience"],
+        "rows": [
+          {
+            "label": "30 FPS",
+            "values": ["33.3 ms", "Playable for cinematic single-player story games; noticeable input delay in fast shooters"]
+          },
+          {
+            "label": "60 FPS",
+            "values": ["16.6 ms", "Standard gaming baseline; smooth animations and responsive controls"]
+          },
+          {
+            "label": "120 - 144 FPS",
+            "values": ["8.3 - 6.9 ms", "Enthusiast high-refresh standard; minimal motion blur, sharp tracking"]
+          },
+          {
+            "label": "240 - 360+ FPS",
+            "values": ["4.1 - 2.7 ms", "Esports tournament standard; lowest achievable motor-to-photon input latency"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Average FPS can be misleading: a game showing '100 FPS average' will still stutter noticeably if 1% Lows drop to 20 FPS due to CPU shader compilation spikes."
+      }
+    ],
+    "tags": ["gaming", "fps", "framerate", "frametime", "performance", "gpu"],
+    "relatedIds": ["what-is-frame-pacing", "what-is-input-lag", "what-is-vsync"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-resolution-gaming",
+    "title": "Gaming Resolutions & Upscaling",
+    "category": "gaming",
+    "summary": "Resolution defines the total pixel dimensions rendered by the graphics engine, balanced against modern temporal reconstruction and AI upscaling algorithms.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Render Resolution",
+        "definition": "The horizontal and vertical pixel grid (e.g. 1920x1080, 2560x1440, 3840x2160) computed by the GPU vertex and fragment shader pipelines."
+      },
+      {
+        "type": "paragraph",
+        "text": "Rendering native 4K (8.3 million pixels) requires 4x the raw GPU pixel shading compute of 1080p (2.1 million pixels). Modern gaming overcomes this compute bottleneck using temporal upscaling techniques like NVIDIA DLSS, AMD FSR, and Intel XeSS to render internally at 1440p and reconstruct clean 4K output."
+      },
+      {
+        "type": "heading",
+        "text": "Standard Gaming Resolution Grid"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Resolution Standard", "Pixel Dimensions", "Total Pixels", "Relative Performance Load"],
+        "rows": [
+          {
+            "label": "1080p (Full HD)",
+            "values": ["1920 x 1080", "2.07 Million", "1.0x (Baseline)"]
+          },
+          {
+            "label": "1440p (QHD / 2K)",
+            "values": ["2560 x 1440", "3.68 Million", "~1.77x load (Sweet spot for PC gaming)"]
+          },
+          {
+            "label": "4K (UHD)",
+            "values": ["3840 x 2160", "8.29 Million", "~4.0x load (Demands high-end GPUs)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Dynamic Resolution Scaling (DRS) dynamically drops the internal render resolution during heavy combat explosions to prevent frame drops, then scales back up during quiet scenes."
+      }
+    ],
+    "tags": ["gaming", "resolution", "4k", "1440p", "dlss", "fsr", "upscaling"],
+    "relatedIds": ["what-is-fps", "what-is-anti-aliasing", "what-is-ray-tracing"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-vsync",
+    "title": "Vertical Synchronization (V-Sync)",
+    "category": "gaming",
+    "summary": "V-Sync synchronizes GPU frame output with the display refresh cycle to eliminate horizontal screen tearing at the expense of introducing input lag.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "V-Sync (Vertical Synchronization)",
+        "definition": "A display pipeline synchronization setting that forces the graphics card to hold new frame buffers until the monitor completes its vertical blanking interval (VBLANK)."
+      },
+      {
+        "type": "paragraph",
+        "text": "When V-Sync is disabled and a GPU produces frames faster or out of sync with a 60Hz monitor, the GPU swaps the frame buffer while the monitor is mid-way through drawing the screen. This causes horizontal Screen Tearing, where the top half of the screen displays frame N and the bottom half displays frame N+1."
+      },
+      {
+        "type": "heading",
+        "text": "The Double Buffering Dilemma"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Input Delay: Locking the GPU back-buffer until the next refresh cycle holds completed player inputs in memory, increasing perceived mouse latency.",
+          "Framerate Halving: Under classic Double Buffering, if the GPU drops from 60 FPS down to 59 FPS, it misses the VBLANK window, forcing the display to repeat the previous frame and dropping perceived framerate instantly to 30 FPS.",
+          "Triple Buffering: Adds a third frame buffer so the GPU can keep rendering without stalling, smoothing frame rate drops at the cost of additional VRAM memory usage."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Variable Refresh Rate (G-Sync and FreeSync) has largely replaced traditional V-Sync by making the monitor refresh dynamically whenever the GPU finishes a frame."
+      }
+    ],
+    "tags": ["gaming", "vsync", "screen-tearing", "vblank", "buffering", "latency"],
+    "relatedIds": ["what-is-gsync-freesync", "what-is-input-lag", "what-is-fps"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-gsync-freesync",
+    "title": "Variable Refresh Rate (G-Sync & FreeSync)",
+    "category": "gaming",
+    "summary": "G-Sync and FreeSync dynamically synchronize the monitor physical refresh rate to match the GPU real-time frame output, eliminating both screen tearing and V-Sync stutter.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Variable Refresh Rate (VRR)",
+        "definition": "A hardware-display communication standard (VESA Adaptive-Sync, NVIDIA G-Sync, AMD FreeSync) enabling dynamic, non-fixed monitor refresh intervals."
+      },
+      {
+        "type": "paragraph",
+        "text": "Historically, monitors refreshed at fixed immutable intervals (e.g. exactly every 16.6ms on 60Hz). With VRR, the monitor enters an idle wait state after drawing a frame; the moment the GPU finishes computing the next frame (whether 11ms or 14ms later), it signals the monitor to scan out immediately."
+      },
+      {
+        "type": "heading",
+        "text": "G-Sync vs FreeSync Ecosystem"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Standard", "Underlying Technology", "Hardware Requirements"],
+        "rows": [
+          {
+            "label": "NVIDIA G-Sync Ultimate",
+            "values": ["Proprietary hardware FPGA module inside monitor", "Highest certified VRR range with full variable overdrive down to 1 Hz"]
+          },
+          {
+            "label": "AMD FreeSync / VESA Adaptive-Sync",
+            "values": ["Open standard protocol over DisplayPort 1.2a & HDMI 2.1 VRR", "No proprietary module required; supported across all modern GPUs and consoles"]
+          },
+          {
+            "label": "Low Framerate Compensation (LFC)",
+            "values": ["Firmware duplicate scanning", "When framerate drops below minimum VRR range (e.g. <48Hz), frames are doubled (e.g. drawn at 80Hz) to prevent tearing"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "To achieve optimal low-latency VRR without input lag, cap your in-game framerate 3 FPS below the monitor maximum refresh rate (e.g. cap at 141 FPS on a 144Hz monitor)."
+      }
+    ],
+    "tags": ["gaming", "gsync", "freesync", "vrr", "adaptive-sync", "monitors"],
+    "relatedIds": ["what-is-vsync", "what-is-fps", "what-is-input-lag"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-ray-tracing",
+    "title": "Real-Time Ray Tracing (RTX)",
+    "category": "gaming",
+    "summary": "Ray tracing is a rendering technique that simulates the physical path of light rays, computing realistic reflections, refractions, global illumination, and shadows.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Ray Tracing",
+        "definition": "A 3D rendering algorithm that traces the trajectory of virtual light rays from the camera viewpoint backwards into the 3D scene, calculating physical photon collisions with geometry."
+      },
+      {
+        "type": "paragraph",
+        "text": "Traditional rasterization fakes lighting using pre-baked shadow maps and screen-space reflection approximations that break when objects move off-screen. Real-time hardware ray tracing computes true optical physics: light reflects accurately off mirrors, bounces through colored glass, and diffuses naturally across room corners (Global Illumination)."
+      },
+      {
+        "type": "heading",
+        "text": "BVH Acceleration & RT Cores"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Bounding Volume Hierarchy (BVH): A hierarchical tree data structure that groups 3D scene triangles into geometric boxes to accelerate ray-polygon intersection testing.",
+          "Dedicated RT Cores: Specialized hardware silicon on modern GPUs (NVIDIA RTX, AMD RDNA, Apple M3) that computes BVH box traversals in hardware without stalling shader cores.",
+          "AI Denoising: Tracing full rays for every pixel is too expensive; engines cast 1-2 rays per pixel and use AI neural network denoisers (like DLSS 3.5 Ray Reconstruction) to fill in clean lighting."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Path Tracing (Full Ray Tracing) traces multiple continuous bounces per light ray, unifying shadows, reflections, and ambient occlusion into one physically accurate optical simulation."
+      }
+    ],
+    "tags": ["gaming", "ray-tracing", "rtx", "lighting", "bvh", "shaders", "gpu"],
+    "relatedIds": ["what-is-resolution-gaming", "what-is-fps", "what-is-a-gpu-driver"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-anti-aliasing",
+    "title": "Anti-Aliasing (AA) Techniques",
+    "category": "gaming",
+    "summary": "Anti-aliasing smooths out jagged pixel staircase artifacts (jaggies) on diagonal 3D polygon edges by blending neighboring pixel colors.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Anti-Aliasing (AA)",
+        "definition": "Image filtering techniques that eliminate spatial aliasing artifacts caused by rasterizing continuous mathematical vector lines onto a discrete pixel grid."
+      },
+      {
+        "type": "paragraph",
+        "text": "Because screen pixels are arranged in a rigid square grid, drawing a sharp diagonal line produces stepped 'staircase' edges. Anti-aliasing samples edge pixels and colors adjacent boundary pixels with proportional transparency shades, tricking the human eye into perceiving smooth, continuous edges."
+      },
+      {
+        "type": "heading",
+        "text": "Anti-Aliasing Methods"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Technique", "Sampling Mechanism", "Performance Cost", "Image Quality"],
+        "rows": [
+          {
+            "label": "MSAA (Multi-Sample)",
+            "values": ["Samples geometry edges multiple times (2x, 4x, 8x)", "Heavy VRAM & compute cost", "Extremely crisp; does not blur textures"]
+          },
+          {
+            "label": "FXAA (Fast Approximate)",
+            "values": ["Post-processing edge detection blur pass", "Near zero performance cost", "Fast, but softens and blurs fine text and textures"]
+          },
+          {
+            "label": "TAA (Temporal AA)",
+            "values": ["Accumulates samples across historical consecutive frames with jitter", "Very low compute cost", "Eliminates edge crawl and specular shimmer; can introduce motion ghosting"]
+          },
+          {
+            "label": "DLAA / SMAA",
+            "values": ["Subpixel morphological / AI neural reconstruction", "Low to moderate cost", "State-of-the-art native resolution edge reconstruction"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "At ultra-high pixel densities (such as 4K resolution on a 27-inch monitor), physical pixels are so tiny that heavy anti-aliasing is rarely needed."
+      }
+    ],
+    "tags": ["gaming", "anti-aliasing", "msaa", "taa", "fxaa", "jaggies", "graphics"],
+    "relatedIds": ["what-is-resolution-gaming", "what-is-fps", "what-is-ray-tracing"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-gpu-driver",
+    "title": "GPU Drivers & Graphics APIs",
+    "category": "gaming",
+    "summary": "A GPU driver translates game engine draw calls from APIs like DirectX and Vulkan into machine-level silicon instructions and memory scheduling for graphics cards.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "GPU Display Driver",
+        "definition": "A kernel-mode software layer implementing graphics API specifications (DirectX 12 Ultimate, Vulkan, Metal) and shader compiler toolchains for specific GPU architectures."
+      },
+      {
+        "type": "paragraph",
+        "text": "When a modern game launches, the GPU driver compiles High-Level Shading Language (HLSL/GLSL) code into native machine assembly optimized for that specific GPU compute units, manages VRAM allocation, and schedules draw calls across thousands of asynchronous compute queues."
+      },
+      {
+        "type": "heading",
+        "text": "Game-Ready Driver Optimizations"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Game Profiles: Drivers inject game-specific bug workarounds, custom shader patches, and pre-compiled shader cache configurations.",
+          "Low-Level Explicit APIs (Vulkan / DX12): Bypass heavy legacy driver CPU overhead, granting developers direct control over multi-threaded command buffers and memory barriers.",
+          "Shader Compilation Stutter: Modern PC games compile shaders during first boot to prevent in-game CPU pipeline stalls during gameplay."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "DDU (Display Driver Uninstaller) is a specialized utility that scrubs corrupted GPU driver registry entries and DLL caches in Windows Safe Mode."
+      }
+    ],
+    "tags": ["gaming", "gpu-driver", "vulkan", "directx", "shaders", "nvidia", "amd"],
+    "relatedIds": ["what-is-fps", "what-is-ray-tracing", "what-is-frame-pacing"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-input-lag",
+    "title": "Input Lag & System Latency",
+    "category": "gaming",
+    "summary": "Input lag is the total elapsed time between a player physical mouse click or controller input and the resulting visual action updating on screen.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Input Lag (Button-to-Pixel Latency)",
+        "definition": "The end-to-end latency pipeline encompassing peripheral polling, OS kernel interrupt processing, game engine simulation, GPU rendering, and display scanout."
+      },
+      {
+        "type": "paragraph",
+        "text": "In competitive esports, milliseconds dictate reaction speed. If an input takes 80ms to register on screen, the player is reacting to outdated information. Optimizing input lag reduces total system latency down below 15ms."
+      },
+      {
+        "type": "heading",
+        "text": "The End-to-End Latency Pipeline"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Peripheral Polling: 1000Hz (1ms) to 8000Hz (0.125ms) USB polling rates.",
+          "Game Engine Simulation: Frame processing, physics calculations, and scene state updates.",
+          "Render Queue & GPU Bottleneck: If the GPU is maxed out at 99% usage under traditional drivers, CPU frames queue up, adding 30-50ms of delay.",
+          "Low-Latency Technologies (NVIDIA Reflex / AMD Anti-Lag): Synchronize CPU frame submission with GPU execution just-in-time, emptying the render queue and slashing latency."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "TV 'Game Mode' bypasses heavy image post-processing chips (motion smoothing, dynamic contrast), cutting display lag from over 100ms down to under 10ms."
+      }
+    ],
+    "tags": ["gaming", "input-lag", "latency", "reflex", "polling-rate", "esports"],
+    "relatedIds": ["what-is-fps", "what-is-frame-pacing", "what-is-vsync"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-frame-pacing",
+    "title": "Frame Pacing & Micro-Stutter",
+    "category": "gaming",
+    "summary": "Frame pacing measures the time consistency between consecutive rendered frames, ensuring smooth motion perception even at steady average framerates.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Frame Pacing",
+        "definition": "The regularity and temporal consistency with which sequential frames are rendered by the engine and delivered to the display panel."
+      },
+      {
+        "type": "paragraph",
+        "text": "A game running at a constant 60 FPS should output one new frame exactly every 16.6 milliseconds. If the GPU outputs one frame in 5ms, the next in 28ms, and the next in 5ms, the average FPS counter will still read '60 FPS', but the gameplay will feel jittery and stuttering (micro-stutter)."
+      },
+      {
+        "type": "heading",
+        "text": "Causes of Poor Frame Pacing"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Garbage Collection & Memory Spikes: Languages with automated memory collection stalling execution threads during sweep passes.",
+          "Asset Streaming Bottlenecks: Opening a door in an open-world game and forcing the engine to load 4K textures from storage mid-frame.",
+          "Shader Compilation: First-time shader pipelines compiled on-demand during combat.",
+          "Frame Cap Locking: Using an accurate RTSS (RivaTuner Statistics Server) fractional framerate limiter guarantees flat frame-time delivery."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Frame time graphs (measured with tools like CapFrameX) are far more valuable than average FPS benchmarks for assessing true gaming smoothness."
+      }
+    ],
+    "tags": ["gaming", "frame-pacing", "micro-stutter", "frametime", "performance"],
+    "relatedIds": ["what-is-fps", "what-is-input-lag", "what-is-vsync"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  }
+]

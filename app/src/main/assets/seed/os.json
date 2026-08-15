@@ -1,0 +1,389 @@
+[
+  {
+    "id": "what-is-a-kernel",
+    "title": "The Operating System Kernel",
+    "category": "os",
+    "summary": "The kernel is the core software component of an operating system that holds complete control over physical hardware and mediates all hardware requests from userspace applications.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Kernel",
+        "definition": "The central foundational module of an OS operating in privileged CPU execution mode (Ring 0), managing CPU scheduling, physical memory, device I/O, and system calls."
+      },
+      {
+        "type": "paragraph",
+        "text": "When a web browser wants to read a file or send network packets, it cannot speak directly to physical silicon. It executes a software interrupt known as a system call (syscall). The kernel intercepts the syscall, validates permissions, and commands the hardware controller on behalf of the application."
+      },
+      {
+        "type": "heading",
+        "text": "Kernel Architectures"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Architecture", "Design Philosophy", "Examples", "Tradeoffs"],
+        "rows": [
+          {
+            "label": "Monolithic",
+            "values": ["All drivers, filesystems, and schedulers run in single kernel space", "Linux, Android", "Maximum raw execution performance; a buggy driver can crash the entire system"]
+          },
+          {
+            "label": "Microkernel",
+            "values": ["Only IPC, basic memory, and scheduling in kernel; drivers run in userspace", "seL4, QNX, Fuchsia (Zircon)", "Extreme modularity and fault tolerance; IPC message-passing overhead"]
+          },
+          {
+            "label": "Hybrid",
+            "values": ["Combines microkernel structure with performance-critical components in Ring 0", "Windows NT, macOS (XNU)", "Balances performance with modularity"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Android uses the standard monolithic Linux kernel, augmented with mobile out-of-memory killer (OOM) patches, Ashmem shared memory, and Binder IPC drivers."
+      }
+    ],
+    "tags": ["os", "kernel", "linux", "syscall", "architecture"],
+    "relatedIds": ["what-is-a-process", "what-is-virtual-memory", "what-is-a-driver"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-process",
+    "title": "Operating System Processes",
+    "category": "os",
+    "summary": "A process is an isolated instance of an executing program containing its own virtual address space, memory pages, file handles, and security context.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Process",
+        "definition": "An independent execution unit managed by the operating system, encapsulating dedicated memory pages, registers, file descriptors, and execution state."
+      },
+      {
+        "type": "paragraph",
+        "text": "When you launch an application, the OS loads executable machine code from storage into RAM, allocates a unique Process Identifier (PID), sets up isolated virtual memory tables, and schedules its initial execution thread."
+      },
+      {
+        "type": "heading",
+        "text": "Process Memory Segments"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Text / Code Segment: Read-only machine instructions executed by the CPU.",
+          "Data Segment: Initialized global and static variables.",
+          "Heap: Dynamically allocated memory requested at runtime (e.g. malloc or new).",
+          "Stack: LIFO memory storing local function variables, parameter arguments, and return addresses."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Hardware MMUs (Memory Management Units) enforce process isolation: one process cannot read or overwrite memory belonging to another process without explicit Inter-Process Communication (IPC)."
+      }
+    ],
+    "tags": ["os", "process", "memory", "pid", "execution", "multitasking"],
+    "relatedIds": ["what-is-a-thread", "what-is-virtual-memory", "what-is-a-kernel"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-thread",
+    "title": "Execution Threads",
+    "category": "os",
+    "summary": "A thread is the smallest sequential sequence of programmed instructions that an operating system scheduler can manage independently within a parent process.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Thread",
+        "definition": "A lightweight execution unit that shares virtual memory address space, heap, and open file descriptors with sibling threads inside the same process."
+      },
+      {
+        "type": "paragraph",
+        "text": "While processes provide strict memory isolation, multiple threads inside a single process share the exact same memory heap. This enables fast inter-thread communication and concurrent CPU utilization without the heavy overhead of context switching between separate processes."
+      },
+      {
+        "type": "heading",
+        "text": "Concurrency vs Parallelism"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Concept", "Core Mechanism", "Physical Execution"],
+        "rows": [
+          {
+            "label": "Concurrency",
+            "values": ["Managing multiple tasks by rapidly context switching", "Can run on a single CPU core via time-slicing"]
+          },
+          {
+            "label": "Parallelism",
+            "values": ["Executing multiple threads simultaneously at the exact same instant", "Requires multiple physical CPU cores"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Because threads share memory, uncoordinated concurrent writes to shared variables cause race conditions, necessitating synchronization primitives like mutexes, semaphores, and atomic locks."
+      }
+    ],
+    "tags": ["os", "thread", "concurrency", "parallelism", "multithreading"],
+    "relatedIds": ["what-is-a-process", "what-is-a-kernel", "what-is-virtual-memory"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-virtual-memory",
+    "title": "Virtual Memory & Paging",
+    "category": "os",
+    "summary": "Virtual memory is a memory management technique that provides each process with the illusion of a large, contiguous private address space mapped dynamically to physical RAM and swap storage.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Virtual Memory",
+        "definition": "An architectural memory abstraction translating application virtual addresses into physical hardware RAM locations using page tables and the CPU Memory Management Unit (MMU)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Virtual memory divides address spaces into fixed-size chunks called pages (typically 4KB). When a program accesses a virtual pointer address, the hardware MMU consults kernel page tables to find the corresponding physical page frame. If a requested page is not currently in physical RAM, the CPU triggers a Page Fault interrupt."
+      },
+      {
+        "type": "heading",
+        "text": "Core Advantages"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Process Protection: Processes cannot write to memory assigned to other programs or the kernel.",
+          "Overcommit & Swapping: Inactive memory pages can be paged out to disk, allowing systems to run software larger than physical RAM.",
+          "Memory Fragmentation Elimination: Non-contiguous physical RAM blocks appear seamlessly contiguous to the application."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The Translation Lookaside Buffer (TLB) is an ultra-fast hardware cache on the CPU that stores recent virtual-to-physical address translations to prevent memory access latency bottlenecks."
+      }
+    ],
+    "tags": ["os", "virtual-memory", "mmu", "paging", "page-fault", "ram"],
+    "relatedIds": ["what-is-swap-memory", "what-is-a-process", "what-is-ram-vs-rom"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-ram-vs-rom",
+    "title": "RAM vs ROM Memory",
+    "category": "os",
+    "summary": "RAM is high-speed volatile working memory for active programs, while ROM is persistent non-volatile memory storing permanent startup firmware.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Read-Only Memory (ROM)",
+        "definition": "Non-volatile semiconductor storage holding permanent boot instructions, firmware, and microcode that persists indefinitely without electrical power."
+      },
+      {
+        "type": "paragraph",
+        "text": "Random Access Memory (RAM) requires constant electrical current to preserve data states; when a device powers off, all contents vanish. Read-Only Memory (ROM) is programmed during manufacturing or flashed with cryptographic firmware (such as UEFI BIOS or bootloaders) that boots the hardware before any OS is loaded."
+      },
+      {
+        "type": "heading",
+        "text": "Key Differences"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Attribute", "RAM", "ROM / Flash ROM"],
+        "rows": [
+          {
+            "label": "Volatility",
+            "values": ["Volatile (Lost on power cut)", "Non-volatile (Persists permanently)"]
+          },
+          {
+            "label": "Access Speed",
+            "values": ["Extremely high (~10-50 ns)", "Moderate to slow (~100-500 ns)"]
+          },
+          {
+            "label": "Write Ability",
+            "values": ["Unlimited dynamic read/write cycles", "Read-only or limited block-erase flash cycles"]
+          },
+          {
+            "label": "Primary Purpose",
+            "values": ["Active OS processes, application data", "BIOS, UEFI, bootloader firmware"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "In Android community terminology, Custom ROM refers to a complete operating system image flashed to NAND flash storage, a colloquial use of the word ROM."
+      }
+    ],
+    "tags": ["os", "ram", "rom", "firmware", "memory", "hardware"],
+    "relatedIds": ["what-is-virtual-memory", "what-is-bios-uefi", "what-is-a-kernel"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-driver",
+    "title": "Device Drivers",
+    "category": "os",
+    "summary": "A device driver is specialized software that translates generic operating system commands into the proprietary electrical protocols of specific hardware components.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Device Driver",
+        "definition": "A low-level software bridge that exposes a standardized interface to the OS kernel while controlling the hardware registers and interrupt lines of a specific peripheral."
+      },
+      {
+        "type": "paragraph",
+        "text": "The operating system graphics subsystem knows how to draw 3D triangles conceptually, but it does not know the exact register map of a specific NVIDIA or AMD GPU. The device driver accepts standard graphics API calls (such as DirectX or Vulkan) and translates them into the exact machine instructions required by that specific silicon revision."
+      },
+      {
+        "type": "heading",
+        "text": "Kernel-Mode vs User-Mode Drivers"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Kernel-Mode Drivers: Run directly in Ring 0 with full memory access. Required for graphics cards, network adapters, and storage controllers where minimal latency is critical.",
+          "User-Mode Drivers: Run in Ring 3 with restricted privileges. Used for printers, sensors, and USB accessories; if the driver crashes, it can be restarted without taking down the entire operating system.",
+          "Dynamic Kernel Modules (DKMS): Allows loading and unloading driver modules into the Linux kernel without requiring a system reboot."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "A vast majority of Windows Blue Screen of Death (BSOD) crashes originate from third-party kernel-mode driver errors rather than core Windows NT kernel bugs."
+      }
+    ],
+    "tags": ["os", "driver", "hardware", "kernel", "ring0", "io"],
+    "relatedIds": ["what-is-a-kernel", "what-is-a-daemon", "what-is-bios-uefi"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-daemon",
+    "title": "Daemons & Background Services",
+    "category": "os",
+    "summary": "A daemon is a background process that runs continuously without a direct graphical interface or controlling terminal, handling system tasks and responding to service requests.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Daemon (Background Service)",
+        "definition": "An unattended background process initiated at system boot that sleeps until triggered by specific system events, timer interrupts, or network requests."
+      },
+      {
+        "type": "paragraph",
+        "text": "In Unix and Linux systems, daemons traditionally end with the letter 'd' (such as sshd for SSH server, systemd for init service management, and cron for scheduled tasks). In Windows, equivalent background processes are known as Windows Services."
+      },
+      {
+        "type": "heading",
+        "text": "How Daemons Function"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Fork & Detach: Daemons fork from a parent process and detach from controlling terminal (TTY) sessions.",
+          "Parent Re-parenting: Daemons are adopted by the root init process (PID 1).",
+          "Event Listening: Daemons block on socket listeners (e.g. epoll) to consume zero CPU cycles until a client event arrives."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The word daemon was coined by MIT Project MAC physicists, inspired by Maxwell's demon, an imaginary entity working tirelessly in the background."
+      }
+    ],
+    "tags": ["os", "daemon", "service", "systemd", "background", "unix"],
+    "relatedIds": ["what-is-a-process", "what-is-a-kernel", "what-is-a-driver"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-swap-memory",
+    "title": "Swap Memory & Paging Files",
+    "category": "os",
+    "summary": "Swap memory uses secondary flash or hard drive storage as overflow space for RAM when physical memory becomes exhausted.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Swap Space (Pagefile)",
+        "definition": "A designated disk partition or file utilized by the OS kernel virtual memory manager to page out inactive memory allocations when physical RAM is depleted."
+      },
+      {
+        "type": "paragraph",
+        "text": "When applications demand more RAM than physically exists, the kernel scans memory for pages that have not been read recently and writes (swaps) them to the swap partition. When an application needs those pages again, the OS reads them back into RAM — a process called paging in."
+      },
+      {
+        "type": "heading",
+        "text": "Thrashing & Modern zRAM"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Disk Thrashing: If RAM is severely exhausted, the OS spends all its CPU time reading and writing pages to disk, causing the system to freeze up.",
+          "zRAM (Compressed RAM): A modern Linux/Android feature that creates a virtual compressed block device inside RAM. It compresses idle pages by 2x-3x using LZ4 rather than writing to slow flash storage.",
+          "Swappiness: A Linux kernel parameter (0 to 100) controlling how aggressively the kernel replaces anonymous pages with file caches."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Android explicitly disables traditional swap files to prevent burning through mobile eMMC/UFS flash write cycles, relying exclusively on zRAM and Low Memory Killer (LMK) process termination."
+      }
+    ],
+    "tags": ["os", "swap", "zram", "paging", "memory", "performance"],
+    "relatedIds": ["what-is-virtual-memory", "what-is-ram-vs-rom", "what-is-a-process"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-bios-uefi",
+    "title": "BIOS vs UEFI Firmware",
+    "category": "os",
+    "summary": "UEFI is the modern extensible firmware interface that initializes computer hardware and hands control over to the operating system bootloader, replacing legacy 16-bit BIOS.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Unified Extensible Firmware Interface (UEFI)",
+        "definition": "A standardized firmware interface specification connecting platform hardware to the operating system with 64-bit execution, graphical UI, and cryptographic Secure Boot."
+      },
+      {
+        "type": "paragraph",
+        "text": "Basic Input/Output System (BIOS) originated in 1975, running in 16-bit real mode with access to only 1MB of memory. UEFI operates in full 32-bit or 64-bit mode, supporting drives larger than 2TB, mouse navigation, networking, and pre-boot driver diagnostics."
+      },
+      {
+        "type": "heading",
+        "text": "BIOS vs UEFI Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "Legacy BIOS", "Modern UEFI"],
+        "rows": [
+          {
+            "label": "Execution Mode",
+            "values": ["16-bit real mode", "32-bit or 64-bit protected mode"]
+          },
+          {
+            "label": "Partition Standard",
+            "values": ["MBR (capped at 2 TB)", "GPT (GUID Partition Table, up to 9.4 ZB)"]
+          },
+          {
+            "label": "Security",
+            "values": ["None (Vulnerable to bootkits)", "Cryptographic Secure Boot verification"]
+          },
+          {
+            "label": "Boot Time",
+            "values": ["Slow sequential POST check", "Parallel device initialization"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Secure Boot enforces that only bootloaders and kernel binaries cryptographically signed with trusted OEM keys can be executed during platform power-on."
+      }
+    ],
+    "tags": ["os", "uefi", "bios", "firmware", "secure-boot", "gpt"],
+    "relatedIds": ["what-is-a-kernel", "what-is-a-driver", "what-is-ram-vs-rom"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

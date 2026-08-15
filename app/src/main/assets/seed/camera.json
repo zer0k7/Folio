@@ -1,0 +1,444 @@
+[
+  {
+    "id": "what-is-aperture",
+    "title": "Camera Aperture & F-Stops",
+    "category": "camera",
+    "summary": "Aperture is the calibrated opening inside a camera lens diaphragm that controls how much light reaches the image sensor and determines depth of field.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Aperture (f-number)",
+        "definition": "The ratio of a lens focal length to the diameter of its physical entrance pupil (N = f / D), written as f/1.8, f/2.8, or f/8."
+      },
+      {
+        "type": "paragraph",
+        "text": "Because aperture is an inverse fraction, a smaller f-number denotes a physically wider lens opening. An f/1.4 lens lets in four times more light than an f/2.8 lens, allowing clean low-light photography without motion blur."
+      },
+      {
+        "type": "heading",
+        "text": "The Exposure Triangle & Bokeh"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Aperture Setting", "Light Transmission", "Depth of Field", "Visual Characteristic"],
+        "rows": [
+          {
+            "label": "Wide (f/1.2 - f/2.0)",
+            "values": ["Maximum light intake", "Very shallow", "Dreamy blurred backgrounds (bokeh), sharp subject isolation"]
+          },
+          {
+            "label": "Medium (f/4.0 - f/5.6)",
+            "values": ["Moderate light", "Moderate depth", "Sweet spot for maximum lens edge-to-edge optical sharpness"]
+          },
+          {
+            "label": "Narrow (f/8.0 - f/16)",
+            "values": ["Minimal light intake", "Deep / Infinite", "Everything from foreground to distant mountains in focus (landscapes)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Narrowing aperture past f/16 causes optical diffraction, where light waves bend around the diaphragm blades and soften overall image resolution."
+      }
+    ],
+    "tags": ["camera", "aperture", "fstop", "bokeh", "optics", "photography"],
+    "relatedIds": ["what-is-depth-of-field", "what-is-shutter-speed", "what-is-iso"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-shutter-speed",
+    "title": "Camera Shutter Speed",
+    "category": "camera",
+    "summary": "Shutter speed is the length of time a camera digital sensor or physical shutter is exposed to light to capture an image frame.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Shutter Speed (Exposure Time)",
+        "definition": "The exact duration (measured in seconds or fractions of a second, such as 1/1000s) that light is permitted to fall upon the camera sensor."
+      },
+      {
+        "type": "paragraph",
+        "text": "Fast shutter speeds (1/2000s) freeze rapid motion, like a hummingbird wings or sports cars. Slow shutter speeds (1/2s to 30s) gather photons in pitch dark scenes or intentionally blur moving water into a silky texture."
+      },
+      {
+        "type": "heading",
+        "text": "Mechanical Shutter vs Electronic Rolling Shutter"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Shutter Mechanism", "Operation", "Distortion Risk"],
+        "rows": [
+          {
+            "label": "Mechanical Shutter",
+            "values": ["Physical physical metal focal-plane curtains sweep across sensor", "Prevents fast-motion skew distortion"]
+          },
+          {
+            "label": "Electronic Rolling Shutter",
+            "values": ["Sensor scans and reads out pixel rows sequentially line by line", "Subject to 'jello effect' or skewed vertical lines during rapid panning"]
+          },
+          {
+            "label": "Global Shutter",
+            "values": ["Every pixel on the sensor captures and resets simultaneously in one instant", "Zero motion distortion, perfect flash sync at any shutter speed"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The Reciprocal Rule in handheld photography states your minimum shutter speed should be at least 1 / (Focal Length) to prevent hand-shake blur."
+      }
+    ],
+    "tags": ["camera", "shutter-speed", "exposure", "motion-blur", "rolling-shutter"],
+    "relatedIds": ["what-is-aperture", "what-is-iso", "what-is-ois"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-iso",
+    "title": "Camera ISO & Sensor Sensitivity",
+    "category": "camera",
+    "summary": "ISO measures the amplification of light signals captured by the image sensor, brightening dark scenes at the expense of introducing digital noise.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Camera ISO",
+        "definition": "The electronic gain multiplier applied to analog photodiode voltage signals before analog-to-digital conversion."
+      },
+      {
+        "type": "paragraph",
+        "text": "Base ISO (typically ISO 100) provides the cleanest, purest image with maximum dynamic range and color accuracy. In dark environments, raising ISO to 3200 or 6400 amplifies the weak electrical signals from sensor pixels — which also amplifies random thermal noise, appearing as colored grain or speckled luminance noise."
+      },
+      {
+        "type": "heading",
+        "text": "Dual Native ISO Architecture"
+      },
+      {
+        "type": "paragraph",
+        "text": "Modern cinema sensors and premium smartphone cameras feature Dual Native ISO circuits. Instead of applying huge analog gain to a single baseline circuit, the sensor switches to a dedicated secondary analog circuit with different internal capacitor tuning (e.g. ISO 100 and ISO 800), delivering ultra-clean low-light video with minimal noise."
+      },
+      {
+        "type": "note",
+        "text": "Raising ISO does not actually make the sensor physically capture more light; it merely multiplies whatever light signals the lens aperture and shutter speed allowed in."
+      }
+    ],
+    "tags": ["camera", "iso", "noise", "gain", "exposure-triangle", "dynamic-range"],
+    "relatedIds": ["what-is-aperture", "what-is-shutter-speed", "what-is-sensor-size"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-sensor-size",
+    "title": "Camera Sensor Sizes",
+    "category": "camera",
+    "summary": "Sensor size is the physical surface area of the digital image sensor, serving as the single most critical hardware factor determining low-light performance and dynamic range.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Image Sensor Format",
+        "definition": "The physical width and height dimensions of the silicon die holding the light-capturing pixel photodiode array."
+      },
+      {
+        "type": "paragraph",
+        "text": "A larger physical sensor gathers exponentially more total light photons than a tiny sensor. This is why a 12-megapixel Full-Frame professional mirrorless camera produces far cleaner low-light photos with richer dynamic range than a 108-megapixel smartphone sensor with microscopic pixels."
+      },
+      {
+        "type": "heading",
+        "text": "Sensor Size Hierarchy & Crop Factor"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Sensor Format", "Dimensions", "Crop Factor", "Typical Device"],
+        "rows": [
+          {
+            "label": "Full Frame (35mm)",
+            "values": ["36.0 x 24.0 mm", "1.0x (Reference)", "Professional DSLR / Mirrorless (Sony Alpha, Canon R5)"]
+          },
+          {
+            "label": "APS-C",
+            "values": ["23.5 x 15.6 mm", "1.5x", "Enthusiast mirrorless cameras (Fuji X, Sony a6700)"]
+          },
+          {
+            "label": "Micro Four Thirds (M4/3)",
+            "values": ["17.3 x 13.0 mm", "2.0x", "Compact interchangeable cameras (Panasonic, OM System)"]
+          },
+          {
+            "label": "1-inch Type",
+            "values": ["13.2 x 8.8 mm", "2.7x", "Premium compact cameras (Sony RX100, DJI Pocket 3)"]
+          },
+          {
+            "label": "1/1.3-inch (Mobile)",
+            "values": ["9.6 x 7.2 mm", "~3.8x", "Flagship smartphones (Samsung Galaxy Ultra, iPhone Pro Max)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Crop factor also affects apparent depth of field: a 50mm f/1.8 lens on a 1.5x crop APS-C sensor yields the framing and depth of field equivalent of a 75mm f/2.7 lens on full frame."
+      }
+    ],
+    "tags": ["camera", "sensor-size", "full-frame", "apsc", "crop-factor", "photodiode"],
+    "relatedIds": ["what-is-megapixel", "what-is-depth-of-field", "what-is-iso"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-megapixel",
+    "title": "Megapixels & Pixel Binning",
+    "category": "camera",
+    "summary": "A megapixel represents one million digital pixels on an image sensor, defining spatial image resolution but not necessarily color quality or low-light sensitivity.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Megapixel (MP)",
+        "definition": "A unit of image resolution equal to 1,000,000 individual photo-sensitive pixels on a digital camera sensor."
+      },
+      {
+        "type": "paragraph",
+        "text": "A standard 4K television is approximately 8.3 megapixels (3840x2160). High megapixel counts allow severe digital cropping and massive billboard prints, but if squeezed onto a tiny smartphone sensor, individual photodiode pixel wells become too small (<0.7μm) to collect sufficient photons without noise."
+      },
+      {
+        "type": "heading",
+        "text": "Pixel Binning Technology (Tetra / Nonacell)"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "4-in-1 Binning (Quad Bayer): Combines 4 adjacent 0.8μm sub-pixels into one virtual 1.6μm super-pixel, turning a 48MP sensor into a bright 12MP image.",
+          "9-in-1 Binning (Nonacell): Combines a 3x3 grid of 9 pixels into a giant 2.4μm virtual pixel, turning a 108MP sensor into a 12MP low-light capture.",
+          "Re-mosaicing: Software algorithm that rearranges binned pixel color filters back into a standard Bayer pattern when shooting in bright daylight to output full resolution."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Pixel pitch (measured in micrometers, μm) tells you the physical width of an individual pixel. Larger pixel pitch (>1.4μm) captures significantly cleaner shadow detail."
+      }
+    ],
+    "tags": ["camera", "megapixel", "pixel-binning", "quad-bayer", "resolution", "sensor"],
+    "relatedIds": ["what-is-sensor-size", "what-is-raw-format", "what-is-optical-zoom-vs-digital"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-optical-zoom-vs-digital",
+    "title": "Optical Zoom vs Digital Zoom",
+    "category": "camera",
+    "summary": "Optical zoom physically moves glass lens elements to magnify the image without loss of detail, while digital zoom simply crops and artificially upscales pixels.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Optical vs Digital Zoom",
+        "definition": "Optical zoom changes physical focal length via lens optics, while digital zoom performs software cropping of the central sensor area."
+      },
+      {
+        "type": "paragraph",
+        "text": "When a camera uses optical zoom (such as a 70-200mm telephoto lens or smartphone periscope folded lens), the magnified image covers the entire surface of the sensor, preserving full optical resolution, sharpness, and dynamic range."
+      },
+      {
+        "type": "heading",
+        "text": "Periscope Telephoto & In-Sensor Zoom"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Zoom Method", "Hardware Mechanism", "Image Resolution Integrity"],
+        "rows": [
+          {
+            "label": "Continuous Optical Zoom",
+            "values": ["Internal motors slide physical lens elements back and forth", "100% full sensor resolution at every focal length"]
+          },
+          {
+            "label": "Periscope Folded Lens",
+            "values": ["Prisms bend light 90 degrees horizontally inside phone chassis", "True optical 5x / 10x magnification in ultra-thin form factor"]
+          },
+          {
+            "label": "In-Sensor Crop (Lossless Digital)",
+            "values": ["Crops the central 12MP from a high-res 48MP or 200MP sensor", "Lossless zoom up to 2x without bicubic interpolation blurring"]
+          },
+          {
+            "label": "Traditional Digital Zoom",
+            "values": ["Crops 12MP down to 1MP and uses AI/interpolation to upscale back to 12MP", "Pixelated, mushy detail degradation"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Smartphone multi-camera systems switch between physically separate wide, ultra-wide, and telephoto lens modules rather than moving one single continuous zoom lens."
+      }
+    ],
+    "tags": ["camera", "zoom", "optical-zoom", "digital-zoom", "periscope", "telephoto"],
+    "relatedIds": ["what-is-sensor-size", "what-is-megapixel", "what-is-ois"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-ois",
+    "title": "Optical Image Stabilization (OIS)",
+    "category": "camera",
+    "summary": "OIS physically shifts lens elements or the image sensor using magnetic voice coil actuators to counteract involuntary hand shake during exposure.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Optical Image Stabilization (OIS)",
+        "definition": "A physical hardware stabilization mechanism that uses gyroscopic motion sensors and electromagnetic actuators to shift optics in real time counter to hand vibrations."
+      },
+      {
+        "type": "paragraph",
+        "text": "When taking low-light photos handheld, shutter speeds must slow down to 1/10s or 1/4s to gather enough photons. Without OIS, natural hand tremors blur the photo into an unusable smudge. OIS compensates for up to 4 to 8 stops of shake, keeping the projected image rock-steady on the sensor."
+      },
+      {
+        "type": "heading",
+        "text": "OIS vs Sensor-Shift vs EIS"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Lens OIS: Moves internal floating glass lens elements horizontally (X-axis) and vertically (Y-axis).",
+          "Sensor-Shift OIS: Moves the entire physical sensor die using magnetic voice coils (Apple iPhone Pro and professional IBIS systems), adjusting 5 axes (Pitch, Yaw, Roll, X, Y).",
+          "Electronic Image Stabilization (EIS): Software-only video algorithm that crops into the sensor frame and shifts the digital crop box frame by frame based on gyroscope data."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "OIS stabilizes physical movement of the camera, but cannot prevent motion blur caused by a subject moving rapidly within the frame (such as running pets or athletes)."
+      }
+    ],
+    "tags": ["camera", "ois", "stabilization", "sensor-shift", "ibis", "low-light"],
+    "relatedIds": ["what-is-shutter-speed", "what-is-optical-zoom-vs-digital", "what-is-sensor-size"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-raw-format",
+    "title": "RAW Image Formats (DNG, CR3, ARW)",
+    "category": "camera",
+    "summary": "A RAW file contains uncompressed, unprocessed sensor voltage measurements directly from the camera photodiode array without in-camera compression, sharpening, or white balance baking.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "RAW Image Format",
+        "definition": "A lossless digital digital negative capturing direct Bayer mosaic photodiode readout data prior to demosaicing, gamma tone mapping, or JPEG compression."
+      },
+      {
+        "type": "paragraph",
+        "text": "When shooting standard JPEG, the camera processor bakes in white balance, compresses color data from 14-bit to 8-bit, discards highlight/shadow headroom, and applies lossy compression. A RAW file preserves every single recorded photon count, allowing photographers to rescue blown highlights and adjust white balance in post-production without quality loss."
+      },
+      {
+        "type": "heading",
+        "text": "RAW vs JPEG Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Attribute", "RAW File (DNG, ARW, CR3)", "JPEG Format"],
+        "rows": [
+          {
+            "label": "Color Bit Depth",
+            "values": ["12-bit to 14-bit (4,096 to 16,384 levels per channel)", "8-bit (256 levels per channel)"]
+          },
+          {
+            "label": "Dynamic Range Headroom",
+            "values": ["High (+/- 3 stops of shadow/highlight recovery)", "Low (Blown whites and crushed blacks are unrecoverable)"]
+          },
+          {
+            "label": "White Balance",
+            "values": ["Completely reversible non-destructive metadata", "Permanently baked into image pixels"]
+          },
+          {
+            "label": "File Size",
+            "values": ["Large (~25 MB - 80 MB per photo)", "Compact (~3 MB - 8 MB)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Computational RAW (Apple ProRAW, Google Expert RAW) captures multi-frame HDR and noise reduction brackets combined into a flexible 12-bit DNG file."
+      }
+    ],
+    "tags": ["camera", "raw", "dng", "photography", "bayer", "editing"],
+    "relatedIds": ["what-is-hdr-photo", "what-is-megapixel", "what-is-sensor-size"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-depth-of-field",
+    "title": "Depth of Field (DoF) & Bokeh",
+    "category": "camera",
+    "summary": "Depth of field is the distance zone in front of and behind the focal plane where objects appear acceptably sharp in a photograph.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Depth of Field (DoF)",
+        "definition": "The optical zone within a scene extending from the nearest to the farthest point that appears in sharp focus based on the circle of confusion threshold."
+      },
+      {
+        "type": "paragraph",
+        "text": "Lenses can mathematically only focus at one exact focal distance plane. Light rays from points in front of or behind that plane diverge into small blurry discs called Circles of Confusion. If these discs are smaller than what human vision can distinguish, the object appears in focus."
+      },
+      {
+        "type": "heading",
+        "text": "Factors Governing Depth of Field"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Aperture: Wider apertures (f/1.4) create shallow DoF with blurred backgrounds; narrow apertures (f/11) create deep DoF.",
+          "Focal Length: Telephoto lenses (85mm, 200mm) compress perspective and yield dramatically shallower apparent depth of field than wide-angle lenses (24mm).",
+          "Distance to Subject: The closer the camera lens is physically to the subject, the shallower the depth of field becomes (macro photography DoF is razor thin, measured in millimeters)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Smartphone 'Portrait Mode' uses dual-camera stereoscopic parallax, LiDAR time-of-flight sensors, or machine learning segmentation models to synthetically blur the background (computational bokeh)."
+      }
+    ],
+    "tags": ["camera", "depth-of-field", "dof", "bokeh", "aperture", "optics"],
+    "relatedIds": ["what-is-aperture", "what-is-sensor-size", "what-is-optical-zoom-vs-digital"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-hdr-photo",
+    "title": "High Dynamic Range (HDR) Photography",
+    "category": "camera",
+    "summary": "HDR photography captures and merges multiple sequential exposures at varying brightness levels to produce a final image containing detail in both blinding highlights and deep shadows.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "High Dynamic Range (HDR)",
+        "definition": "An imaging technique combining multiple bracketed exposures (underexposed for highlights, overexposed for shadows) through tone-mapping algorithms into a balanced image."
+      },
+      {
+        "type": "paragraph",
+        "text": "Human vision can resolve over 20 stops of dynamic range simultaneously, easily seeing both bright blue skies through a window and the dark interior room. Camera sensors traditionally capture only 10 to 14 stops. HDR bracketing solves this hardware limitation by capturing the scene at multiple exposure levels."
+      },
+      {
+        "type": "heading",
+        "text": "Mobile Computational HDR"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Zero Shutter Lag (ZSL) Buffer: The smartphone camera continuously records short exposure frames into a circular RAM buffer before you even tap the shutter button.",
+          "Frame Alignment: Optical flow algorithms compensate for hand shake and moving subjects (ghosting removal).",
+          "Multi-Frame Fusion: The Neural Processing Unit (NPU) blends the cleanest shadow pixels with the underexposed highlight pixels to output a perfectly exposed 32-bit floating-point composite."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Ultra HDR (Android 14) and ISO 21496-1 store standard SDR JPEG photos embedded with an HDR gain map metadata layer, rendering realistic bright specular highlights on OLED displays."
+      }
+    ],
+    "tags": ["camera", "hdr", "computational-photography", "dynamic-range", "bracketing"],
+    "relatedIds": ["what-is-raw-format", "what-is-sensor-size", "what-is-iso"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

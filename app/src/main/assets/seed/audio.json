@@ -1,0 +1,453 @@
+[
+  {
+    "id": "what-is-sample-rate",
+    "title": "Audio Sample Rate & Nyquist Theorem",
+    "category": "audio",
+    "summary": "Sample rate is the number of discrete digital audio snapshots recorded per second from a continuous analog sound wave, measured in Hertz (Hz).",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Audio Sample Rate",
+        "definition": "The temporal frequency at which an Analog-to-Digital Converter (ADC) measures and quantizes an incoming acoustic waveform into digital samples."
+      },
+      {
+        "type": "paragraph",
+        "text": "According to the Nyquist-Shannon sampling theorem, accurately capturing a sound wave requires a sampling frequency at least double the highest acoustic frequency in the signal. Because human hearing caps out at approximately 20,000 Hz (20 kHz), standard Red Book Audio uses a 44.1 kHz sample rate."
+      },
+      {
+        "type": "heading",
+        "text": "Standard Audio Sample Rates"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Sample Rate", "Max Captured Frequency", "Standard Medium"],
+        "rows": [
+          {
+            "label": "44.1 kHz",
+            "values": ["22.05 kHz", "Compact Disc (CD), standard streaming audio"]
+          },
+          {
+            "label": "48.0 kHz",
+            "values": ["24.0 kHz", "Digital video production, film sound, television broadcasts"]
+          },
+          {
+            "label": "96.0 kHz / 192.0 kHz",
+            "values": ["48.0 kHz / 96.0 kHz", "High-Resolution Audio masters, studio recording"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Sampling at frequencies lower than twice the highest audio frequency causes 'aliasing', which introduces harsh digital distortion frequencies into audible range."
+      }
+    ],
+    "tags": ["audio", "sample-rate", "nyquist", "hertz", "digital-audio"],
+    "relatedIds": ["what-is-bit-depth", "what-is-dac-amp", "what-is-lossy-vs-lossless"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-bit-depth",
+    "title": "Audio Bit Depth & Dynamic Range",
+    "category": "audio",
+    "summary": "Bit depth determines the number of binary bits used to represent the amplitude of each individual audio sample, defining theoretical dynamic range and noise floor.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Audio Bit Depth",
+        "definition": "The precision of amplitude quantization for each audio sample, dictating the ratio between the loudest possible signal and the quietest background noise floor."
+      },
+      {
+        "type": "paragraph",
+        "text": "While sample rate represents the horizontal time resolution of an audio file, bit depth represents vertical amplitude resolution. Every additional bit of depth adds approximately 6.02 dB of dynamic range, increasing clarity and lowering quantization distortion."
+      },
+      {
+        "type": "heading",
+        "text": "Bit Depth Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Bit Depth", "Discrete Volume Levels", "Dynamic Range", "Typical Application"],
+        "rows": [
+          {
+            "label": "16-Bit",
+            "values": ["65,536 levels", "~96 dB", "Standard CD audio, Spotify, Apple Music"]
+          },
+          {
+            "label": "24-Bit",
+            "values": ["16,777,216 levels", "~144 dB", "High-Res audio, professional studio recording and mixing"]
+          },
+          {
+            "label": "32-Bit Float",
+            "values": ["Floating-point calculation", ">1500 dB", "Digital Audio Workstation (DAW) internal processing; impossible to clip digitally"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Dithering is the intentional addition of randomized low-level noise when downsampling from 24-bit to 16-bit to eliminate harmonic quantization distortion."
+      }
+    ],
+    "tags": ["audio", "bit-depth", "dynamic-range", "quantization", "decibels"],
+    "relatedIds": ["what-is-sample-rate", "what-is-lossy-vs-lossless", "what-is-dac-amp"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-codec",
+    "title": "Audio & Video Codecs",
+    "category": "audio",
+    "summary": "A codec (coder-decoder) is a mathematical algorithm that compresses raw digital media streams for efficient storage and transmission and decompresses them for playback.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Codec (Coder-Decoder)",
+        "definition": "A hardware chip or software algorithm that encodes uncompressed raw Pulse-Code Modulation (PCM) or raw video frames into compressed bitstreams and decodes them back into playable signals."
+      },
+      {
+        "type": "paragraph",
+        "text": "Uncompressed CD-quality stereo audio requires 1,411 kbps of bandwidth, while raw 4K 60fps video requires over 12 Gbps. Codecs analyze redundant spatial, temporal, and psychoacoustic data to shrink file sizes by 80% to 99% without destroying perceived quality."
+      },
+      {
+        "type": "heading",
+        "text": "Container vs Codec"
+      },
+      {
+        "type": "paragraph",
+        "text": "A Container (such as .mp4, .mkv, .m4a) is merely a wrapper holding compressed audio tracks, video tracks, subtitles, and metadata. The Codec (such as AAC, Opus, FLAC, H.264, AV1) is the actual mathematical compression format used inside that container."
+      },
+      {
+        "type": "note",
+        "text": "Dedicated hardware decoders integrated into mobile SoCs allow phones to decode 4K video and high-res audio while consuming fractions of a watt of battery power."
+      }
+    ],
+    "tags": ["audio", "codec", "compression", "mp3", "aac", "flac", "opus"],
+    "relatedIds": ["what-is-lossy-vs-lossless", "what-is-bluetooth-audio", "what-is-aptx"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-lossy-vs-lossless",
+    "title": "Lossy vs Lossless Audio Compression",
+    "category": "audio",
+    "summary": "Lossy compression permanently discards inaudible sound frequencies to achieve 10x smaller file sizes, while lossless compression preserves the exact original binary audio data bit-for-bit.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Lossless vs Lossy Audio",
+        "definition": "Lossless compression (FLAC, ALAC) shrinks audio like a ZIP file without losing a single bit, while lossy compression (MP3, AAC, Opus) eliminates psychoacoustically masked frequencies."
+      },
+      {
+        "type": "paragraph",
+        "text": "Lossy audio encoders utilize psychoacoustic models: if a loud bass drum hit occurs simultaneously with a quiet high-frequency tone, the human ear cannot perceive the quiet tone (auditory masking). Lossy codecs discard the masked data, reducing bitrates from 1,411 kbps down to 256 kbps."
+      },
+      {
+        "type": "heading",
+        "text": "Format Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Category", "Bitrate Range", "Data Integrity", "Common Codecs"],
+        "rows": [
+          {
+            "label": "Uncompressed",
+            "values": ["1,411 kbps (16-bit 44.1kHz)", "100% Original", "WAV, AIFF, Raw PCM"]
+          },
+          {
+            "label": "Lossless Compressed",
+            "values": ["600 - 1,000 kbps (~50% size)", "100% Bit-perfect identical to studio master", "FLAC, Apple Lossless (ALAC)"]
+          },
+          {
+            "label": "Lossy Compressed",
+            "values": ["96 - 320 kbps (~80-90% size reduction)", "Permanently discarded masked frequencies", "Opus, AAC, MP3, Ogg Vorbis"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Opus is the modern state-of-the-art lossy codec, outperforming AAC and MP3 across all bitrates from 32 kbps voice up to 510 kbps transparent audio."
+      }
+    ],
+    "tags": ["audio", "lossless", "lossy", "flac", "mp3", "aac", "opus", "bitrate"],
+    "relatedIds": ["what-is-codec", "what-is-sample-rate", "what-is-bit-depth"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-bluetooth-audio",
+    "title": "Bluetooth Audio Transmission",
+    "category": "audio",
+    "summary": "Bluetooth audio streams digital audio packets over 2.4 GHz wireless radio using specialized compression codecs, balancing latency, bandwidth, and connection stability.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Bluetooth Audio (A2DP / LE Audio)",
+        "definition": "The Advanced Audio Distribution Profile (A2DP) protocol standardizing wireless stereo digital audio transmission over short-range Bluetooth radio."
+      },
+      {
+        "type": "paragraph",
+        "text": "Bluetooth Classic bandwidth is constrained and shares the congested 2.4 GHz radio spectrum with Wi-Fi. Because raw uncompressed CD audio (1,411 kbps) exceeds reliable Bluetooth throughput, the transmitting smartphone must re-encode audio on the fly into a Bluetooth codec like SBC, AAC, or LDAC."
+      },
+      {
+        "type": "heading",
+        "text": "Bluetooth Codec Hierarchy"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Codec", "Max Bitrate", "Key Advantage", "Standard Support"],
+        "rows": [
+          {
+            "label": "SBC (Subband Codec)",
+            "values": ["328 kbps", "Universal fallback supported by all Bluetooth devices", "Mandatory standard baseline"]
+          },
+          {
+            "label": "AAC",
+            "values": ["256 - 320 kbps", "High psychoacoustic efficiency on iOS/Apple devices", "Default on Apple ecosystem"]
+          },
+          {
+            "label": "aptX HD / Adaptive",
+            "values": ["Up to 576 kbps", "Low latency mode (<80ms) for gaming and video sync", "Qualcomm mobile chips"]
+          },
+          {
+            "label": "LDAC",
+            "values": ["990 kbps", "Highest bitrate; transmits 24-bit/96kHz high-resolution audio", "Standard in Android AOSP"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Bluetooth LE Audio introduces the LC3 codec and Auracast broadcasting, delivering superior quality at half the bitrate of legacy SBC."
+      }
+    ],
+    "tags": ["audio", "bluetooth", "a2dp", "wireless", "sbc", "aac", "le-audio"],
+    "relatedIds": ["what-is-ldac", "what-is-aptx", "what-is-codec"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-aptx",
+    "title": "Qualcomm aptX Audio Codecs",
+    "category": "audio",
+    "summary": "aptX is a proprietary suite of audio codecs developed by Qualcomm utilizing Time Domain ADPCM for low latency and consistent wireless audio transmission.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "aptX",
+        "definition": "A family of proprietary Bluetooth audio codecs utilizing Adaptive Differential Pulse Code Modulation (ADPCM) rather than psychoacoustic transform masking."
+      },
+      {
+        "type": "paragraph",
+        "text": "Unlike MP3 and AAC (which break audio into complex frequency bins requiring CPU encoding latency), aptX processes audio samples directly in the time domain. This lightweight mathematical model minimizes encoding latency, preventing audio/video sync delays when watching movies or gaming."
+      },
+      {
+        "type": "heading",
+        "text": "aptX Codec Variants"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "aptX Classic: 16-bit 44.1kHz audio at 352 kbps with ~120ms latency.",
+          "aptX HD: 24-bit 48kHz audio at 576 kbps with lower distortion noise floor.",
+          "aptX Low Latency (LL): Fixed ultra-low latency (<40ms), eliminating lipsync lag in gaming.",
+          "aptX Adaptive: Dynamically shifts bitrate between 279 kbps and 860 kbps depending on RF interference and application requirements."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Both the transmitter (phone) and receiver (headphones) must contain Qualcomm silicon licenses to negotiate an aptX connection."
+      }
+    ],
+    "tags": ["audio", "aptx", "qualcomm", "bluetooth", "latency", "wireless"],
+    "relatedIds": ["what-is-bluetooth-audio", "what-is-ldac", "what-is-codec"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-ldac",
+    "title": "Sony LDAC High-Resolution Codec",
+    "category": "audio",
+    "summary": "LDAC is an audio coding technology developed by Sony that transfers up to 990 kbps over Bluetooth, certified for wireless Hi-Res Audio streaming.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "LDAC",
+        "definition": "A proprietary high-bitrate Bluetooth codec that transmits 24-bit/96kHz high-resolution audio over A2DP at up to 990 kbps."
+      },
+      {
+        "type": "paragraph",
+        "text": "Standard Bluetooth SBC caps bitrate at 328 kbps. LDAC provides three selectable operational bandwidth modes: 330 kbps (Connection Priority), 660 kbps (Normal), and 990 kbps (Quality Priority). At 990 kbps, LDAC transmits three times the data volume of standard Bluetooth."
+      },
+      {
+        "type": "heading",
+        "text": "Operating Modes & Android Integration"
+      },
+      {
+        "type": "comparison",
+        "headers": ["LDAC Mode", "Bitrate", "Target Acoustic Scenario"],
+        "rows": [
+          {
+            "label": "Quality Priority",
+            "values": ["990 kbps", "Best fidelity; requires close proximity and minimal Wi-Fi radio interference"]
+          },
+          {
+            "label": "Balanced",
+            "values": ["660 kbps", "Balanced fidelity and wireless packet drop resilience"]
+          },
+          {
+            "label": "Connection Priority",
+            "values": ["330 kbps", "Robust connection in crowded RF environments (subways, airports)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Sony contributed the LDAC encoder to Google AOSP, making LDAC transmission natively supported on all Android 8.0+ smartphones without extra licensing fees."
+      }
+    ],
+    "tags": ["audio", "ldac", "sony", "hires", "bluetooth", "android"],
+    "relatedIds": ["what-is-bluetooth-audio", "what-is-aptx", "what-is-sample-rate"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-noise-cancellation",
+    "title": "Active Noise Cancellation (ANC)",
+    "category": "audio",
+    "summary": "ANC uses external microphones to capture ambient background noise and generates an inverted anti-phase sound wave to cancel out unwanted acoustic sounds via destructive interference.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Active Noise Cancellation (ANC)",
+        "definition": "An electroacoustic system that samples environmental acoustic noise in real time and plays an inverted 180-degree phase wave through speakers to cancel it."
+      },
+      {
+        "type": "paragraph",
+        "text": "Sound travels as physical air pressure waves. When a positive pressure peak of an external sound wave (like an airplane jet engine) meets an equal negative pressure trough generated by the headphone driver, the two waves cancel each other out completely — known as destructive wave interference."
+      },
+      {
+        "type": "heading",
+        "text": "ANC Microphone Topologies"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Topology", "Microphone Placement", "Frequency Strengths"],
+        "rows": [
+          {
+            "label": "Feedforward ANC",
+            "values": ["Microphone on the outside of the earcup", "Excellent at canceling predictable mid/high ambient sounds before they enter the ear"]
+          },
+          {
+            "label": "Feedback ANC",
+            "values": ["Microphone inside the earcup next to the speaker", "Corrects low-frequency rumble by hearing what the user actually hears"]
+          },
+          {
+            "label": "Hybrid ANC",
+            "values": ["Dual microphones both inside and outside", "Combines both systems with digital signal processor (DSP) algorithms for maximum noise suppression"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "ANC is highly effective on constant, low-frequency sounds (jet engines, air conditioners, train hum), but struggles with sudden, irregular high-frequency sounds (human speech, door slams)."
+      }
+    ],
+    "tags": ["audio", "anc", "noise-cancellation", "dsp", "acoustics", "headphones"],
+    "relatedIds": ["what-is-dac-amp", "what-is-impedance-headphones", "what-is-bluetooth-audio"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-impedance-headphones",
+    "title": "Headphone Impedance & Sensitivity",
+    "category": "audio",
+    "summary": "Impedance is the alternating current (AC) electrical resistance of headphone driver coils, dictating how much voltage is required to achieve proper listening volume.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Headphone Impedance",
+        "definition": "The total electrical opposition (resistance + inductive reactance) presented by a headphone driver to the output voltage of an audio amplifier, measured in Ohms (Ω)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Consumer earbuds and portable headphones have low impedance (16Ω to 32Ω), allowing battery-powered smartphones to drive them easily with low output voltage (~1V RMS). High-impedance audiophile studio headphones (250Ω to 600Ω) require dedicated desktop amplifiers delivering higher voltage swings to move their tightly wound voice coils."
+      },
+      {
+        "type": "heading",
+        "text": "Damping Factor & Output Impedance"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "The 1/8th Rule: The amplifier output impedance should be less than 1/8th of the headphone impedance to maintain accurate frequency response and acoustic damping.",
+          "Sensitivity / Efficiency: Measured in dB/mW or dB/V SPL. High sensitivity (>100 dB/mW) headphones get loud quickly; low sensitivity (<90 dB/mW) headphones demand substantial amplifier wattage.",
+          "Planar Magnetic Drivers: Use conductive traces across a thin planar membrane between magnets, exhibiting purely resistive impedance independent of audio frequency."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Plugging 250Ω studio headphones directly into a standard smartphone yields quiet, anemic volume and degraded bass dynamics due to insufficient amplifier voltage output."
+      }
+    ],
+    "tags": ["audio", "impedance", "ohms", "headphones", "audiophile", "amplifiers"],
+    "relatedIds": ["what-is-dac-amp", "what-is-resistance", "what-is-voltage"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-dac-amp",
+    "title": "DACs and Headphone Amplifiers",
+    "category": "audio",
+    "summary": "A DAC translates binary digital 1s and 0s into smooth analog voltage waveforms, and an amplifier boosts the electrical current and voltage to drive physical speaker transducers.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "DAC (Digital-to-Analog Converter)",
+        "definition": "An integrated circuit that reconstructs continuous analog electrical voltage curves from discrete quantized binary audio samples."
+      },
+      {
+        "type": "paragraph",
+        "text": "Human ears cannot hear digital bits; physical speakers require continuous electrical voltage to physically vibrate magnetic diaphragms. Every phone, laptop, and Bluetooth earbud contains an internal DAC and miniature amplifier. Dedicated external audiophile DAC/Amps isolate audio circuitry from noisy computer CPU power lines."
+      },
+      {
+        "type": "heading",
+        "text": "Key Performance Metrics"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Metric", "Description", "Audiophile Benchmark"],
+        "rows": [
+          {
+            "label": "THD+N (Distortion)",
+            "values": ["Total Harmonic Distortion plus Noise introduced by the analog circuit", "< 0.0005% (-106 dB)"]
+          },
+          {
+            "label": "SNR (Signal-to-Noise)",
+            "values": ["Ratio between peak signal level and background noise hiss", "> 115 dB"]
+          },
+          {
+            "label": "Output Power",
+            "values": ["Clean milliwatts (mW) delivered into 32Ω or 300Ω loads without clipping", "> 500 mW into 32Ω"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "USB-C to 3.5mm headphone dongles are not simple wire adapters: they house an active integrated DAC, amplifier chip, and USB controller inside the tiny connector plug."
+      }
+    ],
+    "tags": ["audio", "dac", "amp", "audiophile", "analog", "signal-processing"],
+    "relatedIds": ["what-is-sample-rate", "what-is-bit-depth", "what-is-impedance-headphones"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

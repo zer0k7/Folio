@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Folio</string>
+    <string name="tagline">The pocket reference for people who build things.</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_explore">Explore</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_saved">Saved</string>
+    <string name="search_placeholder">Search articles, topics, terms…</string>
+    <string name="search_empty_prompt">Start typing to search</string>
+    <string name="search_no_results">No results found for \"%1$s\"</string>
+    <string name="search_no_results_hint">Try searching for a related keyword or shorter term.</string>
+    <string name="saved_empty_title">No saved articles yet</string>
+    <string name="saved_empty_desc">Articles you bookmark will be stored here for instant offline reference.</string>
+    <string name="featured_title">Featured</string>
+    <string name="categories_title">Categories</string>
+    <string name="all_articles_title">All Articles</string>
+    <string name="related_articles_title">Related Concepts</string>
+    <string name="note_label">Note</string>
+    <string name="difficulty_basic">Basic</string>
+    <string name="difficulty_intermediate">Intermediate</string>
+    <string name="article_count">%1$d articles</string>
+    <string name="explore_title">Explore</string>
+    <string name="save_article_desc">Save article</string>
+    <string name="back_desc">Go back</string>
+    <string name="clear_search_desc">Clear search</string>
+    <string name="diagram_desc">Technical Diagram for %1$s</string>
+</resources>

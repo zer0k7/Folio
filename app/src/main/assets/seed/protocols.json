@@ -1,0 +1,484 @@
+[
+  {
+    "id": "what-is-bluetooth",
+    "title": "Bluetooth Wireless Protocol",
+    "category": "protocols",
+    "summary": "Bluetooth is a short-range wireless technology standard operating on 2.4 GHz ISM radio frequencies using frequency-hopping spread spectrum.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Bluetooth (IEEE 802.15.1)",
+        "definition": "A short-range wireless communications protocol designed for personal area networks (PANs), exchanging data over 79 designated 1 MHz channels in the 2.4 GHz ISM band."
+      },
+      {
+        "type": "paragraph",
+        "text": "To prevent interference from Wi-Fi routers and microwaves sharing the same 2.4 GHz spectrum, Bluetooth uses Adaptive Frequency Hopping (AFH): the transmitter and receiver hop between channels 1,600 times per second in synchronization."
+      },
+      {
+        "type": "heading",
+        "text": "Bluetooth Classic vs Bluetooth Low Energy (BLE)"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "Bluetooth Classic (BR/EDR)", "Bluetooth Low Energy (BLE)"],
+        "rows": [
+          {
+            "label": "Peak Power Draw",
+            "values": ["~1 Watt (Continuous streaming)", "~0.01 - 0.5 Watts (Pulse transmission)"]
+          },
+          {
+            "label": "Battery Life",
+            "values": ["Hours to days (Headphones, speakers)", "Months to years on a single CR2032 coin cell (Heart rate monitors, AirTags)"]
+          },
+          {
+            "label": "Data Protocol",
+            "values": ["Continuous stream connections (A2DP, RFCOMM)", "GATT (Generic Attribute Profile) client/server attribute tables"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Bluetooth 5.0 doubled data throughput to 2 Mbps and quadrupled maximum range using coded physical layer (PHY) forward error correction."
+      }
+    ],
+    "tags": ["protocols", "bluetooth", "ble", "wireless", "2.4ghz", "afh"],
+    "relatedIds": ["what-is-wifi", "what-is-nfc", "what-is-bluetooth-audio"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-wifi",
+    "title": "Wi-Fi Wireless Networking (IEEE 802.11)",
+    "category": "protocols",
+    "summary": "Wi-Fi is a family of wireless network protocols based on the IEEE 802.11 standards, providing local area network (LAN) access and internet connectivity.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Wi-Fi (IEEE 802.11)",
+        "definition": "A local wireless networking technology utilizing radio frequencies across 2.4 GHz, 5 GHz, and 6 GHz spectrum bands to transmit TCP/IP network frames."
+      },
+      {
+        "type": "paragraph",
+        "text": "Wi-Fi routers translate incoming Ethernet internet packets into radio waves via Orthogonal Frequency-Division Multiplexing (OFDM) and Quadrature Amplitude Modulation (QAM). Client devices decode the radio signals back into standard network packets."
+      },
+      {
+        "type": "heading",
+        "text": "Wi-Fi Generations Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Wi-Fi Generation", "IEEE Standard", "Frequency Bands", "Max Theoretical Speed"],
+        "rows": [
+          {
+            "label": "Wi-Fi 4",
+            "values": ["802.11n", "2.4 GHz & 5 GHz", "600 Mbps (4x4 MIMO)"]
+          },
+          {
+            "label": "Wi-Fi 5",
+            "values": ["802.11ac", "5 GHz", "3.5 Gbps (160 MHz channels)"]
+          },
+          {
+            "label": "Wi-Fi 6 / 6E",
+            "values": ["802.11ax", "2.4 GHz, 5 GHz, 6 GHz", "9.6 Gbps (OFDMA, 1024-QAM)"]
+          },
+          {
+            "label": "Wi-Fi 7",
+            "values": ["802.11be", "2.4 GHz, 5 GHz, 6 GHz", "46 Gbps (320 MHz channels, 4096-QAM, MLO)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "2.4 GHz Wi-Fi travels further through solid walls, but suffers from severe channel congestion. 5 GHz and 6 GHz deliver multi-gigabit speeds with minimal interference but attenuate rapidly through concrete."
+      }
+    ],
+    "tags": ["protocols", "wifi", "802.11", "wireless", "networking", "router"],
+    "relatedIds": ["what-is-ethernet", "what-is-bluetooth", "what-is-5g-vs-4g"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-nfc",
+    "title": "Near Field Communication (NFC)",
+    "category": "protocols",
+    "summary": "NFC is a set of short-range wireless communication protocols operating via electromagnetic induction at 13.56 MHz over distances under 4 centimeters.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Near Field Communication (NFC)",
+        "definition": "A high-frequency short-range wireless connectivity standard based on magnetic inductive coupling between two loop antennas at 13.56 MHz."
+      },
+      {
+        "type": "paragraph",
+        "text": "Unlike Bluetooth or Wi-Fi (which transmit propagating electromagnetic waves that travel across rooms), NFC operates entirely in the reactive near-field electromagnetic zone. This physical 4cm range restriction acts as an inherent security layer for contactless payments (Google Pay, Apple Pay)."
+      },
+      {
+        "type": "heading",
+        "text": "Active vs Passive NFC Modes"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Mode", "Power Requirement", "Typical Application"],
+        "rows": [
+          {
+            "label": "Card Emulation (Active)",
+            "values": ["Powered by smartphone battery", "Contactless mobile credit card payments, digital transit passes, digital hotel room keys"]
+          },
+          {
+            "label": "Reader/Writer (Active)",
+            "values": ["Powered by interrogating device", "Reading interactive promotional smart posters, scanning passport RFID chips"]
+          },
+          {
+            "label": "Passive Tag (Zero Power)",
+            "values": ["Zero battery; powered entirely by the magnetic field emitted by the reader antenna", "Inventory sticker tags, amiibo figurines, security door keycards"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Mobile payment NFC transactions use dynamic one-time cryptographic tokens (Host Card Emulation / Secure Element) so your actual credit card number is never transmitted."
+      }
+    ],
+    "tags": ["protocols", "nfc", "rfid", "contactless", "payments", "wireless"],
+    "relatedIds": ["what-is-bluetooth", "what-is-wifi", "what-is-encryption"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-usb",
+    "title": "Universal Serial Bus (USB)",
+    "category": "protocols",
+    "summary": "USB is an industry standard connecting peripherals to host computers, establishing specifications for cables, physical connectors, data protocols, and power delivery.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Universal Serial Bus (USB)",
+        "definition": "A standardized serial communication bus developed by the USB Implementers Forum (USB-IF) providing bidirectional data transfer and electrical power supply."
+      },
+      {
+        "type": "paragraph",
+        "text": "Before USB was introduced in 1996, computers relied on a chaotic array of bulky legacy ports (PS/2 keyboard ports, RS-232 serial ports, parallel printer ports, and joystick game ports). USB replaced them all with a standardized, hot-pluggable serial interface."
+      },
+      {
+        "type": "heading",
+        "text": "USB-C Connector Architecture"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Reversible 24-Pin Design: Identical top and bottom pinouts eliminate wrong-way insertion.",
+          "USB Power Delivery (USB-PD): Negotiates bidirectional power delivery up to 240W (48V at 5A) over Extended Power Range (EPR).",
+          "DisplayPort / PCIe Alt Mode: Reassigns internal high-speed differential pairs to drive native 4K/8K display monitors or external PCIe graphics enclosures."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "USB-C refers exclusively to the physical plug and port geometry. The underlying data speed depends on whether the port supports USB 2.0 (480 Mbps), USB 3.2 (20 Gbps), or USB4 (40 Gbps)."
+      }
+    ],
+    "tags": ["protocols", "usb", "usb-c", "power-delivery", "hardware", "cables"],
+    "relatedIds": ["what-is-usb-versions", "what-is-thunderbolt", "what-is-hdmi"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-usb-versions",
+    "title": "USB Speed Versions & Standards",
+    "category": "protocols",
+    "summary": "USB version standards dictate maximum data transfer bandwidth and signaling protocols across successive hardware generations.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "USB Protocol Standards",
+        "definition": "The formal transmission bandwidth specifications defined by the USB-IF spanning USB 1.1 up to USB4 2.0."
+      },
+      {
+        "type": "paragraph",
+        "text": "Over three decades, USB speeds have grown by over 6,000x — from 1.5 Mbps on early keyboards to 80 Gbps on modern USB4 bidirectional links, while maintaining backward compatibility through USB host controllers."
+      },
+      {
+        "type": "heading",
+        "text": "USB Version Bandwidth Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["USB Generation", "Marketing Name", "Max Data Speed", "Encoding Overhead"],
+        "rows": [
+          {
+            "label": "USB 2.0",
+            "values": ["HighSpeed", "480 Mbps (60 MB/s raw)", "NRZI bit stuffing"]
+          },
+          {
+            "label": "USB 3.2 Gen 1",
+            "values": ["SuperSpeed (USB 3.0)", "5 Gbps (~450 MB/s real-world)", "8b/10b encoding (20% overhead)"]
+          },
+          {
+            "label": "USB 3.2 Gen 2x2",
+            "values": ["SuperSpeed USB 20Gbps", "20 Gbps (~2,000 MB/s)", "Dual-lane differential pairs (128b/132b)"]
+          },
+          {
+            "label": "USB4 Gen 3x2",
+            "values": ["USB4 40Gbps", "40 Gbps (~3,800 MB/s)", "Protocol tunneling (PCIe, DisplayPort)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Many smartphones with USB-C ports wire only USB 2.0 data pins (D+ and D-) to save silicon cost, limiting computer file transfer speeds to ~40 MB/s."
+      }
+    ],
+    "tags": ["protocols", "usb-versions", "usb4", "usb3", "bandwidth", "superspeed"],
+    "relatedIds": ["what-is-usb", "what-is-thunderbolt", "what-is-displayport"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-hdmi",
+    "title": "High-Definition Multimedia Interface (HDMI)",
+    "category": "protocols",
+    "summary": "HDMI is a proprietary audio/video interface for transmitting uncompressed digital video data and compressed or uncompressed digital audio streams.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "HDMI",
+        "definition": "A digital display interface standard utilizing Transition-Minimized Differential Signaling (TMDS) and Fixed Rate Link (FRL) to transmit combined audio/video streams."
+      },
+      {
+        "type": "paragraph",
+        "text": "HDMI is the universal standard for consumer televisions, home theater receivers, and game consoles. A single HDMI cable carries multi-channel audio (Dolby Atmos, 7.1 TrueHD), 4K/8K uncompressed video, Consumer Electronics Control (CEC) remote signals, and Ethernet data."
+      },
+      {
+        "type": "heading",
+        "text": "HDMI 2.0 vs HDMI 2.1"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "HDMI 2.0b", "HDMI 2.1a"],
+        "rows": [
+          {
+            "label": "Max Bandwidth",
+            "values": ["18.0 Gbps (TMDS)", "48.0 Gbps (FRL)"]
+          },
+          {
+            "label": "Resolution & Refresh Rate",
+            "values": ["4K at 60 Hz", "4K at 120 Hz / 8K at 60 Hz / 10K at 120 Hz"]
+          },
+          {
+            "label": "Gaming Features",
+            "values": ["Static HDR only", "Variable Refresh Rate (VRR), Auto Low Latency Mode (ALLM), Quick Frame Transport (QFT)"]
+          },
+          {
+            "label": "Audio Return Channel",
+            "values": ["Standard ARC (Compressed 5.1)", "eARC (Enhanced ARC: Uncompressed 24-bit 192kHz 7.1 and Atmos)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "HDCP (High-bandwidth Digital Content Protection) is an encryption layer enforced over HDMI to prevent unauthorized recording of commercial movies and streaming media."
+      }
+    ],
+    "tags": ["protocols", "hdmi", "hdmi21", "display", "video", "earc", "4k"],
+    "relatedIds": ["what-is-displayport", "what-is-thunderbolt", "what-is-usb"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-displayport",
+    "title": "DisplayPort (DP) Interface",
+    "category": "protocols",
+    "summary": "DisplayPort is a royalty-free digital display interface developed by VESA, utilizing packetized micro-packet data transmission for high-refresh PC monitors.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "DisplayPort (VESA)",
+        "definition": "A digital audio/video standard that transmits video data in packetized data streams (similar to Ethernet packets) over 1 to 4 differential lanes."
+      },
+      {
+        "type": "paragraph",
+        "text": "While HDMI was designed for consumer home televisions, DisplayPort was engineered specifically for computer graphics and monitors. DisplayPort packetized architecture allows multi-stream transport (MST), driving multiple independent external monitors from a single physical port via daisy-chaining."
+      },
+      {
+        "type": "heading",
+        "text": "DisplayPort Generations & DSC"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Standard", "Total Bandwidth", "Display Stream Compression (DSC)", "Max Resolution"],
+        "rows": [
+          {
+            "label": "DisplayPort 1.4a",
+            "values": ["32.4 Gbps (HBR3)", "DSC 1.2 (3:1 visually lossless compression)", "4K at 144 Hz (HDR) / 8K at 60 Hz"]
+          },
+          {
+            "label": "DisplayPort 2.1",
+            "values": ["80.0 Gbps (UHBR20)", "DSC 1.2a", "Native uncompressed 4K at 240 Hz / Dual 8K at 120 Hz"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "DisplayPort Alt Mode allows standard USB-C cables to transmit full native DisplayPort video signals directly to external monitors while simultaneously delivering laptop charging power."
+      }
+    ],
+    "tags": ["protocols", "displayport", "dp", "vesa", "dsc", "mst", "monitors"],
+    "relatedIds": ["what-is-hdmi", "what-is-thunderbolt", "what-is-usb"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-thunderbolt",
+    "title": "Thunderbolt Interface (Intel & Apple)",
+    "category": "protocols",
+    "summary": "Thunderbolt is a hardware interface standard developed by Intel and Apple that multiplexes high-speed PCIe, DisplayPort, and power delivery over USB-C.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Thunderbolt",
+        "definition": "A high-bandwidth hardware connection technology that tunnels native PCI Express, DisplayPort, and USB protocols directly to the CPU over USB-C cabling."
+      },
+      {
+        "type": "paragraph",
+        "text": "Unlike standard USB (which communicates with a host USB controller), Thunderbolt provides direct, DMA (Direct Memory Access) PCIe bus lanes. This allows connecting desktop-class external graphics cards (eGPUs), high-speed NVMe RAID arrays, and multi-monitor docking stations with near-zero latency."
+      },
+      {
+        "type": "heading",
+        "text": "Thunderbolt Generations"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Generation", "Physical Connector", "Total Bandwidth", "PCIe Data Tunneling"],
+        "rows": [
+          {
+            "label": "Thunderbolt 3",
+            "values": ["USB-C", "40 Gbps", "PCIe 3.0 x4 (Up to 16 Gbps / 2,800 MB/s)"]
+          },
+          {
+            "label": "Thunderbolt 4",
+            "values": ["USB-C", "40 Gbps (Guaranteed minimums)", "PCIe 3.0 x4 (Guaranteed 32 Gbps / 3,000 MB/s)"]
+          },
+          {
+            "label": "Thunderbolt 5",
+            "values": ["USB-C", "80 Gbps (Up to 120 Gbps Bandwidth Boost)", "PCIe 4.0 x4 (Up to 64 Gbps / 6,000 MB/s)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Intel contributed the Thunderbolt 3 protocol specification to the USB Implementers Forum, forming the technical foundation for the royalty-free USB4 standard."
+      }
+    ],
+    "tags": ["protocols", "thunderbolt", "pcie", "usb-c", "intel", "egpu"],
+    "relatedIds": ["what-is-usb-versions", "what-is-displayport", "what-is-nvme"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-ethernet",
+    "title": "Ethernet Wired Networking (IEEE 802.3)",
+    "category": "protocols",
+    "summary": "Ethernet is the ubiquitous wired local area network (LAN) technology utilizing twisted-pair copper cables or fiber optics for deterministic, low-latency communication.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Ethernet (IEEE 802.3)",
+        "definition": "A family of wired computer networking technologies standardizing physical signaling and Data Link Layer Media Access Control (MAC) frame structures."
+      },
+      {
+        "type": "paragraph",
+        "text": "While Wi-Fi is subject to radio frequency interference, wall attenuation, and packet collisions, Ethernet provides full-duplex, isolated physical copper connections with consistent sub-millisecond local network latency and zero wireless jitter."
+      },
+      {
+        "type": "heading",
+        "text": "Twisted Pair Cable Categories"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Cable Category", "Max Bandwidth", "Max Frequency", "Shielding"],
+        "rows": [
+          {
+            "label": "Cat 5e",
+            "values": ["1 Gbps (1000BASE-T)", "100 MHz", "Unshielded Twisted Pair (UTP)"]
+          },
+          {
+            "label": "Cat 6",
+            "values": ["10 Gbps (up to 55 meters)", "250 MHz", "Internal spline separator reducing crosstalk"]
+          },
+          {
+            "label": "Cat 6A",
+            "values": ["10 Gbps (full 100 meters)", "500 MHz", "Individually foil-shielded pairs (STP/FTP)"]
+          },
+          {
+            "label": "Cat 8",
+            "values": ["25 / 40 Gbps (up to 30 meters)", "2000 MHz", "Heavy enterprise data center shielding"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Power over Ethernet (PoE / IEEE 802.3bt) delivers up to 90 Watts of DC electrical power over the exact same Ethernet cable, powering security cameras, Wi-Fi access points, and VoIP phones without separate power outlets."
+      }
+    ],
+    "tags": ["protocols", "ethernet", "lan", "cat6", "poe", "networking", "cables"],
+    "relatedIds": ["what-is-wifi", "what-is-5g-vs-4g", "what-is-a-port"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-5g-vs-4g",
+    "title": "5G NR vs 4G LTE Cellular Networks",
+    "category": "protocols",
+    "summary": "5G New Radio expands cellular bandwidth into millimeter-wave spectrum, introduces network slicing, and slashes wireless air latency down to single-digit milliseconds.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "5G New Radio (3GPP Release 15+)",
+        "definition": "The fifth-generation global wireless cellular standard providing enhanced Mobile Broadband (eMBB), massive Machine-Type Communications (mMTC), and Ultra-Reliable Low-Latency Communications (URLLC)."
+      },
+      {
+        "type": "paragraph",
+        "text": "4G LTE revolutionized mobile smartphones by delivering 20 to 100 Mbps data streaming with ~40ms network latency. 5G NR increases theoretical peak bandwidth to 20 Gbps, reduces wireless transmission latency below 5ms, and supports up to 1 million connected IoT devices per square kilometer."
+      },
+      {
+        "type": "heading",
+        "text": "5G Spectrum Tiers"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Spectrum Tier", "Frequency Range", "Coverage Range", "Typical Download Speed"],
+        "rows": [
+          {
+            "label": "Low-Band (Sub-1 GHz)",
+            "values": ["600 - 900 MHz", "Dozens of miles per cell tower; penetrates buildings easily", "50 - 150 Mbps"]
+          },
+          {
+            "label": "Mid-Band (C-Band / Sub-6)",
+            "values": ["2.5 - 3.7 GHz", "1 - 3 miles (Sweet spot for urban 5G coverage)", "300 - 1,000 Mbps (1 Gbps)"]
+          },
+          {
+            "label": "High-Band (mmWave)",
+            "values": ["24 - 40 GHz", "Short line-of-sight (<1,000 feet); blocked by glass, trees, and hands", "1,500 - 4,000+ Mbps (4 Gbps)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "5G Standalone (5G SA) utilizes a pure cloud-native 5G core network without relying on legacy 4G LTE anchor towers, unlocking true single-digit millisecond latency and custom network slicing."
+      }
+    ],
+    "tags": ["protocols", "5g", "4g", "lte", "cellular", "mmwave", "mobile"],
+    "relatedIds": ["what-is-wifi", "what-is-ethernet", "what-is-latency"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

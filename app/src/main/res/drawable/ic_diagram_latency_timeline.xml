@@ -1,0 +1,60 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="800dp"
+    android:height="400dp"
+    android:viewportWidth="800"
+    android:viewportHeight="400">
+
+    <!-- Background card container -->
+    <path
+        android:fillColor="@color/surface_dark"
+        android:pathData="M 40,20 L 760,20 A 20,20 0 0 1 780,40 L 780,360 A 20,20 0 0 1 760,380 L 40,380 A 20,20 0 0 1 20,360 L 20,40 A 20,20 0 0 1 40,20 Z" />
+
+    <!-- Client Column -->
+    <path
+        android:fillColor="@color/champion_blue"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="2"
+        android:pathData="M 100,50 L 200,50 A 8,8 0 0 1 208,58 L 208,92 A 8,8 0 0 1 200,100 L 100,100 A 8,8 0 0 1 92,92 L 92,58 A 8,8 0 0 1 100,50 Z" />
+    <path
+        android:strokeColor="@color/muted_dark"
+        android:strokeWidth="2"
+        android:strokeDashArray="6,6"
+        android:pathData="M 150,100 L 150,350" />
+
+    <!-- Server Column -->
+    <path
+        android:fillColor="@color/royal_ink"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="2"
+        android:pathData="M 600,50 L 700,50 A 8,8 0 0 1 708,58 L 708,92 A 8,8 0 0 1 700,100 L 600,100 A 8,8 0 0 1 592,92 L 592,58 A 8,8 0 0 1 600,50 Z" />
+    <path
+        android:strokeColor="@color/muted_dark"
+        android:strokeWidth="2"
+        android:strokeDashArray="6,6"
+        android:pathData="M 650,100 L 650,350" />
+
+    <!-- Request Arrow (Client -> Server) -->
+    <path
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="3"
+        android:pathData="M 150,140 L 650,210 M 640,200 L 650,210 L 638,214" />
+
+    <!-- Server Processing Bar -->
+    <path
+        android:fillColor="@color/lavender_mist"
+        android:strokeColor="@color/white_convolvulus"
+        android:strokeWidth="1.5"
+        android:pathData="M 640,210 L 660,210 L 660,260 L 640,260 Z" />
+
+    <!-- Response Arrow (Server -> Client) -->
+    <path
+        android:strokeColor="@color/white_convolvulus"
+        android:strokeWidth="3"
+        android:pathData="M 650,260 L 150,330 M 162,326 L 150,330 L 160,340" />
+
+    <!-- Total RTT Bracket -->
+    <path
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="2"
+        android:pathData="M 60,140 L 40,140 L 40,330 L 60,330 M 40,235 L 20,235" />
+</vector>

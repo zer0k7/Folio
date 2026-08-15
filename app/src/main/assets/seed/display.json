@@ -1,0 +1,237 @@
+[
+  {
+    "id": "what-is-a-pixel",
+    "title": "What is a Pixel?",
+    "category": "display",
+    "summary": "A pixel is the smallest addressable unit of a digital display. Every image you see on a screen is made of millions of them.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Pixel",
+        "definition": "Short for picture element. The smallest individual element in a digital image or display, capable of showing one color at a time."
+      },
+      {
+        "type": "paragraph",
+        "text": "A screen is a grid of pixels. Each pixel contains three sub-pixels — red, green, and blue — that combine at varying intensities to produce any visible color. At normal viewing distances, individual pixels are too small to distinguish, so the image looks continuous."
+      },
+      {
+        "type": "heading",
+        "text": "Pixel Density (PPI)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Pixels per inch (PPI) measures how many pixels fit in one inch of screen space. Higher PPI means more detail and sharper text. Displays designed for smartphones typically exceed 400 PPI, rendering individual pixels invisible at standard viewing distances."
+      },
+      {
+        "type": "diagram",
+        "key": "pixel_subpixel"
+      },
+      {
+        "type": "note",
+        "text": "Resolution (e.g. 1920x1080) tells you the total pixel count. PPI tells you how sharp it actually looks — a 1080p phone screen looks much sharper than a 1080p TV because the pixels are packed into a smaller physical area."
+      }
+    ],
+    "tags": ["display", "screen", "resolution", "ppi"],
+    "relatedIds": ["lcd-vs-led", "what-is-oled", "refresh-rate"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": true
+  },
+  {
+    "id": "lcd-vs-led",
+    "title": "LCD vs LED Displays",
+    "category": "display",
+    "summary": "An LED display is actually an LCD panel that uses Light Emitting Diodes for backlighting instead of older CCFL fluorescent lamps.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Liquid Crystal Display (LCD)",
+        "definition": "A flat-panel display technology that uses liquid crystals manipulated by electrical current to modulate light passing through from a backlight."
+      },
+      {
+        "type": "paragraph",
+        "text": "Liquid crystals do not emit light on their own. They act as microscopic electronic shutters. When voltage is applied, the crystals twist or untwist to block or permit light through polarizing filters and RGB sub-pixel color filters."
+      },
+      {
+        "type": "heading",
+        "text": "Panel Technologies: IPS, VA, and TN"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Panel Type", "Viewing Angles", "Contrast", "Response Time"],
+        "rows": [
+          {
+            "label": "IPS (In-Plane Switching)",
+            "values": ["Wide (178 deg)", "Moderate (~1000:1)", "Fast (1-4 ms)"]
+          },
+          {
+            "label": "VA (Vertical Alignment)",
+            "values": ["Moderate", "High (~3000:1)", "Medium (4-8 ms)"]
+          },
+          {
+            "label": "TN (Twisted Nematic)",
+            "values": ["Narrow", "Low (~800:1)", "Very Fast (1 ms)"]
+          }
+        ]
+      },
+      {
+        "type": "diagram",
+        "key": "lcd_layers"
+      },
+      {
+        "type": "note",
+        "text": "Marketing terms like LED TV are technically misleading. They are LCD TVs with LED backlights, completely distinct from true self-emissive micro-LED or OLED technology."
+      }
+    ],
+    "tags": ["display", "lcd", "led", "ips", "va", "tn"],
+    "relatedIds": ["what-is-a-pixel", "what-is-oled", "response-time"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": true
+  },
+  {
+    "id": "what-is-oled",
+    "title": "What is OLED?",
+    "category": "display",
+    "summary": "OLED displays use organic compounds that emit their own light when electrified, allowing per-pixel dimming and true infinite contrast ratios.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Organic Light Emitting Diode (OLED)",
+        "definition": "A self-emissive display technology where each pixel generates its own light, eliminating the need for an external backlight."
+      },
+      {
+        "type": "paragraph",
+        "text": "Because each pixel is its own light source, displaying true black is as simple as turning that individual pixel off completely. This yields an infinite contrast ratio and prevents the light bleed common to LCD displays."
+      },
+      {
+        "type": "heading",
+        "text": "Advantages and Burn-in Risk"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "True Blacks: 0 cd/m2 luminance on dark areas.",
+          "Instant Response Time: Sub-millisecond pixel transition times.",
+          "Wide Viewing Angles: Consistent color and contrast at extreme angles.",
+          "Burn-in Risk: Static UI elements can degrade organic compounds unevenly over thousands of hours."
+        ]
+      },
+      {
+        "type": "diagram",
+        "key": "oled_vs_lcd"
+      },
+      {
+        "type": "note",
+        "text": "Modern OLED screens use pixel shifting and logo dimming algorithms to mitigate permanent burn-in while extending panel longevity."
+      }
+    ],
+    "tags": ["display", "oled", "contrast", "burn-in"],
+    "relatedIds": ["what-is-amoled", "lcd-vs-led", "what-is-a-pixel"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": true
+  },
+  {
+    "id": "what-is-amoled",
+    "title": "What is AMOLED?",
+    "category": "display",
+    "summary": "AMOLED introduces an active matrix of thin-film transistors (TFT) to control individual OLED pixels with higher speed and power efficiency.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Active-Matrix Organic Light-Emitting Diode (AMOLED)",
+        "definition": "A variant of OLED that uses a matrix of thin-film transistors with storage capacitors to maintain each pixel state continuously."
+      },
+      {
+        "type": "paragraph",
+        "text": "Passive OLED screens pulse current row by row, which limits refresh rate and display size. AMOLED active matrix addressing gives each pixel continuous electrical control, enabling larger screens, faster response times, and lower power consumption."
+      },
+      {
+        "type": "heading",
+        "text": "Sub-pixel Arrangements and PenTile"
+      },
+      {
+        "type": "paragraph",
+        "text": "Many mobile AMOLED panels employ Samsung's Diamond PenTile sub-pixel layout. Because the human eye is most sensitive to green light, PenTile uses fewer red and blue sub-pixels than green ones, maximizing apparent sharpness while prolonging blue organic emitter lifespan."
+      },
+      {
+        "type": "note",
+        "text": "Super AMOLED is a Samsung brand name denoting panels where the capacitive touch digitizer is integrated directly into the display glass rather than as a separate layer."
+      }
+    ],
+    "tags": ["display", "amoled", "pentile", "samsung"],
+    "relatedIds": ["what-is-oled", "what-is-a-pixel", "refresh-rate"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "refresh-rate",
+    "title": "Display Refresh Rate",
+    "category": "display",
+    "summary": "Refresh rate is the number of times per second a display updates its buffer and draws a new frame, measured in Hertz (Hz).",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Refresh Rate",
+        "definition": "The frequency with which the hardware scans and redraws the entire screen image, measured in cycles per second (Hz)."
+      },
+      {
+        "type": "paragraph",
+        "text": "A standard 60Hz display draws a new frame every 16.6 milliseconds. A 120Hz display refreshes every 8.33 milliseconds, halving motion blur and perceived UI input latency. High refresh rates make scrolling, animations, and transitions feel smoother."
+      },
+      {
+        "type": "heading",
+        "text": "Variable Refresh Rate (VRR) & LTPO"
+      },
+      {
+        "type": "paragraph",
+        "text": "Low-Temperature Polycrystalline Oxide (LTPO) backplanes allow displays to dynamically throttle refresh rates from 120Hz down to 1Hz during static content reading, drastically conserving battery power on mobile devices."
+      },
+      {
+        "type": "note",
+        "text": "Refresh rate (Hz) is a display hardware capability. Frame rate (FPS) is the speed at which the GPU produces frames. If GPU frame rate drops below screen refresh rate, frame stutter or tearing occurs."
+      }
+    ],
+    "tags": ["display", "hz", "refresh-rate", "vrr", "ltpo"],
+    "relatedIds": ["response-time", "what-is-a-pixel", "what-is-oled"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "response-time",
+    "title": "Pixel Response Time",
+    "category": "display",
+    "summary": "Response time measures the duration required for a pixel to transition from one color or shade of grey to another.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Pixel Response Time",
+        "definition": "The time (in milliseconds) it takes for a display pixel to shift from one color state to another, typically measured Grey-to-Grey (GtG)."
+      },
+      {
+        "type": "paragraph",
+        "text": "If a pixel cannot change color as fast as the screen refreshes, ghosting or motion smearing occurs behind moving objects. OLED panels feature near-instant response times (<0.1ms), whereas LCD panels rely on overdrive voltage to accelerate liquid crystal orientation."
+      },
+      {
+        "type": "heading",
+        "text": "Response Time vs Input Lag"
+      },
+      {
+        "type": "paragraph",
+        "text": "Response time is solely how fast physical pixels change state. Input lag (latency) is the total elapsed time between pressing a button and seeing the resulting frame rendered on the display."
+      },
+      {
+        "type": "note",
+        "text": "Overly aggressive panel overdrive can cause inverse ghosting or pixel overshoot, creating bright chromatic halos around rapidly moving high-contrast edges."
+      }
+    ],
+    "tags": ["display", "ghosting", "gtg", "response-time"],
+    "relatedIds": ["refresh-rate", "lcd-vs-led", "what-is-oled"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  }
+]

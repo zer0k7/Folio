@@ -1,0 +1,561 @@
+[
+  {
+    "id": "what-is-a-variable",
+    "title": "Variables in Programming",
+    "category": "programming",
+    "summary": "A variable is a symbolic named reference to a location in memory where data values can be stored, retrieved, and modified during program execution.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Variable",
+        "definition": "A named storage location in memory associated with an identifier and a data type, holding a mutable or immutable value during runtime."
+      },
+      {
+        "type": "paragraph",
+        "text": "Instead of hardcoding raw binary memory addresses like 0x7FFF5FBFF8C0, programmers use human-readable variable names like userAge or counter. The compiler or runtime maps the identifier to physical stack or heap memory addresses."
+      },
+      {
+        "type": "heading",
+        "text": "Mutability & Scoping"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Immutable (val / const): Assigned once and cannot be modified thereafter, preventing unintended state mutation bugs.",
+          "Mutable (var / let): Values can be reassigned multiple times throughout the program execution.",
+          "Scope: Determines where a variable is accessible — local (block/function scope), instance (class scope), or global (program-wide)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Static typing catches type mismatch errors at compile time (e.g. Kotlin, Rust, C++), whereas dynamic typing checks types at runtime (e.g. Python, JavaScript)."
+      }
+    ],
+    "tags": ["programming", "variables", "types", "memory", "scope"],
+    "relatedIds": ["what-is-a-function", "what-is-a-compiler", "what-is-an-interpreter"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-function",
+    "title": "Functions & Methods",
+    "category": "programming",
+    "summary": "A function is a reusable, self-contained block of code designed to perform a specific task, optionally accepting input parameters and returning an output result.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Function",
+        "definition": "A modular subroutine that encapsulates logic, isolates local scope on the call stack, and can be invoked from multiple execution points."
+      },
+      {
+        "type": "paragraph",
+        "text": "Functions eliminate code duplication (DRY principle — Don't Repeat Yourself). When a function is called, the CPU pushes local variables and return addresses onto the execution stack, runs the subroutine instructions, and returns the computed value."
+      },
+      {
+        "type": "heading",
+        "text": "Pure Functions vs Side Effects"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Concept", "Deterministic Output", "State Modification"],
+        "rows": [
+          {
+            "label": "Pure Function",
+            "values": ["Always returns identical output for identical inputs", "Zero side effects; does not modify external state or I/O"]
+          },
+          {
+            "label": "Impure Function",
+            "values": ["Output may depend on time, random state, or network", "Modifies global variables, database rows, or disk files"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "A method is simply a function that is bound to an object instance in Object-Oriented Programming, with access to the instance internal state (this/self)."
+      }
+    ],
+    "tags": ["programming", "function", "dry", "subroutine", "pure-function"],
+    "relatedIds": ["what-is-a-variable", "what-is-recursion", "what-is-an-algorithm"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-an-algorithm",
+    "title": "Algorithms & Computational Complexity",
+    "category": "programming",
+    "summary": "An algorithm is a finite, step-by-step sequence of unambiguous mathematical or logical instructions designed to solve a specific problem or perform a computation.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Algorithm",
+        "definition": "A formal, deterministic set of computational rules that takes an input, processes it through well-defined steps, and produces a defined output."
+      },
+      {
+        "type": "paragraph",
+        "text": "Algorithms form the foundation of computer science. Searching through a million database records sequentially takes a million operations (O(N)), but using a Binary Search algorithm on a sorted list finds the exact record in at most 20 operations (O(log N))."
+      },
+      {
+        "type": "heading",
+        "text": "Big O Notation (Time & Space Complexity)"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Complexity Class", "Growth Rate", "Algorithm Example"],
+        "rows": [
+          {
+            "label": "O(1) Constant",
+            "values": ["Instant, unaffected by dataset size", "Hash table key lookup, array index access"]
+          },
+          {
+            "label": "O(log N) Logarithmic",
+            "values": ["Extremely scalable; doubles time only when input squares", "Binary search in sorted tree"]
+          },
+          {
+            "label": "O(N) Linear",
+            "values": ["Proportional directly to input size", "Single pass array traversal"]
+          },
+          {
+            "label": "O(N log N)",
+            "values": ["Standard baseline for optimal sorting", "MergeSort, QuickSort, TimSort"]
+          },
+          {
+            "label": "O(N^2) Quadratic",
+            "values": ["Slow; impractical for large datasets", "Nested loops, Bubble sort"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Algorithm efficiency is evaluated in terms of both Time Complexity (CPU operations) and Space Complexity (RAM consumption)."
+      }
+    ],
+    "tags": ["programming", "algorithm", "big-o", "complexity", "data-structures"],
+    "relatedIds": ["what-is-a-loop", "what-is-recursion", "what-is-a-function"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-loop",
+    "title": "Iteration & Control Loops",
+    "category": "programming",
+    "summary": "A loop is a control flow structure that repeatedly executes a block of statements until a specified boolean condition is met.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Loop (Iteration)",
+        "definition": "A fundamental control flow mechanism in programming languages that repeats instructions while or until a conditional expression evaluates to false."
+      },
+      {
+        "type": "paragraph",
+        "text": "Loops automate repetitive processing over collections, arrays, and continuous streams. At the assembly code level, loops are implemented using conditional jumps (CMP and JMP) that jump the CPU instruction pointer back to earlier memory offsets."
+      },
+      {
+        "type": "heading",
+        "text": "Common Loop Constructs"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "For Loop: Iterates over a defined numerical range, sequence, or array iterator.",
+          "While Loop: Evaluates a condition before each iteration, continuing as long as true.",
+          "Do-While Loop: Executes the body at least once before testing the exit condition at the bottom.",
+          "Infinite Loop: A loop whose exit condition is never satisfied, consuming 100% of a CPU core unless terminated by a break statement."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern languages provide functional iteration operators like map, filter, and forEach that abstract low-level index counting."
+      }
+    ],
+    "tags": ["programming", "loop", "iteration", "while", "for", "control-flow"],
+    "relatedIds": ["what-is-recursion", "what-is-an-algorithm", "what-is-a-function"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-recursion",
+    "title": "Recursion in Computer Science",
+    "category": "programming",
+    "summary": "Recursion is a programming technique where a function calls itself directly or indirectly to solve a problem by breaking it down into smaller sub-problems.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Recursion",
+        "definition": "A computational method where a function invokes itself to reduce a problem toward a well-defined base case that terminates execution."
+      },
+      {
+        "type": "paragraph",
+        "text": "Every recursive function must contain two essential components: a Base Case (which returns a static result without calling itself) and a Recursive Step (which moves the state closer to the base case). Without a valid base case, recursive calls consume all available call stack memory, triggering a Stack Overflow."
+      },
+      {
+        "type": "heading",
+        "text": "Call Stack Mechanics & Tail Call Optimization"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Stack Allocation: Each recursive invocation allocates a new stack frame holding its parameters and return pointer.",
+          "Tree Traversal: Recursion provides the cleanest mathematical model for navigating hierarchical structures like file trees, JSON graphs, and DOM nodes.",
+          "Tail Call Optimization (TCO): In languages supporting tailrec (such as Kotlin, Scala, Scheme), if the recursive call is the final operation in the function, the compiler optimizes it into an iterative loop with zero stack growth."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Any problem solvable with recursion can also be solved iteratively using an explicit loop and a heap-allocated stack data structure."
+      }
+    ],
+    "tags": ["programming", "recursion", "stack", "tailrec", "trees"],
+    "relatedIds": ["what-is-a-function", "what-is-a-loop", "what-is-an-algorithm"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-object-oriented-programming",
+    "title": "Object-Oriented Programming (OOP)",
+    "category": "programming",
+    "summary": "OOP is a programming paradigm organized around objects that encapsulate internal state data with behavioral methods.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Object-Oriented Programming (OOP)",
+        "definition": "A programming model structured around classes and instantiated objects that combine attributes (fields) and behaviors (methods)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Instead of writing isolated procedural functions that pass raw state around, OOP groups data and the logic that operates on that data together into cohesive entities. This mirrors real-world mental models and helps manage complexity in massive codebases."
+      },
+      {
+        "type": "heading",
+        "text": "The Four Pillars of OOP"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Pillar", "Core Principle", "Practical Benefit"],
+        "rows": [
+          {
+            "label": "Encapsulation",
+            "values": ["Hiding internal object state behind private access modifiers and public APIs", "Prevents external code from corrupting internal class invariants"]
+          },
+          {
+            "label": "Abstraction",
+            "values": ["Exposing only essential interface methods while concealing implementation complexity", "Allows changing underlying implementations without breaking consumers"]
+          },
+          {
+            "label": "Inheritance",
+            "values": ["Deriving new specialized classes from existing parent base classes", "Code reuse and hierarchical taxonomy structuring"]
+          },
+          {
+            "label": "Polymorphism",
+            "values": ["Treating distinct derived classes uniformly through a shared interface", "Enables pluggable, decoupled architectures via interface contracts"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern software engineering frequently favors composition over inheritance to avoid brittle, tightly-coupled class hierarchies."
+      }
+    ],
+    "tags": ["programming", "oop", "classes", "polymorphism", "encapsulation", "architecture"],
+    "relatedIds": ["what-is-a-variable", "what-is-a-function", "what-is-a-compiler"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-compiler",
+    "title": "Compilers & Machine Code Generation",
+    "category": "programming",
+    "summary": "A compiler is a computer program that translates human-readable source code into executable binary machine code or intermediate bytecode prior to execution.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Compiler",
+        "definition": "A software translator that processes an entire high-level codebase through lexical analysis, syntax parsing, and optimization to produce machine instructions for a target CPU."
+      },
+      {
+        "type": "paragraph",
+        "text": "Computers understand only 1s and 0s (binary machine instructions like x86 or ARM64). A compiler (such as GCC, Clang, or rustc) takes source code files, validates syntax against grammar rules, optimizes register allocations, and generates a standalone binary executable file."
+      },
+      {
+        "type": "heading",
+        "text": "Compilation Pipeline Stages"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Lexical Analysis (Lexer): Breaks characters into tokens (keywords, identifiers, literals).",
+          "Syntax Analysis (Parser): Builds an Abstract Syntax Tree (AST) validating grammatical structure.",
+          "Semantic Analysis: Checks type correctness, variable declarations, and scope rules.",
+          "Intermediate Representation (IR) & Optimization: Performs dead-code elimination, loop unrolling, and inline expansion (e.g. LLVM IR).",
+          "Code Generation: Emits physical CPU assembly and machine code."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Ahead-Of-Time (AOT) compilers produce native machine code before distribution, while Just-In-Time (JIT) compilers compile bytecode to machine code dynamically during app runtime."
+      }
+    ],
+    "tags": ["programming", "compiler", "llvm", "binary", "ast", "optimization"],
+    "relatedIds": ["what-is-an-interpreter", "what-is-a-variable", "what-is-an-ide"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-an-interpreter",
+    "title": "Interpreters in Programming",
+    "category": "programming",
+    "summary": "An interpreter directly executes instructions written in a programming or scripting language without requiring a prior ahead-of-time compilation step.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Interpreter",
+        "definition": "A program that reads, parses, and executes source code or bytecode line-by-line in real time on a virtual machine or runtime engine."
+      },
+      {
+        "type": "paragraph",
+        "text": "Languages like Python, Ruby, and early JavaScript rely on interpreters. This provides fast development iteration loops (you change a script and run it instantly without waiting for a multi-minute build step), but results in slower execution speeds compared to statically compiled machine code."
+      },
+      {
+        "type": "heading",
+        "text": "Compiler vs Interpreter"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Characteristic", "Compiled Languages (C++, Rust, Go)", "Interpreted / JIT Languages (Python, JS)"],
+        "rows": [
+          {
+            "label": "Build Step",
+            "values": ["Mandatory compilation required before running", "Executes directly from source or intermediate bytecode"]
+          },
+          {
+            "label": "Execution Speed",
+            "values": ["Maximum (Direct CPU execution)", "Moderate to slow (Interpreter loop / JIT warmup overhead)"]
+          },
+          {
+            "label": "Portability",
+            "values": ["Binary is compiled for specific CPU/OS architecture", "Platform-independent scripts run wherever the interpreter is installed"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern runtimes (like Google V8 in Node.js/Chrome and Java JVM) combine interpretation with JIT compilation: hot code loops are detected and compiled to native machine code on the fly."
+      }
+    ],
+    "tags": ["programming", "interpreter", "python", "javascript", "jit", "runtime"],
+    "relatedIds": ["what-is-a-compiler", "what-is-a-variable", "what-is-debugging"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-debugging",
+    "title": "Software Debugging",
+    "category": "programming",
+    "summary": "Debugging is the systematic process of finding, isolating, and resolving software defects, logic errors, and crashes in source code.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Debugging",
+        "definition": "The investigative methodology and tooling used to inspect live program state, memory addresses, and execution flow to diagnose unexpected behavior."
+      },
+      {
+        "type": "paragraph",
+        "text": "When code fails, debugging tools (like GDB, LLDB, or IDE debuggers) allow developers to attach to running processes, pause execution at specific lines (breakpoints), inspect the values of variables in memory, and step through instructions line by line."
+      },
+      {
+        "type": "heading",
+        "text": "Essential Debugging Techniques"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Breakpoints: Pausing execution when the program reaches a specific line of code or memory address.",
+          "Conditional Breakpoints: Halting execution only when a boolean variable state is met (e.g. index == 500).",
+          "Call Stack Inspection: Viewing the exact chain of active function calls that led to the crash point.",
+          "Memory Watchpoints: Triggering alerts whenever a specific memory pointer or variable is overwritten."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The term bug was popularized in 1947 when computer pioneer Grace Hopper found an actual physical moth trapped in a relay of the Harvard Mark II computer."
+      }
+    ],
+    "tags": ["programming", "debugging", "breakpoints", "gdb", "lldb", "stacktrace"],
+    "relatedIds": ["what-is-an-ide", "what-is-a-compiler", "what-is-a-function"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-version-control",
+    "title": "Version Control Systems (VCS)",
+    "category": "programming",
+    "summary": "Version control systems record changes to files over time so that developers can track history, revert mistakes, and collaborate concurrently on shared codebases.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Version Control System (VCS)",
+        "definition": "A software category that logs chronological mutations to source code repositories, enabling branch branching, merge resolution, and immutable historical auditing."
+      },
+      {
+        "type": "paragraph",
+        "text": "Without version control, teams rely on chaotic manual file naming (e.g. project_final_v2_edit.zip). A VCS tracks every single added or deleted line across thousands of files with cryptographic timestamps and author attribution, allowing instant time travel back to any previous working commit."
+      },
+      {
+        "type": "heading",
+        "text": "Centralized vs Distributed VCS"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Model", "Repository Architecture", "Offline Operation", "Examples"],
+        "rows": [
+          {
+            "label": "Centralized (CVCS)",
+            "values": ["Single central server holds full history; clients check out single revisions", "No history access or commits while offline", "SVN (Subversion), Perforce"]
+          },
+          {
+            "label": "Distributed (DVCS)",
+            "values": ["Every developer clone contains the entire complete repository history", "Full commit, branch, and diff operations fully offline", "Git, Mercurial"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Version control is the bedrock of modern Continuous Integration (CI) and automated software release engineering."
+      }
+    ],
+    "tags": ["programming", "vcs", "git", "history", "collaboration"],
+    "relatedIds": ["what-is-git", "what-is-open-source", "what-is-an-ide"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-git",
+    "title": "Git Distributed Version Control",
+    "category": "programming",
+    "summary": "Git is an open-source distributed version control system created by Linus Torvalds, utilizing a Directed Acyclic Graph (DAG) of content-addressable cryptographic snapshots.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Git",
+        "definition": "A distributed version control system that tracks file revisions as immutable snapshots identified by SHA cryptographic hashes in a directed graph."
+      },
+      {
+        "type": "paragraph",
+        "text": "Unlike older systems that stored files as delta differences from previous versions, Git thinks of its data as a stream of snapshots. Every time you commit, Git creates a tree object pointing to immutable blob files representing the exact state of the project at that moment."
+      },
+      {
+        "type": "heading",
+        "text": "The Three Git States"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Working Directory: The actual physical files on your disk that you are editing.",
+          "Staging Area (Index): A binary file holding the list of specific file changes prepared to go into the next commit.",
+          "Git Repository (.git): The permanent database holding all commit objects, branch pointers, and commit history."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Git branches are not heavy copies of code; a branch is merely a lightweight 41-byte text pointer file containing the SHA-1 hash of its latest commit."
+      }
+    ],
+    "tags": ["programming", "git", "vcs", "branch", "commit", "github"],
+    "relatedIds": ["what-is-version-control", "what-is-open-source", "what-is-an-ide"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-an-ide",
+    "title": "Integrated Development Environments (IDE)",
+    "category": "programming",
+    "summary": "An IDE is a comprehensive software application providing code editing, intelligent autocomplete, compiler toolchains, refactoring tools, and debuggers in a single interface.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Integrated Development Environment (IDE)",
+        "definition": "A software suite combining source code editors, Language Server Protocols (LSP), build automation tools, and graphical debuggers into a unified workspace."
+      },
+      {
+        "type": "paragraph",
+        "text": "While a basic text editor (like Notepad) simply alters raw ASCII/UTF-8 characters, an IDE builds an in-memory syntactic model of your entire codebase. It validates variable types in real time, warns of syntax errors before compilation, and performs semantic refactoring across thousands of files simultaneously."
+      },
+      {
+        "type": "heading",
+        "text": "Core IDE Capabilities"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "IntelliSense / Autocomplete: Context-aware suggestion of functions, variables, and imported types as you type.",
+          "Language Server Protocol (LSP): Standardized JSON-RPC protocol allowing editors (like VS Code) to decouple syntax intelligence from UI rendering.",
+          "Integrated Debugger: Visual step-through execution with variable watchers and memory inspection.",
+          "Build Integration: Seamless execution of Gradle, CMake, Cargo, or Maven build systems directly within the tool."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Android Studio is the official IDE for Android development, built on JetBrains IntelliJ IDEA platform and tightly integrated with the Android Gradle plugin."
+      }
+    ],
+    "tags": ["programming", "ide", "vscode", "android-studio", "lsp", "tools"],
+    "relatedIds": ["what-is-a-compiler", "what-is-debugging", "what-is-git"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-open-source",
+    "title": "Open Source Software & Licensing",
+    "category": "programming",
+    "summary": "Open source software is software with source code that anyone can inspect, modify, and enhance under specific legal licensing terms.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Open Source Software (OSS)",
+        "definition": "Software distributed with a license granting users the legal right to study, alter, distribute, and commercialize the underlying source code."
+      },
+      {
+        "type": "paragraph",
+        "text": "The open source philosophy powers the modern software industry: the Linux kernel, Android (AOSP), Chromium, Git, Python, and Room are all open source. It allows global communities of developers to collaborate, audit security vulnerabilities, and build upon shared foundations without paying proprietary licensing fees."
+      },
+      {
+        "type": "heading",
+        "text": "Permissive vs Copyleft Licenses"
+      },
+      {
+        "type": "comparison",
+        "headers": ["License Family", "Philosophy", "Derivative Work Requirements", "Common Licenses"],
+        "rows": [
+          {
+            "label": "Permissive",
+            "values": ["Minimal restrictions", "Allows incorporating code into closed-source proprietary commercial software without disclosing source", "MIT, Apache 2.0, BSD-3-Clause"]
+          },
+          {
+            "label": "Copyleft (Viral)",
+            "values": ["Preserves perpetual software freedom", "Requires any modified derivative work to also be published under the exact same open source license", "GPLv3, AGPLv3"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Android uses the permissive Apache 2.0 license for its userspace framework, allowing phone manufacturers (like Samsung or Google) to add proprietary customizations without open-sourcing their private apps."
+      }
+    ],
+    "tags": ["programming", "open-source", "foss", "licensing", "mit", "gpl", "apache"],
+    "relatedIds": ["what-is-git", "what-is-version-control", "what-is-an-ide"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

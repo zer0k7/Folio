@@ -1,0 +1,391 @@
+[
+  {
+    "id": "what-is-fat32",
+    "title": "FAT32 File System",
+    "category": "storage",
+    "summary": "FAT32 is a legacy file system introduced with Windows 95 OSR2, known for universal compatibility but limited by a 4GB single file size ceiling.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "File Allocation Table 32 (FAT32)",
+        "definition": "A 32-bit file system architecture that uses an index table to map disk clusters to stored file data."
+      },
+      {
+        "type": "paragraph",
+        "text": "Because FAT32 uses a 32-bit binary field to represent file lengths, it cannot address or store any individual file larger than 4,294,967,295 bytes (4GB minus 1 byte). However, its simple design makes it supported out of the box by virtually every operating system, game console, and microcontroller."
+      },
+      {
+        "type": "heading",
+        "text": "Technical Specifications"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Attribute", "FAT32 Limit", "Practical Reality"],
+        "rows": [
+          {
+            "label": "Max File Size",
+            "values": ["4 GB (2^32 - 1 bytes)", "Fails on large 4K video clips or ISOs"]
+          },
+          {
+            "label": "Max Volume Size",
+            "values": ["16 TB (with 4KB sectors)", "Windows formatting tool caps at 32 GB"]
+          },
+          {
+            "label": "Journaling",
+            "values": ["None", "Vulnerable to data corruption on sudden disconnect"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "FAT32 lacks native access permissions, encryption, and journaling, making it unsuitable for modern operating system boot drives."
+      }
+    ],
+    "tags": ["storage", "fat32", "filesystem", "compatibility", "usb"],
+    "relatedIds": ["what-is-exfat", "what-is-ntfs", "what-is-a-file-system"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-exfat",
+    "title": "exFAT File System",
+    "category": "storage",
+    "summary": "exFAT is a modern lightweight file system designed by Microsoft for flash storage, eliminating the 4GB file size limit while maintaining broad OS interoperability.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Extended File Allocation Table (exFAT)",
+        "definition": "A proprietary file system optimized for high-capacity flash drives, SDXC cards, and external SSDs requiring cross-platform read/write support."
+      },
+      {
+        "type": "paragraph",
+        "text": "Introduced in 2006, exFAT solves the primary limitation of FAT32 by supporting theoretical file sizes up to 16 Exabytes. It avoids the heavy file permission overhead of NTFS, allowing digital cameras, modern game consoles, macOS, Linux, and Windows to access large files seamlessly."
+      },
+      {
+        "type": "heading",
+        "text": "When to Use exFAT"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "External hard drives and portable SSDs shared between Windows, macOS, and Linux workstations.",
+          "SDXC memory cards (64GB and larger) utilized in digital SLR cameras and drones.",
+          "Flash drives holding individual video recordings or disk images exceeding 4GB."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Like FAT32, standard exFAT lacks journaling. Always use safe eject before unplugging to prevent file table corruption."
+      }
+    ],
+    "tags": ["storage", "exfat", "filesystem", "flash", "sdcard"],
+    "relatedIds": ["what-is-fat32", "what-is-ntfs", "ssd-vs-hdd"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-ntfs",
+    "title": "NTFS File System",
+    "category": "storage",
+    "summary": "NTFS is the default proprietary journaling file system for Windows, featuring advanced metadata, granular access permissions, compression, and crash recovery.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "New Technology File System (NTFS)",
+        "definition": "A robust journaling file system developed by Microsoft that utilizes a Master File Table (MFT) to track file attributes, security descriptors, and physical disk allocations."
+      },
+      {
+        "type": "paragraph",
+        "text": "NTFS records pending metadata changes into an internal circular transaction log ($LogFile) before committing them to the disk. If power fails mid-write, the file system reads the log on next boot to roll back unfinished transactions, preventing corruption."
+      },
+      {
+        "type": "heading",
+        "text": "Enterprise Capabilities"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Access Control Lists (ACLs): Granular per-user file and folder permission matrices.",
+          "BitLocker & EFS: Transparent file and partition-level cryptographic encryption.",
+          "Volume Shadow Copies: Enables live point-in-time system restore snapshots.",
+          "Sparse Files & Compression: Efficient allocation for large files containing extensive empty blocks."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "macOS can read NTFS drives natively out of the box, but requires third-party kernel extensions or FUSE drivers to perform write operations."
+      }
+    ],
+    "tags": ["storage", "ntfs", "windows", "journaling", "security"],
+    "relatedIds": ["what-is-exfat", "what-is-a-file-system", "what-is-a-partition"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-partition",
+    "title": "Disk Partitioning",
+    "category": "storage",
+    "summary": "A partition is a contiguous logical division of a physical storage drive that the operating system manages as an independent volume.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Disk Partition",
+        "definition": "A defined region of secondary storage that is segmented by partition table metadata so the OS can format and mount it independently."
+      },
+      {
+        "type": "paragraph",
+        "text": "Partitioning allows a single solid-state drive or mechanical hard drive to host multiple operating systems (such as Windows and Linux dual boot) or isolate system binaries from user storage, ensuring system updates do not overwrite personal data."
+      },
+      {
+        "type": "heading",
+        "text": "MBR vs GPT Partition Tables"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "MBR (Legacy)", "GPT (GUID Partition Table)"],
+        "rows": [
+          {
+            "label": "Max Disk Capacity",
+            "values": ["2 TB (32-bit sectors)", "9.4 Zettabytes (64-bit LBA)"]
+          },
+          {
+            "label": "Primary Partitions",
+            "values": ["Up to 4 primary", "Up to 128 (Windows default)"]
+          },
+          {
+            "label": "Redundancy",
+            "values": ["Single sector at LBA 0", "Primary header at LBA 1 + Backup at disk end"]
+          },
+          {
+            "label": "Boot Standard",
+            "values": ["Legacy BIOS", "Modern UEFI"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern Android devices use dynamic partitions contained inside a single raw super partition, allowing OTA updates to resize system, product, and vendor blocks on the fly."
+      }
+    ],
+    "tags": ["storage", "partition", "gpt", "mbr", "uefi"],
+    "relatedIds": ["what-is-a-file-system", "what-is-a-block-size", "what-is-ntfs"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-file-system",
+    "title": "What is a File System?",
+    "category": "storage",
+    "summary": "A file system provides the structural rules and data tables that an operating system uses to organize, locate, name, and retrieve raw binary bytes on storage media.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "File System",
+        "definition": "An abstraction layer that translates contiguous binary blocks of storage hardware into human-readable hierarchical directories and files."
+      },
+      {
+        "type": "paragraph",
+        "text": "Without a file system, a storage device is merely an endless sequence of billions of binary sectors. The operating system would have no way of knowing where one file begins, where another ends, or which sector blocks are currently free for new writes."
+      },
+      {
+        "type": "heading",
+        "text": "Core File System Structures"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Metadata / Inodes: Records containing creation dates, modification timestamps, ownership permissions, and file size.",
+          "Directory Tables: Hierarchical index mappings linking file names to inode numbers or cluster pointers.",
+          "Free Space Bitmaps: Data arrays tracking which physical blocks are unoccupied.",
+          "Journal / WAL: Write-ahead logging structures ensuring filesystem consistency across unexpected crashes."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Linux distributions commonly use ext4, Btrfs, or XFS, whereas Android employs F2FS (Flash-Friendly File System) optimized specifically for NAND flash memory."
+      }
+    ],
+    "tags": ["storage", "filesystem", "inodes", "metadata", "ext4", "f2fs"],
+    "relatedIds": ["what-is-a-partition", "what-is-ntfs", "what-is-a-block-size"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "ssd-vs-hdd",
+    "title": "SSD vs HDD Storage",
+    "category": "storage",
+    "summary": "HDDs use spinning magnetic platters with mechanical read heads, while SSDs use non-volatile semiconductor NAND flash memory for instant random access.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Solid State Drive (SSD)",
+        "definition": "A storage device utilizing semiconductor NAND flash memory chips and an embedded microcontroller to store persistent data without moving parts."
+      },
+      {
+        "type": "paragraph",
+        "text": "Mechanical Hard Disk Drives (HDDs) require a mechanical actuator arm to physically position a magnetic read head over rotating platters spinning at 5400 to 7200 RPM. This physical seek time introduces 5 to 15 milliseconds of latency per read. SSDs access any memory address electronically in under 0.05 milliseconds."
+      },
+      {
+        "type": "heading",
+        "text": "Architecture Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Metric", "Mechanical HDD", "Solid State Drive (SSD)"],
+        "rows": [
+          {
+            "label": "Access Latency",
+            "values": ["5 - 15 ms (Seek time)", "0.02 - 0.05 ms (Electronic)"]
+          },
+          {
+            "label": "Random 4K IOPS",
+            "values": ["~75 - 150 IOPS", "500,000 - 1,500,000+ IOPS"]
+          },
+          {
+            "label": "Shock Resistance",
+            "values": ["Vulnerable to head crashes", "Immune to physical drops and vibrations"]
+          },
+          {
+            "label": "Wear Mechanism",
+            "values": ["Mechanical motor wear", "NAND Program/Erase (P/E) cycle exhaustion"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "HDDs must be defragmented to maintain sequential read speeds. Defragmenting an SSD is harmful because it consumes NAND write endurance cycles without providing access speed benefits."
+      }
+    ],
+    "tags": ["storage", "ssd", "hdd", "nand", "iops", "hardware"],
+    "relatedIds": ["what-is-nvme", "what-is-emmc", "what-is-a-block-size"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-nvme",
+    "title": "NVMe Storage Protocol",
+    "category": "storage",
+    "summary": "NVMe is an open host controller interface engineered specifically for solid-state storage communicating directly over high-speed PCI Express (PCIe) lanes.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Non-Volatile Memory Express (NVMe)",
+        "definition": "A streamlined communications standard that connects SSDs directly to CPU PCIe buses, bypassing legacy SATA controllers."
+      },
+      {
+        "type": "paragraph",
+        "text": "Legacy SATA protocols were created in the early 2000s for slow mechanical hard disks, bottlenecked at 600 MB/s with a single command queue capable of holding only 32 commands. NVMe supports up to 64,000 parallel queues with 64,000 commands each, unlocking massive throughput and parallel execution."
+      },
+      {
+        "type": "heading",
+        "text": "PCIe Generation Throughput"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "PCIe 3.0 x4: Up to ~3,500 MB/s sequential transfer rates.",
+          "PCIe 4.0 x4: Up to ~7,500 MB/s sequential transfer rates.",
+          "PCIe 5.0 x4: Up to ~14,000 MB/s sequential transfer rates.",
+          "Direct Memory Access (DMA): Enables the drive to transfer data into host RAM with minimal CPU intervention."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "M.2 is the physical connector form factor, not the interface protocol. An M.2 drive can run either slow legacy SATA or ultra-fast NVMe PCIe."
+      }
+    ],
+    "tags": ["storage", "nvme", "pcie", "m2", "ssd", "throughput"],
+    "relatedIds": ["ssd-vs-hdd", "what-is-emmc", "what-is-a-block-size"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-emmc",
+    "title": "eMMC Embedded Storage",
+    "category": "storage",
+    "summary": "eMMC packages NAND flash memory and an integrated controller onto an affordable BGA chip using an 8-bit parallel bus standard.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "embedded MultiMediaCard (eMMC)",
+        "definition": "An integrated solid-state storage package combining raw NAND flash and an embedded controller soldered directly to device motherboards."
+      },
+      {
+        "type": "paragraph",
+        "text": "Common in budget smartphones, single-board computers (like Raspberry Pi compute modules), and IoT devices, eMMC manages low-level flash details like wear leveling, bad block retirement, and error correction transparently to the host processor."
+      },
+      {
+        "type": "heading",
+        "text": "Limitations Compared to NVMe & UFS"
+      },
+      {
+        "type": "paragraph",
+        "text": "eMMC operates in half-duplex mode over an 8-bit parallel interface: data can either be written or read, but never simultaneously. This single-lane bottleneck limits top eMMC 5.1 sequential speeds to approximately 300 MB/s, causing UI slowdowns during heavy background disk operations."
+      },
+      {
+        "type": "note",
+        "text": "Modern mid-range and flagship smartphones have universally replaced eMMC with Universal Flash Storage (UFS) for superior random input/output responsiveness."
+      }
+    ],
+    "tags": ["storage", "emmc", "flash", "mobile", "hardware"],
+    "relatedIds": ["ssd-vs-hdd", "what-is-nvme", "what-is-a-block-size"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-block-size",
+    "title": "Storage Block Size & Cluster Size",
+    "category": "storage",
+    "summary": "Block size is the smallest indivisible unit of disk space that a file system or hardware controller can allocate for storing data.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Block Size (Allocation Unit)",
+        "definition": "The discrete chunk size configured on a file system partition defining the minimum amount of addressable storage space allocated to any file."
+      },
+      {
+        "type": "paragraph",
+        "text": "If a file system is formatted with a standard 4KB (4,096 bytes) cluster size, a tiny text file containing only 100 bytes of text will still occupy a full 4,096 bytes of physical drive space. The unused 3,996 bytes is known as internal fragmentation or slack space."
+      },
+      {
+        "type": "heading",
+        "text": "Tuning Block Sizes"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Workload", "Optimal Cluster Size", "Technical Rationale"],
+        "rows": [
+          {
+            "label": "OS System Drives",
+            "values": ["4 KB (Default)", "Minimizes slack space across hundreds of thousands of small source code or configuration files"]
+          },
+          {
+            "label": "Video Editing Drives",
+            "values": ["64 KB - 2 MB (Large)", "Reduces filesystem pointer overhead and accelerates sequential streaming bandwidth"]
+          },
+          {
+            "label": "Database Storage",
+            "values": ["8 KB - 16 KB (Matched)", "Matched to database page cache size (e.g. PostgreSQL 8KB, InnoDB 16KB) to prevent write amplification"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern physical hard drives and SSDs use 4Kn (Advanced Format 4KB native sectors), eliminating legacy 512-byte sector emulation for greater reliability."
+      }
+    ],
+    "tags": ["storage", "block-size", "cluster", "fragmentation", "slack-space"],
+    "relatedIds": ["what-is-a-file-system", "what-is-a-partition", "ssd-vs-hdd"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  }
+]

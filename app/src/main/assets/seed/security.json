@@ -1,0 +1,458 @@
+[
+  {
+    "id": "what-is-encryption",
+    "title": "What is Encryption?",
+    "category": "security",
+    "summary": "Encryption is the mathematical process of encoding plaintext data into unreadable ciphertext so that only authorized parties with a cryptographic key can decipher it.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Cryptographic Encryption",
+        "definition": "The mathematical transformation of human-readable plaintext into pseudorandom ciphertext using an algorithm and a secret cryptographic key."
+      },
+      {
+        "type": "paragraph",
+        "text": "Encryption ensures confidentiality in storage and transit. Even if an adversary intercepts a data stream or physically steals a storage drive, the encrypted bytes cannot be reconstructed without executing billions of years of brute-force compute."
+      },
+      {
+        "type": "heading",
+        "text": "Symmetric vs Asymmetric Encryption"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Type", "Key Structure", "Speed", "Common Algorithms"],
+        "rows": [
+          {
+            "label": "Symmetric",
+            "values": ["Single shared secret key for encryption and decryption", "Extremely Fast (Hardware accelerated)", "AES-256-GCM, ChaCha20"]
+          },
+          {
+            "label": "Asymmetric (Public Key)",
+            "values": ["Keypair: Public key encrypts, Private key decrypts", "Computationally Heavy (1000x slower)", "RSA-4096, ECC, Ed25519"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern secure communication protocols use hybrid encryption: asymmetric cryptography exchanges a temporary symmetric session key, which then encrypts the bulk payload at maximum speed."
+      }
+    ],
+    "tags": ["security", "encryption", "aes", "rsa", "cryptography"],
+    "relatedIds": ["what-is-end-to-end-encryption", "what-is-ssl-tls", "what-is-hashing"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-ssl-tls",
+    "title": "SSL and TLS Protocols",
+    "category": "security",
+    "summary": "TLS is the cryptographic security protocol that authenticates network endpoints and encrypts internet communications over TCP/IP.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Transport Layer Security (TLS)",
+        "definition": "A standard cryptographic protocol that provides endpoint authentication, forward secrecy, and privacy over public computer networks."
+      },
+      {
+        "type": "paragraph",
+        "text": "Secure Sockets Layer (SSL) was originally developed by Netscape in the 1990s. Due to critical cryptographic vulnerabilities (POODLE, BEAST), all versions of SSL (1.0, 2.0, 3.0) and early TLS (1.0, 1.1) are deprecated. Modern internet security runs on TLS 1.2 and TLS 1.3."
+      },
+      {
+        "type": "heading",
+        "text": "The TLS 1.3 Handshake"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Client Hello: Client sends supported cipher suites and key share parameters.",
+          "Server Hello & Certificate: Server returns its X.509 certificate, cryptographic key share, and signature.",
+          "Session Key Derivation: Both parties independently compute symmetric session keys using Elliptic Curve Diffie-Hellman (ECDHE).",
+          "Encrypted Transmission: 1-RTT handshake completes and application payload encryption begins."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "TLS 1.3 mandates Perfect Forward Secrecy (PFS), ensuring that compromising a server private key in the future cannot decrypt previously recorded network traffic."
+      }
+    ],
+    "tags": ["security", "tls", "ssl", "handshake", "cryptography", "pfs"],
+    "relatedIds": ["what-is-https", "what-is-a-certificate", "what-is-encryption"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-https",
+    "title": "Hypertext Transfer Protocol Secure (HTTPS)",
+    "category": "security",
+    "summary": "HTTPS encapsulates standard HTTP application traffic inside an encrypted TLS cryptographic tunnel to prevent eavesdropping and man-in-the-middle tampering.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "HTTPS",
+        "definition": "An extension of the Hypertext Transfer Protocol that utilizes TLS encryption to secure communication between web clients and origin servers over TCP port 443."
+      },
+      {
+        "type": "paragraph",
+        "text": "Under plain HTTP (port 80), all passwords, cookies, and page contents travel across routers and ISPs as unencrypted plaintext. HTTPS encrypts the entire HTTP request and response payload — including URL query parameters, headers, cookies, and body content."
+      },
+      {
+        "type": "heading",
+        "text": "Three Core Security Pillars"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Confidentiality: Intermediaries cannot read transmitted private data or browsing activity.",
+          "Integrity: Network attackers cannot inject rogue scripts, tracking pixels, or ads into web pages in transit.",
+          "Authentication: Digital certificates verify that the client is connected to the genuine website and not an impostor."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "While HTTPS encrypts full URLs and payloads, the target domain hostname itself may still be visible in the Server Name Indication (SNI) header unless Encrypted Client Hello (ECH) is enabled."
+      }
+    ],
+    "tags": ["security", "https", "tls", "web", "http", "privacy"],
+    "relatedIds": ["what-is-ssl-tls", "what-is-a-certificate", "what-is-a-vpn"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-firewall",
+    "title": "Network Firewalls",
+    "category": "security",
+    "summary": "A firewall is a network security system that monitors and filters incoming and outgoing traffic based on predetermined security rules.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Firewall",
+        "definition": "A hardware appliance or software barrier that inspects packet headers and connection states to block unauthorized access while permitting valid communications."
+      },
+      {
+        "type": "paragraph",
+        "text": "Firewalls establish a defensive perimeter between trusted internal networks (such as a home Wi-Fi or corporate intranet) and untrusted external networks (the public internet). They prevent automated port scanners and unauthorized external connections from reaching vulnerable local listening services."
+      },
+      {
+        "type": "heading",
+        "text": "Generations of Firewalls"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Type", "Inspection Layer", "Capabilities"],
+        "rows": [
+          {
+            "label": "Packet Filtering (Stateless)",
+            "values": ["Layer 3 / 4 (Network/Transport)", "Filters purely by source/destination IP and port numbers without tracking connection history"]
+          },
+          {
+            "label": "Stateful Inspection",
+            "values": ["Layer 4 (Transport)", "Tracks TCP handshake states (SYN, ESTABLISHED) to ensure incoming packets correspond to active outbound requests"]
+          },
+          {
+            "label": "Next-Gen Firewall (NGFW)",
+            "values": ["Layer 7 (Application)", "Performs Deep Packet Inspection (DPI), detects specific application protocols, and blocks malware signatures"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern operating systems include built-in software firewalls (such as iptables/nftables on Linux and Windows Defender Firewall) alongside router hardware firewalls."
+      }
+    ],
+    "tags": ["security", "firewall", "networking", "ports", "dpi"],
+    "relatedIds": ["what-is-a-vpn", "what-is-a-rootkit", "what-is-phishing"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-2fa",
+    "title": "Two-Factor Authentication (2FA)",
+    "category": "security",
+    "summary": "2FA is an identity verification mechanism requiring users to present two distinct authentication factors before granting system access.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Two-Factor Authentication (2FA)",
+        "definition": "A security process combining two independent evidence categories to verify user identity: knowledge, possession, or inherence."
+      },
+      {
+        "type": "paragraph",
+        "text": "Passwords alone (a single knowledge factor) are frequently compromised through credential stuffing, phishing, or database breaches. 2FA ensures that even if an attacker acquires your password, they cannot gain account access without possessing your second factor (such as an authenticator app token or hardware security key)."
+      },
+      {
+        "type": "heading",
+        "text": "Authentication Factor Categories"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Something you know: Passwords, PIN codes, security questions.",
+          "Something you have: Time-based One-Time Password (TOTP) apps, SMS verification codes, FIDO2/WebAuthn hardware keys (YubiKey).",
+          "Something you are: Biometrics such as fingerprint recognition, facial scanning, or iris validation."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "SMS-based 2FA is vulnerable to SIM-swapping attacks. Hardware FIDO2 security keys and TOTP apps (RFC 6238) provide significantly stronger protection against phishing."
+      }
+    ],
+    "tags": ["security", "2fa", "mfa", "totp", "fido2", "webauthn"],
+    "relatedIds": ["what-is-phishing", "what-is-encryption", "what-is-a-certificate"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-vpn",
+    "title": "Virtual Private Networks (VPN)",
+    "category": "security",
+    "summary": "A VPN routes device network traffic through an encrypted virtual tunnel to a remote server, masking the user true public IP and securing untrusted Wi-Fi connections.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Virtual Private Network (VPN)",
+        "definition": "An encrypted network overlay that tunnels IP packets from a client device to a remote gateway server before routing them to the public internet."
+      },
+      {
+        "type": "paragraph",
+        "text": "When connected to a VPN, your Internet Service Provider and local network operators can only observe encrypted UDP/TCP packets traveling between your device and the VPN server. Websites you visit see the VPN server public IP address and physical location rather than your own."
+      },
+      {
+        "type": "heading",
+        "text": "Modern VPN Protocols"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Protocol", "Codebase Size", "Cryptographic Suite", "Performance"],
+        "rows": [
+          {
+            "label": "WireGuard",
+            "values": ["~4,000 lines (Lean)", "Modern state-of-the-art (ChaCha20, Curve25519)", "Ultra-fast kernel execution, instant handshake"]
+          },
+          {
+            "label": "OpenVPN",
+            "values": ["~100,000+ lines", "Configurable (OpenSSL, AES, RSA)", "High reliability, but higher CPU and latency overhead"]
+          },
+          {
+            "label": "IPsec / IKEv2",
+            "values": ["Complex standard", "AES-CBC, AES-GCM", "Native OS mobile support, resilient to network switching"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "A commercial VPN does not grant complete anonymity online. Tracking via browser fingerprinting, login sessions, and HTTP cookies remains fully effective."
+      }
+    ],
+    "tags": ["security", "vpn", "wireguard", "openvpn", "tunneling", "privacy"],
+    "relatedIds": ["what-is-encryption", "what-is-https", "what-is-a-firewall"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-phishing",
+    "title": "Phishing Attacks",
+    "category": "security",
+    "summary": "Phishing is a social engineering attack where malicious actors impersonate trustworthy entities to deceive victims into revealing sensitive credentials or downloading malware.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Phishing",
+        "definition": "A deceptive social engineering tactic that exploits human trust and urgency to harvest credentials, financial data, or session cookies via forged communication channels."
+      },
+      {
+        "type": "paragraph",
+        "text": "Attackers construct fraudulent lookalike emails, SMS text messages (smishing), or spoofed login portals designed to resemble legitimate services like Google, Microsoft, or banking institutions. When the victim enters their credentials, the phishing server captures the plaintext login data."
+      },
+      {
+        "type": "heading",
+        "text": "Common Phishing Vectors"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Spear Phishing: Tailored, highly researched attacks targeting a specific individual or organization.",
+          "Clone Phishing: Copying an authentic previously delivered email and replacing genuine links with malicious payloads.",
+          "Reverse Proxy Phishing: Using tools like Evilginx to intercept login sessions and steal live 2FA authentication session cookies in real time."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "FIDO2 / WebAuthn passkeys are cryptographically bound to the exact origin domain, making them mathematically immune to credential phishing attacks."
+      }
+    ],
+    "tags": ["security", "phishing", "social-engineering", "passkeys", "authentication"],
+    "relatedIds": ["what-is-2fa", "what-is-a-certificate", "what-is-encryption"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-certificate",
+    "title": "Digital Certificates & X.509",
+    "category": "security",
+    "summary": "A digital certificate is a cryptographically signed document that binds a public key to an entity identity, verified by a trusted Certificate Authority.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "X.509 Digital Certificate",
+        "definition": "An electronic credential issued and signed by a Certificate Authority (CA) verifying the authentic ownership of a public cryptographic key."
+      },
+      {
+        "type": "paragraph",
+        "text": "When your browser navigates to an HTTPS website, the server presents its X.509 certificate. The browser checks whether the certificate is digitally signed by a trusted root CA bundled in your operating system trust store, validating that you are talking to the real server and not a DNS spoofer."
+      },
+      {
+        "type": "heading",
+        "text": "The Trust Chain Architecture"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Root CA: The highest-level certificate authority pre-installed and locked in system trust stores.",
+          "Intermediate CA: Delegated signing authorities used to issue day-to-day certificates while isolating the root private key.",
+          "Leaf / End-Entity Certificate: The actual domain certificate installed on the web server.",
+          "Certificate Revocation List (CRL) & OCSP: Real-time verification mechanisms checking if a compromised certificate was revoked before expiration."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Certificate Transparency (CT) logs require all publicly trusted SSL/TLS certificates to be recorded in append-only cryptographic ledgers to prevent rogue CA issuance."
+      }
+    ],
+    "tags": ["security", "certificate", "x509", "pki", "ca", "tls"],
+    "relatedIds": ["what-is-ssl-tls", "what-is-https", "what-is-encryption"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-end-to-end-encryption",
+    "title": "End-to-End Encryption (E2EE)",
+    "category": "security",
+    "summary": "E2EE encrypts data on the sender device so that only the designated recipient holds the private decryption keys, preventing service providers and relays from reading message contents.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "End-to-End Encryption (E2EE)",
+        "definition": "A cryptographic communication system where messages are encrypted on the originating client and decrypted exclusively on the recipient terminal device."
+      },
+      {
+        "type": "paragraph",
+        "text": "Under traditional transport encryption (like standard email), data is encrypted between client and server, but decrypted in memory on the company servers for storage and processing. Under true E2EE, intermediate relay servers only handle opaque ciphertext blobs and have zero ability to decrypt contents."
+      },
+      {
+        "type": "heading",
+        "text": "The Signal Protocol Architecture"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Double Ratchet Algorithm: Constantly rolls and derives new ephemeral keys for every individual message.",
+          "Forward Secrecy: Compromising today message key cannot decrypt past conversations.",
+          "Break-in Recovery: Future messages automatically regain cryptographic security even if a temporary key was exposed."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "While E2EE protects message content, communication metadata (such as sender/recipient IDs, timestamps, and IP addresses) may still be accessible to service providers."
+      }
+    ],
+    "tags": ["security", "e2ee", "signal", "privacy", "messaging", "encryption"],
+    "relatedIds": ["what-is-encryption", "what-is-ssl-tls", "what-is-hashing"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-hashing",
+    "title": "Cryptographic Hash Functions",
+    "category": "security",
+    "summary": "A hash function is a one-way mathematical algorithm that converts arbitrary input data into a fixed-length string of bits with mathematical collision resistance.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Cryptographic Hash Function",
+        "definition": "A deterministic mathematical algorithm that maps arbitrary-size inputs to a fixed-size digest, irreversible even with extensive compute."
+      },
+      {
+        "type": "paragraph",
+        "text": "Unlike encryption (which is two-way and intended to be decrypted with a key), hashing is strictly one-way. You cannot reverse a hash back to its original plaintext. A single byte change in the input completely randomizes the entire resulting digest — known as the avalanche effect."
+      },
+      {
+        "type": "heading",
+        "text": "Key Properties and Applications"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Use Case", "Algorithm Requirements", "Standard Functions"],
+        "rows": [
+          {
+            "label": "Data Integrity",
+            "values": ["High speed, collision resistance", "SHA-256, BLAKE3"]
+          },
+          {
+            "label": "Password Storage",
+            "values": ["Deliberately slow, memory-hard against GPU/ASIC attacks", "Argon2id, bcrypt, scrypt"]
+          },
+          {
+            "label": "Digital Signatures",
+            "values": ["Pre-image resistance, strict collision resistance", "SHA-384, SHA-512, Ed25519"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Legacy hash functions MD5 and SHA-1 are cryptographically broken due to demonstrated practical collision attacks and must never be used for security validation."
+      }
+    ],
+    "tags": ["security", "hashing", "sha256", "argon2", "passwords", "integrity"],
+    "relatedIds": ["what-is-encryption", "what-is-end-to-end-encryption", "what-is-a-certificate"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-rootkit",
+    "title": "Rootkits & Kernel-Level Malware",
+    "category": "security",
+    "summary": "A rootkit is stealth malware designed to gain administrative control over a computer while concealing its existence from operating system diagnostics and antivirus tools.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Rootkit",
+        "definition": "A sophisticated class of malware that modifies operating system kernel tables, drivers, or firmware to conceal malicious processes and maintain persistent superuser control."
+      },
+      {
+        "type": "paragraph",
+        "text": "Traditional viruses run in userspace (Ring 3) where antivirus scanners can inspect their memory. Rootkits execute at kernel level (Ring 0) or hypervisor/firmware level (Ring -1 / Ring -2). A kernel rootkit intercepts system calls like sys_getdents, removing its own files and processes from OS task managers."
+      },
+      {
+        "type": "heading",
+        "text": "Rootkit Classification"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Kernel Rootkits: Patch system call tables and kernel data structures in memory to hide network sockets and processes.",
+          "Bootkits: Infect the Master Boot Record (MBR) or Volume Boot Record (VBR) to execute code before the OS loads.",
+          "Firmware / UEFI Rootkits: Flash persistent malicious code directly onto the motherboard SPI flash memory, surviving complete drive replacements."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Hardware Secure Boot and TPM (Trusted Platform Module) attestation were specifically created to defeat rootkits by cryptographically verifying firmware signatures before boot."
+      }
+    ],
+    "tags": ["security", "rootkit", "malware", "kernel", "uefi", "secure-boot"],
+    "relatedIds": ["what-is-a-firewall", "what-is-encryption", "what-is-a-kernel"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  }
+]

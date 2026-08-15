@@ -1,0 +1,442 @@
+[
+  {
+    "id": "what-is-pdf",
+    "title": "Portable Document Format (PDF)",
+    "category": "formats",
+    "summary": "PDF is a cross-platform document standard developed by Adobe that encapsulates fixed vector layouts, typography, raster graphics, and forms independently of software or hardware.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Portable Document Format (PDF)",
+        "definition": "An ISO 32000 open standard format representing two-dimensional documents with fixed coordinate geometry, embedded vector fonts, and raster images."
+      },
+      {
+        "type": "paragraph",
+        "text": "Unlike HTML or Word documents (which reflow and change page layout depending on screen size or installed system fonts), a PDF renders identically down to the exact millimeter on every printer, mobile phone, and computer operating system."
+      },
+      {
+        "type": "heading",
+        "text": "Core PDF Architecture"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "PostScript Roots: Based on a declarative 2D graphics model defining vector shapes, clipping paths, and matrix transformations.",
+          "Font Subsetting: Embeds only the specific glyphs used in the document directly into the binary file.",
+          "Cross-Reference Table (XREF): An indexed byte-offset table allowing PDF readers to jump instantly to page 500 without parsing pages 1 through 499."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "PDF/A is a specialized ISO subset strictly prohibiting dynamic scripts, external font references, and encryption to ensure permanent archival preservation for centuries."
+      }
+    ],
+    "tags": ["formats", "pdf", "documents", "postscript", "standards"],
+    "relatedIds": ["what-is-svg", "what-is-jpeg-vs-png", "what-is-xml-vs-json"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-jpeg-vs-png",
+    "title": "JPEG vs PNG Image Formats",
+    "category": "formats",
+    "summary": "JPEG uses lossy discrete cosine transform compression for photographic scenes, while PNG uses lossless DEFLATE compression with alpha channel transparency for graphics.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "JPEG & PNG",
+        "definition": "The two foundational raster image formats: JPEG is optimized for continuous-tone photography, while PNG is designed for lossless graphics and transparent UI assets."
+      },
+      {
+        "type": "paragraph",
+        "text": "JPEG achieves massive file compression (10:1 to 20:1) by dividing the image into 8x8 pixel blocks, converting spatial data into frequency domains via Discrete Cosine Transform (DCT), and quantizing high-frequency color detail that human vision cannot detect. PNG uses lossless 2D prediction filters and DEFLATE compression."
+      },
+      {
+        "type": "heading",
+        "text": "Format Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "JPEG Format", "PNG Format"],
+        "rows": [
+          {
+            "label": "Compression Type",
+            "values": ["Lossy (Irreversible)", "Lossless (Bit-perfect)"]
+          },
+          {
+            "label": "Alpha Transparency",
+            "values": ["No (White background default)", "Yes (Full 8-bit alpha channel transparency)"]
+          },
+          {
+            "label": "Best Workload",
+            "values": ["Photographs, natural real-world textures", "App icons, screenshots, logos, UI buttons, sharp text"]
+          },
+          {
+            "label": "Artifacts",
+            "values": ["Ringing and blockiness around sharp text and high-contrast edges", "Zero compression artifacts; pixel-perfect rendering"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "WebP and AVIF are modern web formats that provide both lossy and lossless modes with alpha transparency, outperforming both JPEG and PNG in compression efficiency."
+      }
+    ],
+    "tags": ["formats", "jpeg", "png", "images", "compression", "transparency"],
+    "relatedIds": ["what-is-svg", "what-is-mp4", "what-is-webp"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-svg",
+    "title": "Scalable Vector Graphics (SVG)",
+    "category": "formats",
+    "summary": "SVG is an XML-based vector image format that describes two-dimensional graphics using mathematical equations, scaling infinitely without pixelation.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Scalable Vector Graphics (SVG)",
+        "definition": "An open standard XML text specification defining geometric primitives (paths, circles, polygons, curves) with mathematical coordinate vectors."
+      },
+      {
+        "type": "paragraph",
+        "text": "Raster images (like PNG or JPEG) are rigid grids of colored square pixels; zooming into them exposes blurry pixelation. SVG images store mathematical formulas for lines and curves (e.g. 'draw a cubic Bezier curve from point A to point B'). When rendered, the GPU calculates coordinates dynamically, ensuring pristine sharpness at any screen resolution or zoom level."
+      },
+      {
+        "type": "heading",
+        "text": "SVG Capabilities in Modern Web & Mobile"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Resolution Independence: A single 2KB SVG icon scales flawlessly from a 16px smartwatch display up to an 8K television billboard.",
+          "CSS & DOM Styling: Because SVG is XML, elements can be styled with CSS, animated with transitions, and manipulated directly via JavaScript.",
+          "Vector Drawables: Android compiles SVGs into Android VectorDrawable XML resources, enabling programmatic color theming."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "SVGs are plain text XML files; always sanitize user-uploaded SVGs to prevent Cross-Site Scripting (XSS) attacks from embedded <script> tags."
+      }
+    ],
+    "tags": ["formats", "svg", "vector", "xml", "graphics", "resolution-independent"],
+    "relatedIds": ["what-is-jpeg-vs-png", "what-is-pdf", "what-is-xml-vs-json"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-mp4",
+    "title": "MPEG-4 Part 14 (MP4)",
+    "category": "formats",
+    "summary": "MP4 is the universally supported digital multimedia container format standardized by ISO/IEC, multiplexing video, audio, and subtitles.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "MP4 (ISO/IEC 14496-14)",
+        "definition": "A standard digital multimedia container format based on the QuickTime File Format, structuring media streams into hierarchical binary atoms."
+      },
+      {
+        "type": "paragraph",
+        "text": "MP4 is the de facto standard for video on the internet, supported by all web browsers, smartphones, televisions, and video editing suites. It acts as a digital envelope holding video streams (H.264, H.265/HEVC, AV1) and audio streams (AAC, MP3, Opus)."
+      },
+      {
+        "type": "heading",
+        "text": "MP4 Atom Hierarchy (moov & mdat)"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "mdat (Media Data): The raw compressed video and audio packets.",
+          "moov (Movie Metadata): The index table mapping packet timestamps to byte offsets inside mdat.",
+          "Fast Start (Web Streaming): Relocating the moov atom to the very beginning of the file allows web browsers to begin playing video immediately before downloading the full file."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "If recording software crashes before writing the moov atom index at the end of an MP4 recording, the entire video file becomes unplayable."
+      }
+    ],
+    "tags": ["formats", "mp4", "video", "container", "h264", "streaming"],
+    "relatedIds": ["what-is-mkv", "what-is-codec", "what-is-mp4"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-mkv",
+    "title": "Matroska Multimedia Container (MKV)",
+    "category": "formats",
+    "summary": "MKV is an open-source, highly extensible multimedia container format capable of holding an unlimited number of video, audio, picture, and subtitle tracks.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Matroska Video (MKV)",
+        "definition": "An open standard, royalty-free container format based on Extensible Binary Meta Language (EBML), supporting virtually any audio/video codec and advanced soft subtitles."
+      },
+      {
+        "type": "paragraph",
+        "text": "While MP4 is constrained by strict ISO standards, MKV is designed to be the universal digital media container. A single MKV file can package 4K HDR video, multiple language audio tracks (Dolby Atmos, DTS-HD Master Audio, FLAC), and multiple stylized ASS/SSA subtitle tracks."
+      },
+      {
+        "type": "heading",
+        "text": "MKV vs MP4 Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "Matroska (.mkv)", "MPEG-4 (.mp4)"],
+        "rows": [
+          {
+            "label": "Codec Freedom",
+            "values": ["Supports all codecs (VP9, AV1, ProRes, FLAC, Vorbis)", "Restricted to ISO-approved codecs (H.264, H.265, AAC)"]
+          },
+          {
+            "label": "Subtitles",
+            "values": ["Full support for advanced vector subtitles (ASS/SSA, PGS, SRT)", "Limited to basic TX3G and WebVTT text"]
+          },
+          {
+            "label": "Native Hardware Support",
+            "values": ["Supported via players (VLC, ExoPlayer); not native in standard HTML5 video tag", "Universal native hardware support on every browser and mobile device"]
+          },
+          {
+            "label": "Crash Resilience",
+            "values": ["Recovers streamed data easily due to EBML packet structure", "Vulnerable to corrupted moov atom"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "WebM is a specialized open-source container subset of Matroska restricted to VP8/VP9/AV1 video and Opus/Vorbis audio for native HTML5 web video."
+      }
+    ],
+    "tags": ["formats", "mkv", "matroska", "ebml", "video", "subtitles"],
+    "relatedIds": ["what-is-mp4", "what-is-codec", "what-is-lossy-vs-lossless"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-zip",
+    "title": "ZIP Archive & DEFLATE Algorithm",
+    "category": "formats",
+    "summary": "ZIP is an archive file format supporting lossless data compression that bundles multiple individual files and directories into a single compressed container.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "ZIP File Format",
+        "definition": "An archive format that combines individual file streams with Central Directory metadata using the lossless DEFLATE (LZ77 + Huffman) compression algorithm."
+      },
+      {
+        "type": "paragraph",
+        "text": "ZIP is ubiquitous in computing: modern document formats (.docx, .xlsx, .pptx), Android app packages (.apk), Java archives (.jar), and EPUB books (.epub) are all standard ZIP files with customized internal directory structures."
+      },
+      {
+        "type": "heading",
+        "text": "Central Directory Architecture"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Independent Compression: Each file inside a ZIP archive is compressed individually, allowing software to extract one file without decompressing the entire archive.",
+          "Central Directory at File End: The master index listing all file names, original sizes, and compressed byte offsets is located at the very end of the file.",
+          "Streaming Archive Limitations: Because the directory is at the end, ZIP files cannot be fully parsed in a single sequential streaming pass until the final bytes arrive."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Tarballs (.tar.gz) on Linux compress the entire archive as one continuous solid block, achieving higher compression ratios than ZIP at the cost of requiring full decompression to extract a single file."
+      }
+    ],
+    "tags": ["formats", "zip", "compression", "deflate", "archive", "apk"],
+    "relatedIds": ["what-is-apk", "what-is-iso-file", "what-is-a-file-system"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-apk",
+    "title": "Android Application Packages (APK)",
+    "category": "formats",
+    "summary": "An APK is the package file format used by the Android operating system to distribute and install mobile apps, compiled classes, and bundled assets.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Android Package (APK)",
+        "definition": "A specialized ZIP archive containing compiled Dalvik bytecode (classes.dex), resources (resources.arsc), native C/C++ libraries, and an AndroidManifest.xml manifest."
+      },
+      {
+        "type": "paragraph",
+        "text": "When you install an app on Android, the package manager (PackageManagerService) unzips and validates the cryptographic signature of the APK, verifies permissions in AndroidManifest.xml, and compiles the DEX bytecode to native machine code via ART (Android Runtime)."
+      },
+      {
+        "type": "heading",
+        "text": "Internal APK Directory Structure"
+      },
+      {
+        "type": "comparison",
+        "headers": ["File / Folder", "Purpose", "Format"],
+        "rows": [
+          {
+            "label": "classes.dex",
+            "values": ["Compiled Java/Kotlin code compiled into Dalvik Executable bytecode", "DEX format executed by ART runtime"]
+          },
+          {
+            "label": "AndroidManifest.xml",
+            "values": ["Declares package name, permissions, activities, and services", "Binary XML format"]
+          },
+          {
+            "label": "resources.arsc",
+            "values": ["Pre-compiled resource index containing strings, IDs, and style references", "Binary resource table"]
+          },
+          {
+            "label": "lib / <abi>",
+            "values": ["Native C/C++ compiled shared libraries (.so) for arm64-v8a, armeabi-v7a, x86_64", "ELF shared object binaries"]
+          },
+          {
+            "label": "META-INF",
+            "values": ["Holds the cryptographic signing certificates and APK Signature Scheme v2/v3 blocks", "Cryptographic signature validation"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Android App Bundles (AAB) are uploaded to Google Play instead of raw APKs, allowing Google servers to generate optimized split APKs tailored to each user device architecture and screen density."
+      }
+    ],
+    "tags": ["formats", "apk", "android", "dex", "art", "aab", "manifest"],
+    "relatedIds": ["what-is-zip", "what-is-a-bootloader", "what-is-adb"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-iso-file",
+    "title": "ISO Optical Disk Images",
+    "category": "formats",
+    "summary": "An ISO image is an uncompressed, sector-by-sector exact binary copy of an entire optical disc or bootable file system.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "ISO Image File",
+        "definition": "An archive file format containing an exact raw sector copy of an ISO 9660 or UDF file system, including boot sector code."
+      },
+      {
+        "type": "paragraph",
+        "text": "When you download a Linux distribution (like Ubuntu) or Windows installation media, it is delivered as an .iso file. It preserves the exact boot code (El Torito boot specification) required to make a flash drive or DVD bootable upon hardware restart."
+      },
+      {
+        "type": "heading",
+        "text": "Flashing vs Copying an ISO"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Raw Block Flashing: Tools like Rufus or balenaEtcher write the ISO sector-by-sector directly to the raw block device (/dev/sdb), writing the MBR/GPT partition tables and UEFI boot files.",
+          "Virtual Mounting: Operating systems can mount an ISO directly as a virtual loopback drive in memory, allowing users to browse and execute files without burning a physical disc.",
+          "Hybrid ISO (isohybrid): Contains both an ISO 9660 filesystem for CD/DVDs and an MBR partition table for direct USB bootability."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Simply dragging and dropping an ISO file onto a blank USB flash drive will not make it bootable; the boot sector must be written to LBA 0 of the drive."
+      }
+    ],
+    "tags": ["formats", "iso", "bootable", "imaging", "uefi", "storage"],
+    "relatedIds": ["what-is-a-partition", "what-is-a-file-system", "what-is-bios-uefi"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-csv",
+    "title": "Comma-Separated Values (CSV)",
+    "category": "formats",
+    "summary": "CSV is a plain-text tabular data format that uses commas to separate columns and newlines to represent records.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "CSV (RFC 4180)",
+        "definition": "A lightweight plain-text format representing two-dimensional database tables and spreadsheets with comma-delimited columns."
+      },
+      {
+        "type": "paragraph",
+        "text": "CSV is the universal lingua franca for exporting and importing relational database tables. Because it is unformatted plain ASCII/UTF-8 text without proprietary binary encoding, any programming language can parse a CSV file with simple string splitting."
+      },
+      {
+        "type": "heading",
+        "text": "Escaping Rules (RFC 4180)"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Comma within Value: If a text field contains a literal comma (e.g. \"London, England\"), the entire field must be enclosed in double quotes.",
+          "Double Quotes within Value: A literal quotation mark inside a quoted field is escaped by doubling it (e.g. \"He said \"\"Hello\"\"\").",
+          "Line Breaks: Multiline text cells are preserved when enclosed within double quotes."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "CSV lacks data type metadata: everything is parsed as raw strings, requiring application code to infer whether '01234' is a zip code string or an integer."
+      }
+    ],
+    "tags": ["formats", "csv", "data", "tables", "database", "rfc4180"],
+    "relatedIds": ["what-is-json", "what-is-xml-vs-json", "what-is-a-file-system"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-xml-vs-json",
+    "title": "XML vs JSON Formats",
+    "category": "formats",
+    "summary": "XML is an extensible tag-based markup language with schema validation, while JSON is a concise key-value data structure standard.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "XML & JSON",
+        "definition": "The two primary structured data interchange formats: XML uses hierarchical markup tags, while JSON uses key-value object and array literals."
+      },
+      {
+        "type": "paragraph",
+        "text": "In the early 2000s, XML dominated enterprise data exchange (SOAP APIs, SVG, Android layouts). Over time, JSON replaced XML for web APIs because JSON maps directly to native programming language objects and arrays without closing-tag payload overhead."
+      },
+      {
+        "type": "heading",
+        "text": "Format Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Attribute", "XML (Extensible Markup Language)", "JSON (JavaScript Object Notation)"],
+        "rows": [
+          {
+            "label": "Syntax Verbosity",
+            "values": ["High (Requires opening <tag> and closing </tag> tags)", "Low (Concise brackets and commas)"]
+          },
+          {
+            "label": "Schema Validation",
+            "values": ["Native, powerful (XSD, DTD, XML Schema)", "External (JSON Schema)"]
+          },
+          {
+            "label": "Namespaces & Attributes",
+            "values": ["Full native namespace and tag attribute support", "No native namespaces or element attributes"]
+          },
+          {
+            "label": "Primary Modern Usage",
+            "values": ["Android layouts/manifests, SVG vector graphics, Microsoft Office (.docx)", "Web APIs, REST payloads, configuration files"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "XML parsers are susceptible to XML External Entity (XXE) injection and Billion Laughs exponential entity expansion attacks unless explicitly disabled in parser configurations."
+      }
+    ],
+    "tags": ["formats", "xml", "json", "data", "serialization", "schemas"],
+    "relatedIds": ["what-is-json", "what-is-svg", "what-is-an-api"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

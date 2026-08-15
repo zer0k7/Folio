@@ -1,0 +1,303 @@
+[
+  {
+    "id": "what-is-frp",
+    "title": "Factory Reset Protection (FRP)",
+    "category": "android",
+    "summary": "FRP is an Android security feature that prevents unauthorized factory resets from enabling use without prior Google account credentials.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Factory Reset Protection (FRP)",
+        "definition": "A built-in Android anti-theft mechanism activated when a Google account is added, requiring original account credentials after an untrusted recovery reset."
+      },
+      {
+        "type": "paragraph",
+        "text": "Introduced in Android 5.1 Lollipop, FRP binds the device unique cryptographic identifiers to the primary Google account. If a device is wiped through recovery mode, fastboot, or hardware key combinations rather than system Settings, the setup wizard will halt and demand the previous account credentials."
+      },
+      {
+        "type": "heading",
+        "text": "Legitimate Deactivation"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "To safely sell or transfer an Android device, remove all Google and OEM accounts directly from the Settings app before factory resetting.",
+          "Performing a factory reset from within the Android Settings menu triggers an authorized wipe and disarms FRP automatically.",
+          "Enabling OEM Unlocking in Developer Options also disables FRP verification during custom flashing."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "FRP information is stored in the persistent partition (frp or config). Simply flashing a standard stock ROM over Fastboot will not clear FRP flags on secure devices."
+      }
+    ],
+    "tags": ["android", "security", "frp", "google-lock", "recovery"],
+    "relatedIds": ["what-is-oem-unlock", "what-is-recovery-mode", "what-is-bootloader"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-oem-unlock",
+    "title": "OEM Unlocking",
+    "category": "android",
+    "summary": "OEM Unlocking is a toggle in Android Developer Options that authorizes the bootloader to execute unlock commands and allow custom software.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "OEM Unlock Toggle",
+        "definition": "A system-level user consent flag in Android that instructs the bootloader firmware to permit low-level unlocking operations."
+      },
+      {
+        "type": "paragraph",
+        "text": "By default, the bootloader will reject any command to unlock (such as fastboot flashing unlock). Enabling OEM Unlocking signals to the hardware trust engine that the device owner intends to modify system firmware, allowing bootloader commands to proceed."
+      },
+      {
+        "type": "heading",
+        "text": "Security Implications and Data Wipe"
+      },
+      {
+        "type": "paragraph",
+        "text": "Executing an actual bootloader unlock immediately triggers a mandatory cryptographic wipe of the entire data partition to prevent physical attackers from accessing encrypted user storage via custom recoveries or kernels."
+      },
+      {
+        "type": "note",
+        "text": "Carrier-locked devices (such as certain US carrier variants) often permanently disable or omit the OEM Unlocking toggle entirely via firmware policies."
+      }
+    ],
+    "tags": ["android", "bootloader", "fastboot", "flashing"],
+    "relatedIds": ["what-is-bootloader", "what-is-fastboot", "what-is-frp"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-bootloader",
+    "title": "The Android Bootloader",
+    "category": "android",
+    "summary": "The bootloader is the first low-level software code executed when an Android device powers on, responsible for verifying and loading the OS kernel.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Bootloader",
+        "definition": "Low-level firmware that initializes hardware peripherals, validates cryptographic signatures of system partitions, and hands control over to the Linux kernel."
+      },
+      {
+        "type": "paragraph",
+        "text": "On Android devices, the boot process begins at Primary Boot Loader (PBL) in ROM, moves to Secondary Boot Loader (SBL / ABOOT / XBL), and verifies Android Verified Boot (AVB) signatures before running the boot image kernel."
+      },
+      {
+        "type": "heading",
+        "text": "Chain of Trust"
+      },
+      {
+        "type": "paragraph",
+        "text": "In a locked state, the bootloader verifies that each subsequent stage (vbmeta, dtbo, boot, system, vendor) is signed with OEM private keys. If verification fails, boot is halted to protect device integrity."
+      },
+      {
+        "type": "diagram",
+        "key": "bootloader_chain"
+      },
+      {
+        "type": "note",
+        "text": "Unlocking the bootloader breaks the verified boot chain of trust, which can cause apps relying on Play Integrity or SafetyNet hardware attestation to fail."
+      }
+    ],
+    "tags": ["android", "bootloader", "avb", "kernel", "chain-of-trust"],
+    "relatedIds": ["what-is-fastboot", "what-is-oem-unlock", "what-is-rooting"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": true
+  },
+  {
+    "id": "what-is-fastboot",
+    "title": "Fastboot Protocol",
+    "category": "android",
+    "summary": "Fastboot is a diagnostic protocol and command-line tool used to modify the flash filesystem from a computer via USB while the device is in bootloader mode.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Fastboot",
+        "definition": "A low-level communication protocol and CLI tool that interacts directly with the bootloader firmware before the Android operating system starts."
+      },
+      {
+        "type": "paragraph",
+        "text": "Fastboot operates independently of the Android OS and kernel. It is commonly used for recovering bricked devices, flashing partition images (system.img, recovery.img, boot.img), and managing device boot states."
+      },
+      {
+        "type": "heading",
+        "text": "Essential Fastboot Commands"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "fastboot devices: Lists connected devices in fastboot mode.",
+          "fastboot flash <partition> <file.img>: Writes an image directly to the specified partition.",
+          "fastboot boot <boot.img>: Temporarily loads and boots a kernel image without flashing it to storage.",
+          "fastboot reboot: Restarts the device into normal system mode."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Fastbootd is a userspace fastboot implementation introduced in Android 10 to support dynamic partitioning (super.img)."
+      }
+    ],
+    "tags": ["android", "fastboot", "flashing", "bootloader", "terminal"],
+    "relatedIds": ["what-is-adb", "what-is-bootloader", "what-is-twrp"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-twrp",
+    "title": "TWRP Custom Recovery",
+    "category": "android",
+    "summary": "Team Win Recovery Project (TWRP) is a custom open-source recovery environment offering a touchscreen interface and advanced partition management tools.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Custom Recovery (TWRP)",
+        "definition": "A replacement for the stock Android recovery partition that enables complete Nandroid backups, flashing custom ROMs/zips, and direct filesystem access."
+      },
+      {
+        "type": "paragraph",
+        "text": "Stock Android recovery only allows factory resets and cryptographically signed OTA updates. TWRP provides a full touchscreen GUI running an independent lightweight Linux RAMDisk, allowing users to flash unsigned ZIPs, partition storage, and backup raw flash blocks."
+      },
+      {
+        "type": "heading",
+        "text": "Key TWRP Capabilities"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Nandroid Backups: Creates exact binary images of boot, system, vendor, and data partitions.",
+          "ADB Sideload: Allows pushing and installing firmware packages directly from a host PC over USB.",
+          "File Manager & Terminal: Full root file manipulation directly within recovery mode.",
+          "Decryption Engine: Built-in support for decrypting Android FBE (File-Based Encryption) via screen PIN or pattern."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "On newer devices with A/B seamless partition schemes, recovery is integrated into the boot.img rather than existing as a separate dedicated recovery partition."
+      }
+    ],
+    "tags": ["android", "twrp", "recovery", "nandroid", "custom-rom"],
+    "relatedIds": ["what-is-recovery-mode", "what-is-rooting", "what-is-fastboot"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-recovery-mode",
+    "title": "Android Recovery Mode",
+    "category": "android",
+    "summary": "Recovery mode is a dedicated, lightweight maintenance environment stored on a separate flash partition from the main Android OS.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Recovery Mode",
+        "definition": "A secondary bootable mini-OS designed to perform maintenance tasks, apply system updates, and execute factory resets without loading the main Android framework."
+      },
+      {
+        "type": "paragraph",
+        "text": "Recovery mode is accessed by holding specific hardware button combinations during power-on (such as Power + Volume Up). Because it resides on its own partition with its own kernel and RAMDisk, recovery functions even if the primary system partition is corrupted."
+      },
+      {
+        "type": "heading",
+        "text": "Stock Recovery Actions"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Reboot system now: Exits recovery and boots the primary operating system.",
+          "Apply update from ADB: Installs official OTA upgrade packages via adb sideload.",
+          "Wipe data / factory reset: Formats the userdata and cache partitions back to factory state.",
+          "View recovery logs: Dumps error diagnostic information from previous boot failures."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Stock recoveries will reject any update package that is not signed with the OEM official cryptographic private key."
+      }
+    ],
+    "tags": ["android", "recovery", "ota", "maintenance", "reset"],
+    "relatedIds": ["what-is-twrp", "what-is-frp", "what-is-bootloader"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-adb",
+    "title": "Android Debug Bridge (ADB)",
+    "category": "android",
+    "summary": "ADB is a versatile command-line tool that lets developers and power users communicate with and manage an Android device from a computer.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Android Debug Bridge (ADB)",
+        "definition": "A client-server communication tool consisting of a client (on host PC), a daemon (adbd on device), and a server managing the connection over USB or TCP/IP."
+      },
+      {
+        "type": "paragraph",
+        "text": "ADB requires enabling USB Debugging in Developer Options. Once authorized with an RSA cryptographic keypair, ADB grants command shell access, application package management, log inspection via logcat, and file transfer capabilities."
+      },
+      {
+        "type": "heading",
+        "text": "Common ADB Commands"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "adb shell: Opens an interactive Unix command shell on the Android device.",
+          "adb install app.apk: Transfers and installs an application package.",
+          "adb logcat: Streams real-time system log buffers for debugging.",
+          "adb pull / remote / path: Copies files from device storage to the host machine.",
+          "adb push local / path: Copies files from the host machine to device storage."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "ADB runs with shell user permissions (UID 2000), which is more privileged than normal apps but less privileged than root (UID 0)."
+      }
+    ],
+    "tags": ["android", "adb", "debugging", "terminal", "logcat"],
+    "relatedIds": ["what-is-fastboot", "what-is-rooting", "what-is-oem-unlock"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-rooting",
+    "title": "Rooting Android",
+    "category": "android",
+    "summary": "Rooting is the process of acquiring superuser (UID 0) access on Android, granting unrestricted read, write, and execute permissions across the operating system.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Root Access (Superuser)",
+        "definition": "Elevating user privileges to UID 0 (root), bypassing Android standard application sandboxing and permission constraints."
+      },
+      {
+        "type": "paragraph",
+        "text": "Android is built on top of the Linux kernel, where root is the ultimate administrative account. Normal apps run under isolated unique Linux user IDs without root capabilities. Rooting installs a superuser binary (such as Magisk su or KernelSU) that mediates root requests."
+      },
+      {
+        "type": "heading",
+        "text": "Systemless Root and Magisk"
+      },
+      {
+        "type": "paragraph",
+        "text": "Modern rooting solutions like Magisk and KernelSU use systemless modification: they patch the boot.img / kernel RAMDisk and mount modified overlay files in memory without altering the physical system partition, preserving OTA integrity and enabling modular root management."
+      },
+      {
+        "type": "note",
+        "text": "Rooting permanently trips certain hardware security flags (like Samsung Knox 0x1 EFuse), which cannot be reversed even after returning to full stock firmware."
+      }
+    ],
+    "tags": ["android", "root", "magisk", "superuser", "kernelsu"],
+    "relatedIds": ["what-is-bootloader", "what-is-twrp", "what-is-adb"],
+    "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  }
+]

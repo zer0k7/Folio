@@ -1,0 +1,68 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="800dp"
+    android:height="400dp"
+    android:viewportWidth="800"
+    android:viewportHeight="400">
+
+    <!-- Background card container -->
+    <path
+        android:fillColor="@color/surface_dark"
+        android:pathData="M 40,20 L 760,20 A 20,20 0 0 1 780,40 L 780,360 A 20,20 0 0 1 760,380 L 40,380 A 20,20 0 0 1 20,360 L 20,40 A 20,20 0 0 1 40,20 Z" />
+
+    <!-- 1. Client / Browser -->
+    <path
+        android:fillColor="@color/champion_blue"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="2"
+        android:pathData="M 60,170 L 170,170 A 8,8 0 0 1 178,178 L 178,242 A 8,8 0 0 1 170,250 L 60,250 A 8,8 0 0 1 52,242 L 52,178 A 8,8 0 0 1 60,170 Z" />
+
+    <!-- Query Arrow 1 -> Recursive Resolver -->
+    <path
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="3"
+        android:pathData="M 180,210 L 250,210 M 244,204 L 252,210 L 244,216" />
+
+    <!-- 2. Recursive Resolver -->
+    <path
+        android:fillColor="@color/royal_ink"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="2"
+        android:pathData="M 260,160 L 390,160 A 8,8 0 0 1 398,168 L 398,252 A 8,8 0 0 1 390,260 L 260,260 A 8,8 0 0 1 252,252 L 252,168 A 8,8 0 0 1 260,160 Z" />
+
+    <!-- Queries from Resolver to Hierarchy Servers -->
+    <!-- 3. Root Server (.) -->
+    <path
+        android:strokeColor="@color/muted_dark"
+        android:strokeWidth="2"
+        android:strokeDashArray="4,4"
+        android:pathData="M 400,180 L 530,90" />
+    <path
+        android:fillColor="@color/surface_light"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="1.5"
+        android:pathData="M 540,60 L 730,60 A 8,8 0 0 1 738,68 L 738,112 A 8,8 0 0 1 730,120 L 540,120 A 8,8 0 0 1 532,112 L 532,68 A 8,8 0 0 1 540,60 Z" />
+
+    <!-- 4. TLD Server (.com) -->
+    <path
+        android:strokeColor="@color/muted_dark"
+        android:strokeWidth="2"
+        android:strokeDashArray="4,4"
+        android:pathData="M 400,210 L 530,210" />
+    <path
+        android:fillColor="@color/surface_light"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="1.5"
+        android:pathData="M 540,180 L 730,180 A 8,8 0 0 1 738,188 L 738,232 A 8,8 0 0 1 730,240 L 540,240 A 8,8 0 0 1 532,232 L 532,188 A 8,8 0 0 1 540,180 Z" />
+
+    <!-- 5. Authoritative Nameserver (example.com) -->
+    <path
+        android:strokeColor="@color/muted_dark"
+        android:strokeWidth="2"
+        android:strokeDashArray="4,4"
+        android:pathData="M 400,240 L 530,330" />
+    <path
+        android:fillColor="@color/lavender_mist"
+        android:strokeColor="@color/white_convolvulus"
+        android:strokeWidth="2"
+        android:pathData="M 540,300 L 730,300 A 8,8 0 0 1 738,308 L 738,352 A 8,8 0 0 1 730,360 L 540,360 A 8,8 0 0 1 532,352 L 532,308 A 8,8 0 0 1 540,300 Z" />
+</vector>

@@ -1,0 +1,148 @@
+name: Build Release APK
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Grant Execute Permission for Gradlew
+        run: chmod +x gradlew
+
+      - name: Build Release APK
+        run: ./gradlew assembleRelease --stacktrace
+
+      - name: Prepare and Sign APK
+        id: sign_apk
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          TAG_NAME: ${{ github.ref_name }}
+        run: |
+          RELEASE_DIR="app/build/outputs/apk/release"
+          APK_PATH=$(find $RELEASE_DIR -name "*.apk" | head -n 1)
+          OUTPUT_APK="folio-${TAG_NAME}.apk"
+
+          if [ -z "$APK_PATH" ]; then
+            echo "Error: No APK found in $RELEASE_DIR"
+            exit 1
+          fi
+
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "Keystore secret detected. Decoding and signing..."
+            echo "$KEYSTORE_BASE64" | base64 -d > /tmp/release.keystore
+            
+            # Find latest apksigner in Android SDK
+            APKSIGNER=$(find $ANDROID_SDK_ROOT/build-tools -name apksigner | sort -V | tail -n 1)
+            ZIPALIGN=$(find $ANDROID_SDK_ROOT/build-tools -name zipalign | sort -V | tail -n 1)
+            
+            $ZIPALIGN -v -p 4 "$APK_PATH" /tmp/aligned.apk
+            $APKSIGNER sign --ks /tmp/release.keystore \
+              --ks-key-alias "$KEY_ALIAS" \
+              --ks-pass pass:"$STORE_PASSWORD" \
+              --key-pass pass:"$KEY_PASSWORD" \
+              --out "$OUTPUT_APK" \
+              /tmp/aligned.apk
+            
+            rm -f /tmp/release.keystore /tmp/aligned.apk
+          else
+            echo "Keystore secret not provided, copying unsigned release APK..."
+            cp "$APK_PATH" "$OUTPUT_APK"
+          fi
+
+          echo "apk_file=$OUTPUT_APK" >> $GITHUB_OUTPUT
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: folio-release-${{ github.ref_name }}
+          path: ${{ steps.sign_apk.outputs.apk_file }}
+
+      - name: Generate Release Notes
+        id: release_notes
+        env:
+          TAG_NAME: ${{ github.ref_name }}
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          PREV_TAG=$(git describe --tags --abbrev=0 "${TAG_NAME}^" 2>/dev/null || echo "")
+          
+          if [ -n "$PREV_TAG" ]; then
+            COMMITS=$(git log "${PREV_TAG}..${TAG_NAME}" --pretty=format:"%s")
+          else
+            COMMITS=$(git log --pretty=format:"%s")
+          fi
+
+          FEATS=$(echo "$COMMITS" | grep -E '^feat' | sed 's/^/- /' || echo "")
+          FIXES=$(echo "$COMMITS" | grep -E '^fix' | sed 's/^/- /' || echo "")
+          CHORES=$(echo "$COMMITS" | grep -E '^(chore|init|refactor|docs|test)' | sed 's/^/- /' || echo "")
+          OTHER=$(echo "$COMMITS" | grep -v -E '^(feat|fix|chore|init|refactor|docs|test)' | sed 's/^/- /' || echo "")
+
+          CHANGELOG=""
+          if [ -n "$FEATS" ]; then
+            CHANGELOG="${CHANGELOG}#### Features\n${FEATS}\n\n"
+          fi
+          if [ -n "$FIXES" ]; then
+            CHANGELOG="${CHANGELOG}#### Fixes\n${FIXES}\n\n"
+          fi
+          if [ -n "$CHORES" ]; then
+            CHANGELOG="${CHANGELOG}#### Maintenance\n${CHORES}\n\n"
+          fi
+          if [ -n "$OTHER" ]; then
+            CHANGELOG="${CHANGELOG}#### Other\n${OTHER}\n\n"
+          fi
+          if [ -z "$CHANGELOG" ]; then
+            CHANGELOG="- Initial release\n"
+          fi
+
+          BUILD_DATE=$(date -u +"%Y-%m-%d")
+
+          cat << EOF > release_notes.md
+## Folio ${TAG_NAME}
+
+### Changes
+$(echo -e "$CHANGELOG")
+
+### Build Info
+- Build date: ${BUILD_DATE}
+- Commit SHA: ${COMMIT_SHA}
+- Min SDK: 26
+- Target SDK: 35
+
+### Installation
+Download the APK below and install via:
+\`\`\`bash
+adb install folio-${TAG_NAME}.apk
+\`\`\`
+or enable "Install unknown apps" on your Android device and open the APK directly.
+EOF
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Folio ${{ github.ref_name }}
+          body_path: release_notes.md
+          files: ${{ steps.sign_apk.outputs.apk_file }}
+          draft: false
+          prerelease: false

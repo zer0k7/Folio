@@ -1,0 +1,59 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="800dp"
+    android:height="400dp"
+    android:viewportWidth="800"
+    android:viewportHeight="400">
+
+    <!-- Background card container -->
+    <path
+        android:fillColor="@color/surface_dark"
+        android:pathData="M 40,20 L 760,20 A 20,20 0 0 1 780,40 L 780,360 A 20,20 0 0 1 760,380 L 40,380 A 20,20 0 0 1 20,360 L 20,40 A 20,20 0 0 1 40,20 Z" />
+
+    <!-- Layer 1: LED Backlight -->
+    <path
+        android:fillColor="@color/lavender_mist"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="1"
+        android:pathData="M 80,60 L 160,60 L 160,340 L 80,340 Z" />
+
+    <!-- Layer 2: Diffuser / Light Guide -->
+    <path
+        android:fillColor="@color/surface_light"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="1"
+        android:pathData="M 200,60 L 280,60 L 280,340 L 200,340 Z" />
+
+    <!-- Layer 3: Rear Polarizer & TFT Glass -->
+    <path
+        android:fillColor="@color/muted_dark"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="1"
+        android:pathData="M 320,60 L 400,60 L 400,340 L 320,340 Z" />
+
+    <!-- Layer 4: Liquid Crystal Layer -->
+    <path
+        android:fillColor="@color/champion_blue"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="2"
+        android:pathData="M 440,60 L 520,60 L 520,340 L 440,340 Z" />
+
+    <!-- Layer 5: RGB Color Filter -->
+    <path
+        android:fillColor="@color/royal_ink"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="1"
+        android:pathData="M 560,60 L 640,60 L 640,340 L 560,340 Z" />
+
+    <!-- Layer 6: Front Polarizer & Cover Glass -->
+    <path
+        android:fillColor="@color/white_convolvulus"
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="1"
+        android:pathData="M 680,60 L 730,60 L 730,340 L 680,340 Z" />
+
+    <!-- Light Path Line through layers -->
+    <path
+        android:strokeColor="@color/lavender_mist"
+        android:strokeWidth="3"
+        android:pathData="M 120,200 L 710,200" />
+</vector>
