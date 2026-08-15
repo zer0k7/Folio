@@ -67,7 +67,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.compose.material.icons.outlined.NewReleases
+import androidx.compose.material.icons.outlined.FormatSize
+import com.ghost.folio.ui.components.ChangelogBottomSheet
+import com.ghost.folio.ui.components.FontSizeBottomSheet
+import com.ghost.folio.ui.components.getFontScaleLabel
 import com.ghost.folio.BuildConfig
 import com.ghost.folio.R
 import com.ghost.folio.data.local.preferences.ThemeSetting
@@ -139,13 +143,6 @@ AndroidX DataStore
 Copyright 2024 The Android Open Source Project
 Licensed under the Apache License, Version 2.0
 """
-
-import androidx.compose.material.icons.outlined.NewReleases
-import com.ghost.folio.ui.components.ChangelogBottomSheet
-
-import androidx.compose.material.icons.outlined.FormatSize
-import com.ghost.folio.ui.components.FontSizeBottomSheet
-import com.ghost.folio.ui.components.getFontScaleLabel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
