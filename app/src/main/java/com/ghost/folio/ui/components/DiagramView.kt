@@ -61,7 +61,7 @@ fun DiagramView(
             ) {
                 Image(
                     painter = painterResource(id = actualResourceId),
-                    contentDescription = stringResource(id = R.string.diagram_desc, diagramKey),
+                    contentDescription = "Diagram: $diagramKey",
                     modifier = Modifier.fillMaxWidth(),
                     contentScale = ContentScale.Fit
                 )

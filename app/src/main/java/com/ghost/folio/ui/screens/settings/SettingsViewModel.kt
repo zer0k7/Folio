@@ -9,7 +9,6 @@ import com.ghost.folio.data.local.preferences.ThemeSetting
 import com.ghost.folio.data.local.preferences.UpdateFrequency
 import com.ghost.folio.data.repository.ArticleRepository
 import com.ghost.folio.util.updater.GitHubAppUpdater
-import com.ghost.folio.util.updater.UpdateState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -104,13 +103,14 @@ class SettingsViewModel(
         _updateCheckStatus.value = UpdateCheckStatus.CHECKING
         viewModelScope.launch {
             try {
-                val result = GitHubAppUpdater.checkForUpdate(context)
+                val updater = GitHubAppUpdater(context)
+                val result = updater.checkForUpdate(force = true)
                 val now = System.currentTimeMillis()
                 preferences.setLastUpdateCheckTime(now)
 
-                if (result != null) {
+                if (result != null && result.isAvailable) {
                     _updateCheckStatus.value = UpdateCheckStatus.UPDATE_AVAILABLE
-                    _availableUpdateVersion = MutableStateFlow(result.versionName)
+                    _availableUpdateVersion.value = result.latestVersion
                 } else {
                     _updateCheckStatus.value = UpdateCheckStatus.UP_TO_DATE
                 }

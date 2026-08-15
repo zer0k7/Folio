@@ -178,7 +178,7 @@ fun BodyRenderer(
                                 shape = RoundedCornerShape(topEnd = 8.dp, bottomEnd = 8.dp)
                             )
                             .drawBehind {
-                                line(
+                                drawLine(
                                     color = primaryColor,
                                     start = Offset(0f, 0f),
                                     end = Offset(0f, size.height),

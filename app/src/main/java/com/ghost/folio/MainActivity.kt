@@ -51,8 +51,9 @@ import com.ghost.folio.ui.screens.splash.SplashScreen
 import com.ghost.folio.ui.theme.FolioTheme
 import com.ghost.folio.widget.DailyTermWidgetProvider
 import com.ghost.folio.widget.DailyTermWidgetWorker
-import kotlinx.coroutines.launch
+import androidx.compose.material3.ExperimentalMaterial3Api
 
+@OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
 
     private var pendingArticleId by mutableStateOf<String?>(null)

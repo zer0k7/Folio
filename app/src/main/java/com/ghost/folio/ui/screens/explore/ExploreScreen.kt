@@ -100,6 +100,9 @@ private fun getCategoryIcon(slug: String): ImageVector {
     }
 }
 
+import androidx.compose.material3.ExperimentalMaterial3Api
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ExploreScreen(
     viewModel: ExploreViewModel,

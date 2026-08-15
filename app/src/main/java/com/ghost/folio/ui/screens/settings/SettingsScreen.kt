@@ -67,6 +67,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.material.icons.outlined.NewReleases
 import androidx.compose.material.icons.outlined.FormatSize
 import com.ghost.folio.ui.components.ChangelogBottomSheet
