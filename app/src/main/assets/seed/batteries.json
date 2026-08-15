@@ -1,0 +1,340 @@
+[
+  {
+    "id": "what-is-mah-vs-wh",
+    "title": "mAh vs Watt-Hours (Wh)",
+    "category": "batteries",
+    "summary": "Milliampere-hours measure electric charge capacity, whereas Watt-hours measure the true total energy stored by factoring in voltage.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Watt-Hour (Wh)",
+        "definition": "A unit of electrical energy equal to power in watts expended or supplied continuously over one hour (Energy = Charge * Voltage)."
+      },
+      {
+        "type": "paragraph",
+        "text": "A 5,000 mAh single-cell phone battery at 3.85V holds 19.25 Wh of energy. A 5,000 mAh dual-cell 2S battery pack at 7.7V holds 38.5 Wh of energy — exactly double. Comparing battery sizes purely by mAh is misleading across different devices without factoring in nominal cell voltages."
+      },
+      {
+        "type": "heading",
+        "text": "Conversion Formula"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Wh = (mAh * Nominal Voltage) / 1000",
+          "mAh = (Wh * 1000) / Nominal Voltage"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Aviation carry-on limits globally use 100 Wh as the maximum unapproved lithium battery threshold, which is why laptop batteries max out at 99.9 Wh."
+      }
+    ],
+    "tags": ["batteries", "mah", "watt-hours", "energy", "voltage", "capacity"],
+    "relatedIds": ["li-ion-vs-li-po", "what-is-a-charge-cycle", "fast-charging-standards"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Ampere-hour",
+        "url": "https://en.wikipedia.org/wiki/Ampere-hour"
+      },
+      {
+        "label": "Wikipedia — Kilowatt-hour",
+        "url": "https://en.wikipedia.org/wiki/Kilowatt-hour"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "fast-charging-standards",
+    "title": "Fast Charging Protocols & Standards",
+    "category": "batteries",
+    "summary": "Fast charging protocols dynamically negotiate higher voltages and currents between charger and phone to deliver 18W to 120W+ safely.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "USB Power Delivery (USB-PD) PPS",
+        "definition": "Programmable Power Supply protocol that allows the device to step charger voltage in granular 20mV increments to match exact battery chemistry needs."
+      },
+      {
+        "type": "paragraph",
+        "text": "Standard 5V USB charging is limited to ~10W. High-wattage charging raises voltage (e.g. 9V, 15V, 20V) to deliver power over thin cables without extreme resistive heat, then steps it down inside the device using high-efficiency switched capacitor charge pumps."
+      },
+      {
+        "type": "heading",
+        "text": "Comparison of Major Protocols"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Protocol", "Standard Type", "Max Output", "Mechanism"],
+        "rows": [
+          {
+            "label": "USB-PD 3.1 PPS",
+            "values": ["Universal Open Standard", "Up to 240W (EPR)", "Dynamic voltage/current adjustment"]
+          },
+          {
+            "label": "Qualcomm Quick Charge 5",
+            "values": ["Proprietary / PD-compatible", "100W+", "Dual-cell split series charging"]
+          },
+          {
+            "label": "VOOC / Dart / SuperVOOC",
+            "values": ["Proprietary High-Current", "65W - 150W+", "Direct high amperage to split 2S cells"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Dual-cell configurations split 65W+ input across two cells in series, halving the current per cell to prevent destructive overheating."
+      }
+    ],
+    "tags": ["batteries", "fast-charging", "usb-pd", "quick-charge", "power-delivery"],
+    "relatedIds": ["what-is-mah-vs-wh", "what-is-battery-health"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Quick Charge",
+        "url": "https://en.wikipedia.org/wiki/Quick_Charge"
+      },
+      {
+        "label": "Wikipedia — USB hardware #Power",
+        "url": "https://en.wikipedia.org/wiki/USB_hardware#USB_Power_Delivery"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-battery-health",
+    "title": "Battery Health & Degradation",
+    "category": "batteries",
+    "summary": "Battery health measures current maximum retention capacity relative to original design capacity as chemical side-reactions degrade electrodes over time.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "State of Health (SoH)",
+        "definition": "The percentage ratio of a battery cell's current full-charge capacity compared to its factory nominal rated capacity when brand new."
+      },
+      {
+        "type": "paragraph",
+        "text": "All lithium-ion batteries degrade with time and usage. As lithium ions shuttle back and forth between electrodes, side reactions consume active lithium ions and build an increasingly thick Solid Electrolyte Interphase (SEI) layer on the graphite anode, raising internal electrical impedance."
+      },
+      {
+        "type": "heading",
+        "text": "Key Drivers of Chemical Aging"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "High Thermal Stress: Operating or charging above 35C accelerates electrolyte breakdown and gas generation.",
+          "High Voltage Exposure: Sustained float states at 100% (4.2V - 4.45V) stress cathode crystal structures.",
+          "Deep Discharge: Dropping below 2.5V causes copper current collector dissolution, risking internal shorts on recharge."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Limiting daily charge ceiling to 80% can double or triple total cycle longevity by avoiding the highest chemical stress voltage band."
+      }
+    ],
+    "tags": ["batteries", "battery-health", "soh", "degradation", "lithium-ion"],
+    "relatedIds": ["what-is-a-charge-cycle", "what-is-trickle-charging"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — State of health",
+        "url": "https://en.wikipedia.org/wiki/State_of_health"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "li-ion-vs-li-po",
+    "title": "Lithium-Ion vs Lithium-Polymer Batteries",
+    "category": "batteries",
+    "summary": "Li-ion batteries typically use rigid cylindrical or prismatic metal cans, while Li-Po cells use flexible pouch packaging with gel-like polymer electrolytes.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Lithium-Polymer (Li-Po)",
+        "definition": "A rechargeable lithium battery utilizing a gel-state polymer electrolyte encased in a lightweight, flexible laminated aluminum pouch."
+      },
+      {
+        "type": "paragraph",
+        "text": "Both chemistries share identical electrochemistry (lithium intercalating between cathode and anode). The distinction lies in form factor: traditional Li-ion cells (such as 18650 cylindrical cells in laptops and power banks) use rigid steel cans, whereas Li-Po pouch cells can be formed into ultra-thin irregular shapes tailored to smartphone chassis."
+      },
+      {
+        "type": "heading",
+        "text": "Physical & Safety Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "Cylindrical Li-Ion (18650/21700)", "Pouch Li-Po"],
+        "rows": [
+          {
+            "label": "Enclosure",
+            "values": ["Rigid metal casing with pressure vents", "Flexible laminated aluminum foil pouch"]
+          },
+          {
+            "label": "Energy Density",
+            "values": ["High volumetric density", "High gravimetric (lightweight) density"]
+          },
+          {
+            "label": "Failure Mode",
+            "values": ["Pressure venting through cap", "Pouch swelling and expansion"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Pouch swelling occurs when moisture ingress or extreme over-discharge causes electrolyte decomposition into gaseous hydrocarbons."
+      }
+    ],
+    "tags": ["batteries", "li-ion", "li-po", "lithium-polymer", "chemistry", "form-factor"],
+    "relatedIds": ["what-is-mah-vs-wh", "what-is-battery-health"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Lithium polymer battery",
+        "url": "https://en.wikipedia.org/wiki/Lithium_polymer_battery"
+      },
+      {
+        "label": "Wikipedia — Lithium-ion battery",
+        "url": "https://en.wikipedia.org/wiki/Lithium-ion_battery"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-charge-cycle",
+    "title": "Battery Charge Cycles Explained",
+    "category": "batteries",
+    "summary": "A full charge cycle represents the cumulative discharge and recharge of 100% of battery capacity, regardless of individual charging sessions.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Equivalent Full Cycle (EFC)",
+        "definition": "A standardized metric calculated by summing fractional discharges until they equal 100% of nominal battery capacity."
+      },
+      {
+        "type": "paragraph",
+        "text": "If a smartphone drops from 100% to 50% on Monday, charges back to 100%, and drops to 50% again on Tuesday, that constitutes exactly one complete charge cycle (50% + 50% = 100%). Typical smartphone batteries are rated to retain 80% original capacity after 500 to 1,000 full cycles."
+      },
+      {
+        "type": "heading",
+        "text": "Partial Cycling vs Full Cycling"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Shallow Cycles (e.g. 30% to 80%): Induce minimal mechanical strain on electrode matrices, yielding up to 3x more total lifetime energy throughput.",
+          "Deep Cycles (0% to 100%): Exercise maximum volume expansion and contraction, accelerating lattice cracking."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Coulomb counting chips integrated into the battery protection circuit continuously track micro-amperage in and out to calculate cycle count."
+      }
+    ],
+    "tags": ["batteries", "charge-cycle", "battery-lifespan", "coulomb-counting"],
+    "relatedIds": ["what-is-battery-health", "what-is-battery-calibration"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Charge cycle",
+        "url": "https://en.wikipedia.org/wiki/Charge_cycle"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-trickle-charging",
+    "title": "Trickle Charging & Float Charging",
+    "category": "batteries",
+    "summary": "Trickle charging provides a minute, regulated current to replenish natural self-discharge and top off a battery without causing thermal runaway.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Trickle / Top-Off Charging",
+        "definition": "The final stage of the Constant Voltage (CV) charging phase where current tapers to a fraction of the C-rate (e.g. C/20 to C/100) as cell voltage approaches 4.2V–4.45V."
+      },
+      {
+        "type": "paragraph",
+        "text": "Unlike older Nickel-Cadmium chemistries that could tolerate continuous trickle currents, modern Lithium-ion batteries cannot absorb overcharge energy as heat. Once a lithium cell hits 100% full capacity and cutoff current is reached, smart battery management circuits terminate charging completely."
+      },
+      {
+        "type": "heading",
+        "text": "Charging Phases"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Constant Current (CC): High amperage fast charging until voltage reaches ~4.2V (0% to ~75%).",
+          "Constant Voltage (CV): Voltage clamped while current drops exponentially (75% to 100%).",
+          "Charge Termination: Full cutoff when current drops below threshold (typically ~50mA)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern phones with 'Optimized Battery Charging' pause charging at 80% overnight, only trickle-charging the remaining 20% right before your morning alarm."
+      }
+    ],
+    "tags": ["batteries", "trickle-charging", "float-charging", "cv-phase", "charging-curve"],
+    "relatedIds": ["fast-charging-standards", "what-is-battery-health"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Trickle charging",
+        "url": "https://en.wikipedia.org/wiki/Trickle_charging"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-battery-calibration",
+    "title": "Battery Calibration & Fuel Gauging",
+    "category": "batteries",
+    "summary": "Battery calibration resets the software fuel-gauge algorithm so reported UI percentages match the true physical voltage and charge state of the cell.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Fuel Gauge IC",
+        "definition": "A dedicated microcontroller on the battery PCB that monitors real-time voltage, temperature, and current flow (Coulomb Counting) to estimate remaining capacity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Over time, fuel-gauge algorithms accumulate drift due to partial charge cycles and fluctuating ambient temperatures. This can cause a phone to suddenly shut down at 5% or stay stuck at 100% for an unusually long time. Calibration resynchronizes the software mapping with the cell's physical upper and lower voltage cutoffs."
+      },
+      {
+        "type": "heading",
+        "text": "Calibration Process"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Discharge completely until the device turns itself off automatically.",
+          "Charge continuously without interruption to 100% plus an additional 1-2 hours of float time.",
+          "The fuel gauge registers the exact low-voltage and full-saturation thresholds, updating internal capacity lookup tables."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Calibration does not restore chemically lost capacity; it merely restores reading accuracy to prevent premature system shutdowns."
+      }
+    ],
+    "tags": ["batteries", "calibration", "fuel-gauge", "coulomb-counter", "bms"],
+    "relatedIds": ["what-is-a-charge-cycle", "what-is-battery-health"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Battery management system",
+        "url": "https://en.wikipedia.org/wiki/Battery_management_system"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

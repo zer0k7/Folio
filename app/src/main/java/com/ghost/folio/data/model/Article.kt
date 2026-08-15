@@ -4,6 +4,12 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
+data class RelatedLink(
+    val label: String,
+    val url: String
+)
+
+@Serializable
 data class Article(
     val id: String,
     val title: String,
@@ -12,6 +18,7 @@ data class Article(
     val body: List<BodyBlock>,
     val tags: List<String>,
     val relatedIds: List<String>,
+    val relatedLinks: List<RelatedLink> = emptyList(),
     val lastUpdated: String,
     val difficulty: Difficulty,
     val hasDiagram: Boolean,

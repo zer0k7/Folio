@@ -1,0 +1,305 @@
+[
+  {
+    "id": "lpddr4-vs-lpddr5",
+    "title": "LPDDR4X vs LPDDR5 & LPDDR5X",
+    "category": "memory",
+    "summary": "LPDDR5 memory delivers up to 50% faster data rates and improved power efficiency over LPDDR4X through dynamic voltage scaling and multi-bank architectures.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Low-Power DDR (LPDDR)",
+        "definition": "A specialized SDRAM standard designed for mobile devices featuring reduced bus width, lower I/O operating voltages, and deep sleep self-refresh modes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Mobile SoCs require immense memory bandwidth to feed 4K 120Hz displays, high-throughput ISP camera pipelines, and generative AI models. While LPDDR4X topped out at 4266 Mbps per pin, LPDDR5 and LPDDR5X reach 6400 to 9600 Mbps while operating at lower voltages down to 0.5V."
+      },
+      {
+        "type": "heading",
+        "text": "Generational Spec Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Generation", "Max Transfer Rate", "Core Voltage (VDD2)", "Key Innovations"],
+        "rows": [
+          {
+            "label": "LPDDR4X",
+            "values": ["4,266 Mbps", "1.1V / 0.6V I/O", "Reduced I/O swing voltage"]
+          },
+          {
+            "label": "LPDDR5",
+            "values": ["6,400 Mbps", "1.05V / 0.5V I/O", "Dynamic Voltage & Frequency Scaling (DVFS), 16-bank architecture"]
+          },
+          {
+            "label": "LPDDR5X",
+            "values": ["8,533 - 9,600 Mbps", "1.05V / 0.5V I/O", "High-frequency clock tree, improved signal integrity"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Deep Sleep Mode (DSM) in LPDDR5 cuts quiescent power draw by up to 40% compared to LPDDR4X idle states."
+      }
+    ],
+    "tags": ["memory", "ram", "lpddr4x", "lpddr5", "lpddr5x", "bandwidth", "dram"],
+    "relatedIds": ["what-is-ram-management", "what-is-virtual-ram"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — LPDDR",
+        "url": "https://en.wikipedia.org/wiki/LPDDR"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-ram-management",
+    "title": "OS RAM Management & LMK",
+    "category": "memory",
+    "summary": "Operating systems aggressively cache background apps in RAM, terminating them only when memory pressure triggers the Low Memory Killer (LMK).",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Low Memory Killer (LMK / lmkd)",
+        "definition": "A kernel driver or user-space daemon in Android/Linux that monitors memory pressure and terminates background processes based on an Out-Of-Memory (OOM) score hierarchy."
+      },
+      {
+        "type": "paragraph",
+        "text": "'Free RAM is wasted RAM.' Modern operating systems deliberately fill available RAM with cached application processes and disk buffer pages. Because reading from RAM is thousands of times faster than flash storage, keeping apps in RAM enables instantaneous task switching without battery-draining CPU restarts."
+      },
+      {
+        "type": "heading",
+        "text": "Android OOM Adjustment Categories (oom_adj)"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Foreground App (oom_adj 0): Currently active on screen; killed only in catastrophic out-of-memory emergencies.",
+          "Visible / Foreground Service (oom_adj 1-2): Music playing in background or active GPS navigation.",
+          "Service / Previous App (oom_adj 5-7): Recently backgrounded apps held for fast switching.",
+          "Cached Background Processes (oom_adj 900+): Inactive apps eligible for immediate termination when memory pressure spikes."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Third-party 'RAM cleaner' task killers degrade battery life because terminated apps are immediately reloaded into memory by system services."
+      }
+    ],
+    "tags": ["memory", "ram", "android", "lmkd", "oom", "memory-management"],
+    "relatedIds": ["what-is-virtual-ram", "what-is-a-memory-leak"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — Overview of memory management",
+        "url": "https://developer.android.com/topic/performance/memory-overview"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-virtual-ram",
+    "title": "Virtual RAM & zRAM Paging",
+    "category": "memory",
+    "summary": "Virtual RAM creates a compressed swap space in physical memory or flash storage to prevent out-of-memory crashes on memory-constrained systems.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "zRAM (Compressed RAM Swap)",
+        "definition": "A Linux kernel module that allocates a portion of physical RAM as a compressed block device (using algorithms like LZ4 or ZSTD) to store swapped memory pages."
+      },
+      {
+        "type": "paragraph",
+        "text": "When RAM fills up, the OS can compress idle memory pages by a 2:1 or 3:1 ratio and keep them in zRAM rather than writing them to slow flash storage. Smartphone marketing labels this 'Virtual RAM' or 'RAM Expansion'. While it prevents app crashes, excessive paging can increase CPU overhead and flash write wear."
+      },
+      {
+        "type": "heading",
+        "text": "Swap Types Compared"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Type", "Storage Medium", "Speed", "Wear Impact"],
+        "rows": [
+          {
+            "label": "zRAM",
+            "values": ["Physical RAM (Compressed)", "Extremely fast (~GB/s)", "Zero flash write wear"]
+          },
+          {
+            "label": "Storage Swapfile (zcache / pagefile)",
+            "values": ["Flash storage (NAND / NVMe)", "Slow compared to RAM (~MB/s)", "Consumes NAND flash write cycles"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Decompressing memory pages from zRAM consumes minimal CPU cycles and is dramatically faster than reading uncompressed pages from UFS flash storage."
+      }
+    ],
+    "tags": ["memory", "zram", "virtual-ram", "swap", "compression", "paging"],
+    "relatedIds": ["what-is-ram-management", "lpddr4-vs-lpddr5"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Zram",
+        "url": "https://en.wikipedia.org/wiki/Zram"
+      },
+      {
+        "label": "Wikipedia — Paging",
+        "url": "https://en.wikipedia.org/wiki/Paging"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-memory-leak",
+    "title": "Memory Leaks in Software",
+    "category": "memory",
+    "summary": "A memory leak occurs when a program allocates memory dynamically but fails to release it after it is no longer needed, causing memory usage to continuously balloon.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Memory Leak",
+        "definition": "A resource management defect where an application retains unreachable or obsolete memory references, preventing the operating system or runtime garbage collector from reclaiming that memory."
+      },
+      {
+        "type": "paragraph",
+        "text": "Over time, an application with a memory leak consumes more and more RAM until system performance degrades or the operating system terminates the process with an OutOfMemoryError (OOM). In unmanaged languages like C/C++, forgetting to call free() causes leaks; in managed languages like Kotlin/Java, unintentional static references prevent garbage collection."
+      },
+      {
+        "type": "heading",
+        "text": "Common Android/Kotlin Leak Causes"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Static Activity Context: Holding a reference to an Activity Context inside a singleton or static companion object.",
+          "Unregistered Listeners: Failing to unregister Location, BroadcastReceivers, or Sensor callbacks in onDestroy().",
+          "Async Coroutines / Threads: Running long-lived background jobs holding strong references to destroyed View composables."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Tools like LeakCanary inject hooks into the Android lifecycle to detect retained objects and generate automatic memory heap dump traces."
+      }
+    ],
+    "tags": ["memory", "memory-leak", "garbage-collection", "oom", "profiling"],
+    "relatedIds": ["what-is-garbage-collection", "what-is-heap-vs-stack"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Memory leak",
+        "url": "https://en.wikipedia.org/wiki/Memory_leak"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-garbage-collection",
+    "title": "Garbage Collection (GC)",
+    "category": "memory",
+    "summary": "Garbage Collection is an automated memory management feature in managed runtimes that finds and reclaims heap objects no longer accessible by running code.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Garbage Collector (GC)",
+        "definition": "An automatic runtime memory management mechanism that traces reference graphs starting from root pointers to destroy unreachable objects and reclaim heap space."
+      },
+      {
+        "type": "paragraph",
+        "text": "Languages like Java, Kotlin, Swift, and JavaScript free developers from manual malloc() and free() calls. The runtime tracks allocations on the heap. When memory thresholds are crossed, the GC traces active references. Unreachable objects are marked and swept, freeing blocks for future allocations."
+      },
+      {
+        "type": "heading",
+        "text": "Common GC Algorithms"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Mark-and-Sweep: Traverses the object graph from GC Roots, marking reachable objects and sweeping un-marked allocations away.",
+          "Generational GC: Categorizes objects by age (Young, Old), checking short-lived temporary objects frequently and long-lived objects rarely.",
+          "Concurrent / Incremental GC: Runs collection in parallel with application execution to prevent noticeable UI frame drops ('Stop-the-World' pauses)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Android Runtime (ART) uses a Concurrent Copying (CC) garbage collector that compacts fragmented memory without pausing UI rendering."
+      }
+    ],
+    "tags": ["memory", "garbage-collection", "gc", "art", "jvm", "heap"],
+    "relatedIds": ["what-is-a-memory-leak", "what-is-heap-vs-stack"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Garbage collection (computer science)",
+        "url": "https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-heap-vs-stack",
+    "title": "Stack vs Heap Memory",
+    "category": "memory",
+    "summary": "Stack memory handles fast, short-lived local function call frames, whereas Heap memory handles dynamic, long-lived object allocations.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Stack Memory",
+        "definition": "A contiguous LIFO (Last-In, First-Out) memory region managed directly by CPU stack pointer registers for fast allocation of local variables and function execution frames."
+      },
+      {
+        "type": "paragraph",
+        "text": "When a function is invoked, its parameters and local primitive variables are pushed onto the thread stack. Allocation is instantaneous (simply decrementing a stack pointer). When the function returns, its stack frame is popped. Dynamic objects whose lifecycles exceed a single function must be allocated on the flexible, managed Heap."
+      },
+      {
+        "type": "heading",
+        "text": "Stack vs Heap Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Property", "Stack", "Heap"],
+        "rows": [
+          {
+            "label": "Allocation Speed",
+            "values": ["Blazing fast (Single CPU instruction)", "Slower (Finding free blocks, GC tracking)"]
+          },
+          {
+            "label": "Access Pattern",
+            "values": ["Strict LIFO call frames", "Random dynamic access"]
+          },
+          {
+            "label": "Thread Scope",
+            "values": ["Private to each individual thread", "Shared across all threads in the process"]
+          },
+          {
+            "label": "Typical Failure",
+            "values": ["StackOverflowError (Deep recursion)", "OutOfMemoryError (Heap exhaustion)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Escape analysis in modern JIT compilers can automatically allocate heap objects onto the stack if they never escape local function scope."
+      }
+    ],
+    "tags": ["memory", "stack", "heap", "allocation", "lifo", "pointers"],
+    "relatedIds": ["what-is-garbage-collection", "what-is-a-memory-leak"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Stack-based memory allocation",
+        "url": "https://en.wikipedia.org/wiki/Stack-based_memory_allocation"
+      },
+      {
+        "label": "Wikipedia — Memory management",
+        "url": "https://en.wikipedia.org/wiki/Memory_management"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

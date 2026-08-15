@@ -27,7 +27,7 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.BookmarkBorder
+import androidx.compose.material.icons.outlined.Tune
 import androidx.compose.material.icons.outlined.Explore
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Search
@@ -51,9 +51,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
 import com.ghost.folio.R
-import com.ghost.folio.ui.theme.ChampionBlue
 import com.ghost.folio.ui.theme.Spacing
-import com.ghost.folio.ui.theme.WhiteConvolvulus
 
 data class NavDestination(
     val route: String,
@@ -85,11 +83,7 @@ fun FloatingNav(
     val isDark = isSystemInDarkTheme()
     val navShape = RoundedCornerShape(20.dp)
 
-    val backgroundColor = if (isDark) {
-        ChampionBlue.copy(alpha = 0.92f)
-    } else {
-        WhiteConvolvulus.copy(alpha = 0.92f)
-    }
+    val backgroundColor = MaterialTheme.colorScheme.background.copy(alpha = 0.92f)
 
     val borderColor = if (isDark) {
         Color.White.copy(alpha = 0.08f)
@@ -101,7 +95,7 @@ fun FloatingNav(
         NavDestination("home", stringResource(R.string.nav_home), Icons.Outlined.Home),
         NavDestination("explore", stringResource(R.string.nav_explore), Icons.Outlined.Explore),
         NavDestination("search", stringResource(R.string.nav_search), Icons.Outlined.Search),
-        NavDestination("saved", stringResource(R.string.nav_saved), Icons.Outlined.BookmarkBorder)
+        NavDestination("more", stringResource(R.string.nav_more), Icons.Outlined.Tune)
     )
 
     Box(

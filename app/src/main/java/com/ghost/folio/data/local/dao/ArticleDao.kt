@@ -31,4 +31,10 @@ interface ArticleDao {
 
     @Query("SELECT COUNT(*) FROM articles")
     suspend fun count(): Int
+
+    @Query("SELECT * FROM articles LIMIT 1 OFFSET :offset")
+    suspend fun getArticleByOffset(offset: Int): ArticleEntity?
+
+    @Query("SELECT * FROM articles LIMIT 1")
+    suspend fun getFirstArticle(): ArticleEntity?
 }

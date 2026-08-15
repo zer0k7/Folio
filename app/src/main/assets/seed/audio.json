@@ -43,6 +43,16 @@
     ],
     "tags": ["audio", "sample-rate", "nyquist", "hertz", "digital-audio"],
     "relatedIds": ["what-is-bit-depth", "what-is-dac-amp", "what-is-lossy-vs-lossless"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Sampling (signal processing)",
+        "url": "https://en.wikipedia.org/wiki/Sampling_(signal_processing)"
+      },
+      {
+        "label": "Wikipedia — Nyquist–Shannon sampling theorem",
+        "url": "https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -91,6 +101,12 @@
     ],
     "tags": ["audio", "bit-depth", "dynamic-range", "quantization", "decibels"],
     "relatedIds": ["what-is-sample-rate", "what-is-lossy-vs-lossless", "what-is-dac-amp"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Audio bit depth",
+        "url": "https://en.wikipedia.org/wiki/Audio_bit_depth"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -125,6 +141,16 @@
     ],
     "tags": ["audio", "codec", "compression", "mp3", "aac", "flac", "opus"],
     "relatedIds": ["what-is-lossy-vs-lossless", "what-is-bluetooth-audio", "what-is-aptx"],
+    "relatedLinks": [
+      {
+        "label": "MDN Web Docs — Codecs used by Web technologies",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Media/Formats/codecs_parameter"
+      },
+      {
+        "label": "Wikipedia — Codec",
+        "url": "https://en.wikipedia.org/wiki/Codec"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -173,6 +199,16 @@
     ],
     "tags": ["audio", "lossless", "lossy", "flac", "mp3", "aac", "opus", "bitrate"],
     "relatedIds": ["what-is-codec", "what-is-sample-rate", "what-is-bit-depth"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Lossy compression",
+        "url": "https://en.wikipedia.org/wiki/Lossy_compression"
+      },
+      {
+        "label": "Wikipedia — FLAC",
+        "url": "https://en.wikipedia.org/wiki/FLAC"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -225,6 +261,16 @@
     ],
     "tags": ["audio", "bluetooth", "a2dp", "wireless", "sbc", "aac", "le-audio"],
     "relatedIds": ["what-is-ldac", "what-is-aptx", "what-is-codec"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — List of Bluetooth profiles (A2DP)",
+        "url": "https://en.wikipedia.org/wiki/List_of_Bluetooth_profiles#Advanced_Audio_Distribution_Profile_(A2DP)"
+      },
+      {
+        "label": "Android Developers — Bluetooth audio",
+        "url": "https://source.android.com/docs/core/audio/bluetooth"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -264,6 +310,12 @@
     ],
     "tags": ["audio", "aptx", "qualcomm", "bluetooth", "latency", "wireless"],
     "relatedIds": ["what-is-bluetooth-audio", "what-is-ldac", "what-is-codec"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — aptX",
+        "url": "https://en.wikipedia.org/wiki/AptX"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -312,6 +364,12 @@
     ],
     "tags": ["audio", "ldac", "sony", "hires", "bluetooth", "android"],
     "relatedIds": ["what-is-bluetooth-audio", "what-is-aptx", "what-is-sample-rate"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — LDAC (codec)",
+        "url": "https://en.wikipedia.org/wiki/LDAC_(codec)"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -360,6 +418,12 @@
     ],
     "tags": ["audio", "anc", "noise-cancellation", "dsp", "acoustics", "headphones"],
     "relatedIds": ["what-is-dac-amp", "what-is-impedance-headphones", "what-is-bluetooth-audio"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Active noise control",
+        "url": "https://en.wikipedia.org/wiki/Active_noise_control"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -398,6 +462,16 @@
     ],
     "tags": ["audio", "impedance", "ohms", "headphones", "audiophile", "amplifiers"],
     "relatedIds": ["what-is-dac-amp", "what-is-resistance", "what-is-voltage"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Electrical impedance",
+        "url": "https://en.wikipedia.org/wiki/Electrical_impedance"
+      },
+      {
+        "label": "Wikipedia — Headphones",
+        "url": "https://en.wikipedia.org/wiki/Headphones"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -446,6 +520,16 @@
     ],
     "tags": ["audio", "dac", "amp", "audiophile", "analog", "signal-processing"],
     "relatedIds": ["what-is-sample-rate", "what-is-bit-depth", "what-is-impedance-headphones"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Digital-to-analog converter",
+        "url": "https://en.wikipedia.org/wiki/Digital-to-analog_converter"
+      },
+      {
+        "label": "Wikipedia — Audio power amplifier",
+        "url": "https://en.wikipedia.org/wiki/Audio_power_amplifier"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false

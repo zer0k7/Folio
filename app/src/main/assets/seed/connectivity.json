@@ -1,0 +1,344 @@
+[
+  {
+    "id": "wifi5-vs-wifi6-vs-wifi7",
+    "title": "Wi-Fi 5 vs Wi-Fi 6 vs Wi-Fi 7",
+    "category": "connectivity",
+    "summary": "Wi-Fi 6 introduced OFDMA and 1024-QAM for crowded environments, while Wi-Fi 7 introduces 320 MHz channels, 4096-QAM, and Multi-Link Operation (MLO).",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Multi-Link Operation (MLO)",
+        "definition": "A Wi-Fi 7 feature allowing a client device to simultaneously transmit and receive data across multiple frequency bands (2.4 GHz, 5 GHz, 6 GHz) over a single aggregated connection."
+      },
+      {
+        "type": "paragraph",
+        "text": "Wi-Fi standards evolve through IEEE 802.11 working group amendments. While Wi-Fi 5 (802.11ac) focused primarily on single-device raw speed over 5 GHz, Wi-Fi 6 (802.11ax) revolutionized multi-device efficiency using OFDMA. Wi-Fi 7 (802.11be) pushes theoretical throughput past 40 Gbps with ultra-low latency."
+      },
+      {
+        "type": "heading",
+        "text": "Generational Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Standard", "Max Channel Width", "Modulation", "Peak Theoretical Speed"],
+        "rows": [
+          {
+            "label": "Wi-Fi 5 (802.11ac)",
+            "values": ["80 / 160 MHz", "256-QAM (8 bits/symbol)", "3.5 Gbps"]
+          },
+          {
+            "label": "Wi-Fi 6 / 6E (802.11ax)",
+            "values": ["160 MHz", "1024-QAM (10 bits/symbol)", "9.6 Gbps"]
+          },
+          {
+            "label": "Wi-Fi 7 (802.11be)",
+            "values": ["320 MHz", "4096-QAM (12 bits/symbol)", "46 Gbps"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "OFDMA (Orthogonal Frequency Division Multiple Access) divides a Wi-Fi channel into dozens of sub-carriers, letting a router talk to multiple devices simultaneously."
+      }
+    ],
+    "tags": ["connectivity", "wifi", "wifi6", "wifi7", "802-11be", "mlo", "ofdma"],
+    "relatedIds": ["what-is-2-4ghz-vs-5ghz-vs-6ghz", "what-is-a-mesh-network"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — IEEE 802.11",
+        "url": "https://en.wikipedia.org/wiki/IEEE_802.11"
+      },
+      {
+        "label": "Wikipedia — IEEE 802.11be (Wi-Fi 7)",
+        "url": "https://en.wikipedia.org/wiki/IEEE_802.11be"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-2-4ghz-vs-5ghz-vs-6ghz",
+    "title": "Wi-Fi Frequency Bands: 2.4 GHz, 5 GHz & 6 GHz",
+    "category": "connectivity",
+    "summary": "2.4 GHz penetrates walls effectively at lower speeds, 5 GHz offers high bandwidth over moderate distances, and 6 GHz provides wide, uncongested channels.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Radio Frequency Spectrum",
+        "definition": "The electromagnetic wave frequency range utilized by wireless communications, where higher frequencies carry more data per second but attenuate faster through solid materials."
+      },
+      {
+        "type": "paragraph",
+        "text": "The 2.4 GHz band is crowded with Bluetooth, microwaves, and legacy IoT devices, and only has three non-overlapping 20 MHz channels (1, 6, 11). The 5 GHz band expands channel capacity significantly, while the newer 6 GHz band (Wi-Fi 6E/7) opens up 1,200 MHz of clean spectrum with zero interference from older legacy routers."
+      },
+      {
+        "type": "heading",
+        "text": "Band Tradeoffs"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Band", "Range & Wall Penetration", "Max Channel Width", "Interference Level"],
+        "rows": [
+          {
+            "label": "2.4 GHz",
+            "values": ["Excellent (Long wavelength)", "20 / 40 MHz", "Extremely congested"]
+          },
+          {
+            "label": "5 GHz",
+            "values": ["Moderate", "80 / 160 MHz", "Moderate (DFS radar sharing)"]
+          },
+          {
+            "label": "6 GHz",
+            "values": ["Short (Line-of-sight optimal)", "160 / 320 MHz", "Zero legacy interference"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Dynamic Frequency Selection (DFS) requires 5 GHz routers to switch channels if they detect nearby airport or military weather radar signals."
+      }
+    ],
+    "tags": ["connectivity", "frequency", "2-4ghz", "5ghz", "6ghz", "spectrum", "wifi"],
+    "relatedIds": ["wifi5-vs-wifi6-vs-wifi7", "what-is-a-mesh-network"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — List of WLAN channels",
+        "url": "https://en.wikipedia.org/wiki/List_of_WLAN_channels"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-mesh-network",
+    "title": "Mesh Wi-Fi Networks & Seamless Roaming",
+    "category": "connectivity",
+    "summary": "A mesh network uses multiple interconnected wireless nodes sharing a single SSID to blanket large homes with seamless 802.11k/v/r roaming.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Wireless Mesh Network (WMN)",
+        "definition": "A decentralized communications network composed of radio nodes that organize dynamically, passing traffic across intermediate hops back to the primary gateway router."
+      },
+      {
+        "type": "paragraph",
+        "text": "Traditional Wi-Fi extenders repeat signals on separate SSIDs, cutting bandwidth in half and causing devices to cling stubbornly to distant weak signals. Mesh systems use a single unified network name (SSID), coordinating handoffs smoothly using standardized roaming protocols."
+      },
+      {
+        "type": "heading",
+        "text": "Roaming Standards"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "802.11k (Radio Resource Measurement): Creates an optimized neighbor report so phones know which adjacent node has the best signal without full-band scanning.",
+          "802.11v (BSS Transition Management): The router actively advises clients to migrate to a less congested access point.",
+          "802.11r (Fast BSS Transition): Caches encryption handshake keys across nodes so authentication takes under 50ms without audio dropouts."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Tri-band mesh systems dedicate a second 5 GHz or 6 GHz radio exclusively for wireless backhaul communication between satellite nodes."
+      }
+    ],
+    "tags": ["connectivity", "mesh-wifi", "roaming", "802-11k", "802-11r", "backhaul"],
+    "relatedIds": ["wifi5-vs-wifi6-vs-wifi7", "what-is-2-4ghz-vs-5ghz-vs-6ghz"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Wireless mesh network",
+        "url": "https://en.wikipedia.org/wiki/Wireless_mesh_network"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-wifi-calling",
+    "title": "Wi-Fi Calling (VoWiFi)",
+    "category": "connectivity",
+    "summary": "Wi-Fi Calling routes voice calls and SMS text messages over an encrypted IPSec Internet tunnel directly to your mobile carrier's IMS core.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Voice over Wi-Fi (VoWiFi)",
+        "definition": "A 3GPP telecommunications standard that enables cellular voice calls and SMS to traverse standard IP broadband networks through secure ePDG gateways into the carrier IMS network."
+      },
+      {
+        "type": "paragraph",
+        "text": "When cellular reception is obstructed by thick concrete walls or basement shielding, VoWiFi seamlessly bridges your phone to the cellular provider over standard home Wi-Fi. It uses the same dialer, caller ID, and high-definition AMR-WB codecs as VoLTE."
+      },
+      {
+        "type": "heading",
+        "text": "VoWiFi Architecture"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "IKEv2 & IPSec Tunnel: Establishes an end-to-end encrypted VPN tunnel between the handset and the carrier's Evolved Packet Data Gateway (ePDG).",
+          "SIM Authentication: Uses the physical or eSIM cryptographic credentials (EAP-AKA) to verify carrier subscriber identity.",
+          "Seamless Handover: Calls hand over bidirectionally between VoWiFi and VoLTE without disconnecting as signal strength fluctuates."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "VoWiFi does not require any third-party app (like WhatsApp or Skype) and routes directly to regular telephone numbers worldwide."
+      }
+    ],
+    "tags": ["connectivity", "vowifi", "wifi-calling", "ims", "ipsec", "cellular"],
+    "relatedIds": ["what-is-esim-vs-sim", "what-is-carrier-aggregation"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Voice over LTE / Wi-Fi",
+        "url": "https://en.wikipedia.org/wiki/Voice_over_LTE"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-esim-vs-sim",
+    "title": "Physical SIM vs eSIM (eUICC)",
+    "category": "connectivity",
+    "summary": "An eSIM is a miniature chip permanently soldered to the motherboard that can be reprogrammed over-the-air with multiple carrier network profiles.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Embedded UICC (eSIM)",
+        "definition": "A hardware secure element conforming to GSMA remote SIM provisioning specifications that allows digital cellular profiles to be downloaded securely via SM-DP+ servers."
+      },
+      {
+        "type": "paragraph",
+        "text": "Traditional SIM cards require physical plastic trays and nano-SIM cards. An eSIM replaces this mechanical tray with a tiny surface-mount chip (SON-8 package), freeing up valuable internal smartphone space for larger batteries and improved IP68 water resistance."
+      },
+      {
+        "type": "heading",
+        "text": "Key Differences"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "Physical SIM", "eSIM (eUICC)"],
+        "rows": [
+          {
+            "label": "Provisioning",
+            "values": ["Requires physical shipping or swap", "Instant QR code or carrier app push"]
+          },
+          {
+            "label": "Multiple Profiles",
+            "values": ["Single carrier per physical card", "Stores 5-10+ carrier profiles digitally"]
+          },
+          {
+            "label": "Theft Security",
+            "values": ["Thief can eject SIM to disable tracking", "Cannot be physically removed from stolen device"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Dual eSIM functionality allows modern phones to keep two digital carrier profiles active simultaneously on separate IMEI transceivers."
+      }
+    ],
+    "tags": ["connectivity", "sim", "esim", "euicc", "cellular", "gsma"],
+    "relatedIds": ["what-is-wifi-calling", "what-is-carrier-aggregation"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — eSIM",
+        "url": "https://en.wikipedia.org/wiki/ESIM"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-hotspot",
+    "title": "Mobile Hotspot & Tethering",
+    "category": "connectivity",
+    "summary": "Mobile hotspot routing turns your smartphone into a portable wireless router using NAT and packet forwarding across cellular and Wi-Fi interfaces.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Network Address Translation (NAT) Tethering",
+        "definition": "A network routing process where a mobile operating system creates a private local subnet (DHCP server) and rewrites packet headers to bridge connected clients to the cellular WAN."
+      },
+      {
+        "type": "paragraph",
+        "text": "When you turn on a mobile hotspot, the OS launches a local Wi-Fi Access Point (AP) mode daemon, starts a dnsmasq DHCP service, and activates Linux iptables kernel packet forwarding between the cellular interface (rmnet_data0) and wireless interface (wlan0)."
+      },
+      {
+        "type": "heading",
+        "text": "Tethering Modes Compared"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Wi-Fi Hotspot: Supports multiple simultaneous clients; highest battery consumption.",
+          "USB Tethering: Direct USB network adapter (RNDIS/NCM); lowest latency, zero wireless interference, charges phone simultaneously.",
+          "Bluetooth Tethering: Ultra-low power consumption (PAN profile); capped at roughly 1-2 Mbps bandwidth."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Carriers can inspect the IP packet Time-To-Live (TTL) field to distinguish native smartphone traffic from tethered laptop hotspot traffic."
+      }
+    ],
+    "tags": ["connectivity", "hotspot", "tethering", "nat", "dhcp", "iptables"],
+    "relatedIds": ["what-is-2-4ghz-vs-5ghz-vs-6ghz", "what-is-carrier-aggregation"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Tethering",
+        "url": "https://en.wikipedia.org/wiki/Tethering"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-carrier-aggregation",
+    "title": "Carrier Aggregation (LTE-A & 5G NR)",
+    "category": "connectivity",
+    "summary": "Carrier Aggregation combines multiple distinct cellular frequency bands into a single high-bandwidth data channel to boost peak download speeds.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Carrier Aggregation (CA)",
+        "definition": "A core feature of LTE-Advanced and 5G NR that bundles two or more component carriers across identical or distinct frequency bands into a unified virtual transmission pipe."
+      },
+      {
+        "type": "paragraph",
+        "text": "In standard 4G, a phone communicates over a single 10 MHz or 20 MHz spectrum slice. With Carrier Aggregation (represented by the '4G+' or '5G+' icon), a modem can aggregate three to five different frequency bands simultaneously (e.g. Band 3 1800MHz + Band 7 2600MHz + Band 20 800MHz), multiplying peak throughput."
+      },
+      {
+        "type": "heading",
+        "text": "Aggregation Types"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Intra-band Contiguous: Combining adjacent frequency channels within the exact same frequency band.",
+          "Intra-band Non-contiguous: Combining separate channels within the same spectrum band.",
+          "Inter-band Non-contiguous: Aggregating completely distinct spectrum bands (e.g., low-band 700 MHz coverage with mid-band 3.5 GHz capacity)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Carrier aggregation requires sophisticated RF front-end modules (switches, duplexers, and power amplifiers) to prevent internal intermodulation harmonic distortion."
+      }
+    ],
+    "tags": ["connectivity", "carrier-aggregation", "lte-a", "5g", "cellular", "rf"],
+    "relatedIds": ["what-is-wifi-calling", "what-is-esim-vs-sim"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — LTE Advanced #Carrier Aggregation",
+        "url": "https://en.wikipedia.org/wiki/LTE_Advanced#Carrier_aggregation"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  }
+]

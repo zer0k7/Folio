@@ -1,0 +1,422 @@
+[
+  {
+    "id": "what-is-docker",
+    "title": "Docker & Containerization",
+    "category": "devtools",
+    "summary": "Docker packages applications and their entire dependency runtime into lightweight containers utilizing Linux namespaces and cgroups.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Docker Container",
+        "definition": "A standardized standalone software executable package that bundles code, runtime, system libraries, and settings to run identically across development and production environments."
+      },
+      {
+        "type": "paragraph",
+        "text": "Before containers, the classic developer excuse was 'it works on my machine.' Docker solves this by encapsulating application code inside immutable container images built from a `Dockerfile`. Containers share the host OS kernel while maintaining complete isolated process spaces."
+      },
+      {
+        "type": "heading",
+        "text": "Core Linux Kernel Primitives"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Namespaces (pid, net, mnt, ipc, uts): Provide process isolation by giving each container its own virtualized network stack, process tree, and mount points.",
+          "Control Groups (cgroups): Restrict and meter hardware resource consumption (limiting CPU cores, memory limits, and disk I/O).",
+          "OverlayFS (Union Mount): Layered read-only filesystem where new container writes are stored in a thin ephemeral top layer."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Docker images are immutable stacks of read-only layers; sharing unchanged base layers saves immense disk space across multiple containers."
+      }
+    ],
+    "tags": ["devtools", "docker", "containers", "namespaces", "cgroups", "devops"],
+    "relatedIds": ["vm-vs-container", "what-is-cicd"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Docker (software)",
+        "url": "https://en.wikipedia.org/wiki/Docker_(software)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "vm-vs-container",
+    "title": "Virtual Machines vs Containers",
+    "category": "devtools",
+    "summary": "Virtual Machines emulate an entire hardware stack with dedicated guest OS kernels, while containers share the host kernel for near-instant boot times.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Hypervisor",
+        "definition": "Software or firmware (such as KVM, ESXi, or Hyper-V) that virtualizes physical CPU, RAM, and hardware devices to run multiple full guest operating systems on a single host."
+      },
+      {
+        "type": "paragraph",
+        "text": "A Virtual Machine (VM) packages a full operating system kernel, virtual BIOS, and virtual drivers, resulting in gigabytes of image overhead and minutes of boot time. Containers bypass hypervisor hardware emulation completely, running as native isolated processes on the host Linux kernel."
+      },
+      {
+        "type": "heading",
+        "text": "Architecture Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Metric", "Virtual Machine (VM)", "Container (Docker)"],
+        "rows": [
+          {
+            "label": "Operating System",
+            "values": ["Full separate Guest OS per VM", "Shared Host OS Kernel"]
+          },
+          {
+            "label": "Startup Time",
+            "values": ["30 seconds to several minutes", "Milliseconds to seconds"]
+          },
+          {
+            "label": "Resource Overhead",
+            "values": ["High (Gigabytes of RAM allocated)", "Minimal (Megabytes of RAM)"]
+          },
+          {
+            "label": "Isolation Level",
+            "values": ["Hardware-level virtualization (Strongest)", "Kernel-level namespace isolation"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Containers on Windows or macOS run inside a transparent lightweight Linux virtual machine (Hyper-V / Apple Virtualization Framework) behind the scenes."
+      }
+    ],
+    "tags": ["devtools", "vm", "containers", "hypervisor", "virtualization", "docker"],
+    "relatedIds": ["what-is-docker", "what-is-cicd"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — OS-level virtualization",
+        "url": "https://en.wikipedia.org/wiki/OS-level_virtualization"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-cicd",
+    "title": "CI/CD Pipelines & Automation",
+    "category": "devtools",
+    "summary": "Continuous Integration automatically tests and builds code commits, while Continuous Deployment releases verified builds directly to production.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "CI/CD Pipeline",
+        "definition": "An automated DevOps workflow that compiles code, executes automated test suites, checks linting, and deploys build artifacts upon git push triggers."
+      },
+      {
+        "type": "paragraph",
+        "text": "In modern software teams, manual testing and manual server deployments create bottlenecks and human error. CI/CD runners (like GitHub Actions, GitLab CI, and Jenkins) spin up isolated runners to validate code formatting, unit tests, and build artifacts before any PR can merge."
+      },
+      {
+        "type": "heading",
+        "text": "Pipeline Stages"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Continuous Integration (CI): Developers merge code frequently; runners automatically run lints, type checks, and unit test suites.",
+          "Continuous Delivery (CD): Automatically generates signed release binaries (e.g. Android APKs or Docker images) ready for one-click staging.",
+          "Continuous Deployment: Automatically deploys passing builds into live production environments without manual gatekeeping."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Fast feedback loops are vital: a well-designed CI pipeline executes lint and unit tests in parallel to report pass/fail status in under 5 minutes."
+      }
+    ],
+    "tags": ["devtools", "cicd", "github-actions", "devops", "automation", "testing"],
+    "relatedIds": ["what-is-docker", "what-is-a-linter"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — CI/CD",
+        "url": "https://en.wikipedia.org/wiki/CI/CD"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-an-api-key",
+    "title": "API Keys & Authentication Tokens",
+    "category": "devtools",
+    "summary": "An API key is a unique alphanumeric secret string passed in HTTP request headers to authenticate developer applications and enforce rate limits.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "API Key",
+        "definition": "A unique cryptographic token generated by an API provider used to identify and authenticate the calling application for billing, logging, and rate limiting."
+      },
+      {
+        "type": "paragraph",
+        "text": "When building applications that interact with cloud services (like maps, AI models, or payment gateways), the client passes the API key in the `Authorization: Bearer <token>` or `x-api-key` HTTP header. The backend server validates the token before fulfilling the request."
+      },
+      {
+        "type": "heading",
+        "text": "API Key Security Best Practices"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Never Commit to Git: Store keys in `.env` files added to `.gitignore` to prevent public leakage on GitHub.",
+          "IP and Domain Restrictions: Restrict API keys in cloud consoles to accept requests only from designated backend server IP addresses.",
+          "Short-Lived Tokens: Use OAuth2 or JWTs with automatic refresh token rotation for client-side mobile apps."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Automated bot scanners scrape public GitHub commits within seconds of pushing, immediately exploiting exposed cloud provider API keys."
+      }
+    ],
+    "tags": ["devtools", "api-key", "security", "authentication", "tokens", "oauth"],
+    "relatedIds": ["what-is-ssh-key", "what-is-an-environment-variable"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Application programming interface key",
+        "url": "https://en.wikipedia.org/wiki/Application_programming_interface_key"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-ssh-key",
+    "title": "SSH Keys & Asymmetric Cryptography",
+    "category": "devtools",
+    "summary": "SSH key pairs use asymmetric public-key cryptography (Ed25519, RSA) to provide cryptographic passwordless authentication across developer infrastructure.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Asymmetric Key Pair",
+        "definition": "A mathematically linked pair of cryptographic keys: a Public Key (safe to share anywhere) and a Private Key (kept strictly secret on the client machine)."
+      },
+      {
+        "type": "paragraph",
+        "text": "When authenticating to a remote server or GitHub via SSH, the server encrypts a random challenge string using your stored Public Key (`~/.ssh/authorized_keys`). Only your corresponding Private Key can decrypt and sign this challenge, proving identity without ever transmitting passwords over the network."
+      },
+      {
+        "type": "heading",
+        "text": "Key Types Compared"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Algorithm", "Key Length", "Security & Speed", "Recommended Status"],
+        "rows": [
+          {
+            "label": "Ed25519 (Edwards-curve)",
+            "values": ["256 bits", "Extremely fast, immune to side-channel timing attacks", "Modern Default Choice"]
+          },
+          {
+            "label": "RSA",
+            "values": ["3072 - 4096 bits", "High mathematical security but larger keys and slower signing", "Legacy Compatibility"]
+          },
+          {
+            "label": "ECDSA",
+            "values": ["256 - 521 bits", "Vulnerable if flawed random number generators are used", "Use Ed25519 instead"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Always protect your private key on disk with a strong passphrase, which uses PBKDF2/Argon2 to encrypt the key file at rest."
+      }
+    ],
+    "tags": ["devtools", "ssh", "cryptography", "ed25519", "rsa", "public-key"],
+    "relatedIds": ["what-is-an-api-key", "what-is-an-environment-variable"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Public-key cryptography",
+        "url": "https://en.wikipedia.org/wiki/Public-key_cryptography"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-package-manager-dev",
+    "title": "Language Package Managers (npm, Gradle, Cargo)",
+    "category": "devtools",
+    "summary": "Language package managers download third-party software libraries, resolve transitive dependencies, and enforce reproducible builds using lockfiles.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Dependency Lockfile",
+        "definition": "A machine-generated manifest (such as `package-lock.json` or `Cargo.lock`) recording the exact cryptographic SHA hashes and pinned versions of every installed sub-dependency."
+      },
+      {
+        "type": "paragraph",
+        "text": "Modern software relies on thousands of open-source libraries. Language-level package managers (Gradle in Android/Kotlin, npm in JavaScript, Cargo in Rust, pip in Python) fetch published artifacts from global registries (Maven Central, npmjs, crates.io), resolving multi-tier dependency trees automatically."
+      },
+      {
+        "type": "heading",
+        "text": "Semantic Versioning Ranges in Dependencies"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Caret (`^1.2.3`): Allows automatic upgrades to compatible minor/patch versions (<2.0.0).",
+          "Tilde (`~1.2.3`): Restricts upgrades strictly to patch releases (<1.3.0).",
+          "Exact Version (`1.2.3`): Pins an absolute immutable version."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Committing the lockfile to git is crucial to ensure that team members and CI/CD build identical dependency trees byte-for-byte."
+      }
+    ],
+    "tags": ["devtools", "package-manager", "gradle", "npm", "cargo", "lockfile", "dependencies"],
+    "relatedIds": ["what-is-a-linter", "what-is-cicd"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Package manager",
+        "url": "https://en.wikipedia.org/wiki/Package_manager"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-linter",
+    "title": "Linters & Static Code Analysis",
+    "category": "devtools",
+    "summary": "Linters parse source code into Abstract Syntax Trees (ASTs) to catch programming bugs, memory leaks, and stylistic inconsistencies before compilation.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Static Code Analysis (Linting)",
+        "definition": "The analysis of computer software source code performed without actually executing the program, inspecting syntax trees for code smells, vulnerabilities, and formatting rules."
+      },
+      {
+        "type": "paragraph",
+        "text": "Named after the Unix `lint` utility from 1978, modern linters (like Android Lint, ktlint, ESLint, Clippy) parse source files into an Abstract Syntax Tree (AST). Rule engines traverse the tree, detecting antipatterns like unclosed database cursors, missing null checks, or deprecated API usage."
+      },
+      {
+        "type": "heading",
+        "text": "What Linters Catch"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Bug Prevention: Unhandled null pointers, infinite recursion loops, and unclosed file streams.",
+          "Security Vulnerabilities: Hardcoded plaintext passwords, insecure HTTP endpoints, and SQL injection risks.",
+          "Consistency: Enforcing standard team naming conventions, indentations, and unused import removals."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Integrating linters into git pre-commit hooks (using tools like Husky) blocks non-compliant code from ever being committed."
+      }
+    ],
+    "tags": ["devtools", "linter", "static-analysis", "ast", "ktlint", "eslint", "code-quality"],
+    "relatedIds": ["what-is-a-debugger", "what-is-cicd"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Lint (software)",
+        "url": "https://en.wikipedia.org/wiki/Lint_(software)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-debugger",
+    "title": "Debuggers & Breakpoint Mechanics",
+    "category": "devtools",
+    "summary": "A debugger attaches to running software processes, pausing execution at breakpoints by replacing CPU instructions with software interrupt traps.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Software Breakpoint",
+        "definition": "A debugging mechanism where the debugger temporarily replaces a machine code instruction with an `INT 3` software interrupt opcode (0xCC in x86), transferring control to the debugger."
+      },
+      {
+        "type": "paragraph",
+        "text": "Debuggers (GDB, LLDB, JVM debugger in Android Studio) allow engineers to step through code line-by-line, inspect variable values in stack frames, evaluate dynamic runtime expressions, and analyze heap allocations in real time."
+      },
+      {
+        "type": "heading",
+        "text": "Debugger Stepping Operations"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Step Over (F8): Executes the current line of code and pauses at the next line in the same function without entering sub-functions.",
+          "Step Into (F7): Follows execution into the body of the function being called on the current line.",
+          "Step Out (Shift+F8): Continues execution until the current function finishes, pausing immediately in the calling function."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Hardware breakpoints use dedicated CPU debug registers (DR0-DR3 in x86) to pause execution when a specific memory address is read or written."
+      }
+    ],
+    "tags": ["devtools", "debugger", "gdb", "lldb", "breakpoints", "debugging"],
+    "relatedIds": ["what-is-a-linter", "what-is-an-environment-variable"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Debugger",
+        "url": "https://en.wikipedia.org/wiki/Debugger"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-an-environment-variable",
+    "title": "Environment Variables & The PATH",
+    "category": "devtools",
+    "summary": "Environment variables are dynamic key-value pairs maintained by the operating system to pass configuration and credentials to running processes.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Environment Variable",
+        "definition": "A global dynamic named value stored in process memory that affects the behavior and configuration of running processes and child sub-processes."
+      },
+      {
+        "type": "paragraph",
+        "text": "When a process forks a child process in Unix or Windows, it passes a clone of its environment variables. This enables standard Twelve-Factor App architecture, separating sensitive secrets (like database passwords and API tokens) from compiled source code."
+      },
+      {
+        "type": "heading",
+        "text": "Crucial Standard Variables"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "`PATH`: A colon-separated (or semicolon-separated on Windows) list of directory paths searched by the shell when executing command names.",
+          "`HOME` / `USERPROFILE`: The absolute path to the current user's personal home directory.",
+          "`NODE_ENV` / `ENVIRONMENT`: Declares operational mode (`development`, `staging`, `production`) to toggle debugging flags."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Environment variables defined in a `.env` file must be parsed by a dotenv loader into memory and should never be hardcoded into public repositories."
+      }
+    ],
+    "tags": ["devtools", "env-vars", "path", "configuration", "twelve-factor", "shell"],
+    "relatedIds": ["what-is-an-api-key", "what-is-a-package-manager-dev"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Environment variable",
+        "url": "https://en.wikipedia.org/wiki/Environment_variable"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

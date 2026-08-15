@@ -12,7 +12,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
 data class ExploreUiState(
     val categories: List<Category> = emptyList(),
@@ -60,8 +62,37 @@ class ExploreViewModel(
         initialValue = ExploreUiState(isLoading = true)
     )
 
+    private val _exportingCategorySlug = MutableStateFlow<String?>(null)
+    val exportingCategorySlug: StateFlow<String?> = _exportingCategorySlug.asStateFlow()
+
     fun selectCategory(slug: String?) {
         _selectedCategorySlug.value = slug
+    }
+
+    fun exportCategoryPdf(
+        context: android.content.Context,
+        category: Category,
+        onSuccess: (java.io.File) -> Unit,
+        onError: () -> Unit
+    ) {
+        if (_exportingCategorySlug.value != null) return
+        _exportingCategorySlug.value = category.slug
+
+        viewModelScope.launch {
+            try {
+                val articles = repository.getArticlesByCategory(category.slug).firstOrNull() ?: emptyList()
+                val pdfFile = com.ghost.folio.util.CategoryPdfGenerator.generateCategoryPdf(
+                    context = context,
+                    category = category,
+                    articles = articles
+                )
+                onSuccess(pdfFile)
+            } catch (_: Exception) {
+                onError()
+            } finally {
+                _exportingCategorySlug.value = null
+            }
+        }
     }
 
     class Factory(private val repository: ArticleRepository) : ViewModelProvider.Factory {

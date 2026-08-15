@@ -1,0 +1,480 @@
+[
+  {
+    "id": "what-is-an-sdk",
+    "title": "Software Development Kits (SDKs)",
+    "category": "app-dev",
+    "summary": "An SDK is a comprehensive suite of development tools, compilers, debuggers, header libraries, and APIs tailored for building software on a specific platform.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Software Development Kit (SDK)",
+        "definition": "A collection of software development tools in one installable package, facilitating the creation of applications for a specific hardware platform, operating system, or framework."
+      },
+      {
+        "type": "paragraph",
+        "text": "While an API is simply an interface specification (a way to talk to a service), an SDK provides the entire toolkit: platform libraries, documentation, hardware emulators, build tools (like `aapt2` and `d8` in the Android SDK), and sample code required to write and compile native applications."
+      },
+      {
+        "type": "heading",
+        "text": "Core Components of the Android SDK"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Android Build Tools: Compilers (`d8`/`r8`), resource packagers (`aapt2`), and signing utilities (`apksigner`, `zipalign`).",
+          "Platform Tools: Hardware debugging bridges like `adb` (Android Debug Bridge) and `fastboot`.",
+          "Android API Framework: Pre-compiled `.jar` stubs exposing native OS services (Camera2, Location, Audio, Telephony)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The `compileSdkVersion` in Gradle defines which platform API version the compiler checks against during compilation."
+      }
+    ],
+    "tags": ["app-dev", "sdk", "api", "android-sdk", "tools", "compilers"],
+    "relatedIds": ["apk-vs-aab", "what-is-an-emulator"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Software development kit",
+        "url": "https://en.wikipedia.org/wiki/Software_development_kit"
+      },
+      {
+        "label": "Android Developers — SDK Platform release notes",
+        "url": "https://developer.android.com/tools/releases/platforms"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "apk-vs-aab",
+    "title": "Android APK vs Android App Bundle (AAB)",
+    "category": "app-dev",
+    "summary": "An APK is a ready-to-install package containing all device assets, whereas an AAB lets Google Play generate dynamic, device-tailored APKs on the fly.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Android App Bundle (AAB)",
+        "definition": "A publishing format on Google Play that defers final APK generation and signing to the store, dynamically delivering only the code and resources matching the user's specific device configuration."
+      },
+      {
+        "type": "paragraph",
+        "text": "A traditional universal APK must bundle every screen density (hdpi, xhdpi, xxxhdpi), CPU architecture (arm64-v8a, armeabi-v7a, x86_64), and language string table inside a single large archive. App Bundles split these into modular 'split APKs', shrinking initial download sizes by 15% to 30%."
+      },
+      {
+        "type": "heading",
+        "text": "Format Differences"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "Universal APK (`.apk`)", "Android App Bundle (`.aab`)"],
+        "rows": [
+          {
+            "label": "Direct Sideloading",
+            "values": ["Installs directly via Android Package Installer", "Cannot be directly installed; must be extracted to split APKs"]
+          },
+          {
+            "label": "App Signing",
+            "values": ["Signed by developer's private release keystore", "Signed by Google Play App Signing key in cloud"]
+          },
+          {
+            "label": "Download Size",
+            "values": ["Larger (Contains all densities and ABIs)", "Optimized (Downloads only target device slices)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Tools like `bundletool` allow developers to generate installable APK sets locally from `.aab` files for testing."
+      }
+    ],
+    "tags": ["app-dev", "apk", "aab", "android", "app-bundle", "packaging", "play-store"],
+    "relatedIds": ["what-is-an-sdk", "what-is-abi", "what-is-proguard"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — About Android App Bundles",
+        "url": "https://developer.android.com/guide/app-bundle"
+      },
+      {
+        "label": "Wikipedia — Apk (file format)",
+        "url": "https://en.wikipedia.org/wiki/Apk_(file_format)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-an-emulator",
+    "title": "Hardware Emulation vs Android Virtual Devices (AVD)",
+    "category": "app-dev",
+    "summary": "The Android Emulator uses QEMU hypervisor acceleration (KVM, HAXM, Hyper-V) to run full virtualized Android OS images at near-native CPU speeds.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Android Virtual Device (AVD)",
+        "definition": "A software configuration that defines the hardware characteristics (screen resolution, RAM, SoC, camera) and system image of an Android device emulated by QEMU."
+      },
+      {
+        "type": "paragraph",
+        "text": "Early Android emulators translated ARM machine instructions to x86 in software, resulting in sluggish performance. Modern Android emulators run native x86_64 system images directly on PC hardware using hardware virtualization extensions (Intel VT-x, AMD-V, Apple Hypervisor), providing smooth 60fps rendering."
+      },
+      {
+        "type": "heading",
+        "text": "Key Hypervisor Engines"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "KVM (Kernel-based Virtual Machine): Native Linux kernel virtualization module; fastest performance.",
+          "WHPX (Windows Hypervisor Platform): Integrates seamlessly with Windows 10/11 alongside WSL2 and Docker.",
+          "Apple Hypervisor Framework: Native virtualization on Apple Silicon (ARM64) running ARM64 Android system images without translation."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The emulator can simulate hardware sensor inputs (GPS coordinates, battery levels, accelerometer tilts, and cellular call states) through the Extended Controls window."
+      }
+    ],
+    "tags": ["app-dev", "emulator", "avd", "qemu", "virtualization", "kvm", "whpx"],
+    "relatedIds": ["what-is-an-sdk", "what-is-abi"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — Run apps on the Android Emulator",
+        "url": "https://developer.android.com/studio/run/emulator"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-abi",
+    "title": "Application Binary Interface (ABI) in Android",
+    "category": "app-dev",
+    "summary": "An ABI defines how compiled native machine code interacts with the CPU architecture and OS runtime at binary register and memory levels.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Application Binary Interface (ABI)",
+        "definition": "The low-level interface between two binary program modules; defining CPU instruction sets, memory byte order (endianness), and calling convention register assignments."
+      },
+      {
+        "type": "paragraph",
+        "text": "While Kotlin and Java compile to architecture-independent Dalvik Executable (`.dex`) bytecode, C/C++ native libraries (`.so` files compiled via the Android NDK) must be pre-compiled specifically for each target processor architecture."
+      },
+      {
+        "type": "heading",
+        "text": "Android ABIs Compared"
+      },
+      {
+        "type": "comparison",
+        "headers": ["ABI Name", "Architecture", "Bit Width", "Target Devices"],
+        "rows": [
+          {
+            "label": "arm64-v8a",
+            "values": ["ARMv8-A / ARMv9", "64-bit", "Virtually 100% of modern smartphones & tablets"]
+          },
+          {
+            "label": "armeabi-v7a",
+            "values": ["ARMv7-A", "32-bit", "Legacy budget smartphones and smartwatches"]
+          },
+          {
+            "label": "x86_64",
+            "values": ["x86-64 / AMD64", "64-bit", "Android Studio PC Emulators, Chromebooks"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern 64-bit-only Android flagship processors (such as Snapdragon 8 Gen 3 and Dimensity 9300) have dropped 32-bit execution silicon entirely, preventing 32-bit-only legacy APKs from launching."
+      }
+    ],
+    "tags": ["app-dev", "abi", "arm64-v8a", "ndk", "architecture", "c-plus-plus"],
+    "relatedIds": ["apk-vs-aab", "what-is-an-sdk"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — Android ABIs",
+        "url": "https://developer.android.com/ndk/guides/abis"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-proguard",
+    "title": "R8 & ProGuard: Obfuscation & Shrinking",
+    "category": "app-dev",
+    "summary": "R8 shrinks, optimizes, and obfuscates compiled bytecode by stripping unused classes and renaming symbols into meaningless single letters.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "R8 Code Shrinker",
+        "definition": "Google's modern code shrinking, optimization, and obfuscation tool that converts Java bytecode into optimized Dalvik Executable (`.dex`) format during release builds."
+      },
+      {
+        "type": "paragraph",
+        "text": "When building an Android app, third-party libraries include thousands of methods your app never uses. R8 inspects the entry points, strips unreferenced code (Tree Shaking), inlines small methods, and renames classes and fields (e.g. `UserRepository` -> `a.b.c`) to make decompilation through reverse engineering difficult."
+      },
+      {
+        "type": "heading",
+        "text": "ProGuard Rules (`proguard-rules.pro`)"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "`-keep class com.example.models.** { *; }`: Protects data models serialized with Gson/kotlinx.serialization from having their JSON field names renamed.",
+          "`-dontwarn`: Suppresses compilation warnings on optional unresolved class paths.",
+          "`mapping.txt`: The cryptographic symbol map generated during the build, required to de-obfuscate production crash stack traces in the Play Console."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "R8 replaces the legacy two-step pipeline (ProGuard -> D8), executing shrinking, desugaring, and dexing in a single unified compiler pass."
+      }
+    ],
+    "tags": ["app-dev", "r8", "proguard", "obfuscation", "tree-shaking", "minification", "dex"],
+    "relatedIds": ["what-is-minification", "apk-vs-aab"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — Shrink, obfuscate, and optimize your app",
+        "url": "https://developer.android.com/build/shrink-code"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-build-variant",
+    "title": "Build Variants: Build Types & Product Flavors",
+    "category": "app-dev",
+    "summary": "Build Variants in Gradle combine Build Types (Debug/Release) with Product Flavors (Free/Paid, Staging/Prod) to generate specialized app builds from a single codebase.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Build Variant",
+        "definition": "The matrix combination of a Gradle Build Type (e.g. debug, release) with one or more Product Flavors (e.g. dev, staging, prod)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Instead of duplicating code repositories for different app versions, Gradle allows developers to define dimensions in `build.gradle.kts`. For instance, combining `demo` and `full` flavors with `debug` and `release` types automatically generates four distinct build variants: `demoDebug`, `demoRelease`, `fullDebug`, and `fullRelease`."
+      },
+      {
+        "type": "heading",
+        "text": "Configuration Matrix"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Build Types: Control packaging properties like `isMinifyEnabled`, `isDebuggable`, and cryptographic signing keystores.",
+          "Product Flavors: Control features, application IDs (`com.app.free` vs `com.app.pro`), server API base URLs, and custom app icons.",
+          "`sourceSets`: Specific source directories (e.g. `src/paid/java`) merged with the common `src/main/` code during compilation."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Setting `applicationIdSuffix \".debug\"` on the debug build type allows installing both the debug development build and the live Play Store production app on the same phone simultaneously."
+      }
+    ],
+    "tags": ["app-dev", "build-variants", "gradle", "flavors", "build-types", "android-studio"],
+    "relatedIds": ["what-is-an-sdk", "apk-vs-aab"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — Configure build variants",
+        "url": "https://developer.android.com/build/build-variants"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-minification",
+    "title": "Code Minification & Dead-Code Elimination",
+    "category": "app-dev",
+    "summary": "Minification removes whitespaces, comments, unused functions, and renames variables to minimize download payload size and memory footprint.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Tree Shaking (Dead-Code Elimination)",
+        "definition": "A compiler optimization technique that traces the entire program call graph starting from entry roots to eliminate unreachable functions, classes, and variables."
+      },
+      {
+        "type": "paragraph",
+        "text": "In web development (via Terser, esbuild) and Android development (via R8), minification reduces payload size. Whitespace and developer comments are stripped, long variable identifiers (`userAuthenticationToken`) are shortened to single letters (`a`), and unreachable code branches are eliminated from output bundles."
+      },
+      {
+        "type": "heading",
+        "text": "Minification Benefits"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Faster Network Transfer: Decreases initial page load time on the web and reduces APK download times over cellular data.",
+          "Lower Memory Usage: Smaller DEX/JS bytecodes consume less memory space during execution and parsing.",
+          "Basic Code Obfuscation: Prevents casual inspection of proprietary business logic in client-side code."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Resource Shrinking (`shrinkResources = true` in Android) automatically deletes unreferenced drawables, XML layouts, and assets from the final build."
+      }
+    ],
+    "tags": ["app-dev", "minification", "tree-shaking", "optimization", "r8", "terser"],
+    "relatedIds": ["what-is-proguard", "apk-vs-aab"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Minification (programming)",
+        "url": "https://en.wikipedia.org/wiki/Minification_(programming)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-an-activity",
+    "title": "Android Activities & The Task Backstack",
+    "category": "app-dev",
+    "summary": "An Activity is an entry point for user interaction in Android, serving as a window container for rendering UI and managing system navigation.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Activity",
+        "definition": "A fundamental Android application component that provides a single focused window for rendering UI and handling system touch and key events."
+      },
+      {
+        "type": "paragraph",
+        "text": "Unlike desktop applications that launch from a single `main()` entry point, Android applications can be launched into specific Activities by external apps via Intents (e.g. opening a camera activity directly from a messaging app). In modern Jetpack Compose architecture, apps use a 'Single-Activity Architecture' where one root `MainActivity` hosts Compose navigation graphs."
+      },
+      {
+        "type": "heading",
+        "text": "The Task Backstack"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Task: A collection of activities that users interact with when performing a certain job (e.g. taking a photo and emailing it).",
+          "Backstack: A LIFO stack where each newly launched activity is pushed to the top; pressing the system Back gesture pops the top activity and reveals the previous one."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Activities must be declared in the `AndroidManifest.xml` file; undeclared activities throw an `ActivityNotFoundException` at runtime."
+      }
+    ],
+    "tags": ["app-dev", "activity", "android", "backstack", "single-activity", "jetpack-compose"],
+    "relatedIds": ["what-is-a-fragment", "what-is-a-lifecycle"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — Introduction to Activities",
+        "url": "https://developer.android.com/guide/components/activities/intro-activities"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-fragment",
+    "title": "Android Fragments & Modular UI",
+    "category": "app-dev",
+    "summary": "A Fragment is a reusable sub-component of an Activity UI with its own lifecycle, heavily used in legacy XML-based Android architectures.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Fragment",
+        "definition": "A modular section of an Android Activity with its own view hierarchy and lifecycle, designed to support dynamic multi-pane tablet layouts."
+      },
+      {
+        "type": "paragraph",
+        "text": "Introduced in Android 3.0 (Honeycomb) to support tablets, Fragments allowed developers to split screens into modular panes (e.g. a list on the left and detail on the right). However, complex fragment lifecycle edge cases and backstack transaction bugs led the Android ecosystem to adopt Jetpack Compose as the modern replacement."
+      },
+      {
+        "type": "heading",
+        "text": "Fragments vs Jetpack Compose"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Attribute", "Fragments (Legacy)", "Jetpack Compose (Modern)"],
+        "rows": [
+          {
+            "label": "UI Paradigm",
+            "values": ["Imperative XML View inflation", "Declarative Kotlin Composable functions"]
+          },
+          {
+            "label": "Lifecycle Complexity",
+            "values": ["Complex 11-stage dual lifecycle (Fragment vs View)", "Tied cleanly to standard `LifecycleOwner` & Composition scope"]
+          },
+          {
+            "label": "State Management",
+            "values": ["Manual bundle saving & view binding", "Reactive `State<T>` and `rememberSaveable`"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "`FragmentManager` manages fragment transactions (`add`, `replace`, `addToBackStack`) commit by commit."
+      }
+    ],
+    "tags": ["app-dev", "fragments", "android", "ui", "jetpack-compose", "fragment-manager"],
+    "relatedIds": ["what-is-an-activity", "what-is-a-lifecycle"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — Fragments",
+        "url": "https://developer.android.com/guide/fragments"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-lifecycle",
+    "title": "Android Lifecycle & Configuration Changes",
+    "category": "app-dev",
+    "summary": "The Android Lifecycle manages component state transitions as apps navigate between foreground, background, and process death states.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Android Component Lifecycle",
+        "definition": "The formal set of core state transitions (`CREATED`, `STARTED`, `RESUMED`, `DESTROYED`) through which an Activity or Composable transitions during its execution lifetime."
+      },
+      {
+        "type": "paragraph",
+        "text": "Because mobile memory is constrained, the Android OS can destroy background activities at any time. When a user rotates their device (Configuration Change), Android destroys and recreates the entire Activity. Modern architecture uses Android ViewModels to persist state safely across these recreation cycles."
+      },
+      {
+        "type": "heading",
+        "text": "Core Lifecycle Callback Methods"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "`onCreate()`: Initial setup, injecting dependencies, and inflating views.",
+          "`onStart()` / `onStop()`: App becomes visible / invisible to user (e.g. start/stop GPS tracking).",
+          "`onResume()` / `onPause()`: App gains / loses interactive input focus (e.g. pause camera preview, pause gameplay).",
+          "`onDestroy()`: Final cleanup before memory is reclaimed."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Jetpack `LifecycleObserver` allows non-UI components (like repositories or audio engines) to automatically start and stop in response to UI lifecycle changes without tight coupling."
+      }
+    ],
+    "tags": ["app-dev", "lifecycle", "android", "viewmodel", "oncreate", "configuration-change"],
+    "relatedIds": ["what-is-an-activity", "what-is-a-fragment"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — Activity Lifecycle",
+        "url": "https://developer.android.com/guide/components/activities/activity-lifecycle"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

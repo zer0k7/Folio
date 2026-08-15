@@ -1,0 +1,415 @@
+[
+  {
+    "id": "what-is-sql-vs-nosql",
+    "title": "SQL vs NoSQL Databases",
+    "category": "databases",
+    "summary": "SQL databases use structured tabular schemas and ACID transactions, whereas NoSQL systems offer flexible document, key-value, or graph data models for horizontal scaling.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Structured Query Language (SQL)",
+        "definition": "A domain-specific programming language designed for managing and querying structured data held in a relational database management system (RDBMS)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Relational SQL databases (PostgreSQL, MySQL, SQLite) enforce rigid schemas with predefined column types, foreign key constraints, and relational joins. NoSQL databases (MongoDB, Redis, Cassandra) were developed for high-velocity distributed applications with unstructured or rapidly evolving JSON payloads."
+      },
+      {
+        "type": "heading",
+        "text": "Comparison Matrix"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Attribute", "SQL (Relational)", "NoSQL (Non-Relational)"],
+        "rows": [
+          {
+            "label": "Data Model",
+            "values": ["Structured tables with rows and columns", "Documents (JSON), Key-Value, Columns, Graphs"]
+          },
+          {
+            "label": "Schema",
+            "values": ["Strict, predefined schema (DDL)", "Dynamic, schema-free / flexible"]
+          },
+          {
+            "label": "Scaling Model",
+            "values": ["Vertical scaling (Bigger CPU/RAM server)", "Horizontal scaling (Distributed sharding across clusters)"]
+          },
+          {
+            "label": "Guarantees",
+            "values": ["ACID (Strong consistency)", "BASE (Eventual consistency)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern relational databases like PostgreSQL include native JSONB binary document storage, blurring the line between SQL and NoSQL."
+      }
+    ],
+    "tags": ["databases", "sql", "nosql", "rdbms", "postgresql", "mongodb", "scaling"],
+    "relatedIds": ["what-is-acid", "relational-vs-document-database", "what-is-a-database-index"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — SQL",
+        "url": "https://en.wikipedia.org/wiki/SQL"
+      },
+      {
+        "label": "Wikipedia — NoSQL",
+        "url": "https://en.wikipedia.org/wiki/NoSQL"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-database-query",
+    "title": "Database Queries & Execution Plans",
+    "category": "databases",
+    "summary": "A database query requests data retrieval or modification, processed by an internal query optimizer into an efficient execution plan.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Query Execution Plan",
+        "definition": "The sequential sequence of low-level algorithms (such as Index Scans, Hash Joins, and Sorts) chosen by a database query optimizer to execute an SQL statement."
+      },
+      {
+        "type": "paragraph",
+        "text": "When you send a SQL statement (`SELECT * FROM users WHERE age > 21`), the database engine parses the syntax, checks permissions, analyzes table statistics, and generates cost estimates for various execution paths before executing the optimal plan."
+      },
+      {
+        "type": "heading",
+        "text": "Core Query Operation Types"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "DQL (Data Query Language): `SELECT` operations to fetch data.",
+          "DML (Data Manipulation Language): `INSERT`, `UPDATE`, `DELETE` operations modifying table rows.",
+          "DDL (Data Definition Language): `CREATE TABLE`, `ALTER`, `DROP` modifying schema structure."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The `EXPLAIN ANALYZE` command displays the exact execution plan, execution time, and memory footprint of an SQL query."
+      }
+    ],
+    "tags": ["databases", "query", "sql", "execution-plan", "explain", "optimization"],
+    "relatedIds": ["what-is-a-database-index", "what-is-sql-vs-nosql"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Query optimization",
+        "url": "https://en.wikipedia.org/wiki/Query_optimization"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-database-index",
+    "title": "Database Indexes (B-Trees & Hash)",
+    "category": "databases",
+    "summary": "A database index is a auxiliary B-Tree or Hash data structure that accelerates lookups from O(N) sequential scans to O(log N) operations.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Database Index",
+        "definition": "A dedicated data structure maintained by the database engine that maps key column values to physical storage page pointers (RowIDs) for fast search retrieval."
+      },
+      {
+        "type": "paragraph",
+        "text": "Searching a table of 10 million rows without an index requires a 'Full Table Scan' (reading every single page from disk, O(N) complexity). A B-Tree index organizes sorted keys in a balanced tree structure, reducing lookups to just 3 to 4 disk page reads (O(log N))."
+      },
+      {
+        "type": "heading",
+        "text": "Index Types Compared"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "B-Tree Index: The default versatile index; handles exact matches (`=`), range lookups (`BETWEEN`, `<`), and sorting (`ORDER BY`).",
+          "Hash Index: Ultra-fast O(1) exact equality matching; cannot perform range queries or sorting.",
+          "GIN / GiST Index: Specialized indexes for full-text search, JSON arrays, and GIS geospatial coordinates."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Every index speeds up reads but slows down `INSERT`, `UPDATE`, and `DELETE` queries because the index tree must be rebalanced on every modification."
+      }
+    ],
+    "tags": ["databases", "indexes", "b-tree", "hash-index", "performance", "query-optimization"],
+    "relatedIds": ["what-is-a-database-query", "what-is-primary-key"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Database index",
+        "url": "https://en.wikipedia.org/wiki/Database_index"
+      },
+      {
+        "label": "Wikipedia — B-tree",
+        "url": "https://en.wikipedia.org/wiki/B-tree"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-acid",
+    "title": "ACID Properties in Transactions",
+    "category": "databases",
+    "summary": "ACID guarantees that database transactions are processed reliably, maintaining mathematical data integrity through crashes and power outages.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "ACID Compliance",
+        "definition": "A set of four essential database transaction properties (Atomicity, Consistency, Isolation, Durability) ensuring reliable transactions even during hardware failures."
+      },
+      {
+        "type": "paragraph",
+        "text": "In financial systems, moving money from Account A to Account B requires two updates: decrementing A and incrementing B. If the database crashes midway, ACID guarantees that either both operations succeed or the entire transaction is rolled back cleanly."
+      },
+      {
+        "type": "heading",
+        "text": "The Four Pillars of ACID"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Atomicity: 'All or nothing.' If any statement in a transaction fails, all previous changes are rolled back completely.",
+          "Consistency: Any transaction will bring the database from one valid state to another, enforcing all schema constraints, triggers, and foreign keys.",
+          "Isolation: Concurrent transactions execute independently without cross-contaminating in-flight data.",
+          "Durability: Once a transaction commits, its changes are permanently written to non-volatile storage (via Write-Ahead Logging) and will survive power loss."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Write-Ahead Logging (WAL) ensures durability by writing change operations sequentially to a log file on disk before modifying the actual data tables."
+      }
+    ],
+    "tags": ["databases", "acid", "transactions", "atomicity", "consistency", "wal"],
+    "relatedIds": ["what-is-a-transaction", "what-is-sql-vs-nosql"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — ACID",
+        "url": "https://en.wikipedia.org/wiki/ACID"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-primary-key",
+    "title": "Primary Keys in Relational Data",
+    "category": "databases",
+    "summary": "A primary key is a unique, non-null column (or set of columns) that uniquely identifies every single row within a database table.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Primary Key (PK)",
+        "definition": "A relational database constraint enforcing that a column contains unique values and no NULL entries, automatically backed by a clustered unique index."
+      },
+      {
+        "type": "paragraph",
+        "text": "Without a primary key, finding or updating a specific record without affecting duplicate entries is impossible. Primary keys serve as the authoritative target referenced by foreign keys in relational database schemas."
+      },
+      {
+        "type": "heading",
+        "text": "Primary Key Strategies"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Type", "Example", "Pros", "Cons"],
+        "rows": [
+          {
+            "label": "Auto-Increment Integer",
+            "values": ["1, 2, 3...", "Compact 4/8-byte storage, sequential B-tree inserts", "Predictable / leaks row counts; difficult in distributed multi-master"]
+          },
+          {
+            "label": "UUID / GUID",
+            "values": ["`123e4567-e89b...`", "Globally unique, safe for decentralized generation", "16 bytes size; random insertion causes B-tree page splits"]
+          },
+          {
+            "label": "Natural Key",
+            "values": ["Tax ID, ISBN", "Represents real-world identifier", "Fragile if real-world numbers change"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "UUIDv7 solves the B-Tree fragmentation issue by prefixing random bits with a millisecond timestamp, providing sequential sortability."
+      }
+    ],
+    "tags": ["databases", "primary-key", "uuid", "b-tree", "rdbms", "constraints"],
+    "relatedIds": ["what-is-a-foreign-key", "what-is-a-database-index"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Primary key",
+        "url": "https://en.wikipedia.org/wiki/Primary_key"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-foreign-key",
+    "title": "Foreign Keys & Referential Integrity",
+    "category": "databases",
+    "summary": "Foreign keys link rows across different tables, enforcing referential integrity so orphaned or invalid relationship records cannot exist.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Foreign Key (FK)",
+        "definition": "A column in a relational table that points to the primary key of another table, creating a formal parent-child relationship constraint."
+      },
+      {
+        "type": "paragraph",
+        "text": "In an e-commerce database, an `orders` table contains a `user_id` column referencing the `id` column in the `users` table. The foreign key constraint prevents inserting an order for a nonexistent user and blocks deleting a user who still has active orders."
+      },
+      {
+        "type": "heading",
+        "text": "Foreign Key Cascade Actions"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "`ON DELETE RESTRICT` (Default): Rejects deletion of the parent row if any child rows reference it.",
+          "`ON DELETE CASCADE`: Automatically deletes all child rows when the parent row is deleted.",
+          "`ON DELETE SET NULL`: Sets the foreign key column in child rows to NULL when the parent row is removed."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Always add an index to foreign key columns; otherwise, `JOIN` queries and parent deletion cascade checks will trigger slow full-table scans."
+      }
+    ],
+    "tags": ["databases", "foreign-key", "referential-integrity", "relations", "cascade", "joins"],
+    "relatedIds": ["what-is-a-primary-key", "what-is-sql-vs-nosql"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Foreign key",
+        "url": "https://en.wikipedia.org/wiki/Foreign_key"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "relational-vs-document-database",
+    "title": "Relational vs Document Databases",
+    "category": "databases",
+    "summary": "Relational databases normalize data across normalized tables with joins, while document databases nest hierarchical JSON objects together.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Document-Oriented Database",
+        "definition": "A category of NoSQL database that stores, retrieves, and manages semi-structured data as self-contained hierarchical documents (typically JSON or BSON)."
+      },
+      {
+        "type": "paragraph",
+        "text": "In a relational model, a blog post, its comments, and authors are normalized into three distinct tables requiring SQL `JOIN` statements to reconstruct. In a document database (like MongoDB), the post and its comments are embedded directly into a single self-contained JSON document."
+      },
+      {
+        "type": "heading",
+        "text": "Architectural Tradeoffs"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Aspect", "Relational (PostgreSQL / SQLite)", "Document (MongoDB / CouchDB)"],
+        "rows": [
+          {
+            "label": "Data Normalization",
+            "values": ["Highly normalized (Eliminates duplication)", "Denormalized / Embedded documents"]
+          },
+          {
+            "label": "Complex Relationships",
+            "values": ["Handled natively through fast relational JOINs", "Requires multiple roundtrip queries or aggregations"]
+          },
+          {
+            "label": "Schema Evolution",
+            "values": ["Explicit migrations (`ALTER TABLE`)", "Polymorphic (Documents can have varied fields)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Document databases are ideal when data is accessed together as a single atomic unit, minimizing disk seeks across disjoint tables."
+      }
+    ],
+    "tags": ["databases", "relational", "document-db", "mongodb", "json", "denormalization"],
+    "relatedIds": ["what-is-sql-vs-nosql", "what-is-acid"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Document-oriented database",
+        "url": "https://en.wikipedia.org/wiki/Document-oriented_database"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-transaction",
+    "title": "Database Transactions & Isolation Levels",
+    "category": "databases",
+    "summary": "A transaction wraps multiple database operations into a single atomic unit of work, governed by ANSI SQL transaction isolation levels.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Database Transaction",
+        "definition": "A logical unit of database processing that includes one or more database access operations, demarcated by `BEGIN TRANSACTION` and `COMMIT` or `ROLLBACK`."
+      },
+      {
+        "type": "paragraph",
+        "text": "Transactions protect data from concurrency anomalies when hundreds of users read and write the same tables simultaneously. Depending on performance needs, databases support four ANSI SQL isolation levels trading off strict correctness for concurrent throughput."
+      },
+      {
+        "type": "heading",
+        "text": "ANSI SQL Isolation Levels"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Isolation Level", "Dirty Reads", "Non-Repeatable Reads", "Phantom Reads"],
+        "rows": [
+          {
+            "label": "Read Uncommitted",
+            "values": ["Allowed", "Allowed", "Allowed"]
+          },
+          {
+            "label": "Read Committed",
+            "values": ["Prevented", "Allowed", "Allowed"]
+          },
+          {
+            "label": "Repeatable Read",
+            "values": ["Prevented", "Prevented", "Allowed"]
+          },
+          {
+            "label": "Serializable",
+            "values": ["Prevented", "Prevented", "Prevented (Strict execution)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Multi-Version Concurrency Control (MVCC) lets readers read old snapshot versions of data without locking out active writers."
+      }
+    ],
+    "tags": ["databases", "transactions", "isolation-levels", "mvcc", "concurrency", "locking"],
+    "relatedIds": ["what-is-acid", "what-is-sql-vs-nosql"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Database transaction",
+        "url": "https://en.wikipedia.org/wiki/Database_transaction"
+      },
+      {
+        "label": "Wikipedia — Isolation (database systems)",
+        "url": "https://en.wikipedia.org/wiki/Isolation_(database_systems)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  }
+]

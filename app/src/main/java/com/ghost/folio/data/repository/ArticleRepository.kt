@@ -12,9 +12,13 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.serialization.json.Json
 
+import com.ghost.folio.data.local.dao.HistoryDao
+import com.ghost.folio.data.local.entity.HistoryEntity
+
 class ArticleRepository(
     private val articleDao: ArticleDao,
-    private val categoryDao: CategoryDao
+    private val categoryDao: CategoryDao,
+    private val historyDao: HistoryDao
 ) {
     private val json = Json {
         ignoreUnknownKeys = true
@@ -44,6 +48,18 @@ class ArticleRepository(
 
     suspend fun setArticleSaved(id: String, saved: Boolean) {
         articleDao.setSaved(id, saved)
+    }
+
+    fun getReadingHistoryCount(): Flow<Int> {
+        return historyDao.getHistoryCount()
+    }
+
+    suspend fun recordArticleRead(articleId: String) {
+        historyDao.recordRead(HistoryEntity(articleId = articleId))
+    }
+
+    suspend fun clearReadingHistory() {
+        historyDao.clearHistory()
     }
 
     fun getAllCategories(): Flow<List<Category>> {
@@ -77,6 +93,12 @@ class ArticleRepository(
             emptyList()
         }
 
+        val relatedLinksList: List<com.ghost.folio.data.model.RelatedLink> = try {
+            json.decodeFromString<List<com.ghost.folio.data.model.RelatedLink>>(relatedLinksJson)
+        } catch (_: Exception) {
+            emptyList()
+        }
+
         return Article(
             id = id,
             title = title,
@@ -85,6 +107,7 @@ class ArticleRepository(
             body = bodyBlocks,
             tags = tagsList,
             relatedIds = relatedList,
+            relatedLinks = relatedLinksList,
             lastUpdated = lastUpdated,
             difficulty = parsedDifficulty,
             hasDiagram = hasDiagram,

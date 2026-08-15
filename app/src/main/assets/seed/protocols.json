@@ -43,6 +43,16 @@
     ],
     "tags": ["protocols", "bluetooth", "ble", "wireless", "2.4ghz", "afh"],
     "relatedIds": ["what-is-wifi", "what-is-nfc", "what-is-bluetooth-audio"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Bluetooth",
+        "url": "https://en.wikipedia.org/wiki/Bluetooth"
+      },
+      {
+        "label": "Wikipedia — Bluetooth Low Energy",
+        "url": "https://en.wikipedia.org/wiki/Bluetooth_Low_Energy"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -95,6 +105,16 @@
     ],
     "tags": ["protocols", "wifi", "802.11", "wireless", "networking", "router"],
     "relatedIds": ["what-is-ethernet", "what-is-bluetooth", "what-is-5g-vs-4g"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Wi-Fi",
+        "url": "https://en.wikipedia.org/wiki/Wi-Fi"
+      },
+      {
+        "label": "Wikipedia — IEEE 802.11",
+        "url": "https://en.wikipedia.org/wiki/IEEE_802.11"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -143,6 +163,12 @@
     ],
     "tags": ["protocols", "nfc", "rfid", "contactless", "payments", "wireless"],
     "relatedIds": ["what-is-bluetooth", "what-is-wifi", "what-is-encryption"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Near-field communication",
+        "url": "https://en.wikipedia.org/wiki/Near-field_communication"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -181,6 +207,16 @@
     ],
     "tags": ["protocols", "usb", "usb-c", "power-delivery", "hardware", "cables"],
     "relatedIds": ["what-is-usb-versions", "what-is-thunderbolt", "what-is-hdmi"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — USB",
+        "url": "https://en.wikipedia.org/wiki/USB"
+      },
+      {
+        "label": "Wikipedia — USB-C",
+        "url": "https://en.wikipedia.org/wiki/USB-C"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -233,6 +269,16 @@
     ],
     "tags": ["protocols", "usb-versions", "usb4", "usb3", "bandwidth", "superspeed"],
     "relatedIds": ["what-is-usb", "what-is-thunderbolt", "what-is-displayport"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — USB hardware",
+        "url": "https://en.wikipedia.org/wiki/USB_hardware"
+      },
+      {
+        "label": "Wikipedia — USB4",
+        "url": "https://en.wikipedia.org/wiki/USB4"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -285,6 +331,12 @@
     ],
     "tags": ["protocols", "hdmi", "hdmi21", "display", "video", "earc", "4k"],
     "relatedIds": ["what-is-displayport", "what-is-thunderbolt", "what-is-usb"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — HDMI",
+        "url": "https://en.wikipedia.org/wiki/HDMI"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -329,6 +381,12 @@
     ],
     "tags": ["protocols", "displayport", "dp", "vesa", "dsc", "mst", "monitors"],
     "relatedIds": ["what-is-hdmi", "what-is-thunderbolt", "what-is-usb"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — DisplayPort",
+        "url": "https://en.wikipedia.org/wiki/DisplayPort"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -377,6 +435,12 @@
     ],
     "tags": ["protocols", "thunderbolt", "pcie", "usb-c", "intel", "egpu"],
     "relatedIds": ["what-is-usb-versions", "what-is-displayport", "what-is-nvme"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Thunderbolt (interface)",
+        "url": "https://en.wikipedia.org/wiki/Thunderbolt_(interface)"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -429,6 +493,16 @@
     ],
     "tags": ["protocols", "ethernet", "lan", "cat6", "poe", "networking", "cables"],
     "relatedIds": ["what-is-wifi", "what-is-5g-vs-4g", "what-is-a-port"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Ethernet",
+        "url": "https://en.wikipedia.org/wiki/Ethernet"
+      },
+      {
+        "label": "Wikipedia — IEEE 802.3",
+        "url": "https://en.wikipedia.org/wiki/IEEE_802.3"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -477,6 +551,16 @@
     ],
     "tags": ["protocols", "5g", "4g", "lte", "cellular", "mmwave", "mobile"],
     "relatedIds": ["what-is-wifi", "what-is-ethernet", "what-is-latency"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — 5G",
+        "url": "https://en.wikipedia.org/wiki/5G"
+      },
+      {
+        "label": "Wikipedia — 5G NR",
+        "url": "https://en.wikipedia.org/wiki/5G_NR"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false

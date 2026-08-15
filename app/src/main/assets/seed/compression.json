@@ -1,0 +1,342 @@
+[
+  {
+    "id": "how-zip-works",
+    "title": "How ZIP Compression (DEFLATE) Works",
+    "category": "compression",
+    "summary": "ZIP files compress data using the DEFLATE algorithm, which pairs LZ77 duplicate string matching with Huffman frequency bit encoding.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "DEFLATE Algorithm",
+        "definition": "A standardized lossless data compression algorithm combining LZ77 dictionary substitution with dynamic Huffman entropy coding."
+      },
+      {
+        "type": "paragraph",
+        "text": "Created by Phil Katz in 1989 for PKZIP, the format operates in two sequential stages: First, LZ77 scans data for repeated strings within a sliding 32 KB window, replacing duplicates with `(distance, length)` back-pointers. Second, Huffman coding replaces frequent symbols with shorter bit patterns."
+      },
+      {
+        "type": "heading",
+        "text": "ZIP File Structure"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Local File Headers: Metadata and compressed payload for each individual file stored sequentially.",
+          "Central Directory: Placed at the end of the ZIP archive, listing all files and offset pointers for instant file seeking without full extraction.",
+          "End of Central Directory (EOCD): The final record that archive readers read first to locate the central directory table."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Android APKs, Java JARs, and Microsoft Office DOCX/XLSX files are internally standard ZIP archives with renamed file extensions."
+      }
+    ],
+    "tags": ["compression", "zip", "deflate", "lz77", "huffman", "archives"],
+    "relatedIds": ["lossless-vs-lossy-compression", "what-is-huffman-coding", "rar-vs-zip-vs-7z"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — ZIP (file format)",
+        "url": "https://en.wikipedia.org/wiki/ZIP_(file_format)"
+      },
+      {
+        "label": "Wikipedia — Deflate",
+        "url": "https://en.wikipedia.org/wiki/Deflate"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "lossless-vs-lossy-compression",
+    "title": "Lossless vs Lossy Data Compression",
+    "category": "compression",
+    "summary": "Lossless compression reconstructs data perfectly bit-for-bit, while lossy compression discards imperceptible human perceptual data to achieve massive size reductions.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Lossy Data Compression",
+        "definition": "A data encoding method that achieves high compression ratios by permanently discarding inexact, redundant, or psychovisually unnoticeable data."
+      },
+      {
+        "type": "paragraph",
+        "text": "Executables, source code, text documents, and databases require lossless compression (ZIP, GZIP, PNG, FLAC) because a single altered bit corrupts the entire program. Media streaming (JPEG, MP3, MP4, WebP) uses lossy compression, exploiting human eye and ear limitations to shrink files by 80% to 95%."
+      },
+      {
+        "type": "heading",
+        "text": "Comparison Summary"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "Lossless Compression", "Lossy Compression"],
+        "rows": [
+          {
+            "label": "Decompressed Quality",
+            "values": ["100% identical bit-for-bit", "Slightly degraded / loss of high frequencies"]
+          },
+          {
+            "label": "Typical Ratio",
+            "values": ["2:1 to 4:1 (50% - 75% reduction)", "10:1 to 50:1 (90% - 98% reduction)"]
+          },
+          {
+            "label": "Primary Use Cases",
+            "values": ["Executables, text, code, medical scans, FLAC", "Streaming video, web photos, music streaming"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Generation loss occurs when a lossy file is repeatedly decompressed, edited, and re-saved in lossy formats, compounding visual artifacts."
+      }
+    ],
+    "tags": ["compression", "lossless", "lossy", "jpeg", "png", "flac", "mp3"],
+    "relatedIds": ["how-zip-works", "what-is-entropy-compression"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Data compression",
+        "url": "https://en.wikipedia.org/wiki/Data_compression"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-entropy-compression",
+    "title": "Shannon Entropy & Theoretical Compression Limits",
+    "category": "compression",
+    "summary": "Shannon's Source Coding Theorem establishes the absolute mathematical lower bound of bits required to encode information without data loss.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Information Entropy (H)",
+        "definition": "A mathematical metric introduced by Claude Shannon quantifying the average information content, uncertainty, and surprise conveyed by a data source."
+      },
+      {
+        "type": "paragraph",
+        "text": "The formula `H(X) = -sum(P(x) * log2(P(x)))` calculates the minimum theoretical bit-length needed per symbol. If data is completely random (like an encrypted file or already compressed archive), entropy equals 8 bits per byte and no lossless algorithm in existence can compress it further."
+      },
+      {
+        "type": "heading",
+        "text": "Key Implications"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Pigeonhole Principle: No lossless compression algorithm can compress all possible inputs; if some files shrink, others must mathematically expand.",
+          "Compression as Predictability: High compression ratios are only achievable on highly predictable data with low information entropy.",
+          "Asymmetric Numeral Systems (ANS): Modern entropy encoders (used in Zstandard) achieve Shannon-limit compression with extreme throughput."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Attempting to compress an encrypted file (like a VeraCrypt volume or HTTPS stream) will produce zero compression because cryptographic ciphers output high-entropy pseudo-random bytes."
+      }
+    ],
+    "tags": ["compression", "entropy", "shannon", "information-theory", "ans", "limits"],
+    "relatedIds": ["what-is-huffman-coding", "lossless-vs-lossy-compression"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Entropy (information theory)",
+        "url": "https://en.wikipedia.org/wiki/Entropy_(information_theory)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-huffman-coding",
+    "title": "Huffman Coding & Prefix Codes",
+    "category": "compression",
+    "summary": "Huffman coding builds a binary frequency tree that assigns shorter variable-length bit codes to frequent characters and longer bit codes to rare ones.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Huffman Tree",
+        "definition": "A binary tree constructed from character frequency weights to generate optimal prefix-free variable-length binary codes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Standard ASCII text uses 8 fixed bits for every single character. In English text, the letter 'E' appears thousands of times while 'Z' appears rarely. Huffman coding assigns a short 2-bit code (e.g. `01`) to 'E' and a longer 9-bit code to 'Z', reducing average storage requirements by 30% to 50%."
+      },
+      {
+        "type": "heading",
+        "text": "Prefix-Free Property"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "No code in a Huffman dictionary is a prefix of any other code.",
+          "Because of prefix-freedom, the decoder can stream and parse compressed bits sequentially without needing any explicit delimiter or space characters.",
+          "Canonical Huffman codes sort symbols lexicographically, allowing tree tables to be transmitted in a fraction of the header size."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Huffman coding is the foundational entropy-stage compressor inside JPEG images, MP3 audio, and ZIP archives."
+      }
+    ],
+    "tags": ["compression", "huffman", "binary-tree", "prefix-code", "algorithms", "entropy"],
+    "relatedIds": ["how-zip-works", "what-is-entropy-compression"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Huffman coding",
+        "url": "https://en.wikipedia.org/wiki/Huffman_coding"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-run-length-encoding",
+    "title": "Run-Length Encoding (RLE)",
+    "category": "compression",
+    "summary": "Run-Length Encoding compresses consecutive identical data values into a single value count and byte pair, excelling on simple graphics and bitmaps.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Run-Length Encoding (RLE)",
+        "definition": "A straightforward lossless compression algorithm that replaces consecutive sequences ('runs') of repeated data items with a single data value and count."
+      },
+      {
+        "type": "paragraph",
+        "text": "If uncompressed image data contains `WWWWWWWWWWWWBWWWWWWWWWWWW` (12 Whites, 1 Black, 12 Whites = 25 bytes), RLE encodes it as `12W1B12W` (6 bytes), achieving a 76% size reduction. However, on noisy or photographic data with no repeated bytes, RLE expands file size."
+      },
+      {
+        "type": "heading",
+        "text": "Practical Applications"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Fax Machines (CCITT Group 3/4): Black-and-white scanned lines contain long runs of pure white space compressed via 1D/2D RLE.",
+          "Bitmap Icons & BMP: 8-bit paletted icons with flat color fields.",
+          "JPEG DC Coefficients: Used as an intermediate step after Discrete Cosine Transform (DCT) quantization generates long runs of trailing zeroes."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "RLE requires minimal CPU overhead, making it ideal for low-power embedded microcontrollers and vintage game consoles."
+      }
+    ],
+    "tags": ["compression", "rle", "run-length", "bitmap", "lossless", "algorithms"],
+    "relatedIds": ["lossless-vs-lossy-compression", "how-zip-works"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Run-length encoding",
+        "url": "https://en.wikipedia.org/wiki/Run-length_encoding"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "rar-vs-zip-vs-7z",
+    "title": "Archive Formats: ZIP vs RAR vs 7z",
+    "category": "compression",
+    "summary": "ZIP prioritizes universal compatibility, RAR offers solid archives with recovery records, and 7z achieves maximum compression ratios via LZMA/LZMA2.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Solid Archiving",
+        "definition": "A compression mode that treats all files in an archive as a single continuous continuous data stream, allowing dictionary matches across different files."
+      },
+      {
+        "type": "paragraph",
+        "text": "Standard ZIP compresses each file individually, enabling instant extraction of a single file but missing redundancies across multiple files. 7z and RAR use solid compression, finding identical patterns across thousands of separate files to achieve dramatically smaller archives."
+      },
+      {
+        "type": "heading",
+        "text": "Format Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Format", "Algorithm", "Solid Mode", "Open Standard"],
+        "rows": [
+          {
+            "label": "ZIP",
+            "values": ["DEFLATE / BZIP2", "No (Individual files)", "Yes (Universal built-in OS support)"]
+          },
+          {
+            "label": "7z",
+            "values": ["LZMA / LZMA2 / PPMd", "Yes (High compression)", "Yes (Open source via 7-Zip)"]
+          },
+          {
+            "label": "RAR",
+            "values": ["Proprietary RAR5", "Yes (Includes ECC recovery records)", "No (Proprietary compression format)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "RAR's Reed-Solomon Recovery Records allow damaged archives with bad disk sectors to be repaired and extracted without corruption."
+      }
+    ],
+    "tags": ["compression", "7z", "rar", "zip", "lzma", "solid-archive"],
+    "relatedIds": ["how-zip-works", "what-is-a-tarball"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — 7z",
+        "url": "https://en.wikipedia.org/wiki/7z"
+      },
+      {
+        "label": "Wikipedia — RAR (file format)",
+        "url": "https://en.wikipedia.org/wiki/RAR_(file_format)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-tarball",
+    "title": "Tarballs (.tar.gz & .tar.zst)",
+    "category": "compression",
+    "summary": "A tarball bundles thousands of files and Unix permissions into a single stream, which is then passed to a stream compressor like GZIP, XZ, or Zstandard.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Tape Archive (TAR)",
+        "definition": "A standard Unix archive format created in 1979 that concatenates files, directories, POSIX ownership, and permission metadata into a single sequential byte stream."
+      },
+      {
+        "type": "paragraph",
+        "text": "Following the Unix philosophy ('do one thing and do it well'), `tar` does not perform any compression on its own; it merely bundles directory trees into a single `.tar` archive. That `.tar` stream is then piped into a dedicated compression utility like Gzip (`.tar.gz`), XZ (`.tar.xz`), or Zstandard (`.tar.zst`)."
+      },
+      {
+        "type": "heading",
+        "text": "Common Tarball Flags"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "`tar -czvf archive.tar.gz /path`: Creates (`c`) a Gzipped (`z`) verbose (`v`) archive file (`f`).",
+          "`tar -xzvf archive.tar.gz`: Extracts (`x`) an existing Gzipped tarball.",
+          "`tar --zstd -cvf archive.tar.zst /path`: Creates a modern Zstandard-compressed archive with ultra-fast multi-threaded decompression."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Arch Linux packages and modern Linux kernels use Zstandard (`.tar.zst`) because it decompresses at over 3 GB/s per core."
+      }
+    ],
+    "tags": ["compression", "tar", "tarball", "gzip", "zstd", "posix", "linux"],
+    "relatedIds": ["rar-vs-zip-vs-7z", "how-zip-works"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Tar (computing)",
+        "url": "https://en.wikipedia.org/wiki/Tar_(computing)"
+      },
+      {
+        "label": "Arch Wiki — Zstandard",
+        "url": "https://wiki.archlinux.org/title/Zstandard"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

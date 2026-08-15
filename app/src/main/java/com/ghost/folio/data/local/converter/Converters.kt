@@ -2,6 +2,7 @@ package com.ghost.folio.data.local.converter
 
 import androidx.room.TypeConverter
 import com.ghost.folio.data.model.BodyBlock
+import com.ghost.folio.data.model.RelatedLink
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
@@ -39,4 +40,19 @@ class Converters {
             emptyList()
         }
     }
+
+    @TypeConverter
+    fun fromRelatedLinkList(links: List<RelatedLink>): String {
+        return json.encodeToString(links)
+    }
+
+    @TypeConverter
+    fun toRelatedLinkList(jsonStr: String): List<RelatedLink> {
+        return try {
+            json.decodeFromString(jsonStr)
+        } catch (_: Exception) {
+            emptyList()
+        }
+    }
 }
+

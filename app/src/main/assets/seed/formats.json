@@ -33,6 +33,12 @@
     ],
     "tags": ["formats", "pdf", "documents", "postscript", "standards"],
     "relatedIds": ["what-is-svg", "what-is-jpeg-vs-png", "what-is-xml-vs-json"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — PDF",
+        "url": "https://en.wikipedia.org/wiki/PDF"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -85,6 +91,16 @@
     ],
     "tags": ["formats", "jpeg", "png", "images", "compression", "transparency"],
     "relatedIds": ["what-is-svg", "what-is-mp4", "what-is-webp"],
+    "relatedLinks": [
+      {
+        "label": "MDN Web Docs — Image file type and format guide",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types"
+      },
+      {
+        "label": "Wikipedia — PNG",
+        "url": "https://en.wikipedia.org/wiki/PNG"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -123,6 +139,16 @@
     ],
     "tags": ["formats", "svg", "vector", "xml", "graphics", "resolution-independent"],
     "relatedIds": ["what-is-jpeg-vs-png", "what-is-pdf", "what-is-xml-vs-json"],
+    "relatedLinks": [
+      {
+        "label": "MDN Web Docs — SVG: Scalable Vector Graphics",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/SVG"
+      },
+      {
+        "label": "Wikipedia — SVG",
+        "url": "https://en.wikipedia.org/wiki/SVG"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -161,6 +187,12 @@
     ],
     "tags": ["formats", "mp4", "video", "container", "h264", "streaming"],
     "relatedIds": ["what-is-mkv", "what-is-codec", "what-is-mp4"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — MP4 file format",
+        "url": "https://en.wikipedia.org/wiki/MP4_file_format"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -213,6 +245,12 @@
     ],
     "tags": ["formats", "mkv", "matroska", "ebml", "video", "subtitles"],
     "relatedIds": ["what-is-mp4", "what-is-codec", "what-is-lossy-vs-lossless"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Matroska",
+        "url": "https://en.wikipedia.org/wiki/Matroska"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -251,6 +289,16 @@
     ],
     "tags": ["formats", "zip", "compression", "deflate", "archive", "apk"],
     "relatedIds": ["what-is-apk", "what-is-iso-file", "what-is-a-file-system"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — ZIP (file format)",
+        "url": "https://en.wikipedia.org/wiki/ZIP_(file_format)"
+      },
+      {
+        "label": "RFC 1951 — DEFLATE Compressed Data Format Specification",
+        "url": "https://datatracker.ietf.org/doc/html/rfc1951"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -307,6 +355,16 @@
     ],
     "tags": ["formats", "apk", "android", "dex", "art", "aab", "manifest"],
     "relatedIds": ["what-is-zip", "what-is-a-bootloader", "what-is-adb"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — Application Package (APK)",
+        "url": "https://developer.android.com/guide/components/fundamentals"
+      },
+      {
+        "label": "Wikipedia — apk (file format)",
+        "url": "https://en.wikipedia.org/wiki/Apk_(file_format)"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -345,6 +403,16 @@
     ],
     "tags": ["formats", "iso", "bootable", "imaging", "uefi", "storage"],
     "relatedIds": ["what-is-a-partition", "what-is-a-file-system", "what-is-bios-uefi"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Optical disc image (ISO)",
+        "url": "https://en.wikipedia.org/wiki/Optical_disc_image"
+      },
+      {
+        "label": "Arch Wiki — Optical disc drive",
+        "url": "https://wiki.archlinux.org/title/Optical_disc_drive"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -383,6 +451,16 @@
     ],
     "tags": ["formats", "csv", "data", "tables", "database", "rfc4180"],
     "relatedIds": ["what-is-json", "what-is-xml-vs-json", "what-is-a-file-system"],
+    "relatedLinks": [
+      {
+        "label": "RFC 4180 — Common Format and MIME Type for CSV Files",
+        "url": "https://datatracker.ietf.org/doc/html/rfc4180"
+      },
+      {
+        "label": "Wikipedia — Comma-separated values",
+        "url": "https://en.wikipedia.org/wiki/Comma-separated_values"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -435,6 +513,16 @@
     ],
     "tags": ["formats", "xml", "json", "data", "serialization", "schemas"],
     "relatedIds": ["what-is-json", "what-is-svg", "what-is-an-api"],
+    "relatedLinks": [
+      {
+        "label": "MDN Web Docs — XML introduction",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction"
+      },
+      {
+        "label": "MDN Web Docs — Working with JSON",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/JSON"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false

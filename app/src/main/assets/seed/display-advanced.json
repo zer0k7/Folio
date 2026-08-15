@@ -1,0 +1,366 @@
+[
+  {
+    "id": "what-is-pwm-dimming",
+    "title": "PWM Dimming & Screen Flicker",
+    "category": "display-advanced",
+    "summary": "Pulse Width Modulation (PWM) dims OLED displays by rapidly strobing pixels on and off, which can cause eye strain at low frequencies.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Pulse Width Modulation (PWM)",
+        "definition": "A technique used to control apparent display brightness by cycling pixel LEDs between full-power and zero-power states at varying duty cycles."
+      },
+      {
+        "type": "paragraph",
+        "text": "OLED pixels exhibit color shifts and non-linear gamma curves if their driving voltage is lowered directly at low brightness. To preserve color accuracy, OLED controllers pulse pixels at full brightness, varying the ratio of 'on' time vs 'off' time (duty cycle). Low PWM rates (<240 Hz - 480 Hz) create visible or subliminal stroboscopic flicker, triggering migraines and ocular fatigue in sensitive users."
+      },
+      {
+        "type": "heading",
+        "text": "PWM Frequency Tiers"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Low Frequency (240 Hz - 480 Hz): Common in older OLEDs; high risk of stroboscopic flicker and eye strain in dim environments.",
+          "High Frequency (1920 Hz - 2160 Hz): Strobe period is faster than human optic nerve fusion threshold, dramatically reducing strain.",
+          "Ultra-High Frequency (3840 Hz - 4320 Hz): Effectively flicker-free according to IEEE 1789 standard guidelines."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The modulation index measures the depth of brightness variation between peak on and off states during each PWM cycle."
+      }
+    ],
+    "tags": ["display", "pwm", "flicker", "oled", "dimming", "eye-strain"],
+    "relatedIds": ["what-is-dc-dimming", "what-is-peak-brightness-nits"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Pulse-width modulation",
+        "url": "https://en.wikipedia.org/wiki/Pulse-width_modulation"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-dc-dimming",
+    "title": "DC Dimming vs PWM",
+    "category": "display-advanced",
+    "summary": "Direct Current (DC) dimming controls screen brightness by continuously reducing the electrical current supplied to display pixels without strobing.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "DC Dimming",
+        "definition": "A display brightness regulation method that continuously adjusts analog electric current/voltage flowing through pixels, eliminating stroboscopic on/off pulsation."
+      },
+      {
+        "type": "paragraph",
+        "text": "LCD displays naturally support DC dimming by turning down the uniform LED backlight. On OLED screens, however, individual subpixels vary slightly in their low-voltage response, causing 'black crush', grainy mura artifacts, and tint shifts at low brightness under pure DC dimming."
+      },
+      {
+        "type": "heading",
+        "text": "Dimming Methods Compared"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Metric", "DC Dimming", "PWM Dimming"],
+        "rows": [
+          {
+            "label": "Flicker Level",
+            "values": ["Zero stroboscopic flicker", "Variable pulsation frequency"]
+          },
+          {
+            "label": "Color Uniformity at Low Brightness",
+            "values": ["Potential color banding / mura", "Precise reference color accuracy"]
+          },
+          {
+            "label": "Eye Strain Impact",
+            "values": ["Minimal to none", "High at low frequencies (<480 Hz)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern hybrid displays use DC dimming above 50% brightness and switch to high-frequency PWM (e.g. 2160 Hz) below 50% brightness."
+      }
+    ],
+    "tags": ["display", "dc-dimming", "pwm", "oled", "brightness", "mura"],
+    "relatedIds": ["what-is-pwm-dimming", "what-is-color-accuracy-delta-e"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Display device",
+        "url": "https://en.wikipedia.org/wiki/Display_device"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-color-gamut",
+    "title": "Color Gamut & Chromaticity",
+    "category": "display-advanced",
+    "summary": "A color gamut defines the complete range of colors within the visible electromagnetic spectrum that a display panel is physically capable of reproducing.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Color Gamut",
+        "definition": "The entire triangular subspace of visible chromaticities plotted on the CIE 1931 color space diagram that a given display device can render."
+      },
+      {
+        "type": "paragraph",
+        "text": "The human eye can perceive millions of colors plotted on the horseshoe-shaped CIE chromaticity diagram. Standard displays can only recreate a fraction of these colors by mixing red, green, and blue primary emitters. Wider gamuts represent richer, more saturated greens, cyans, and deep reds."
+      },
+      {
+        "type": "heading",
+        "text": "Major Standard Color Spaces"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "sRGB / Rec. 709: The universal standard for the web and SDR media (~35% of CIE 1931).",
+          "DCI-P3: Digital cinema color standard with expanded green and red saturation (~45% of CIE 1931).",
+          "Rec. 2020: Ultra-wide color space designed for 4K/8K HDR broadcasting (~75% of CIE 1931)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Displaying wide-gamut content on an sRGB-calibrated screen without color management leads to oversaturated, unnatural skin tones and clipping."
+      }
+    ],
+    "tags": ["display", "color-gamut", "cie-1931", "srgb", "dci-p3", "chromaticity"],
+    "relatedIds": ["what-is-srgb-vs-dci-p3", "what-is-color-accuracy-delta-e"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Gamut",
+        "url": "https://en.wikipedia.org/wiki/Gamut"
+      },
+      {
+        "label": "Wikipedia — CIE 1931 color space",
+        "url": "https://en.wikipedia.org/wiki/CIE_1931_color_space"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-srgb-vs-dci-p3",
+    "title": "sRGB vs DCI-P3 Color Profiles",
+    "category": "display-advanced",
+    "summary": "DCI-P3 covers 25% more visible color volume than sRGB, delivering significantly richer reds, yellows, and deep greens for HDR and cinema content.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "DCI-P3",
+        "definition": "A wide color space established by Digital Cinema Initiatives that uses a wider green-red chromaticity coordinate range and D65 white point in consumer displays."
+      },
+      {
+        "type": "paragraph",
+        "text": "Created by HP and Microsoft in 1996, sRGB was designed for legacy CRT monitors and remains the default color profile for HTML/CSS and standard web assets. DCI-P3 has replaced sRGB as the standard on modern flagship phones, laptops, and 4K HDR TVs to showcase vivid natural colors."
+      },
+      {
+        "type": "heading",
+        "text": "Comparison Summary"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Standard", "Coverage vs sRGB", "Primary Application", "Default Gamma"],
+        "rows": [
+          {
+            "label": "sRGB",
+            "values": ["100% (Baseline)", "Standard web browsing, legacy graphics", "Gamma 2.2"]
+          },
+          {
+            "label": "Display P3",
+            "values": ["~125% of sRGB", "Modern smartphone UI, Apple Retina, 4K HDR", "Gamma 2.2 / sRGB curve"]
+          },
+          {
+            "label": "Adobe RGB (1998)",
+            "values": ["~130% of sRGB", "Professional photography, CMYK print proofing", "Gamma 2.2"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Operating systems employ Color Management Modules (CMM) like LittleCMS to dynamically map wide-gamut textures into standard screen targets."
+      }
+    ],
+    "tags": ["display", "srgb", "dci-p3", "display-p3", "adobe-rgb", "color-space"],
+    "relatedIds": ["what-is-color-gamut", "what-is-color-accuracy-delta-e"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — sRGB",
+        "url": "https://en.wikipedia.org/wiki/SRGB"
+      },
+      {
+        "label": "Wikipedia — DCI-P3",
+        "url": "https://en.wikipedia.org/wiki/DCI-P3"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-hdr10-vs-dolby-vision",
+    "title": "HDR10 vs Dolby Vision",
+    "category": "display-advanced",
+    "summary": "HDR10 uses static metadata applied to an entire video, whereas Dolby Vision uses dynamic scene-by-scene metadata with 12-bit color capability.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "High Dynamic Range (HDR)",
+        "definition": "A video standard that preserves greater detail in extreme highlights and deep shadows simultaneously by utilizing wide color gamuts and 10-bit/12-bit brightness quantization."
+      },
+      {
+        "type": "paragraph",
+        "text": "Standard Dynamic Range (SDR) is capped at 100 nits and 8-bit color depth (256 shades per channel). HDR allows highlights to reach 1,000 to 4,000+ nits. HDR10 is an open, royalty-free standard with static metadata, while Dolby Vision is a proprietary licensing standard that recalculates tone-mapping curves frame-by-frame."
+      },
+      {
+        "type": "heading",
+        "text": "Feature Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "HDR10", "HDR10+", "Dolby Vision"],
+        "rows": [
+          {
+            "label": "Metadata Type",
+            "values": ["Static (Entire movie)", "Dynamic (Scene-by-scene)", "Dynamic (Frame-by-frame)"]
+          },
+          {
+            "label": "Color Depth",
+            "values": ["10-bit (1.07 Billion colors)", "10-bit", "12-bit (68.7 Billion colors)"]
+          },
+          {
+            "label": "Licensing",
+            "values": ["Open & Royalty-Free", "Open consortium (Royalty-free)", "Proprietary paid license"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Perceptual Quantizer (PQ / SMPTE ST 2084) replaces legacy gamma curves to encode brightness levels logarithmically matching human eye sensitivity up to 10,000 nits."
+      }
+    ],
+    "tags": ["display", "hdr", "hdr10", "dolby-vision", "hdr10-plus", "contrast"],
+    "relatedIds": ["what-is-peak-brightness-nits", "what-is-color-gamut"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — High-dynamic-range video",
+        "url": "https://en.wikipedia.org/wiki/High-dynamic-range_video"
+      },
+      {
+        "label": "Wikipedia — Dolby Vision",
+        "url": "https://en.wikipedia.org/wiki/Dolby_Vision"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-peak-brightness-nits",
+    "title": "Display Brightness: Nits & APL",
+    "category": "display-advanced",
+    "summary": "Screen luminance is measured in nits, where peak brightness measures small HDR highlight bursts and manual brightness measures full-screen white output.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Nit (Candela per Square Meter)",
+        "definition": "The standard SI unit of luminance (1 nit = 1 cd/m^2), representing the amount of visible light emitted from a one square meter surface in a given direction."
+      },
+      {
+        "type": "paragraph",
+        "text": "Smartphone marketing often advertises numbers like '3,000 nits peak brightness'. However, this peak luminance can only be sustained on a small percentage of the display (e.g. a 1% to 10% Average Picture Level highlight window) for brief durations. Full-screen sustained brightness is lower (typically 1,000 - 1,600 nits) to protect OLED organic emitters from thermal degradation."
+      },
+      {
+        "type": "heading",
+        "text": "Brightness Metrics Defined"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Manual Max Brightness: Maximum luminance achieved by manually sliding the UI brightness slider indoors (typically 500 - 800 nits).",
+          "High Brightness Mode (HBM): Automatic boost triggered by ambient light sensors under direct sunlight (1,000 - 1,800 nits full screen).",
+          "Peak HDR Brightness: Localized burst luminance for specular highlights in HDR movies (2,000 - 4,500+ nits at 1% APL)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Average Picture Level (APL) describes the percentage of the display showing white vs black pixels across a given video frame."
+      }
+    ],
+    "tags": ["display", "nits", "luminance", "brightness", "hbm", "apl"],
+    "relatedIds": ["what-is-hdr10-vs-dolby-vision", "what-is-pwm-dimming"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Candela per square metre",
+        "url": "https://en.wikipedia.org/wiki/Candela_per_square_metre"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-color-accuracy-delta-e",
+    "title": "Color Accuracy & Delta E (dE)",
+    "category": "display-advanced",
+    "summary": "Delta E quantifies the perceptual difference between a target reference color and the actual color rendered by a display panel.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Delta E (dE / ΔE)",
+        "definition": "A mathematical metric defined by the International Commission on Illumination (CIE) that measures the Euclidean distance between two colors in CIELAB color space."
+      },
+      {
+        "type": "paragraph",
+        "text": "A perfect display has a Delta E score of 0.0, meaning reproduced colors are mathematically identical to reference source values. In consumer electronics and professional color grading, Delta E values under 2.0 are considered imperceptible to untrained human eyes."
+      },
+      {
+        "type": "heading",
+        "text": "Delta E Scale Interpretation"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Delta E Value", "Perceptibility", "Suitability"],
+        "rows": [
+          {
+            "label": "< 1.0",
+            "values": ["Imperceptible to the human eye", "Professional color grading, Hollywood mastering"]
+          },
+          {
+            "label": "1.0 - 2.0",
+            "values": ["Perceptible only through close side-by-side inspection", "Flagship smartphones, reference monitors"]
+          },
+          {
+            "label": "3.0 - 5.0",
+            "values": ["Perceptible at a glance", "Standard consumer monitors, uncalibrated TVs"]
+          },
+          {
+            "label": "> 6.0",
+            "values": ["Obvious color distortion and severe tinting", "Substandard display panels"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Delta E 2000 (dE2000) is the modern revision of the formula, accounting for non-uniform human eye sensitivity in neutral grays and saturated blues."
+      }
+    ],
+    "tags": ["display", "delta-e", "color-accuracy", "calibration", "cielab"],
+    "relatedIds": ["what-is-color-gamut", "what-is-srgb-vs-dci-p3"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Color difference",
+        "url": "https://en.wikipedia.org/wiki/Color_difference"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  }
+]

@@ -1,0 +1,495 @@
+[
+  {
+    "id": "usb-a-vs-b-vs-c",
+    "title": "USB-A vs USB-B vs USB-C Connectors",
+    "category": "ports-cables",
+    "summary": "USB-A is the classic rectangular host port, USB-B served peripheral devices, and 24-pin reversible USB-C unifies power, data, and video.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "USB Connector Form Factors",
+        "definition": "The physical plug and receptacle specifications defined by the USB Implementers Forum (USB-IF) for connecting peripheral hardware to host computers."
+      },
+      {
+        "type": "paragraph",
+        "text": "For decades, USB cables were intentionally asymmetric: USB-A plugged into host PCs, while USB-B (and Micro-USB) plugged into downstream client devices. USB-C replaced all legacy connectors with a single 24-pin symmetrical, reversible connector capable of carrying 40 Gbps data, 240W power delivery, and DisplayPort video simultaneously."
+      },
+      {
+        "type": "heading",
+        "text": "Connector Types Compared"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Connector", "Pin Count", "Reversible", "Primary Role"],
+        "rows": [
+          {
+            "label": "USB-A",
+            "values": ["4 pins (USB 2.0) / 9 pins (USB 3.0)", "No (Directional)", "Host computers, wall chargers, keyboards"]
+          },
+          {
+            "label": "Micro-USB (Micro-B)",
+            "values": ["5 pins", "No (Prone to physical wear)", "Legacy smartphones, Bluetooth speakers"]
+          },
+          {
+            "label": "USB-C",
+            "values": ["24 pins", "Yes (Fully reversible)", "Universal standard for mobile, laptops, displays"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "USB-C pinout includes CC1/CC2 (Configuration Channel) pins used to detect cable orientation and negotiate USB Power Delivery voltage levels."
+      }
+    ],
+    "tags": ["ports-cables", "usb", "usb-c", "usb-a", "micro-usb", "hardware", "connectors"],
+    "relatedIds": ["what-is-usb-versions", "what-is-thunderbolt"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — USB hardware",
+        "url": "https://en.wikipedia.org/wiki/USB_hardware"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-usb-versions",
+    "title": "USB Generations: USB 2.0 to USB4",
+    "category": "ports-cables",
+    "summary": "USB version numbers define data transmission bandwidth and signaling protocols, scaling from 480 Mbps (USB 2.0) up to 80 Gbps (USB4 2.0).",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Universal Serial Bus (USB) Specification",
+        "definition": "The communications protocol standard defining physical transmission speeds, bus encoding (NRZI, 8b/10b, 128b/132b), and packet framing across serial data links."
+      },
+      {
+        "type": "paragraph",
+        "text": "A common point of consumer confusion is that USB-C is only a physical connector shape, while USB 3.2 or USB4 defines the actual speed running across those wires. A USB-C cable may only support slow 480 Mbps USB 2.0 data if it is designed purely for charging."
+      },
+      {
+        "type": "heading",
+        "text": "Generational Speed Milestones"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Specification", "Marketing Name", "Peak Data Rate", "Encoding Scheme"],
+        "rows": [
+          {
+            "label": "USB 2.0",
+            "values": ["HighSpeed", "480 Mbps (~40 MB/s real)", "NRZI"]
+          },
+          {
+            "label": "USB 3.2 Gen 1",
+            "values": ["SuperSpeed 5Gbps", "5 Gbps (~450 MB/s)", "8b/10b"]
+          },
+          {
+            "label": "USB 3.2 Gen 2x2",
+            "values": ["SuperSpeed 20Gbps", "20 Gbps (Dual lane)", "128b/132b"]
+          },
+          {
+            "label": "USB4 2.0",
+            "values": ["USB4 80Gbps", "80 Gbps (PAM3 signaling)", "PAM3 multi-level"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The USB-IF officially rebranded confusing legacy names (like USB 3.1 Gen 1) to direct speed labels: USB 5Gbps, USB 10Gbps, USB 20Gbps, and USB 40Gbps."
+      }
+    ],
+    "tags": ["ports-cables", "usb", "usb4", "superspeed", "bandwidth", "data-transfer"],
+    "relatedIds": ["usb-a-vs-b-vs-c", "what-is-thunderbolt"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — USB",
+        "url": "https://en.wikipedia.org/wiki/USB"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "hdmi-versions-compared",
+    "title": "HDMI Versions (1.4 vs 2.0 vs 2.1)",
+    "category": "ports-cables",
+    "summary": "HDMI 2.1 expands bandwidth to 48 Gbps, enabling uncompressed 4K at 120Hz, 8K at 60Hz, Variable Refresh Rate (VRR), and eARC audio.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "High-Definition Multimedia Interface (HDMI)",
+        "definition": "A proprietary audio/video interface standard for transmitting uncompressed digital video and multi-channel audio data over a single cable."
+      },
+      {
+        "type": "paragraph",
+        "text": "While HDMI 1.4 was designed for 1080p and early 30Hz 4K TVs, modern gaming consoles (PS5, Xbox Series X) and graphics cards require HDMI 2.1's 48 Gbps Fixed Rate Link (FRL) signaling to drive 4K displays at 120Hz with HDR and zero screen tearing."
+      },
+      {
+        "type": "heading",
+        "text": "HDMI Evolution"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "HDMI 1.4", "HDMI 2.0b", "HDMI 2.1a"],
+        "rows": [
+          {
+            "label": "Max Bandwidth",
+            "values": ["10.2 Gbps (TMDS)", "18.0 Gbps (TMDS)", "48.0 Gbps (FRL)"]
+          },
+          {
+            "label": "4K Capability",
+            "values": ["4K @ 30Hz (No HDR)", "4K @ 60Hz (HDR10)", "4K @ 120Hz / 144Hz (10-bit HDR)"]
+          },
+          {
+            "label": "Gaming Features",
+            "values": ["None", "Basic ARC", "VRR, ALLM, eARC, QFT"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "eARC (Enhanced Audio Return Channel) supports uncompressed 7.1 Dolby TrueHD and Dolby Atmos audio over the HDMI cable back to soundbars."
+      }
+    ],
+    "tags": ["ports-cables", "hdmi", "hdmi-2-1", "4k120", "vrr", "earc", "video"],
+    "relatedIds": ["displayport-vs-hdmi", "what-is-thunderbolt"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — HDMI",
+        "url": "https://en.wikipedia.org/wiki/HDMI"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "displayport-vs-hdmi",
+    "title": "DisplayPort vs HDMI",
+    "category": "ports-cables",
+    "summary": "DisplayPort is a royalty-free PC monitor standard using packetized micro-packets, whereas HDMI dominates consumer TVs and home entertainment systems.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "DisplayPort (DP)",
+        "definition": "A royalty-free digital display interface standard developed by VESA that transmits video and audio using packetized data streams similar to Ethernet."
+      },
+      {
+        "type": "paragraph",
+        "text": "While HDMI was created by consumer electronics companies for televisions and set-top boxes, DisplayPort was designed for desktop PC monitors. DisplayPort treats display data as packetized streams, allowing multiple independent monitors to be daisy-chained from a single port via Multi-Stream Transport (MST)."
+      },
+      {
+        "type": "heading",
+        "text": "Feature Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "DisplayPort 2.1 (UHBR20)", "HDMI 2.1a"],
+        "rows": [
+          {
+            "label": "Max Raw Bandwidth",
+            "values": ["80 Gbps (77.37 Gbps usable)", "48 Gbps (42 Gbps usable)"]
+          },
+          {
+            "label": "Multi-Monitor Chaining",
+            "values": ["Yes (Multi-Stream Transport / MST)", "No (One display per cable)"]
+          },
+          {
+            "label": "Display Stream Compression (DSC)",
+            "values": ["Native VESA DSC 1.2a (Visually lossless 3:1)", "Supported under HDMI 2.1"]
+          },
+          {
+            "label": "Primary Market",
+            "values": ["PC Gaming Monitors, Graphics Cards, USB-C DP-Alt", "Televisions, Home Theaters, Consoles"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "DisplayPort Alt Mode allows USB-C ports on laptops to output raw native DisplayPort video signals directly over USB-C cables."
+      }
+    ],
+    "tags": ["ports-cables", "displayport", "hdmi", "vesa", "mst", "dsc", "monitors"],
+    "relatedIds": ["hdmi-versions-compared", "what-is-thunderbolt"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — DisplayPort",
+        "url": "https://en.wikipedia.org/wiki/DisplayPort"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-thunderbolt",
+    "title": "Thunderbolt 4 vs Thunderbolt 5 vs USB4",
+    "category": "ports-cables",
+    "summary": "Thunderbolt tunnels PCIe, DisplayPort, and USB data over a unified high-speed cable, reaching up to 120 Gbps for external GPUs and dual 8K displays.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Thunderbolt Protocol",
+        "definition": "A hardware interface developed by Intel and Apple that dynamically multiplexes native PCIe, DisplayPort, and USB data packets onto a single high-speed full-duplex link."
+      },
+      {
+        "type": "paragraph",
+        "text": "Standard USB transfers data across software-controlled host controllers. Thunderbolt provides direct peer-to-peer Direct Memory Access (DMA) to the motherboard's PCIe bus. This allows laptops to connect external desktop graphics cards (eGPUs), high-speed NVMe RAID arrays, and multi-monitor docking stations over a single USB-C cable."
+      },
+      {
+        "type": "heading",
+        "text": "Thunderbolt Generations"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Generation", "Total Bandwidth", "PCIe Tunneling Speed", "Display Support"],
+        "rows": [
+          {
+            "label": "Thunderbolt 3",
+            "values": ["40 Gbps", "16 Gbps (PCIe Gen 3 x2 or x4)", "Dual 4K @ 60Hz"]
+          },
+          {
+            "label": "Thunderbolt 4",
+            "values": ["40 Gbps (Strictly certified)", "32 Gbps (PCIe Gen 3 x4 full speed)", "Dual 4K @ 60Hz or One 8K"]
+          },
+          {
+            "label": "Thunderbolt 5",
+            "values": ["80 Gbps / 120 Gbps Boost", "64 Gbps (PCIe Gen 4 x4)", "Triple 4K @ 144Hz or Dual 8K"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Intel contributed the Thunderbolt 3 protocol royalty-free to the USB-IF, forming the foundation of the USB4 open specification."
+      }
+    ],
+    "tags": ["ports-cables", "thunderbolt", "thunderbolt4", "thunderbolt5", "pcie", "egpu", "usb-c"],
+    "relatedIds": ["usb-a-vs-b-vs-c", "what-is-pcie"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Thunderbolt (interface)",
+        "url": "https://en.wikipedia.org/wiki/Thunderbolt_(interface)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-3-5mm-vs-usbc-audio",
+    "title": "3.5mm Headphone Jack vs USB-C Audio",
+    "category": "ports-cables",
+    "summary": "3.5mm jacks receive pre-amplified analog signals from the phone's internal DAC, whereas USB-C audio transmits digital bits to an external DAC inside the dongle.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "TRRS Headphone Connector",
+        "definition": "An analog audio connector (Tip, Ring, Ring, Sleeve) carrying stereo left/right audio channels, a ground return, and a microphone line."
+      },
+      {
+        "type": "paragraph",
+        "text": "When using a traditional 3.5mm jack, the smartphone's internal Digital-to-Analog Converter (DAC) and amplifier process the audio signal before sending analog electrical waveforms to the headphones. Over USB-C, audio is transmitted as pure digital PCM bitstreams over USB data lines, requiring a DAC chip built inside the USB-C adapter or headphones."
+      },
+      {
+        "type": "heading",
+        "text": "Architectural Differences"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Aspect", "3.5mm Analog Port", "USB-C Audio"],
+        "rows": [
+          {
+            "label": "DAC / Amp Location",
+            "values": ["Inside smartphone motherboard", "Inside USB-C cable dongle or headphone plug"]
+          },
+          {
+            "label": "Internal Space Impact",
+            "values": ["Requires bulky 3.5mm barrel jack", "Uses existing universal USB-C port"]
+          },
+          {
+            "label": "Audiophile Potential",
+            "values": ["Bound by internal phone DAC quality", "Unlimited (Can connect high-end external desktop DACs)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Audio Adapter Accessory Mode allowed analog audio directly over USB-C pins (SBU1/SBU2), but modern phones have largely deprecated it in favor of standard digital USB Audio Class 2.0."
+      }
+    ],
+    "tags": ["ports-cables", "audio", "3-5mm", "usb-c-audio", "dac", "trrs"],
+    "relatedIds": ["usb-a-vs-b-vs-c", "what-is-usb-versions"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Phone connector (audio)",
+        "url": "https://en.wikipedia.org/wiki/Phone_connector_(audio)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-pcie",
+    "title": "PCI Express (PCIe) Bus & Lanes",
+    "category": "ports-cables",
+    "summary": "PCIe is the high-speed serial expansion bus standard connecting GPUs, NVMe SSDs, and network cards directly to the CPU with point-to-point dedicated lanes.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "PCI Express (PCIe)",
+        "definition": "A high-speed serial computer expansion bus standard using point-to-point dedicated switched differential signal pairs ('lanes') to link motherboard components."
+      },
+      {
+        "type": "paragraph",
+        "text": "Unlike legacy parallel PCI buses where all connected cards shared a single bandwidth pipe, PCIe assigns dedicated, point-to-point lanes (`x1`, `x4`, `x8`, `x16`). Each lane consists of two differential wire pairs (one for transmitting, one for receiving), doubling data throughput with every successive specification generation."
+      },
+      {
+        "type": "heading",
+        "text": "PCIe Bandwidth Scaling (Per Lane & x16 Slot)"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Generation", "Raw Transfer Rate", "Throughput (x1 Lane)", "Throughput (x16 GPU Slot)"],
+        "rows": [
+          {
+            "label": "PCIe 3.0",
+            "values": ["8.0 GT/s", "0.985 GB/s", "15.75 GB/s"]
+          },
+          {
+            "label": "PCIe 4.0",
+            "values": ["16.0 GT/s", "1.969 GB/s", "31.51 GB/s"]
+          },
+          {
+            "label": "PCIe 5.0",
+            "values": ["32.0 GT/s", "3.938 GB/s", "63.02 GB/s"]
+          },
+          {
+            "label": "PCIe 6.0",
+            "values": ["64.0 GT/s (PAM4)", "7.877 GB/s", "126.03 GB/s"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "PCIe is completely forward and backward compatible: a PCIe 3.0 graphics card functions seamlessly in a modern PCIe 5.0 slot at PCIe 3.0 speeds."
+      }
+    ],
+    "tags": ["ports-cables", "pcie", "pcie-lanes", "bandwidth", "gpu", "nvme", "motherboard"],
+    "relatedIds": ["what-is-sata", "what-is-m2-slot", "what-is-thunderbolt"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — PCI Express",
+        "url": "https://en.wikipedia.org/wiki/PCI_Express"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-sata",
+    "title": "SATA III vs NVMe Interface",
+    "category": "ports-cables",
+    "summary": "SATA III is a legacy storage interface capped at 600 MB/s, while NVMe connects flash drives directly to high-speed PCIe lanes for speeds over 7,000 MB/s.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Serial ATA (SATA)",
+        "definition": "A computer bus interface connecting host bus adapters to mass storage devices (hard drives and legacy solid-state drives) using the AHCI command protocol."
+      },
+      {
+        "type": "paragraph",
+        "text": "SATA was engineered in the early 2000s for mechanical spinning hard drives, using the AHCI protocol which supports only a single command queue of 32 commands. NVMe (Non-Volatile Memory Express) was built specifically for solid-state flash memory, supporting 64,000 parallel queues with 64,000 commands per queue."
+      },
+      {
+        "type": "heading",
+        "text": "Interface Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Metric", "SATA III (AHCI)", "NVMe (PCIe Gen 4 x4)"],
+        "rows": [
+          {
+            "label": "Max Real Bandwidth",
+            "values": ["~550 – 600 MB/s", "~7,000 – 7,500 MB/s (12x faster)"]
+          },
+          {
+            "label": "Command Queues",
+            "values": ["1 queue (32 commands depth)", "64,000 queues (64k depth each)"]
+          },
+          {
+            "label": "Access Latency",
+            "values": ["High (~6 microseconds)", "Ultra-low (~2.8 microseconds)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "A physical 2.5-inch SSD uses SATA cables, while an M.2 stick can support either SATA or NVMe depending on the slot keying."
+      }
+    ],
+    "tags": ["ports-cables", "sata", "nvme", "ahci", "ssd", "storage", "pcie"],
+    "relatedIds": ["what-is-m2-slot", "what-is-pcie"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — SATA",
+        "url": "https://en.wikipedia.org/wiki/SATA"
+      },
+      {
+        "label": "Wikipedia — NVM Express",
+        "url": "https://en.wikipedia.org/wiki/NVM_Express"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-m2-slot",
+    "title": "M.2 Form Factors & Keying (M-Key vs B-Key)",
+    "category": "ports-cables",
+    "summary": "M.2 is an ultra-compact expansion card form factor using standardized size codes (2280, 2230) and physical notch keys to prevent incompatible installations.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "M.2 Specification (Next Generation Form Factor)",
+        "definition": "A flexible small-form-factor connector standard for internal computer expansion cards, replacing mSATA and mini-PCIe with support for PCIe, SATA, and USB buses."
+      },
+      {
+        "type": "paragraph",
+        "text": "M.2 modules are labeled using 4 or 5-digit dimension codes (e.g. `2280` means 22mm wide by 80mm long). Physical edge notches ('Keys') prevent inserting incompatible cards: M-Key slots supply 4 PCIe lanes for fast NVMe SSDs, while E-Key slots supply PCIe x1 and USB lines for Wi-Fi/Bluetooth cards."
+      },
+      {
+        "type": "heading",
+        "text": "M.2 Keying Matrix"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "M-Key (Notch at pins 59–66): Provides 4 PCIe lanes (PCIe x4) or SATA; standard for high-speed NVMe SSDs.",
+          "B-Key (Notch at pins 12–19): Provides PCIe x2, SATA, or USB; used for legacy SATA SSDs and cellular WWAN modems.",
+          "E-Key (Notch at pins 24–31): Dedicated for Wi-Fi 6E/7 and Bluetooth wireless cards (CNVi / PCIe x1).",
+          "B+M Key: Features two notches to fit into either B-key or M-key motherboard slots (capped at PCIe x2 or SATA speeds)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Steam Deck and compact handheld PCs use shorter M.2 2230 SSDs (22mm x 30mm) to conserve motherboard space."
+      }
+    ],
+    "tags": ["ports-cables", "m2", "nvme", "2280", "2230", "keying", "form-factor"],
+    "relatedIds": ["what-is-pcie", "what-is-sata"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — M.2",
+        "url": "https://en.wikipedia.org/wiki/M.2"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

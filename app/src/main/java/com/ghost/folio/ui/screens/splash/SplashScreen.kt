@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -23,7 +24,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.ghost.folio.R
-import com.ghost.folio.ui.theme.ChampionBlue
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -53,7 +53,7 @@ fun SplashScreen(
         Box(
             modifier = modifier
                 .fillMaxSize()
-                .background(ChampionBlue)
+                .background(MaterialTheme.colorScheme.background)
         )
         return
     }
@@ -87,7 +87,7 @@ fun SplashScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(ChampionBlue),
+            .background(MaterialTheme.colorScheme.background),
         contentAlignment = Alignment.Center
     ) {
         Image(
@@ -101,3 +101,4 @@ fun SplashScreen(
         )
     }
 }
+

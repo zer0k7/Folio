@@ -35,6 +35,7 @@ class ArticleViewModel(
                 _uiState.value = _uiState.value.copy(isLoading = true)
                 val article = repository.getArticleById(articleId)
                 if (article != null) {
+                    repository.recordArticleRead(article.id)
                     val related = mutableListOf<Article>()
                     for (relatedId in article.relatedIds) {
                         try {

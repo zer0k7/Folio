@@ -1,0 +1,363 @@
+[
+  {
+    "id": "dpi-vs-ppi-printing",
+    "title": "DPI vs PPI in Digital Printing",
+    "category": "printing",
+    "summary": "PPI measures digital display sensor pixel density, whereas DPI measures physical microscopic ink droplet dot density deposited by a printer.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Dots Per Inch (DPI)",
+        "definition": "A measurement of spatial printing resolution describing how many physical dots of ink or toner a printer can deposit along a one-inch linear line."
+      },
+      {
+        "type": "paragraph",
+        "text": "A common mistake is using PPI (Pixels Per Inch) and DPI interchangeably. A digital image might have an input resolution of 300 PPI (meaning 300 digital RGB pixels per inch). To print one pixel's subtle color shade using CMYK process inks, a printer must deposit multiple microscopic droplets (halftone rosette pattern) across a 1200 or 2400 DPI grid."
+      },
+      {
+        "type": "heading",
+        "text": "PPI vs DPI Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Metric", "Pixels Per Inch (PPI)", "Dots Per Inch (DPI)"],
+        "rows": [
+          {
+            "label": "Domain",
+            "values": ["Digital displays, camera sensors, raster files", "Physical paper printheads, laser toner drums"]
+          },
+          {
+            "label": "Atomic Unit",
+            "values": ["Single square pixel (Can display millions of colors)", "Single microscopic dot of pure ink (Cyan, Magenta, Yellow, Black)"]
+          },
+          {
+            "label": "Standard Quality Target",
+            "values": ["300 PPI (Standard commercial print baseline)", "1200 to 4800 DPI (High-end inkjet output)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Halftone screening groups multiple microscopic ink dots into clusters to create the optical illusion of continuous color gradations and mid-tones."
+      }
+    ],
+    "tags": ["printing", "dpi", "ppi", "resolution", "halftone", "inkjet", "pixels"],
+    "relatedIds": ["cmyk-vs-rgb", "raster-vs-vector"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Dots per inch",
+        "url": "https://en.wikipedia.org/wiki/Dots_per_inch"
+      },
+      {
+        "label": "Wikipedia — Pixel density",
+        "url": "https://en.wikipedia.org/wiki/Pixel_density"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "raster-vs-vector",
+    "title": "Raster vs Vector Graphics",
+    "category": "printing",
+    "summary": "Raster images store a fixed grid of color pixels that pixelate when scaled, while vector graphics use mathematical Bezier paths for infinite scaling.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Vector Graphics",
+        "definition": "Digital visual assets constructed from mathematical geometric primitives (points, lines, curves, polygons) based on Cartesian coordinate equations."
+      },
+      {
+        "type": "paragraph",
+        "text": "Raster graphics (JPEG, PNG, TIFF) capture real-world photographs by recording color values for every pixel in a 2D grid. If enlarged, the pixels stretch, resulting in blurry pixelation. Vector graphics (SVG, AI, EPS) store mathematical formulas, rendering sharp, crisp lines at any print scale from a business card to a highway billboard."
+      },
+      {
+        "type": "heading",
+        "text": "Comparison Summary"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "Raster Graphics (Bitmap)", "Vector Graphics"],
+        "rows": [
+          {
+            "label": "Scaling Capability",
+            "values": ["Fixed resolution; degrades when enlarged", "Infinitely scalable with zero loss of sharpness"]
+          },
+          {
+            "label": "Common Formats",
+            "values": ["JPEG, PNG, WebP, GIF, TIFF", "SVG, PDF, EPS, TrueType/OpenType fonts"]
+          },
+          {
+            "label": "Optimal Use Cases",
+            "values": ["Photographs, detailed textures, digital paintings", "Logos, icons, typography, UI wireframes, blueprints"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Raster Image Processors (RIP) convert vector PDF and PostScript paths into high-resolution raster halftone dot maps right before physical printing."
+      }
+    ],
+    "tags": ["printing", "raster", "vector", "svg", "bezier-curves", "graphics", "resolution"],
+    "relatedIds": ["dpi-vs-ppi-printing", "what-is-postscript"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Vector graphics",
+        "url": "https://en.wikipedia.org/wiki/Vector_graphics"
+      },
+      {
+        "label": "Wikipedia — Raster graphics",
+        "url": "https://en.wikipedia.org/wiki/Raster_graphics"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-postscript",
+    "title": "PostScript & Page Description Languages",
+    "category": "printing",
+    "summary": "PostScript is a Turing-complete stack-based programming language developed by Adobe to describe vector layouts and fonts precisely to laser printers.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "PostScript (PS)",
+        "definition": "A concatenative stack-based programming language and Page Description Language (PDL) created by Adobe in 1982 to describe the precise visual appearance of printed pages."
+      },
+      {
+        "type": "paragraph",
+        "text": "Before PostScript, computer printers printed fixed-width character matrices controlled by crude escape codes. PostScript revolutionized desktop publishing by treating every letter and shape as mathematical outlines, allowing printers with built-in PostScript interpreters to rasterize complex layouts independently of host computer operating systems."
+      },
+      {
+        "type": "heading",
+        "text": "PostScript Innovations"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Device Independence: The same PostScript file prints at 300 DPI on an office laser printer or 2540 DPI on a commercial image-setter.",
+          "Type 1 & TrueType Fonts: Outlined font definitions with mathematical hinting for sharp rendering at tiny point sizes.",
+          "The Precursor to PDF: Adobe stripped the programming language loops and stateful logic from PostScript to create the modern static PDF document format."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Display PostScript (DPS) was used by NeXTSTEP and early Mac OS X as the foundational desktop 2D window compositing engine."
+      }
+    ],
+    "tags": ["printing", "postscript", "pdf", "pdl", "adobe", "typography", "laser-printing"],
+    "relatedIds": ["what-is-pdf-printing", "raster-vs-vector"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — PostScript",
+        "url": "https://en.wikipedia.org/wiki/PostScript"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "cmyk-vs-rgb",
+    "title": "CMYK Subtractive vs RGB Additive Color",
+    "category": "printing",
+    "summary": "RGB is an additive light model used on screens (combining to make white), while CMYK is a subtractive ink model used in print (absorbing light to make black).",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Subtractive Color Model (CMYK)",
+        "definition": "A color model (Cyan, Magenta, Yellow, Key/Black) based on absorbing (subtracting) specific light wavelengths reflected off white paper."
+      },
+      {
+        "type": "paragraph",
+        "text": "Screens emit light directly (Additive Color): combining 100% Red, Green, and Blue light creates pure White. Paper emits no light of its own; it reflects ambient room light. CMYK inks act as chemical color filters (Subtractive Color): Cyan absorbs Red light, Magenta absorbs Green, and Yellow absorbs Blue."
+      },
+      {
+        "type": "heading",
+        "text": "Color Models Compared"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Property", "RGB (Additive)", "CMYK (Subtractive)"],
+        "rows": [
+          {
+            "label": "Medium",
+            "values": ["Digital screens, OLEDs, camera sensors", "Physical paper printing, packaging, lithography"]
+          },
+          {
+            "label": "All Channels at 100%",
+            "values": ["Pure White (`#FFFFFF`)", "Rich Black / Dark Muddy Brown"]
+          },
+          {
+            "label": "Color Gamut",
+            "values": ["Wide color gamut (Vivid neons, bright cyans)", "Smaller color gamut (Cannot reproduce vibrant neon RGB colors)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "A dedicated 'Key' (Black) ink channel is added because mixing pure Cyan, Magenta, and Yellow produces a muddy dark brown and over-saturates paper with wet ink."
+      }
+    ],
+    "tags": ["printing", "cmyk", "rgb", "color-models", "subtractive-color", "additive-color"],
+    "relatedIds": ["what-is-a-color-profile", "dpi-vs-ppi-printing"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — CMYK color model",
+        "url": "https://en.wikipedia.org/wiki/CMYK_color_model"
+      },
+      {
+        "label": "Wikipedia — RGB color model",
+        "url": "https://en.wikipedia.org/wiki/RGB_color_model"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-color-profile",
+    "title": "ICC Color Profiles & Color Management",
+    "category": "printing",
+    "summary": "ICC color profiles map device-specific RGB and CMYK color values into standardized CIELAB color space to guarantee consistent color reproduction.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "ICC Color Profile",
+        "definition": "A standardized binary data file conforming to International Color Consortium specifications that describes the color gamut attributes of an input, display, or output device."
+      },
+      {
+        "type": "paragraph",
+        "text": "Sending a raw color value like `RGB(255, 0, 0)` produces completely different shades of red on an uncalibrated monitor versus coated commercial print paper. An ICC profile acts as a translator, mapping device coordinates into an absolute, device-independent Profile Connection Space (CIELAB) to preserve visual intent."
+      },
+      {
+        "type": "heading",
+        "text": "Rendering Intents"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Perceptual: Compresses the entire source gamut into the target gamut, preserving visual relationships between colors (best for photos).",
+          "Relative Colorimetric: Maps in-gamut colors identically, clipping out-of-gamut colors to the closest reproducible edge (best for logos/branding).",
+          "Absolute Colorimetric: Recreates exact color values without adjusting for paper white tint (used for digital hard-proofing)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "SWOP and GRACoL are standard ICC offset press profiles used in commercial North American publication printing."
+      }
+    ],
+    "tags": ["printing", "icc-profile", "color-management", "cielab", "rendering-intents", "proofing"],
+    "relatedIds": ["cmyk-vs-rgb", "what-is-pdf-printing"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — ICC profile",
+        "url": "https://en.wikipedia.org/wiki/ICC_profile"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-pdf-printing",
+    "title": "PDF Standards for Print (PDF/X)",
+    "category": "printing",
+    "summary": "PDF/X is an ISO standard profile that restricts dynamic content, embedding all fonts, high-res images, and CMYK color spaces for reliable commercial printing.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "PDF/X (Prepress Digital Exchange)",
+        "definition": "An ISO-standardized subset of the PDF specification optimized specifically for prepress graphic arts and commercial printing workflows."
+      },
+      {
+        "type": "paragraph",
+        "text": "Standard consumer PDFs can contain interactive audio, JavaScript, form fields, and un-embedded fonts. If sent to a commercial press, missing fonts or RGB images produce disastrous misprints. PDF/X guarantees predictability by strictly prohibiting dynamic elements and mandating embedded font vectors."
+      },
+      {
+        "type": "heading",
+        "text": "Major PDF/X Standards"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Standard", "Color Space Rules", "Transparency Support", "Primary Usage"],
+        "rows": [
+          {
+            "label": "PDF/X-1a (ISO 15930-1)",
+            "values": ["Strict CMYK & Spot colors only (No RGB)", "Transparency must be pre-flattened", "Legacy magazine and offset press printing"]
+          },
+          {
+            "label": "PDF/X-3",
+            "values": ["Supports ICC-managed RGB and CMYK", "Transparency pre-flattened", "Color-managed hybrid workflows"]
+          },
+          {
+            "label": "PDF/X-4 (ISO 15930-7)",
+            "values": ["Full RGB, CMYK, and Spot colors", "Preserves live vector transparency and layers", "Modern RIP printing and packaging"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Preflight software automatically scans PDF/X files before print, checking for low-resolution raster images (<300 DPI) and missing bleeds."
+      }
+    ],
+    "tags": ["printing", "pdf", "pdf-x", "prepress", "commercial-printing", "preflight"],
+    "relatedIds": ["what-is-postscript", "what-is-bleed-in-printing"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — PDF/X",
+        "url": "https://en.wikipedia.org/wiki/PDF/X"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-bleed-in-printing",
+    "title": "Bleed, Trim & Crop Marks in Print Prepress",
+    "category": "printing",
+    "summary": "Bleed extends background artwork 3mm past the final cut trim line to prevent unsightly white unprinted borders during mechanical guillotine cutting.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Bleed",
+        "definition": "An extra margin of printed artwork extending typically 3mm (0.125 inches) beyond the final trim edge of a document, trimmed away after printing."
+      },
+      {
+        "type": "paragraph",
+        "text": "Commercial print houses print thousands of pages on huge paper rolls and slice them into final sizes using industrial mechanical guillotine cutters. Because paper stacks can shift slightly during slicing (mechanical tolerance ~1mm), failing to provide bleed leaves unsightly unprinted white slivers along the paper edges."
+      },
+      {
+        "type": "heading",
+        "text": "Prepress Page Boundaries"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Trim Line: The final finished dimensions of the printed document after cutting.",
+          "Bleed Box: Outer boundary where full-bleed background colors and photos must extend (typically +3mm on all four sides).",
+          "Safe Zone: Inner margin (typically 3mm to 5mm inside trim line) where all critical text and logos must remain to avoid being clipped.",
+          "Crop Marks: Hairline corner crosshairs showing the cutter operator exactly where to slice."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Slugs are non-printing metadata areas outside the bleed box where job IDs, color calibration bars, and timestamp details are placed."
+      }
+    ],
+    "tags": ["printing", "bleed", "trim-box", "crop-marks", "prepress", "guillotine-cutting"],
+    "relatedIds": ["what-is-pdf-printing", "dpi-vs-ppi-printing"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Bleed (printing)",
+        "url": "https://en.wikipedia.org/wiki/Bleed_(printing)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

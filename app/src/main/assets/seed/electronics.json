@@ -34,6 +34,12 @@
     ],
     "tags": ["electronics", "voltage", "volts", "potential", "power"],
     "relatedIds": ["what-is-current", "what-is-resistance", "what-is-a-circuit"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Voltage",
+        "url": "https://en.wikipedia.org/wiki/Voltage"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -78,6 +84,12 @@
     ],
     "tags": ["electronics", "current", "amperes", "electrons", "charge"],
     "relatedIds": ["what-is-voltage", "what-is-resistance", "what-is-ac-vs-dc"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Electric current",
+        "url": "https://en.wikipedia.org/wiki/Electric_current"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -130,6 +142,16 @@
     ],
     "tags": ["electronics", "resistance", "ohms-law", "impedance", "physics"],
     "relatedIds": ["what-is-voltage", "what-is-current", "what-is-a-resistor"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Electrical resistance and conductance",
+        "url": "https://en.wikipedia.org/wiki/Electrical_resistance_and_conductance"
+      },
+      {
+        "label": "Wikipedia — Ohm's law",
+        "url": "https://en.wikipedia.org/wiki/Ohm%27s_law"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -174,6 +196,12 @@
     ],
     "tags": ["electronics", "circuit", "series", "parallel", "schematics"],
     "relatedIds": ["what-is-voltage", "what-is-current", "what-is-a-transistor"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Electrical network",
+        "url": "https://en.wikipedia.org/wiki/Electrical_network"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -212,6 +240,16 @@
     ],
     "tags": ["electronics", "transistor", "mosfet", "semiconductor", "cmos", "cpu"],
     "relatedIds": ["what-is-a-circuit", "what-is-a-resistor", "what-is-a-capacitor"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Transistor",
+        "url": "https://en.wikipedia.org/wiki/Transistor"
+      },
+      {
+        "label": "Wikipedia — MOSFET",
+        "url": "https://en.wikipedia.org/wiki/MOSFET"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -251,6 +289,12 @@
     ],
     "tags": ["electronics", "capacitor", "filtering", "decoupling", "farads", "dram"],
     "relatedIds": ["what-is-a-resistor", "what-is-a-transistor", "what-is-a-psu"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Capacitor",
+        "url": "https://en.wikipedia.org/wiki/Capacitor"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -289,6 +333,12 @@
     ],
     "tags": ["electronics", "led", "diode", "optics", "semiconductor"],
     "relatedIds": ["what-is-a-resistor", "what-is-a-transistor", "what-is-a-circuit"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Light-emitting diode",
+        "url": "https://en.wikipedia.org/wiki/Light-emitting_diode"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -337,6 +387,12 @@
     ],
     "tags": ["electronics", "resistor", "pullup", "voltage-divider", "passive"],
     "relatedIds": ["what-is-resistance", "what-is-a-capacitor", "what-is-a-circuit"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Resistor",
+        "url": "https://en.wikipedia.org/wiki/Resistor"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -389,6 +445,16 @@
     ],
     "tags": ["electronics", "ac", "dc", "power", "grid", "rectifier"],
     "relatedIds": ["what-is-voltage", "what-is-current", "what-is-a-psu"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Alternating current",
+        "url": "https://en.wikipedia.org/wiki/Alternating_current"
+      },
+      {
+        "label": "Wikipedia — Direct current",
+        "url": "https://en.wikipedia.org/wiki/Direct_current"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -428,6 +494,12 @@
     ],
     "tags": ["electronics", "motherboard", "pcb", "vrm", "pcie", "hardware"],
     "relatedIds": ["what-is-a-psu", "what-is-a-circuit", "what-is-a-transistor"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Motherboard",
+        "url": "https://en.wikipedia.org/wiki/Motherboard"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -480,6 +552,16 @@
     ],
     "tags": ["electronics", "psu", "smps", "power", "80plus", "hardware"],
     "relatedIds": ["what-is-ac-vs-dc", "what-is-a-motherboard", "what-is-voltage"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Power supply unit (computer)",
+        "url": "https://en.wikipedia.org/wiki/Power_supply_unit_(computer)"
+      },
+      {
+        "label": "Wikipedia — Switched-mode power supply",
+        "url": "https://en.wikipedia.org/wiki/Switched-mode_power_supply"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false

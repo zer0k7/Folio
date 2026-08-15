@@ -1,0 +1,568 @@
+[
+  {
+    "id": "what-is-a-cve",
+    "title": "CVE (Common Vulnerabilities and Exposures)",
+    "category": "cybersecurity",
+    "summary": "A CVE is a standardized public identifier assigned to publicly disclosed cybersecurity vulnerabilities to facilitate tracking and patching across the industry.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "CVE Identifier",
+        "definition": "A unique alphanumeric reference (e.g. `CVE-2024-12345`) assigned by authorized CVE Numbering Authorities (CNAs) to catalogue publicly known software flaws."
+      },
+      {
+        "type": "paragraph",
+        "text": "Before the CVE system was launched in 1999 by the MITRE Corporation, every security vendor used their own internal database names for flaws, making cross-system threat intelligence chaotic. Today, CVE provides a universal dictionary for developers, security researchers, and enterprise IT teams."
+      },
+      {
+        "type": "heading",
+        "text": "CVE Lifecycle"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Discovery & Reservation: A security researcher identifies a bug and a CNA reserves a CVE ID.",
+          "Coordinated Disclosure: The vendor develops a patch during a confidential embargo period (typically 90 days).",
+          "Publication: The vulnerability details, affected versions, and CVSS severity scores are published to the National Vulnerability Database (NVD)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Automated security scanners use CVE databases to audit dependencies during CI/CD builds, warning if an installed library has a known vulnerability."
+      }
+    ],
+    "tags": ["cybersecurity", "cve", "vulnerabilities", "mitre", "nvd", "security"],
+    "relatedIds": ["what-is-cvss-score", "what-is-a-zero-day"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Common Vulnerabilities and Exposures",
+        "url": "https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-cvss-score",
+    "title": "CVSS Severity Scoring System",
+    "category": "cybersecurity",
+    "summary": "CVSS calculates a standardized 0.0 to 10.0 numerical severity score measuring the exploitability and real-world impact of a security vulnerability.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Common Vulnerability Scoring System (CVSS)",
+        "definition": "An open industry standard framework maintained by FIRST that assesses the technical severity of software vulnerabilities on a scale from 0.0 to 10.0."
+      },
+      {
+        "type": "paragraph",
+        "text": "CVSS equations weigh multiple metric groups: Base Metrics (intrinsic qualities like attack vector, complexity, privileges required), Temporal Metrics (exploit maturity, remediation status), and Environmental Metrics (specific organization impact)."
+      },
+      {
+        "type": "heading",
+        "text": "CVSS v3.1 / v4.0 Rating Bands"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Rating Band", "Score Range", "Typical Characteristics"],
+        "rows": [
+          {
+            "label": "None",
+            "values": ["0.0", "No security impact"]
+          },
+          {
+            "label": "Low",
+            "values": ["0.1 - 3.9", "Requires local physical access or high privileges"]
+          },
+          {
+            "label": "Medium",
+            "values": ["4.0 - 6.9", "Requires user interaction (e.g. clicking a phishing link)"]
+          },
+          {
+            "label": "High",
+            "values": ["7.0 - 8.9", "Remote execution with low privileges or significant data loss"]
+          },
+          {
+            "label": "Critical",
+            "values": ["9.0 - 10.0", "Unauthenticated remote code execution (RCE) over the Internet"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "A CVSS 10.0 'wormable' vulnerability can propagate automatically across networks without any human interaction (like EternalBlue / WannaCry)."
+      }
+    ],
+    "tags": ["cybersecurity", "cvss", "severity", "scoring", "rce", "risk-assessment"],
+    "relatedIds": ["what-is-a-cve", "what-is-a-zero-day"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Common Vulnerability Scoring System",
+        "url": "https://en.wikipedia.org/wiki/Common_Vulnerability_Scoring_System"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-zero-day",
+    "title": "Zero-Day Vulnerabilities & Exploits",
+    "category": "cybersecurity",
+    "summary": "A zero-day is an unpatched software vulnerability unknown to the vendor, giving developers zero days to release a defensive fix before exploitation.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Zero-Day Vulnerability",
+        "definition": "A software security flaw that is active in the wild or known to attackers before the vendor has become aware of it or developed a security patch."
+      },
+      {
+        "type": "paragraph",
+        "text": "The term 'zero-day' refers to the fact that developers have had zero days to address the issue. Once an exploit is observed in the wild, vendors initiate an emergency out-of-band patch cycle. Sophisticated zero-day chains command millions of dollars in private vulnerability broker markets."
+      },
+      {
+        "type": "heading",
+        "text": "Stages of a Zero-Day"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Zero-Day Flaw: The undiscovered programming flaw present in released software code.",
+          "Zero-Day Exploit: The weaponized exploit payload crafted to take advantage of the flaw.",
+          "Zero-Day Attack: The active cyberattack deploying the exploit against targets before a patch exists.",
+          "N-Day Vulnerability: The status once the patch is released; systems that fail to apply updates remain vulnerable to 'N-day' attacks."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Sandboxing and defense-in-depth architectures (like Chrome or Android app sandboxes) contain the damage of a single zero-day exploit."
+      }
+    ],
+    "tags": ["cybersecurity", "zero-day", "exploit", "patching", "vulnerability", "infosec"],
+    "relatedIds": ["what-is-a-cve", "what-is-a-payload"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Zero-day (computing)",
+        "url": "https://en.wikipedia.org/wiki/Zero-day_(computing)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-sql-injection",
+    "title": "SQL Injection (SQLi)",
+    "category": "cybersecurity",
+    "summary": "SQL Injection occurs when untrusted user input is directly concatenated into database query strings, allowing attackers to manipulate query logic.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "SQL Injection (SQLi)",
+        "definition": "A code injection technique in which malicious SQL statements are inserted into entry fields for execution by the backend database engine."
+      },
+      {
+        "type": "paragraph",
+        "text": "If a web login form constructs queries using string concatenation (`'SELECT * FROM users WHERE name = '' + input + '''`), an attacker can submit `' OR 1=1 --`. The database evaluates `1=1` as always true, bypassing authentication entirely and dumping user records."
+      },
+      {
+        "type": "heading",
+        "text": "Primary Defensive Countermeasures"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Parameterized Queries (Prepared Statements): Separates SQL code from user data so input is strictly treated as literal string literals, never executable code.",
+          "Object-Relational Mapping (ORM): Using frameworks (Hibernate, Room, Prisma) that use parameterization by default.",
+          "Least Privilege Database Accounts: Running application databases with accounts restricted from modifying schema or accessing system tables."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Parameterized queries compile the query AST on the database server before binding user parameters, making SQL injection mathematically impossible."
+      }
+    ],
+    "tags": ["cybersecurity", "sqli", "injection", "prepared-statements", "owasp", "database-security"],
+    "relatedIds": ["what-is-xss", "what-is-a-payload"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — SQL injection",
+        "url": "https://en.wikipedia.org/wiki/SQL_injection"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-xss",
+    "title": "Cross-Site Scripting (XSS)",
+    "category": "cybersecurity",
+    "summary": "XSS vulnerabilities allow attackers to inject malicious client-side JavaScript into web pages viewed by other users, stealing session cookies and tokens.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Cross-Site Scripting (XSS)",
+        "definition": "A client-side code injection attack where malicious scripts are executed in the security context of a victim's web browser session."
+      },
+      {
+        "type": "paragraph",
+        "text": "Web browsers enforce the Same-Origin Policy to prevent scripts from one domain reading cookies or DOM storage from another. XSS bypasses this because the malicious script executes directly inside the trusted domain, granting full access to session cookies, localStorage tokens, and page inputs."
+      },
+      {
+        "type": "heading",
+        "text": "The Three XSS Categories"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Type", "Persistence", "Mechanism"],
+        "rows": [
+          {
+            "label": "Stored XSS (Persistent)",
+            "values": ["Permanent in DB", "Script saved to database (e.g. malicious comment) and served to every visitor"]
+          },
+          {
+            "label": "Reflected XSS (Non-Persistent)",
+            "values": ["Ephemeral", "Script reflected off server error message or search query in phishing URL"]
+          },
+          {
+            "label": "DOM-Based XSS",
+            "values": ["Client-Side Only", "Vulnerability exists entirely in client JavaScript sink (e.g. `innerHTML`)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Setting the `HttpOnly` flag on authentication cookies prevents JavaScript `document.cookie` from reading session identifiers."
+      }
+    ],
+    "tags": ["cybersecurity", "xss", "javascript", "cookies", "owasp", "same-origin-policy"],
+    "relatedIds": ["what-is-sql-injection", "what-is-mitm-attack"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Cross-site scripting",
+        "url": "https://en.wikipedia.org/wiki/Cross-site_scripting"
+      },
+      {
+        "label": "MDN Web Docs — Cross-site scripting (XSS)",
+        "url": "https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-mitm-attack",
+    "title": "Man-in-the-Middle (MitM) Attacks",
+    "category": "cybersecurity",
+    "summary": "A MitM attack intercepts, relays, and potentially alters communication between two trusting parties without their knowledge.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Man-in-the-Middle (MitM)",
+        "definition": "A network security compromise where an adversary inserts themselves directly into the communication stream between two nodes to eavesdrop on or manipulate traffic."
+      },
+      {
+        "type": "paragraph",
+        "text": "On untrusted public Wi-Fi networks, attackers can use ARP Poisoning or Rogue DNS spoofing to trick devices into sending all outbound traffic through the attacker's laptop. Without end-to-end cryptographic authentication (like HTTPS/TLS with valid certificates), the attacker can inspect passwords and session data in cleartext."
+      },
+      {
+        "type": "heading",
+        "text": "Common MitM Techniques & Defenses"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "ARP Spoofing: Broadcasting forged ARP responses to associate the attacker's MAC address with the default router IP on local LANs.",
+          "SSL Stripping: Downgrading HTTPS connections to insecure HTTP; prevented by HTTP Strict Transport Security (HSTS).",
+          "Certificate Pinning: Hardcoding server public keys directly into mobile apps to defeat rogue root CA certificates."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern TLS 1.3 encryption with ephemeral Diffie-Hellman keys provides Perfect Forward Secrecy (PFS), meaning recorded past sessions cannot be decrypted even if the server key is later compromised."
+      }
+    ],
+    "tags": ["cybersecurity", "mitm", "tls", "arp-spoofing", "hsts", "encryption"],
+    "relatedIds": ["what-is-a-firewall-deep", "what-is-xss"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Man-in-the-middle attack",
+        "url": "https://en.wikipedia.org/wiki/Man-in-the-middle_attack"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-brute-force",
+    "title": "Brute-Force & Dictionary Attacks",
+    "category": "cybersecurity",
+    "summary": "Brute-force attacks systematically attempt every possible password combination until the correct credential matches the target hash or login form.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Exhaustive Key Search (Brute Force)",
+        "definition": "A cryptanalytic attack that attempts every possible permutation of characters or encryption keys in the search space until the correct value is found."
+      },
+      {
+        "type": "paragraph",
+        "text": "Modern GPUs can compute billions of SHA-256 hashes every second. Simple 6-character passwords can be cracked in seconds using precomputed rainbow tables or dictionary wordlists (like `rockyou.txt`). To protect credentials, modern security systems use slow, memory-hard key derivation functions like Argon2id and bcrypt."
+      },
+      {
+        "type": "heading",
+        "text": "Attack Variants"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Dictionary Attack: Testing hundreds of thousands of common words and known leaked passwords.",
+          "Credential Stuffing: Automating login attempts across thousands of sites using leaked username/password combos from prior data breaches.",
+          "Password Spraying: Trying one single common password (e.g. `Winter2024!`) across thousands of corporate user accounts to avoid account lockout thresholds."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Rate limiting (e.g. exponential backoff, CAPTCHA, and account lockouts) completely neutralizes online brute force attacks."
+      }
+    ],
+    "tags": ["cybersecurity", "brute-force", "passwords", "argon2", "bcrypt", "credential-stuffing"],
+    "relatedIds": ["what-is-social-engineering", "what-is-a-firewall-deep"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Brute-force attack",
+        "url": "https://en.wikipedia.org/wiki/Brute-force_attack"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-firewall-deep",
+    "title": "Stateful Firewalls & Packet Filtering",
+    "category": "cybersecurity",
+    "summary": "Firewalls monitor and filter incoming and outgoing network traffic based on predefined security rules and stateful connection tracking.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Stateful Inspection Firewall",
+        "definition": "A network security system that tracks the operational state of active Layer 4 connections (TCP handshakes, UDP streams) to distinguish legitimate response packets from unsolicited incoming intrusions."
+      },
+      {
+        "type": "paragraph",
+        "text": "Stateless firewalls filter packets purely on static rules (e.g. 'block port 80'). Stateful firewalls (like Linux `netfilter`/`iptables`/`nftables` or pfSense) maintain an in-memory connection state table (`conntrack`). When you initiate an outbound connection, response packets are automatically allowed back through dynamically."
+      },
+      {
+        "type": "heading",
+        "text": "Firewall Generations"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Packet Filter (Layer 3/4): Inspects source/destination IP addresses, protocol, and port numbers.",
+          "Stateful Firewall: Inspects TCP sequence numbers and connection lifecycles (NEW, ESTABLISHED, RELATED).",
+          "Next-Gen Firewall (NGFW / WAF, Layer 7): Inspects application-layer payloads, decoding HTTP/TLS to block SQL injection and malware."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "A Web Application Firewall (WAF) sits in front of web servers specifically to filter malicious HTTP requests before they reach application code."
+      }
+    ],
+    "tags": ["cybersecurity", "firewall", "iptables", "netfilter", "waf", "networking"],
+    "relatedIds": ["what-is-mitm-attack", "what-is-a-reverse-shell"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Firewall (computing)",
+        "url": "https://en.wikipedia.org/wiki/Firewall_(computing)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-social-engineering",
+    "title": "Social Engineering & Phishing",
+    "category": "cybersecurity",
+    "summary": "Social engineering manipulates human psychology rather than software vulnerabilities to trick individuals into divulging confidential passwords and credentials.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Social Engineering",
+        "definition": "The psychological manipulation of people into performing actions or divulging confidential information, exploiting cognitive biases like trust, urgency, and fear."
+      },
+      {
+        "type": "paragraph",
+        "text": "As technical encryption and software security have hardened, human operators have become the primary entry point for cyberattacks. Over 80% of corporate security breaches originate through deceptive emails, fake login portals, or impersonation phone calls."
+      },
+      {
+        "type": "heading",
+        "text": "Social Engineering Attack Vectors"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Phishing: Bulk fraudulent emails disguised as legitimate institutions (banks, IT departments) linking to credential-harvesting clones.",
+          "Spear Phishing & Whaling: Highly customized, researched attacks targeting specific high-profile individuals or financial executives.",
+          "Pretexting & Vishing: Fabricating a believable scenario over voice calls to bypass support verification questions."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "FIDO2 / WebAuthn hardware security keys (YubiKeys) are cryptographically bound to website domain names, rendering traditional phishing pages completely ineffective."
+      }
+    ],
+    "tags": ["cybersecurity", "social-engineering", "phishing", "webauthn", "fido2", "security-awareness"],
+    "relatedIds": ["what-is-brute-force", "what-is-a-cve"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Social engineering (security)",
+        "url": "https://en.wikipedia.org/wiki/Social_engineering_(security)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-reverse-shell",
+    "title": "Reverse Shells vs Bind Shells",
+    "category": "cybersecurity",
+    "summary": "A reverse shell forces a compromised target machine to initiate an outbound network connection back to an attacker's listener to bypass inbound firewall rules.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Reverse Shell",
+        "definition": "A remote access technique where the target victim machine initiates an outbound network connection back to an attacker's listening port, redirecting the local shell stdin/stdout over the socket."
+      },
+      {
+        "type": "paragraph",
+        "text": "In a Bind Shell, the compromised target opens a local listening port. However, corporate firewalls and NAT routers block all unsolicited inbound traffic. In a Reverse Shell, the victim connects outbound (e.g. over allowed ports like 443 or 80), bypassing inbound firewall restrictions effortlessly."
+      },
+      {
+        "type": "heading",
+        "text": "Shell Types Compared"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Type", "Connection Initiator", "Firewall Bypass Capability"],
+        "rows": [
+          {
+            "label": "Bind Shell",
+            "values": ["Attacker connects to Victim", "Blocked by standard NAT and inbound firewalls"]
+          },
+          {
+            "label": "Reverse Shell",
+            "values": ["Victim connects out to Attacker", "Bypasses standard inbound stateful firewall rules"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Egress filtering (restricting outbound ports and enforcing deep packet inspection on egress traffic) is the primary network defense against reverse shells."
+      }
+    ],
+    "tags": ["cybersecurity", "reverse-shell", "bind-shell", "pentesting", "firewall", "sockets"],
+    "relatedIds": ["what-is-a-payload", "what-is-privilege-escalation"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Shellcode",
+        "url": "https://en.wikipedia.org/wiki/Shellcode"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-privilege-escalation",
+    "title": "Privilege Escalation Attacks",
+    "category": "cybersecurity",
+    "summary": "Privilege escalation exploits OS flaws or misconfigurations to elevate an unprivileged user session into full root or SYSTEM administrator control.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Privilege Escalation",
+        "definition": "The act of exploiting a bug, design flaw, or configuration oversight in an operating system or software application to gain elevated access to protected resources."
+      },
+      {
+        "type": "paragraph",
+        "text": "Initial network compromise usually yields only low-privilege access (such as the `www-data` web server account). Attackers then perform local enumeration, searching for misconfigured SUID binaries, kernel vulnerabilities, or vulnerable scheduled cron jobs to elevate to root (Linux) or SYSTEM (Windows)."
+      },
+      {
+        "type": "heading",
+        "text": "Vertical vs Horizontal Escalation"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Vertical Escalation: Moving from a standard unprivileged user account to a higher-tier administrative superuser (Root / Administrator).",
+          "Horizontal Escalation: Gaining unauthorized access to another peer user's account with identical privilege levels to view their private data."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Auditing SUID binaries (`find / -perm -4000`) and keeping the Linux kernel patched are fundamental server hardening requirements."
+      }
+    ],
+    "tags": ["cybersecurity", "privilege-escalation", "root", "suid", "privesc", "hardening"],
+    "relatedIds": ["what-is-a-reverse-shell", "what-is-a-payload"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Privilege escalation",
+        "url": "https://en.wikipedia.org/wiki/Privilege_escalation"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-payload",
+    "title": "Payloads & Shellcode",
+    "category": "cybersecurity",
+    "summary": "A payload is the ultimate malicious code delivered and executed by an exploit once vulnerability delivery and memory corruption succeed.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Exploit Payload",
+        "definition": "The component of malicious software or exploit code that performs the attacker's ultimate intended action (e.g. spawning a shell, exfiltrating data, or executing ransomware encryption)."
+      },
+      {
+        "type": "paragraph",
+        "text": "In security engineering, an exploit is the delivery vehicle that breaches system defenses (e.g. a buffer overflow), while the payload is the cargo executed once inside. Payloads are often written as compact position-independent machine code known as 'shellcode'."
+      },
+      {
+        "type": "heading",
+        "text": "Payload Categories"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Singles (Inline): Self-contained executable shellcode that performs an action immediately without external dependencies.",
+          "Stagers: Ultra-small initial payloads designed to fit in tiny buffer spaces, which connect out to download a larger, full-featured stage (like Meterpreter).",
+          "Ransomware / Wiper: Payloads that traverse the filesystem to encrypt or destroy user documents."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern OS defenses like Data Execution Prevention (DEP / W+X) prevent shellcode execution from data memory pages like the stack."
+      }
+    ],
+    "tags": ["cybersecurity", "payload", "shellcode", "exploit", "meterpreter", "dep"],
+    "relatedIds": ["what-is-a-reverse-shell", "what-is-a-zero-day"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Payload (computing)",
+        "url": "https://en.wikipedia.org/wiki/Payload_(computing)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  }
+]

@@ -43,6 +43,16 @@
     ],
     "tags": ["os", "kernel", "linux", "syscall", "architecture"],
     "relatedIds": ["what-is-a-process", "what-is-virtual-memory", "what-is-a-driver"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Kernel (operating system)",
+        "url": "https://en.wikipedia.org/wiki/Kernel_(operating_system)"
+      },
+      {
+        "label": "Arch Wiki — Kernel",
+        "url": "https://wiki.archlinux.org/title/Kernel"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -82,6 +92,12 @@
     ],
     "tags": ["os", "process", "memory", "pid", "execution", "multitasking"],
     "relatedIds": ["what-is-a-thread", "what-is-virtual-memory", "what-is-a-kernel"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Process (computing)",
+        "url": "https://en.wikipedia.org/wiki/Process_(computing)"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -126,6 +142,12 @@
     ],
     "tags": ["os", "thread", "concurrency", "parallelism", "multithreading"],
     "relatedIds": ["what-is-a-process", "what-is-a-kernel", "what-is-virtual-memory"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Thread (computing)",
+        "url": "https://en.wikipedia.org/wiki/Thread_(computing)"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -164,6 +186,16 @@
     ],
     "tags": ["os", "virtual-memory", "mmu", "paging", "page-fault", "ram"],
     "relatedIds": ["what-is-swap-memory", "what-is-a-process", "what-is-ram-vs-rom"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Virtual memory",
+        "url": "https://en.wikipedia.org/wiki/Virtual_memory"
+      },
+      {
+        "label": "Wikipedia — Page table",
+        "url": "https://en.wikipedia.org/wiki/Page_table"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -216,6 +248,16 @@
     ],
     "tags": ["os", "ram", "rom", "firmware", "memory", "hardware"],
     "relatedIds": ["what-is-virtual-memory", "what-is-bios-uefi", "what-is-a-kernel"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Read-only memory",
+        "url": "https://en.wikipedia.org/wiki/Read-only_memory"
+      },
+      {
+        "label": "Wikipedia — Random-access memory",
+        "url": "https://en.wikipedia.org/wiki/Random-access_memory"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -254,6 +296,16 @@
     ],
     "tags": ["os", "driver", "hardware", "kernel", "ring0", "io"],
     "relatedIds": ["what-is-a-kernel", "what-is-a-daemon", "what-is-bios-uefi"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Device driver",
+        "url": "https://en.wikipedia.org/wiki/Device_driver"
+      },
+      {
+        "label": "Arch Wiki — Dynamic Kernel Module Support",
+        "url": "https://wiki.archlinux.org/title/Dynamic_Kernel_Module_Support"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -292,6 +344,16 @@
     ],
     "tags": ["os", "daemon", "service", "systemd", "background", "unix"],
     "relatedIds": ["what-is-a-process", "what-is-a-kernel", "what-is-a-driver"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Daemon (computing)",
+        "url": "https://en.wikipedia.org/wiki/Daemon_(computing)"
+      },
+      {
+        "label": "Arch Wiki — Systemd",
+        "url": "https://wiki.archlinux.org/title/Systemd"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -330,6 +392,16 @@
     ],
     "tags": ["os", "swap", "zram", "paging", "memory", "performance"],
     "relatedIds": ["what-is-virtual-memory", "what-is-ram-vs-rom", "what-is-a-process"],
+    "relatedLinks": [
+      {
+        "label": "Arch Wiki — Swap",
+        "url": "https://wiki.archlinux.org/title/Swap"
+      },
+      {
+        "label": "Arch Wiki — Zram",
+        "url": "https://wiki.archlinux.org/title/Zram"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -382,6 +454,16 @@
     ],
     "tags": ["os", "uefi", "bios", "firmware", "secure-boot", "gpt"],
     "relatedIds": ["what-is-a-kernel", "what-is-a-driver", "what-is-ram-vs-rom"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — UEFI",
+        "url": "https://en.wikipedia.org/wiki/UEFI"
+      },
+      {
+        "label": "Arch Wiki — Unified Extensible Firmware Interface",
+        "url": "https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false

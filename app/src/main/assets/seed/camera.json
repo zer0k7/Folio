@@ -43,6 +43,16 @@
     ],
     "tags": ["camera", "aperture", "fstop", "bokeh", "optics", "photography"],
     "relatedIds": ["what-is-depth-of-field", "what-is-shutter-speed", "what-is-iso"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Aperture",
+        "url": "https://en.wikipedia.org/wiki/Aperture"
+      },
+      {
+        "label": "Wikipedia — F-number",
+        "url": "https://en.wikipedia.org/wiki/F-number"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -91,6 +101,12 @@
     ],
     "tags": ["camera", "shutter-speed", "exposure", "motion-blur", "rolling-shutter"],
     "relatedIds": ["what-is-aperture", "what-is-iso", "what-is-ois"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Shutter speed",
+        "url": "https://en.wikipedia.org/wiki/Shutter_speed"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -125,6 +141,12 @@
     ],
     "tags": ["camera", "iso", "noise", "gain", "exposure-triangle", "dynamic-range"],
     "relatedIds": ["what-is-aperture", "what-is-shutter-speed", "what-is-sensor-size"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Film speed (ISO)",
+        "url": "https://en.wikipedia.org/wiki/Film_speed"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -181,6 +203,16 @@
     ],
     "tags": ["camera", "sensor-size", "full-frame", "apsc", "crop-factor", "photodiode"],
     "relatedIds": ["what-is-megapixel", "what-is-depth-of-field", "what-is-iso"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Image sensor format",
+        "url": "https://en.wikipedia.org/wiki/Image_sensor_format"
+      },
+      {
+        "label": "Wikipedia — Crop factor",
+        "url": "https://en.wikipedia.org/wiki/Crop_factor"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -219,6 +251,12 @@
     ],
     "tags": ["camera", "megapixel", "pixel-binning", "quad-bayer", "resolution", "sensor"],
     "relatedIds": ["what-is-sensor-size", "what-is-raw-format", "what-is-optical-zoom-vs-digital"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Pixel",
+        "url": "https://en.wikipedia.org/wiki/Pixel"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -271,6 +309,16 @@
     ],
     "tags": ["camera", "zoom", "optical-zoom", "digital-zoom", "periscope", "telephoto"],
     "relatedIds": ["what-is-sensor-size", "what-is-megapixel", "what-is-ois"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Zoom lens",
+        "url": "https://en.wikipedia.org/wiki/Zoom_lens"
+      },
+      {
+        "label": "Wikipedia — Digital zoom",
+        "url": "https://en.wikipedia.org/wiki/Digital_zoom"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -309,6 +357,12 @@
     ],
     "tags": ["camera", "ois", "stabilization", "sensor-shift", "ibis", "low-light"],
     "relatedIds": ["what-is-shutter-speed", "what-is-optical-zoom-vs-digital", "what-is-sensor-size"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Image stabilization",
+        "url": "https://en.wikipedia.org/wiki/Image_stabilization"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -361,6 +415,16 @@
     ],
     "tags": ["camera", "raw", "dng", "photography", "bayer", "editing"],
     "relatedIds": ["what-is-hdr-photo", "what-is-megapixel", "what-is-sensor-size"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Raw image format",
+        "url": "https://en.wikipedia.org/wiki/Raw_image_format"
+      },
+      {
+        "label": "Wikipedia — Digital Negative (DNG)",
+        "url": "https://en.wikipedia.org/wiki/Digital_Negative"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -399,6 +463,16 @@
     ],
     "tags": ["camera", "depth-of-field", "dof", "bokeh", "aperture", "optics"],
     "relatedIds": ["what-is-aperture", "what-is-sensor-size", "what-is-optical-zoom-vs-digital"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Depth of field",
+        "url": "https://en.wikipedia.org/wiki/Depth_of_field"
+      },
+      {
+        "label": "Wikipedia — Bokeh",
+        "url": "https://en.wikipedia.org/wiki/Bokeh"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -437,6 +511,16 @@
     ],
     "tags": ["camera", "hdr", "computational-photography", "dynamic-range", "bracketing"],
     "relatedIds": ["what-is-raw-format", "what-is-sensor-size", "what-is-iso"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — High-dynamic-range imaging",
+        "url": "https://en.wikipedia.org/wiki/High-dynamic-range_imaging"
+      },
+      {
+        "label": "Android Developers — Ultra HDR image format",
+        "url": "https://developer.android.com/media/platform/ultra-hdr"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false

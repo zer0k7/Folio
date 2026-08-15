@@ -90,7 +90,7 @@ val Typography = Typography(
         fontFamily = InterFamily,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
-        lineHeight = 24.sp,
+        lineHeight = 26.sp,
         letterSpacing = 0.15.sp
     ),
     bodyMedium = TextStyle(

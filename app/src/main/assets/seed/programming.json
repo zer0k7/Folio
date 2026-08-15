@@ -33,6 +33,16 @@
     ],
     "tags": ["programming", "variables", "types", "memory", "scope"],
     "relatedIds": ["what-is-a-function", "what-is-a-compiler", "what-is-an-interpreter"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Variable (computer science)",
+        "url": "https://en.wikipedia.org/wiki/Variable_(computer_science)"
+      },
+      {
+        "label": "MDN Web Docs — Storing the information you need — Variables",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Variables"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -77,6 +87,16 @@
     ],
     "tags": ["programming", "function", "dry", "subroutine", "pure-function"],
     "relatedIds": ["what-is-a-variable", "what-is-recursion", "what-is-an-algorithm"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Subroutine (Function)",
+        "url": "https://en.wikipedia.org/wiki/Subroutine"
+      },
+      {
+        "label": "MDN Web Docs — Functions — reusable blocks of code",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Functions"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -133,6 +153,16 @@
     ],
     "tags": ["programming", "algorithm", "big-o", "complexity", "data-structures"],
     "relatedIds": ["what-is-a-loop", "what-is-recursion", "what-is-a-function"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Algorithm",
+        "url": "https://en.wikipedia.org/wiki/Algorithm"
+      },
+      {
+        "label": "Wikipedia — Big O notation",
+        "url": "https://en.wikipedia.org/wiki/Big_O_notation"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -172,6 +202,16 @@
     ],
     "tags": ["programming", "loop", "iteration", "while", "for", "control-flow"],
     "relatedIds": ["what-is-recursion", "what-is-an-algorithm", "what-is-a-function"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Control flow (Loops)",
+        "url": "https://en.wikipedia.org/wiki/Control_flow#Loops"
+      },
+      {
+        "label": "MDN Web Docs — Loops and iteration",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -210,6 +250,12 @@
     ],
     "tags": ["programming", "recursion", "stack", "tailrec", "trees"],
     "relatedIds": ["what-is-a-function", "what-is-a-loop", "what-is-an-algorithm"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Recursion (computer science)",
+        "url": "https://en.wikipedia.org/wiki/Recursion_(computer_science)"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -262,6 +308,16 @@
     ],
     "tags": ["programming", "oop", "classes", "polymorphism", "encapsulation", "architecture"],
     "relatedIds": ["what-is-a-variable", "what-is-a-function", "what-is-a-compiler"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Object-oriented programming",
+        "url": "https://en.wikipedia.org/wiki/Object-oriented_programming"
+      },
+      {
+        "label": "MDN Web Docs — Object-oriented programming",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Object-oriented_programming"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -302,6 +358,12 @@
     ],
     "tags": ["programming", "compiler", "llvm", "binary", "ast", "optimization"],
     "relatedIds": ["what-is-an-interpreter", "what-is-a-variable", "what-is-an-ide"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Compiler",
+        "url": "https://en.wikipedia.org/wiki/Compiler"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -350,6 +412,12 @@
     ],
     "tags": ["programming", "interpreter", "python", "javascript", "jit", "runtime"],
     "relatedIds": ["what-is-a-compiler", "what-is-a-variable", "what-is-debugging"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Interpreter (computing)",
+        "url": "https://en.wikipedia.org/wiki/Interpreter_(computing)"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -389,6 +457,12 @@
     ],
     "tags": ["programming", "debugging", "breakpoints", "gdb", "lldb", "stacktrace"],
     "relatedIds": ["what-is-an-ide", "what-is-a-compiler", "what-is-a-function"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Debugging",
+        "url": "https://en.wikipedia.org/wiki/Debugging"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -433,6 +507,12 @@
     ],
     "tags": ["programming", "vcs", "git", "history", "collaboration"],
     "relatedIds": ["what-is-git", "what-is-open-source", "what-is-an-ide"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Version control",
+        "url": "https://en.wikipedia.org/wiki/Version_control"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -471,6 +551,16 @@
     ],
     "tags": ["programming", "git", "vcs", "branch", "commit", "github"],
     "relatedIds": ["what-is-version-control", "what-is-open-source", "what-is-an-ide"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Git",
+        "url": "https://en.wikipedia.org/wiki/Git"
+      },
+      {
+        "label": "Arch Wiki — Git",
+        "url": "https://wiki.archlinux.org/title/Git"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -510,6 +600,12 @@
     ],
     "tags": ["programming", "ide", "vscode", "android-studio", "lsp", "tools"],
     "relatedIds": ["what-is-a-compiler", "what-is-debugging", "what-is-git"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Integrated development environment",
+        "url": "https://en.wikipedia.org/wiki/Integrated_development_environment"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -554,6 +650,12 @@
     ],
     "tags": ["programming", "open-source", "foss", "licensing", "mit", "gpl", "apache"],
     "relatedIds": ["what-is-git", "what-is-version-control", "what-is-an-ide"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Open-source software",
+        "url": "https://en.wikipedia.org/wiki/Open-source_software"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false

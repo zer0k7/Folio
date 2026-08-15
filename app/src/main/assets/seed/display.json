@@ -33,6 +33,16 @@
     ],
     "tags": ["display", "screen", "resolution", "ppi"],
     "relatedIds": ["lcd-vs-led", "what-is-oled", "refresh-rate"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Pixel",
+        "url": "https://en.wikipedia.org/wiki/Pixel"
+      },
+      {
+        "label": "Wikipedia — Pixel density",
+        "url": "https://en.wikipedia.org/wiki/Pixel_density"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": true
@@ -85,6 +95,16 @@
     ],
     "tags": ["display", "lcd", "led", "ips", "va", "tn"],
     "relatedIds": ["what-is-a-pixel", "what-is-oled", "response-time"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Liquid-crystal display",
+        "url": "https://en.wikipedia.org/wiki/Liquid-crystal_display"
+      },
+      {
+        "label": "Wikipedia — IPS panel",
+        "url": "https://en.wikipedia.org/wiki/IPS_panel"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": true
@@ -128,6 +148,12 @@
     ],
     "tags": ["display", "oled", "contrast", "burn-in"],
     "relatedIds": ["what-is-amoled", "lcd-vs-led", "what-is-a-pixel"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — OLED",
+        "url": "https://en.wikipedia.org/wiki/OLED"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": true
@@ -162,6 +188,16 @@
     ],
     "tags": ["display", "amoled", "pentile", "samsung"],
     "relatedIds": ["what-is-oled", "what-is-a-pixel", "refresh-rate"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — AMOLED",
+        "url": "https://en.wikipedia.org/wiki/AMOLED"
+      },
+      {
+        "label": "Wikipedia — PenTile matrix family",
+        "url": "https://en.wikipedia.org/wiki/PenTile_matrix_family"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -196,6 +232,16 @@
     ],
     "tags": ["display", "hz", "refresh-rate", "vrr", "ltpo"],
     "relatedIds": ["response-time", "what-is-a-pixel", "what-is-oled"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Refresh rate",
+        "url": "https://en.wikipedia.org/wiki/Refresh_rate"
+      },
+      {
+        "label": "Wikipedia — Variable refresh rate",
+        "url": "https://en.wikipedia.org/wiki/Variable_refresh_rate"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -230,6 +276,12 @@
     ],
     "tags": ["display", "ghosting", "gtg", "response-time"],
     "relatedIds": ["refresh-rate", "lcd-vs-led", "what-is-oled"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Response time (technology)",
+        "url": "https://en.wikipedia.org/wiki/Response_time_(technology)"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false

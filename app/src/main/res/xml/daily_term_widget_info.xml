@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/widget_daily_term_desc"
+    android:initialKeyguardLayout="@layout/widget_daily_term"
+    android:initialLayout="@layout/widget_daily_term"
+    android:minWidth="180dp"
+    android:minHeight="110dp"
+    android:previewImage="@drawable/bg_widget_daily_term"
+    android:previewLayout="@layout/widget_daily_term"
+    android:resizeMode="horizontal"
+    android:targetCellWidth="3"
+    android:targetCellHeight="2"
+    android:updatePeriodMillis="0"
+    android:widgetCategory="home_screen" />

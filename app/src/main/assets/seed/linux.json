@@ -1,0 +1,493 @@
+[
+  {
+    "id": "what-is-a-terminal",
+    "title": "Terminal, Console & TTY",
+    "category": "linux",
+    "summary": "A terminal emulator is a graphical text interface that passes user keystrokes to a shell and renders text stream outputs according to ANSI escape codes.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Terminal Emulator",
+        "definition": "A software application that emulates the behavior of physical tele-typewriter (TTY) video terminals (such as the DEC VT100) inside a graphical window system."
+      },
+      {
+        "type": "paragraph",
+        "text": "In early mainframe computing, terminals were physical electromechanical hardware units connected over serial cables. Modern Linux systems emulate this architecture through pseudo-terminals (pty), which pair a master process (the GUI terminal window) with a slave device that standard Unix command-line utilities interact with."
+      },
+      {
+        "type": "heading",
+        "text": "Standard I/O File Descriptors"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "stdin (File Descriptor 0): The standard input text stream (keyboard keystrokes or piped input).",
+          "stdout (File Descriptor 1): The standard output stream for normal program results.",
+          "stderr (File Descriptor 2): The dedicated unbuffered error diagnostic stream."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "ANSI escape sequences (e.g. `\\033[31m`) allow command-line tools to control cursor position, text styling, and 24-bit RGB colors in terminal emulators."
+      }
+    ],
+    "tags": ["linux", "terminal", "tty", "pty", "stdin", "stdout", "stderr"],
+    "relatedIds": ["what-is-a-shell", "what-is-ssh"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Terminal emulator",
+        "url": "https://en.wikipedia.org/wiki/Terminal_emulator"
+      },
+      {
+        "label": "Arch Wiki — Terminal emulator",
+        "url": "https://wiki.archlinux.org/title/Terminal_emulator"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-sudo",
+    "title": "sudo & Privilege Escalation",
+    "category": "linux",
+    "summary": "The sudo command allows permitted users to execute commands with root superuser privileges while preserving an audited security trail.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "sudo (Superuser Do)",
+        "definition": "A Unix security program that allows a designated user to execute a command as the superuser or another user, governed by rules configured in `/etc/sudoers`."
+      },
+      {
+        "type": "paragraph",
+        "text": "Logging in directly as the root superuser is dangerous because a single typo can wipe system partitions. Using `sudo` follows the Principle of Least Privilege: users operate under standard unprivileged accounts for daily tasks and temporarily elevate only specific administrative commands."
+      },
+      {
+        "type": "heading",
+        "text": "Key Security Features of sudo"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Granular Permission Control: Admins can restrict specific users to run only certain commands (e.g. restart web server) without full root access.",
+          "Syslog Auditing: Every execution of sudo is timestamped and logged to `/var/log/auth.log` or systemd journal.",
+          "Password Timestamp Caching: Caches authorization for 5 to 15 minutes to prevent repetitive password prompts."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Always edit the sudoers configuration file with `visudo` to perform syntax validation before saving, preventing accidental system lockouts."
+      }
+    ],
+    "tags": ["linux", "sudo", "root", "security", "sysadmin", "permissions"],
+    "relatedIds": ["what-is-root-in-linux", "what-is-file-permissions"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Sudo",
+        "url": "https://en.wikipedia.org/wiki/Sudo"
+      },
+      {
+        "label": "Arch Wiki — Sudo",
+        "url": "https://wiki.archlinux.org/title/Sudo"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-file-permissions",
+    "title": "Unix File Permissions & Ownership",
+    "category": "linux",
+    "summary": "Unix file permissions enforce security across User, Group, and Others through Read, Write, and Execute bit masks stored in filesystem inodes.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "POSIX Permission Bits",
+        "definition": "A 9-bit security mode stored in a file's inode that controls read (r), write (w), and execute (x) access for owner, group, and world scopes."
+      },
+      {
+        "type": "paragraph",
+        "text": "When running `ls -l`, permissions appear as a 10-character string like `-rwxr-xr--`. The first character denotes file type (`-` for regular file, `d` for directory). The remaining nine characters are broken into three triplets: User/Owner, Group, and Others."
+      },
+      {
+        "type": "heading",
+        "text": "Permission Modes Explained"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Symbol", "Octal Value", "Meaning on Files", "Meaning on Directories"],
+        "rows": [
+          {
+            "label": "r (Read)",
+            "values": ["4", "View file content", "List directory contents (`ls`)"]
+          },
+          {
+            "label": "w (Write)",
+            "values": ["2", "Modify or delete file content", "Create, rename, or delete files inside directory"]
+          },
+          {
+            "label": "x (Execute)",
+            "values": ["1", "Run file as a program/script", "Traverse into directory (`cd`) and access files inside"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "A user must have execute (x) permission on a directory to enter it or access any file stored within it, even if they have read access on the file itself."
+      }
+    ],
+    "tags": ["linux", "permissions", "posix", "inode", "chmod", "chown"],
+    "relatedIds": ["what-is-chmod", "what-is-sudo"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — File-system permissions",
+        "url": "https://en.wikipedia.org/wiki/File-system_permissions"
+      },
+      {
+        "label": "Arch Wiki — File permissions and attributes",
+        "url": "https://wiki.archlinux.org/title/File_permissions_and_attributes"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-chmod",
+    "title": "chmod & Numeric Octal Modes",
+    "category": "linux",
+    "summary": "The chmod command alters filesystem permission bits using symbolic syntax or 3-digit octal notation like 755, 644, and 700.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "chmod (Change Mode)",
+        "definition": "A standard POSIX system utility and system call used to modify the access permission flags of filesystem objects."
+      },
+      {
+        "type": "paragraph",
+        "text": "Numeric octal notation sums permission values (Read=4, Write=2, Execute=1) for each tier. For example, `chmod 755 script.sh` sets `7` (4+2+1, rwx) for the owner, `5` (4+0+1, r-x) for the group, and `5` (r-x) for all others."
+      },
+      {
+        "type": "heading",
+        "text": "Common Standard Octal Configurations"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "644 (`-rw-r--r--`): Default for public web assets and configuration files (owner can edit; everyone can read).",
+          "755 (`-rwxr-xr-x`): Standard for executable binaries and accessible directories.",
+          "700 (`-rwx------`): Private scripts or directories (e.g. `~/.ssh`) restricted exclusively to the owner.",
+          "600 (`-rw-------`): Private cryptographic keys (e.g. `id_ed25519`) unreadable by any other user."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Special permission bits include SUID (4000), SGID (2000), and the Sticky Bit (1000, used on `/tmp` so users cannot delete each other's files)."
+      }
+    ],
+    "tags": ["linux", "chmod", "octal", "sysadmin", "bash", "security"],
+    "relatedIds": ["what-is-file-permissions", "what-is-sudo"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Chmod",
+        "url": "https://en.wikipedia.org/wiki/Chmod"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-ssh",
+    "title": "SSH (Secure Shell Protocol)",
+    "category": "linux",
+    "summary": "SSH provides an encrypted cryptographic network tunnel on TCP port 22 for secure remote terminal access and automated file transfers.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Secure Shell (SSH)",
+        "definition": "A cryptographic network protocol that operates on a client-server model over untrusted networks to provide authenticated, encrypted terminal sessions."
+      },
+      {
+        "type": "paragraph",
+        "text": "SSH replaced legacy unencrypted protocols like Telnet and rlogin, which transmitted passwords in cleartext. SSH uses asymmetric public-key cryptography (such as Ed25519 or RSA) for authentication, then negotiates a symmetric cipher (ChaCha20-Poly1305 or AES-GCM) to encrypt all ongoing session traffic."
+      },
+      {
+        "type": "heading",
+        "text": "Core SSH Capabilities"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Public-Key Authentication: Logging in with a private key file without typing interactive passwords.",
+          "Local & Remote Port Forwarding: Securely tunneling remote databases or web interfaces through encrypted SSH tunnels.",
+          "SFTP / SCP Integration: Encrypted file management and file synchronization."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern best practices mandate using modern elliptic curve keys (`ssh-keygen -t ed25519`) and disabling password authentication in `/etc/ssh/sshd_config`."
+      }
+    ],
+    "tags": ["linux", "ssh", "cryptography", "ed25519", "networking", "tunneling"],
+    "relatedIds": ["what-is-a-terminal", "what-is-a-shell"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Secure Shell",
+        "url": "https://en.wikipedia.org/wiki/Secure_Shell"
+      },
+      {
+        "label": "Arch Wiki — OpenSSH",
+        "url": "https://wiki.archlinux.org/title/OpenSSH"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-package-manager",
+    "title": "Linux Package Managers Explained",
+    "category": "linux",
+    "summary": "Package managers automate installing, updating, and resolving dependency graphs for software packages from signed, trusted repositories.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Package Management System",
+        "definition": "A collection of software tools and metadata formats that automates downloading, verifying GPG signatures, resolving library dependencies, and installing binaries onto the root filesystem."
+      },
+      {
+        "type": "paragraph",
+        "text": "Instead of hunting for `.exe` installers across untrusted websites, Linux users retrieve verified software from centralized distribution mirrors. The package manager inspects the dependency graph, installs any required shared `.so` libraries, unpacks binaries, and configures system services automatically."
+      },
+      {
+        "type": "heading",
+        "text": "Package Manager Tasks"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Dependency Resolution: Solves mathematical Boolean Satisfiability (SAT) problems to guarantee all required runtime libraries are compatible.",
+          "Cryptographic Verification: Verifies GPG signatures to ensure packages have not been tampered with in transit.",
+          "Atomic File Tracking: Maintains a local database of every installed file so uninstallation cleanly removes every orphaned trace."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern universal sandbox packaging formats like Flatpak and Snap package dependencies internally to run across any Linux distribution."
+      }
+    ],
+    "tags": ["linux", "package-manager", "apt", "pacman", "dnf", "dependencies"],
+    "relatedIds": ["apt-vs-pacman-vs-dnf", "what-is-sudo"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Package manager",
+        "url": "https://en.wikipedia.org/wiki/Package_manager"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "apt-vs-pacman-vs-dnf",
+    "title": "APT vs Pacman vs DNF",
+    "category": "linux",
+    "summary": "Different Linux distro families use distinct package managers: Debian/Ubuntu uses APT, Arch Linux uses Pacman, and Fedora/RHEL uses DNF.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Distribution Package Formats",
+        "definition": "Binary archive standards (`.deb`, `.rpm`, `.pkg.tar.zst`) containing pre-compiled binaries, file metadata, and installation lifecycle trigger scripts."
+      },
+      {
+        "type": "paragraph",
+        "text": "While all three managers perform the same fundamental tasks, their syntax, release philosophies, and speed differ. Pacman on Arch Linux is rolling-release and lightweight; APT on Ubuntu focuses on rock-solid point-release stability; DNF on Fedora features advanced libsolv SAT solving."
+      },
+      {
+        "type": "heading",
+        "text": "Command Equivalents"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Action", "Debian/Ubuntu (APT)", "Arch Linux (Pacman)", "Fedora/RHEL (DNF)"],
+        "rows": [
+          {
+            "label": "Update Repos",
+            "values": ["`sudo apt update`", "`sudo pacman -Sy`", "`sudo dnf check-update`"]
+          },
+          {
+            "label": "Upgrade System",
+            "values": ["`sudo apt upgrade`", "`sudo pacman -Syu`", "`sudo dnf upgrade`"]
+          },
+          {
+            "label": "Install Package",
+            "values": ["`sudo apt install pkg`", "`sudo pacman -S pkg`", "`sudo dnf install pkg`"]
+          },
+          {
+            "label": "Remove Package",
+            "values": ["`sudo apt remove pkg`", "`sudo pacman -Rns pkg`", "`sudo dnf remove pkg`"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "DNF5 is a rewrite in C++ that dramatically reduces metadata download times and memory consumption compared to legacy Python DNF."
+      }
+    ],
+    "tags": ["linux", "apt", "pacman", "dnf", "distro", "ubuntu", "arch", "fedora"],
+    "relatedIds": ["what-is-a-package-manager", "what-is-a-terminal"],
+    "relatedLinks": [
+      {
+        "label": "Arch Wiki — Pacman/Rosetta",
+        "url": "https://wiki.archlinux.org/title/Pacman/Rosetta"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-root-in-linux",
+    "title": "The Root User (UID 0)",
+    "category": "linux",
+    "summary": "Root is the all-powerful superuser account with User ID (UID) 0 that bypasses all standard filesystem permission checks on Unix systems.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Root Account (UID 0)",
+        "definition": "The default administrative account in Unix-like operating systems with unrestricted access to all kernel resources, hardware devices, and system calls."
+      },
+      {
+        "type": "paragraph",
+        "text": "In Unix design philosophy, the root user is completely omnipotent. The Linux kernel will not prevent root from deleting vital system directories, overwriting raw disk blocks (`/dev/sda`), or killing critical init daemons. Modern Linux distributions mitigate this using Linux Capabilities and SELinux/AppArmor Mandatory Access Controls (MAC)."
+      },
+      {
+        "type": "heading",
+        "text": "Root vs Linux Capabilities"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "`CAP_NET_BIND_SERVICE`: Privilege to bind network sockets below port 1024 without full root access.",
+          "`CAP_SYS_ADMIN`: Overarching system administration capability encompassing disk mounting and kernel tracing.",
+          "`CAP_CHOWN`: Permission to arbitrarily change file ownership."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Splitting root privileges into fine-grained capabilities allows services (like web servers or ping) to execute securely with minimal attack surfaces."
+      }
+    ],
+    "tags": ["linux", "root", "uid-0", "security", "capabilities", "superuser"],
+    "relatedIds": ["what-is-sudo", "what-is-file-permissions"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Superuser",
+        "url": "https://en.wikipedia.org/wiki/Superuser"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-shell",
+    "title": "Shells: Bash, Zsh & POSIX",
+    "category": "linux",
+    "summary": "A shell is a command language interpreter that reads interactive user commands or scripts and executes them by making kernel system calls.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Command Shell",
+        "definition": "A command-line interpreter program that acts as an interface between the user and the operating system kernel, supporting scripting logic, piping, and job control."
+      },
+      {
+        "type": "paragraph",
+        "text": "When you type a command in a terminal, the shell parses the syntax, expands environment variables, manages I/O redirection, searches the `$PATH` directory list for matching executable binaries, and forks a child process to execute the binary."
+      },
+      {
+        "type": "heading",
+        "text": "Popular Shells Compared"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Bash (Bourne Again Shell): The ubiquitous default shell across Linux distributions for the last 30 years.",
+          "Zsh (Z Shell): Modern interactive shell with advanced autocomplete, syntax highlighting, and theme frameworks (default on macOS).",
+          "Fish (Friendly Interactive Shell): Out-of-the-box autosuggestions and web configuration without complex script setup."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The Unix pipe operator (`|`) streams the stdout of one program directly into the stdin of another without creating intermediate temporary disk files."
+      }
+    ],
+    "tags": ["linux", "shell", "bash", "zsh", "posix", "scripting"],
+    "relatedIds": ["what-is-a-terminal", "what-is-a-cron-job"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Unix shell",
+        "url": "https://en.wikipedia.org/wiki/Unix_shell"
+      },
+      {
+        "label": "Arch Wiki — Command-line shells",
+        "url": "https://wiki.archlinux.org/title/Command-line_shell"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-cron-job",
+    "title": "Cron Jobs & Scheduled Tasks",
+    "category": "linux",
+    "summary": "Cron is a background daemon that executes recurring automated scripts and maintenance tasks on schedules defined by 5-field crontab syntax.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Cron Daemon (crond)",
+        "definition": "A time-based job scheduler in Unix-like operating systems that runs in the background, waking every minute to execute scheduled batch commands."
+      },
+      {
+        "type": "paragraph",
+        "text": "Cron schedules are maintained in user crontab files (`crontab -e`). System administrators rely on cron for database backups, log rotation, security scans, and periodic cleanup scripts without manual intervention."
+      },
+      {
+        "type": "heading",
+        "text": "Crontab 5-Field Syntax"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Minute (0 - 59)",
+          "Hour (0 - 23)",
+          "Day of the Month (1 - 31)",
+          "Month (1 - 12)",
+          "Day of the Week (0 - 6, where 0 = Sunday)"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Systemd Timers (`.timer` units) are increasingly used as modern alternatives to cron, offering millisecond precision, dependency chaining, and persistent catch-up logging."
+      }
+    ],
+    "tags": ["linux", "cron", "crontab", "scheduling", "systemd", "automation"],
+    "relatedIds": ["what-is-a-shell", "what-is-sudo"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Cron",
+        "url": "https://en.wikipedia.org/wiki/Cron"
+      },
+      {
+        "label": "Arch Wiki — Cron",
+        "url": "https://wiki.archlinux.org/title/Cron"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  }
+]

@@ -33,6 +33,12 @@
     ],
     "tags": ["android", "security", "frp", "google-lock", "recovery"],
     "relatedIds": ["what-is-oem-unlock", "what-is-recovery-mode", "what-is-bootloader"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — Factory Reset Protection",
+        "url": "https://source.android.com/docs/security/features/protection"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -67,6 +73,12 @@
     ],
     "tags": ["android", "bootloader", "fastboot", "flashing"],
     "relatedIds": ["what-is-bootloader", "what-is-fastboot", "what-is-frp"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — Bootloader Unlocking",
+        "url": "https://source.android.com/docs/core/architecture/bootloader/locking_unlocking"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -105,6 +117,16 @@
     ],
     "tags": ["android", "bootloader", "avb", "kernel", "chain-of-trust"],
     "relatedIds": ["what-is-fastboot", "what-is-oem-unlock", "what-is-rooting"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — Verified Boot",
+        "url": "https://source.android.com/docs/security/features/verifiedboot"
+      },
+      {
+        "label": "Wikipedia — Booting (Android)",
+        "url": "https://en.wikipedia.org/wiki/Booting#Android"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": true
@@ -144,6 +166,16 @@
     ],
     "tags": ["android", "fastboot", "flashing", "bootloader", "terminal"],
     "relatedIds": ["what-is-adb", "what-is-bootloader", "what-is-twrp"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — Fastboot Overview",
+        "url": "https://source.android.com/docs/core/architecture/bootloader/fastboot"
+      },
+      {
+        "label": "Arch Wiki — Android Tools",
+        "url": "https://wiki.archlinux.org/title/Android_Debug_Bridge"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -183,6 +215,12 @@
     ],
     "tags": ["android", "twrp", "recovery", "nandroid", "custom-rom"],
     "relatedIds": ["what-is-recovery-mode", "what-is-rooting", "what-is-fastboot"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — TWRP",
+        "url": "https://en.wikipedia.org/wiki/TWRP"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -222,6 +260,12 @@
     ],
     "tags": ["android", "recovery", "ota", "maintenance", "reset"],
     "relatedIds": ["what-is-twrp", "what-is-frp", "what-is-bootloader"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — OTA Updates and Recovery",
+        "url": "https://source.android.com/docs/core/ota"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -262,6 +306,16 @@
     ],
     "tags": ["android", "adb", "debugging", "terminal", "logcat"],
     "relatedIds": ["what-is-fastboot", "what-is-rooting", "what-is-oem-unlock"],
+    "relatedLinks": [
+      {
+        "label": "Android Developers — Android Debug Bridge (adb)",
+        "url": "https://developer.android.com/tools/adb"
+      },
+      {
+        "label": "Arch Wiki — Android Debug Bridge",
+        "url": "https://wiki.archlinux.org/title/Android_Debug_Bridge"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -296,6 +350,12 @@
     ],
     "tags": ["android", "root", "magisk", "superuser", "kernelsu"],
     "relatedIds": ["what-is-bootloader", "what-is-twrp", "what-is-adb"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Rooting (Android)",
+        "url": "https://en.wikipedia.org/wiki/Rooting_(Android)"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false

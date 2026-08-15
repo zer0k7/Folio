@@ -1,0 +1,425 @@
+[
+  {
+    "id": "what-is-a-branch",
+    "title": "Git Branches & The Directed Acyclic Graph (DAG)",
+    "category": "version-control",
+    "summary": "A Git branch is a lightweight 41-byte movable pointer referencing a specific commit node within the commit history graph.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Git Branch",
+        "definition": "A lightweight movable pointer to a commit object stored in `.git/refs/heads/`, automatically advancing forward whenever a new commit is created."
+      },
+      {
+        "type": "paragraph",
+        "text": "Unlike older version control systems (like SVN) that copied the entire source directory tree to make a branch, Git branches cost zero extra disk space. Creating a branch simply creates a 41-byte text file containing the SHA hash of the target commit."
+      },
+      {
+        "type": "heading",
+        "text": "The HEAD Pointer"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "`HEAD`: A special symbolic reference stored in `.git/HEAD` pointing to the currently checked-out branch.",
+          "Detached HEAD: State occurring when checking out a specific commit hash directly rather than a named branch pointer.",
+          "Branch Deletion: Deleting a branch removes only the pointer file; commit objects remain in the repository until garbage collection (`git gc`)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The `git reflog` tracks every historical change to the HEAD pointer, allowing recovery of accidentally deleted branches or hard resets."
+      }
+    ],
+    "tags": ["version-control", "git", "branches", "dag", "head", "commits"],
+    "relatedIds": ["merge-vs-rebase", "what-is-a-commit-hash", "what-is-git-stash"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Git",
+        "url": "https://en.wikipedia.org/wiki/Git"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "merge-vs-rebase",
+    "title": "Git Merge vs Git Rebase",
+    "category": "version-control",
+    "summary": "Git Merge combines branch histories using a 3-way merge commit, while Git Rebase rewrites commit history linearly onto a new base commit.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Git Rebase",
+        "definition": "A Git operation that replays a series of commits from one branch onto the tip of another branch by recalculating patches and generating brand new commit SHA hashes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Both commands integrate changes from one branch into another. `git merge` preserves historical accuracy exactly as it happened, creating a diamond-shaped DAG with dedicated merge commits. `git rebase` creates a clean, perfectly linear commit history without cluttering merge commits."
+      },
+      {
+        "type": "heading",
+        "text": "Comparison Summary"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Aspect", "Git Merge", "Git Rebase"],
+        "rows": [
+          {
+            "label": "History Structure",
+            "values": ["Non-linear (Preserves exact branching chronology)", "Linear (Rewrites history onto new base)"]
+          },
+          {
+            "label": "Commit Hashes",
+            "values": ["Original commit hashes remain intact", "Generates completely new commit SHA hashes"]
+          },
+          {
+            "label": "Merge Commits",
+            "values": ["Creates explicit 2-parent merge commits", "Zero extra merge commits generated"]
+          },
+          {
+            "label": "Golden Rule",
+            "values": ["Safe on public shared branches", "Never rebase commits already pushed to public shared branches"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Interactive rebase (`git rebase -i HEAD~N`) allows developers to squash messy work-in-progress commits into clean, descriptive atomic commits before opening a pull request."
+      }
+    ],
+    "tags": ["version-control", "git", "merge", "rebase", "git-history", "squash"],
+    "relatedIds": ["what-is-a-branch", "what-is-a-git-conflict"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Merge (version control)",
+        "url": "https://en.wikipedia.org/wiki/Merge_(version_control)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-commit-hash",
+    "title": "Git Commit Hashes & Content-Addressable Storage",
+    "category": "version-control",
+    "summary": "Git stores all files and commits in a content-addressable object database keyed by 40-character SHA-1 or 64-character SHA-256 cryptographic hashes.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Merkle Tree Object Model",
+        "definition": "A cryptographic tree data structure where every non-leaf node is labeled with the cryptographic hash of its child nodes, providing instant tamper verification."
+      },
+      {
+        "type": "paragraph",
+        "text": "A Git commit hash (like `a1b2c3d...`) is not a random identifier: it is the exact cryptographic hash of the commit's contents (author, timestamp, commit message, parent commit hashes, and the root directory tree SHA). If a single comma in any file changes, its hash changes completely."
+      },
+      {
+        "type": "heading",
+        "text": "The Four Fundamental Git Objects"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Blob: Stores raw file content without filenames or permissions.",
+          "Tree: Represents directories, mapping filenames, permissions, and child blob/tree hashes.",
+          "Commit: Points to a top-level Tree object, recording author, committer, date, message, and parent commit SHAs.",
+          "Annotated Tag: An immutable reference pointing directly to a specific commit object."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Git compresses all four object types into zlib-deflated files inside the `.git/objects/` directory."
+      }
+    ],
+    "tags": ["version-control", "git", "commit-hash", "merkle-tree", "sha-1", "sha-256", "blobs"],
+    "relatedIds": ["what-is-a-branch", "what-is-semantic-versioning"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Merkle tree",
+        "url": "https://en.wikipedia.org/wiki/Merkle_tree"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-pull-request",
+    "title": "Pull Requests (PRs) & Code Review",
+    "category": "version-control",
+    "summary": "A Pull Request is a collaborative review mechanism where developers submit branch changes for automated testing and peer architectural review before merging.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Pull Request (PR / Merge Request)",
+        "definition": "A code review workflow introduced by GitHub/GitLab where a developer proposes changes from a feature branch into a target repository branch, hosting discussions and CI checks."
+      },
+      {
+        "type": "paragraph",
+        "text": "PRs serve as the primary quality gate in modern software development. When a PR is opened, automated CI pipelines run unit test suites, static analysis linters, and security vulnerability scans, while senior engineers review logic architecture."
+      },
+      {
+        "type": "heading",
+        "text": "Pull Request Best Practices"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Small & Atomic: Keeping PRs under 400 lines of code speeds up review cycles and drastically reduces bug escape rates.",
+          "Descriptive Descriptions: Contextualizing why the change was made, detailing testing steps, and linking issue tickets.",
+          "Branch Protection Rules: Requiring at least one approved code review and green CI checks before the 'Merge' button is unlocked."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Draft PRs allow developers to share early work-in-progress code with teammates for feedback without triggering formal merge reviews."
+      }
+    ],
+    "tags": ["version-control", "pull-request", "code-review", "github", "gitlab", "branch-protection"],
+    "relatedIds": ["what-is-a-branch", "what-is-a-git-conflict"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Distributed version control",
+        "url": "https://en.wikipedia.org/wiki/Distributed_version_control"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-git-conflict",
+    "title": "Merge Conflicts & 3-Way Merging",
+    "category": "version-control",
+    "summary": "A merge conflict occurs when two branches modify the exact same lines of a file differently since their common ancestor commit, requiring manual human resolution.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Merge Conflict",
+        "definition": "A state in version control where Git's 3-way merge algorithm cannot automatically determine which competing line-level edits to preserve from conflicting branches."
+      },
+      {
+        "type": "paragraph",
+        "text": "Git resolves most changes automatically by comparing both branches against their Common Ancestor commit. However, if Developer A edits line 42 on `main` and Developer B edits line 42 on a `feature` branch, Git pauses the merge and inserts conflict markers directly into the file."
+      },
+      {
+        "type": "heading",
+        "text": "Conflict Marker Anatomy"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "`<<<<<<< HEAD`: Marks the start of the changes from the currently checked-out branch.",
+          "`=======`: The divider separating the two competing code blocks.",
+          "`>>>>>>> feature-branch`: Marks the end of incoming changes from the branch being merged."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "After choosing the correct code and removing the marker strings, running `git add <file>` and `git commit` completes the merge resolution."
+      }
+    ],
+    "tags": ["version-control", "git-conflict", "merge-conflict", "3-way-merge", "git"],
+    "relatedIds": ["merge-vs-rebase", "what-is-a-branch"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Merge (version control)",
+        "url": "https://en.wikipedia.org/wiki/Merge_(version_control)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-gitignore",
+    "title": "The .gitignore File & Pattern Matching",
+    "category": "version-control",
+    "summary": "The .gitignore file specifies intentionally untracked build artifacts, dependencies, and secret credentials that Git should ignore.",
+    "body": [
+      {
+        "type": "definition",
+        "term": ".gitignore",
+        "definition": "A plain text configuration file placed in a Git repository containing glob pattern rules for files and directories that Git should exclude from tracking."
+      },
+      {
+        "type": "paragraph",
+        "text": "Compiled binary outputs (like `build/`, `.class`, `.apk`), dependency folders (`node_modules/`, `vendor/`), OS metadata (`.DS_Store`, `Thumbs.db`), and sensitive `.env` credential files should never be committed to source repositories. Adding them to `.gitignore` keeps repository clones compact and secure."
+      },
+      {
+        "type": "heading",
+        "text": "Pattern Matching Rules"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "`/build/`: Ignores the `build` directory at the root level only.",
+          "`*.log`: Ignores all files ending in `.log` across all subdirectories.",
+          "`!important.log`: Negates an ignore rule, forcing Git to track a specific file even if matching an earlier glob.",
+          "`**/*.tmp`: Matches `.tmp` files located inside any nested subfolder depth."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "If a file was already committed to Git before adding it to `.gitignore`, it must be removed from the cache via `git rm --cached <file>`."
+      }
+    ],
+    "tags": ["version-control", "gitignore", "git", "glob", "build-artifacts", "security"],
+    "relatedIds": ["what-is-a-commit-hash", "what-is-git-stash"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Git",
+        "url": "https://en.wikipedia.org/wiki/Git"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-fork",
+    "title": "Forks vs Clones in Git",
+    "category": "version-control",
+    "summary": "A clone downloads a local repository copy to your machine, whereas a fork creates a server-side independent copy of an open-source project under your account.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Repository Fork",
+        "definition": "A server-side copy of an upstream Git repository hosted on platform providers (GitHub, GitLab) that allows independent development without requiring write access to the original codebase."
+      },
+      {
+        "type": "paragraph",
+        "text": "In open-source software, external contributors do not have direct push permissions to the official repository. Instead, contributors 'Fork' the repository to their own GitHub account, push changes to their fork, and open a Pull Request back to the original 'upstream' maintainers."
+      },
+      {
+        "type": "heading",
+        "text": "Fork vs Clone Workflow"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Fork: Remote server-side copy created on GitHub.",
+          "Clone (`git clone`): Downloads the repository files to your local development machine.",
+          "Upstream Remote: Adding `git remote add upstream <url>` allows syncing updates from the original repository into your local fork."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Forks inherit all branch history, tags, and commits from the upstream repository at the exact moment of creation."
+      }
+    ],
+    "tags": ["version-control", "fork", "clone", "github", "open-source", "remotes"],
+    "relatedIds": ["what-is-a-pull-request", "what-is-a-branch"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Fork (software development)",
+        "url": "https://en.wikipedia.org/wiki/Fork_(software_development)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-git-stash",
+    "title": "Git Stash & Working Directory Shelving",
+    "category": "version-control",
+    "summary": "Git Stash temporarily shelves uncommitted working directory changes on a LIFO stack, allowing you to switch branches with a clean working tree.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Git Stash",
+        "definition": "A Git utility that saves the current state of modified tracked files and the staging index to an internal stack (`stash@{0}`), reverting the working tree to match the HEAD commit."
+      },
+      {
+        "type": "paragraph",
+        "text": "If you are halfway through coding a feature and an urgent production hotfix arrives, switching branches with dirty uncommitted edits is blocked by Git. `git stash` sweeps all current edits into an internal patch stack. After completing the hotfix, `git stash pop` restores the shelved edits."
+      },
+      {
+        "type": "heading",
+        "text": "Essential Stash Commands"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "`git stash push -m 'my work'`: Shelves current edits with a descriptive memo.",
+          "`git stash -u` (`--include-untracked`): Stashes newly created, untracked files in addition to modified files.",
+          "`git stash pop`: Restores the top stash entry and removes it from the stack.",
+          "`git stash apply`: Restores the stash entry while preserving the stash backup on the stack."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "A stash entry is stored internally as a set of commit objects pointing to tree snapshots of the index and working directory."
+      }
+    ],
+    "tags": ["version-control", "git-stash", "working-tree", "git", "branch-switching"],
+    "relatedIds": ["what-is-a-branch", "what-is-gitignore"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Git",
+        "url": "https://en.wikipedia.org/wiki/Git"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-semantic-versioning",
+    "title": "Semantic Versioning (SemVer 2.0.0)",
+    "category": "version-control",
+    "summary": "SemVer structures release versions into MAJOR.MINOR.PATCH to communicate API compatibility and breaking changes unambiguously.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Semantic Versioning (SemVer)",
+        "definition": "A formal three-part versioning specification (`MAJOR.MINOR.PATCH`) that signals breaking changes, new backwards-compatible features, and bug fixes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Before SemVer, dependency management was fragile because developers had no way of knowing whether updating a library from `2.1` to `2.2` would break their software. SemVer establishes strict contractual rules governing when each number must increment."
+      },
+      {
+        "type": "heading",
+        "text": "The Three SemVer Increments"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Increment", "Position", "When to Bump", "API Compatibility"],
+        "rows": [
+          {
+            "label": "MAJOR",
+            "values": ["`X.0.0`", "Incompatible breaking API changes", "Breaks backwards compatibility"]
+          },
+          {
+            "label": "MINOR",
+            "values": ["`1.X.0`", "New functionality added in backwards-compatible manner", "Backwards-compatible"]
+          },
+          {
+            "label": "PATCH",
+            "values": ["`1.0.X`", "Backwards-compatible bug fixes and internal patches", "Backwards-compatible"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Major version zero (`0.y.z`) indicates initial development where public APIs are considered unstable and may change at any time."
+      }
+    ],
+    "tags": ["version-control", "semver", "versioning", "dependencies", "release-management"],
+    "relatedIds": ["what-is-a-commit-hash", "what-is-a-pull-request"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Software versioning",
+        "url": "https://en.wikipedia.org/wiki/Software_versioning"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

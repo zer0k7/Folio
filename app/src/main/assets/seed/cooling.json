@@ -1,0 +1,339 @@
+[
+  {
+    "id": "what-is-thermal-paste",
+    "title": "Thermal Paste & Interface Materials (TIM)",
+    "category": "cooling",
+    "summary": "Thermal paste eliminates microscopic air gaps between processor heat spreaders and heatsinks to maximize conductive heat transfer.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Thermal Interface Material (TIM)",
+        "definition": "A thermally conductive compound applied between heat-generating silicon dies and cooling heatsinks to displace insulating microscopic air pockets."
+      },
+      {
+        "type": "paragraph",
+        "text": "Even polished metal surfaces on CPU Integrated Heat Spreaders (IHS) and copper heatsink cold plates have microscopic peaks and valleys. Because trapped air is an exceptional thermal insulator (thermal conductivity ~0.026 W/mK), TIM (conductivity 5 - 12 W/mK) fills these gaps to create an efficient conductive bridge."
+      },
+      {
+        "type": "heading",
+        "text": "TIM Varieties Compared"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Type", "Thermal Conductivity", "Electrical Conductivity", "Risk Level"],
+        "rows": [
+          {
+            "label": "Silicone / Metal Oxide Paste",
+            "values": ["4 – 9 W/mK", "Non-conductive (Dielectric)", "Zero risk / Standard factory default"]
+          },
+          {
+            "label": "Carbon / Diamond Paste",
+            "values": ["8 – 14 W/mK", "Non-conductive", "Zero risk / Enthusiast grade"]
+          },
+          {
+            "label": "Liquid Metal (Gallium-Indium)",
+            "values": ["70 – 128 W/mK", "Highly electrically conductive", "High risk (Shorts circuits if leaked; corrodes aluminum)"]
+          },
+          {
+            "label": "Phase-Change Material (PTM7950)",
+            "values": ["8.5 W/mK", "Non-conductive", "Zero pump-out / Long-term industrial durability"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The 'Pump-Out Effect' occurs in laptops when thermal expansion and contraction cycles squeeze traditional paste out of the die area over months of gaming."
+      }
+    ],
+    "tags": ["cooling", "thermal-paste", "tim", "liquid-metal", "ptm7950", "heatsink"],
+    "relatedIds": ["what-is-a-heat-pipe", "what-is-a-vapor-chamber", "what-is-tdp"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Thermal paste",
+        "url": "https://en.wikipedia.org/wiki/Thermal_paste"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-heat-pipe",
+    "title": "Heat Pipes & Phase-Change Cooling",
+    "category": "cooling",
+    "summary": "Heat pipes transfer thermal energy hundreds of times faster than solid copper using a closed cycle of liquid evaporation, vapor movement, and capillary wick return.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Heat Pipe",
+        "definition": "A sealed, evacuated copper tube containing a sintered metal wick lining and a small quantity of working fluid (usually deionized water) that transfers heat through phase change."
+      },
+      {
+        "type": "paragraph",
+        "text": "Solid copper conducts heat via atomic lattice vibrations. Heat pipes exploit the Latent Heat of Vaporization. Because the internal tube is under vacuum, the working fluid boils at a low temperature at the evaporator end, shoots vapor down the pipe to the cold condenser end, and wicks back through capillary action."
+      },
+      {
+        "type": "heading",
+        "text": "Internal Heat Pipe Cycle"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Evaporator Section: Heat from CPU boils the liquid in the sintered wick into high-pressure vapor.",
+          "Adiabatic Transport: Vapor rushes down the hollow core toward the lower-pressure cold zone at near the speed of sound.",
+          "Condenser Section: Heatsink fins cool the vapor, condensing it back into liquid.",
+          "Capillary Return: The sintered copper powder wick draws liquid back to the heat source via surface tension, independent of gravity."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Flattened heat pipes used in thin laptops lose roughly 20-30% thermal transfer capacity compared to round pipes due to reduced vapor cavity cross-section."
+      }
+    ],
+    "tags": ["cooling", "heat-pipe", "phase-change", "wick", "thermodynamics", "laptop-cooling"],
+    "relatedIds": ["what-is-a-vapor-chamber", "active-vs-passive-cooling"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Heat pipe",
+        "url": "https://en.wikipedia.org/wiki/Heat_pipe"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-vapor-chamber",
+    "title": "Vapor Chambers (VC) in Smartphones & Laptops",
+    "category": "cooling",
+    "summary": "A vapor chamber is a flat, 2D planar heat pipe that spreads concentrated heat spots uniformly across a wide surface area in slim mobile devices.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Vapor Chamber (VC)",
+        "definition": "A two-dimensional planar vacuum chamber sealed with an internal capillary wick structure that spreads localized thermal heat spikes across an entire planar surface."
+      },
+      {
+        "type": "paragraph",
+        "text": "A standard 1D heat pipe transports heat along a linear tube from point A to point B. A 2D Vapor Chamber spreads heat omnidirectionally across its entire flat area. Flagship smartphones use stainless steel or copper vapor chambers (often 3,000 to 10,000 mm^2 in area) sandwiched between the SoC and rear chassis to prevent localized hot spots."
+      },
+      {
+        "type": "heading",
+        "text": "Vapor Chamber Benefits in Mobile"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Ultra-Thin Profile: Modern smartphone VCs are engineered down to 0.3mm – 0.45mm thickness.",
+          "Hotspot Dissipation: Eliminates dangerous concentrated hot spots that cause user discomfort or localized battery degradation.",
+          "Sustained Gaming Performance: Extends the duration an SoC can run at peak boost clocks before thermal throttling engages."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Multi-layer graphite sheets are placed over vapor chambers to spread residual heat across the display and rear glass frame."
+      }
+    ],
+    "tags": ["cooling", "vapor-chamber", "smartphones", "thermal-management", "gaming-phones"],
+    "relatedIds": ["what-is-a-heat-pipe", "what-is-thermal-throttling-detailed"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Heat pipe #Vapor chambers",
+        "url": "https://en.wikipedia.org/wiki/Heat_pipe#Vapor_chambers"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "active-vs-passive-cooling",
+    "title": "Active vs Passive Cooling Systems",
+    "category": "cooling",
+    "summary": "Passive cooling relies entirely on natural convection and radiation, while active cooling forces airflow using fans, blowers, or liquid pumps.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Active Cooling",
+        "definition": "A thermal dissipation system that consumes external electrical energy to drive mechanical air or fluid movement (such as centrifugal fans or liquid pumps) to accelerate heat transfer."
+      },
+      {
+        "type": "paragraph",
+        "text": "Fanless devices (smartphones, tablets, MacBook Air) use passive cooling: heat moves from the silicon die through heat pipes into the aluminum/glass chassis, dissipating into surrounding air via natural convection. Active cooling systems (MacBook Pro, gaming PCs) force cubic feet of air per minute (CFM) across heatsink fin arrays."
+      },
+      {
+        "type": "heading",
+        "text": "System Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Aspect", "Passive Cooling", "Active Cooling (Fans)"],
+        "rows": [
+          {
+            "label": "Acoustic Noise",
+            "values": ["100% silent (0 dBA)", "Audible fan whine under load (25 - 50+ dBA)"]
+          },
+          {
+            "label": "Dust & Maintenance",
+            "values": ["Zero dust ingress; sealed chassis", "Accumulates dust over time; requires periodic cleaning"]
+          },
+          {
+            "label": "Sustained Power Limit",
+            "values": ["5W – 15W continuous TDP", "30W – 300W+ continuous TDP"]
+          },
+          {
+            "label": "Reliability",
+            "values": ["Zero moving parts; indefinite lifespan", "Mechanical fan bearings can fail after years of use"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Fluid Dynamic Bearing (FDB) fans use pressurized oil channels to minimize bearing friction, lasting up to 100,000 operational hours."
+      }
+    ],
+    "tags": ["cooling", "active-cooling", "passive-cooling", "fans", "fanless", "noise"],
+    "relatedIds": ["what-is-tdp", "what-is-thermal-paste"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Computer cooling",
+        "url": "https://en.wikipedia.org/wiki/Computer_cooling"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-tdp",
+    "title": "Thermal Design Power (TDP) & Power Limits",
+    "category": "cooling",
+    "summary": "TDP defines the maximum amount of heat in Watts that a cooling system must dissipate under real-world continuous workloads.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Thermal Design Power (TDP)",
+        "definition": "The maximum amount of heat generated by a computer chip or component that the cooling system is designed to dissipate under any nominal operating workload."
+      },
+      {
+        "type": "paragraph",
+        "text": "TDP is not the maximum electrical power a chip can draw during peak boost bursts (which can be 2x higher). Instead, TDP specifies the continuous thermal dissipation requirements that system integrators and PC case designers must engineer heatsinks and radiators to evacuate."
+      },
+      {
+        "type": "heading",
+        "text": "Intel Power Limit Tiers (PL1 vs PL2)"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "PL1 (Processor Base Power): The sustained continuous power and thermal limit the chip can maintain indefinitely (Base Clock).",
+          "PL2 (Maximum Turbo Power): The elevated burst power ceiling reached during heavy multithreaded loads (Boost Clock).",
+          "Tau: The time window (typically 28 to 56 seconds) the processor is allowed to sustain PL2 before dropping to PL1."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Smartphone SoCs operate with a continuous thermal budget of only 4W to 6W before skin temperatures on the rear glass reach uncomfortable thresholds (>43C)."
+      }
+    ],
+    "tags": ["cooling", "tdp", "power-limits", "pl1", "pl2", "turbo-boost", "thermals"],
+    "relatedIds": ["what-is-thermal-throttling-detailed", "active-vs-passive-cooling"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Thermal design power",
+        "url": "https://en.wikipedia.org/wiki/Thermal_design_power"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-thermal-throttling-detailed",
+    "title": "Thermal Throttling: Governors & Trip Points",
+    "category": "cooling",
+    "summary": "Operating system thermal daemons monitor on-die temperature sensors, stepping down clock frequencies through passive and active trip point thresholds.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Linux Thermal Governor",
+        "definition": "A kernel subsystem that polls on-die thermal sensors and enforces cooling actions (fan speed increases, CPU frequency drops) based on predefined trip points."
+      },
+      {
+        "type": "paragraph",
+        "text": "When you play a graphics-intensive 3D game on a smartphone, the GPU and CPU generate heat faster than passive chassis dissipation can evacuate it. As internal die sensors cross trip points (e.g. 70C, 80C, 90C), the kernel thermal governor systematically drops GPU frequencies and limits frame rates to prevent hardware damage."
+      },
+      {
+        "type": "heading",
+        "text": "Thermal Trip Point Types"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Passive Trip Point: The threshold where software throttling engages (dropping CPU clock multipliers and core voltages).",
+          "Active Trip Point: The threshold that triggers or speeds up active hardware fans.",
+          "Critical Trip Point: The emergency hard ceiling (typically 100C - 105C) that immediately cuts system power to prevent silicon degradation."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The Step-Wise thermal governor drops clock frequencies in incremental steps, pausing to see if temperatures stabilize before lowering clocks further."
+      }
+    ],
+    "tags": ["cooling", "thermal-throttling", "governors", "sensors", "trip-points", "kernel"],
+    "relatedIds": ["what-is-tdp", "what-is-vapor-chamber"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Dynamic frequency scaling",
+        "url": "https://en.wikipedia.org/wiki/Dynamic_frequency_scaling"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-ambient-temperature-effect",
+    "title": "Ambient Temperature & Thermal Delta (ΔT)",
+    "category": "cooling",
+    "summary": "Cooling performance is directly governed by Thermal Delta (ΔT)—the temperature difference between the processor die and surrounding room air.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Thermal Delta (ΔT / Delta T)",
+        "definition": "The temperature differential between a heat source (CPU/GPU) and the ambient cooling medium (room air or ambient liquid)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Heatsinks do not cool to an absolute temperature: they cool relative to ambient air. According to Newton's Law of Cooling, the rate of heat loss is directly proportional to the temperature difference. If ambient room temperature rises by 10C (from 20C to 30C), your CPU temperature will rise by roughly the exact same 10C under identical workloads."
+      },
+      {
+        "type": "heading",
+        "text": "Environmental Thermal Factors"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Direct Sunlight: Solar radiation directly heats metal/glass smartphone bodies, triggering thermal throttling in seconds.",
+          "Airflow Restrictions: Placing laptops on beds or carpets blocks intake vents, starving fans of fresh ambient air.",
+          "Thermal Saturation: The point where heatsinks and water loops have absorbed maximum heat and rely strictly on steady-state heat rejection."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Data centers spend millions optimizing Hot Aisle / Cold Aisle containment to supply consistently low ambient intake air to server racks."
+      }
+    ],
+    "tags": ["cooling", "ambient-temperature", "delta-t", "thermodynamics", "airflow"],
+    "relatedIds": ["what-is-tdp", "active-vs-passive-cooling"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Newton's law of cooling",
+        "url": "https://en.wikipedia.org/wiki/Newton%27s_law_of_cooling"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

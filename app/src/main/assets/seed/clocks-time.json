@@ -1,0 +1,350 @@
+[
+  {
+    "id": "what-is-utc",
+    "title": "Coordinated Universal Time (UTC)",
+    "category": "clocks-time",
+    "summary": "UTC is the global primary atomic time standard that synchronizes worldwide timekeeping, incorporating leap seconds to match Earth's rotational variations.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Coordinated Universal Time (UTC)",
+        "definition": "The primary time standard by which the world regulates clocks and time, maintained by combining International Atomic Time (TAI) with Earth's astronomical rotation (UT1)."
+      },
+      {
+        "type": "paragraph",
+        "text": "UTC does not change with seasons or Daylight Saving Time. It serves as the single universal reference baseline against which all local regional time zones are calculated as positive or negative offsets (e.g. UTC+05:30 or UTC-08:00). All server logs, databases, and flight control systems record events in UTC."
+      },
+      {
+        "type": "heading",
+        "text": "UTC vs GMT"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Aspect", "Greenwich Mean Time (GMT)", "Coordinated Universal Time (UTC)"],
+        "rows": [
+          {
+            "label": "Nature",
+            "values": ["Astronomical solar time zone (Observed in UK in winter)", "High-precision international atomic time standard"]
+          },
+          {
+            "label": "Precision Source",
+            "values": ["Earth rotation / Solar transit at Royal Observatory", "Hundreds of cesium atomic clocks averaged globally"]
+          },
+          {
+            "label": "Software Standard",
+            "values": ["Informal / Regional usage", "Universal computing and ISO standard"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Leap seconds are periodically inserted by the International Earth Rotation Service (IERS) to keep UTC within 0.9 seconds of physical Earth rotation."
+      }
+    ],
+    "tags": ["clocks-time", "utc", "gmt", "atomic-time", "timekeeping", "servers"],
+    "relatedIds": ["what-is-unix-timestamp", "what-is-timezone-vs-offset", "what-is-iso-8601"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Coordinated Universal Time",
+        "url": "https://en.wikipedia.org/wiki/Coordinated_Universal_Time"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-unix-timestamp",
+    "title": "Unix Timestamp & The Year 2038 Problem",
+    "category": "clocks-time",
+    "summary": "Unix time measures the exact integer count of seconds elapsed since January 1, 1970 UTC, completely ignoring time zones and daylight saving complexities.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Unix Epoch Timestamp",
+        "definition": "A single integer representation of time defined as the number of SI seconds that have elapsed since the Unix Epoch (00:00:00 UTC on 1 January 1970), excluding leap seconds."
+      },
+      {
+        "type": "paragraph",
+        "text": "Storing dates as strings (`\"2026-08-15 14:30:00\"`) creates severe bugs across time zones and daylight saving shifts. Unix timestamps store time as an unambiguous global integer (e.g. `1786786800`). Converting to local human-readable time is performed purely at the UI presentation layer."
+      },
+      {
+        "type": "heading",
+        "text": "The Year 2038 Problem (Y2K38)"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "32-Bit Signed Integer Overflow: A signed 32-bit integer maxes out at `2,147,483,647` seconds.",
+          "The Overflow Moment: On 19 January 2038 at 03:14:07 UTC, 32-bit timestamps will wrap around to negative numbers (`-2,147,483,648`), resetting system clocks to 13 December 1901.",
+          "The 64-Bit Solution: Modern 64-bit operating systems use 64-bit timestamps, which will not overflow for another 292 billion years."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "In JavaScript and Java, timestamps are represented in milliseconds (ms), requiring 13-digit integers (`Date.now()`)."
+      }
+    ],
+    "tags": ["clocks-time", "unix-time", "epoch", "y2k38", "timestamps", "overflow"],
+    "relatedIds": ["what-is-epoch-time", "what-is-utc"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Unix time",
+        "url": "https://en.wikipedia.org/wiki/Unix_time"
+      },
+      {
+        "label": "Wikipedia — Year 2038 problem",
+        "url": "https://en.wikipedia.org/wiki/Year_2038_problem"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-epoch-time",
+    "title": "Epochs in Computing (Unix, GPS, Windows)",
+    "category": "clocks-time",
+    "summary": "An epoch is the arbitrary origin zero point from which a system measures elapsed time intervals, varying across different operating systems and satellite systems.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Computing Epoch",
+        "definition": "An agreed-upon arbitrary reference date and time instant selected as the origin point (T=0) for a system's elapsed time measurement scale."
+      },
+      {
+        "type": "paragraph",
+        "text": "While Unix standardized on 1 January 1970, other computing and telecommunication systems selected different epoch zero points based on their historical creation dates and hardware counter bit-widths."
+      },
+      {
+        "type": "heading",
+        "text": "Major Computing Epochs Compared"
+      },
+      {
+        "type": "comparison",
+        "headers": ["System", "Epoch Reference Date", "Resolution & Format"],
+        "rows": [
+          {
+            "label": "Unix / POSIX",
+            "values": ["1 January 1970 00:00:00 UTC", "Seconds (or Milliseconds)"]
+          },
+          {
+            "label": "Windows NT FILETIME",
+            "values": ["1 January 1601 00:00:00 UTC", "100-nanosecond intervals (64-bit)"]
+          },
+          {
+            "label": "Apple Cocoa (macOS/iOS)",
+            "values": ["1 January 2001 00:00:00 UTC", "Floating-point seconds"]
+          },
+          {
+            "label": "GPS Satellite Time",
+            "values": ["6 January 1980 00:00:00 UTC", "Continuous atomic time (No leap seconds)"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "GPS time is currently ahead of UTC by roughly 18 seconds because GPS does not pause for leap seconds."
+      }
+    ],
+    "tags": ["clocks-time", "epoch", "filetime", "gps-time", "unix", "timekeeping"],
+    "relatedIds": ["what-is-unix-timestamp", "what-is-utc"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Epoch (computing)",
+        "url": "https://en.wikipedia.org/wiki/Epoch_(computing)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-ntp",
+    "title": "Network Time Protocol (NTP) & Precision Clock Sync",
+    "category": "clocks-time",
+    "summary": "NTP synchronizes computer clocks across packet-switched networks to within a few milliseconds using hierarchical strata servers and Marzullo's algorithm.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Network Time Protocol (NTP)",
+        "definition": "A networking protocol operating over UDP port 123 designed to synchronize computer clock crystals to international atomic reference time over variable-latency networks."
+      },
+      {
+        "type": "paragraph",
+        "text": "Quartz crystal oscillators in motherboards drift by several seconds every week due to ambient temperature changes. NTP calculates round-trip network delay (`theta`) and clock offset (`delta`) using 4-timestamp exchange packets, dynamically slewing the local system clock speed to align seamlessly without jumping backwards."
+      },
+      {
+        "type": "heading",
+        "text": "NTP Stratum Hierarchy"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Stratum 0: High-precision atomic clocks (Cesium beams, Rubidium standards) and GPS satellite receivers.",
+          "Stratum 1: Primary time servers directly attached to Stratum 0 devices; accurate to microseconds.",
+          "Stratum 2: Secondary servers synchronizing with multiple Stratum 1 servers over networks (e.g. `pool.ntp.org`).",
+          "Stratum 3: Enterprise local network servers distributing time to client workstations and mobile phones."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Clock Slewing gradually speeds up or slows down clock ticks (e.g. 0.5 ms/s) to avoid time traveling backwards, which would break database logs and file timestamps."
+      }
+    ],
+    "tags": ["clocks-time", "ntp", "clock-sync", "stratum", "udp-123", "gps", "atomic-clocks"],
+    "relatedIds": ["what-is-utc", "what-is-unix-timestamp"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Network Time Protocol",
+        "url": "https://en.wikipedia.org/wiki/Network_Time_Protocol"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-timezone-vs-offset",
+    "title": "Time Zones vs UTC Offsets",
+    "category": "clocks-time",
+    "summary": "A UTC offset is a fixed mathematical difference (+05:30), while a Time Zone (IANA tzdb) is a geographic region with complex historical and political daylight rules.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "IANA Time Zone Database (tzdb / Olson Database)",
+        "definition": "The authoritative global database of historical and current time zone rules, geographic boundaries, and daylight saving transitions identified by `Area/Location` names (e.g. `America/New_York`)."
+      },
+      {
+        "type": "paragraph",
+        "text": "A common programmer mistake is conflating offsets with time zones. An offset (`-05:00`) only describes a static mathematical delta at a single moment in time. A time zone (`America/New_York`) contains all historical legislation, switching between `-05:00` (EST) in winter and `-04:00` (EDT) in summer."
+      },
+      {
+        "type": "heading",
+        "text": "Key Differences"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Concept", "Example", "Nature", "Handling Future Events"],
+        "rows": [
+          {
+            "label": "UTC Offset",
+            "values": ["`+05:30` or `-08:00`", "Static numerical value", "Fragile; does not know when local governments change DST rules"]
+          },
+          {
+            "label": "IANA Time Zone",
+            "values": ["`Europe/London`", "Geographical & legal entity", "Robust; dynamically calculates correct future offsets using tzdb tables"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "When scheduling recurring events (like a daily 9:00 AM meeting), store the IANA time zone identifier (`America/Chicago`) rather than a fixed UTC timestamp."
+      }
+    ],
+    "tags": ["clocks-time", "timezones", "iana", "tzdb", "utc-offset", "dst"],
+    "relatedIds": ["what-is-dst", "what-is-utc", "what-is-iso-8601"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Time zone",
+        "url": "https://en.wikipedia.org/wiki/Time_zone"
+      },
+      {
+        "label": "Wikipedia — Tz database",
+        "url": "https://en.wikipedia.org/wiki/Tz_database"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-dst",
+    "title": "Daylight Saving Time (DST) & Transition Anomalies",
+    "category": "clocks-time",
+    "summary": "Daylight Saving Time advances clocks forward by one hour in spring and rolls back in autumn, introducing nonexistent and duplicate local time hours in software.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Daylight Saving Time (DST)",
+        "definition": "The seasonal practice of advancing clocks typically by one hour during warmer months to extend evening daylight, reverting back in autumn."
+      },
+      {
+        "type": "paragraph",
+        "text": "DST introduces notorious software bugs: in spring ('Spring Forward'), an entire hour of local time never occurs (e.g. 02:00 to 02:59:59 is skipped). In autumn ('Fall Back'), an hour repeats twice, creating ambiguous timestamps if the UTC offset is not explicitly stored alongside local time."
+      },
+      {
+        "type": "heading",
+        "text": "Software Pitfalls of DST"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "The Missing Hour: Cron jobs scheduled between 02:00 and 03:00 may be skipped entirely on spring transition nights.",
+          "The Duplicate Hour: Log entries recorded between 01:00 and 02:00 appear out of chronological order without UTC offsets.",
+          "Duration Math: Adding 24 hours (86,400 seconds) to a local timestamp on transition days results in incorrect times (transition days are 23 or 25 hours long)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Always perform date arithmetic in UTC or using timezone-aware libraries (like Java `java.time.ZonedDateTime`)."
+      }
+    ],
+    "tags": ["clocks-time", "dst", "daylight-saving", "anomalies", "time-zones", "bugs"],
+    "relatedIds": ["what-is-timezone-vs-offset", "what-is-iso-8601"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Daylight saving time",
+        "url": "https://en.wikipedia.org/wiki/Daylight_saving_time"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-iso-8601",
+    "title": "ISO 8601 & RFC 3339 Date Formatting",
+    "category": "clocks-time",
+    "summary": "ISO 8601 standardizes international date and time strings in YYYY-MM-DD order, allowing lexicographical sorting and unambiguous timezone offsets.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "ISO 8601 / RFC 3339",
+        "definition": "An international standard for formatting dates and times into unambiguous strings formatted from largest unit (Year) to smallest unit (Nanosecond)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Regional date formats cause catastrophic confusion: `03/04/2026` means March 4th in the United States, but April 3rd in Europe. ISO 8601 resolves this with `YYYY-MM-DD` (e.g. `2026-08-15T14:30:00.000Z`). Because units decrease monotonically in magnitude, ISO strings sort chronologically via simple alphabetical string sorting."
+      },
+      {
+        "type": "heading",
+        "text": "ISO 8601 String Anatomy"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "`2026-08-15`: Date component (`YYYY-MM-DD`).",
+          "`T`: Delimiter character separating date from time.",
+          "`14:30:00.500`: Time component (`HH:mm:ss.sss`).",
+          "`Z`: 'Zulu time' indicating UTC with zero offset (or `+05:30` / `-08:00` for regional offsets)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "RFC 3339 is a strict profile of ISO 8601 widely used in JSON APIs, requiring 4-digit years and explicit timezone indicators."
+      }
+    ],
+    "tags": ["clocks-time", "iso-8601", "rfc-3339", "date-formats", "json", "sorting"],
+    "relatedIds": ["what-is-utc", "what-is-timezone-vs-offset"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — ISO 8601",
+        "url": "https://en.wikipedia.org/wiki/ISO_8601"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

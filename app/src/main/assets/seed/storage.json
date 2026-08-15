@@ -43,6 +43,12 @@
     ],
     "tags": ["storage", "fat32", "filesystem", "compatibility", "usb"],
     "relatedIds": ["what-is-exfat", "what-is-ntfs", "what-is-a-file-system"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — File Allocation Table",
+        "url": "https://en.wikipedia.org/wiki/File_Allocation_Table"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -81,6 +87,12 @@
     ],
     "tags": ["storage", "exfat", "filesystem", "flash", "sdcard"],
     "relatedIds": ["what-is-fat32", "what-is-ntfs", "ssd-vs-hdd"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — exFAT",
+        "url": "https://en.wikipedia.org/wiki/ExFAT"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -120,6 +132,16 @@
     ],
     "tags": ["storage", "ntfs", "windows", "journaling", "security"],
     "relatedIds": ["what-is-exfat", "what-is-a-file-system", "what-is-a-partition"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — NTFS",
+        "url": "https://en.wikipedia.org/wiki/NTFS"
+      },
+      {
+        "label": "Arch Wiki — NTFS-3G",
+        "url": "https://wiki.archlinux.org/title/NTFS-3G"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -172,6 +194,16 @@
     ],
     "tags": ["storage", "partition", "gpt", "mbr", "uefi"],
     "relatedIds": ["what-is-a-file-system", "what-is-a-block-size", "what-is-ntfs"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Disk partitioning",
+        "url": "https://en.wikipedia.org/wiki/Disk_partitioning"
+      },
+      {
+        "label": "Arch Wiki — Partitioning",
+        "url": "https://wiki.archlinux.org/title/Partitioning"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -211,6 +243,16 @@
     ],
     "tags": ["storage", "filesystem", "inodes", "metadata", "ext4", "f2fs"],
     "relatedIds": ["what-is-a-partition", "what-is-ntfs", "what-is-a-block-size"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — File system",
+        "url": "https://en.wikipedia.org/wiki/File_system"
+      },
+      {
+        "label": "Arch Wiki — File systems",
+        "url": "https://wiki.archlinux.org/title/File_systems"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -263,6 +305,16 @@
     ],
     "tags": ["storage", "ssd", "hdd", "nand", "iops", "hardware"],
     "relatedIds": ["what-is-nvme", "what-is-emmc", "what-is-a-block-size"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Solid-state drive",
+        "url": "https://en.wikipedia.org/wiki/Solid-state_drive"
+      },
+      {
+        "label": "Wikipedia — Hard disk drive",
+        "url": "https://en.wikipedia.org/wiki/Hard_disk_drive"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -302,6 +354,12 @@
     ],
     "tags": ["storage", "nvme", "pcie", "m2", "ssd", "throughput"],
     "relatedIds": ["ssd-vs-hdd", "what-is-emmc", "what-is-a-block-size"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — NVM Express",
+        "url": "https://en.wikipedia.org/wiki/NVM_Express"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -336,6 +394,12 @@
     ],
     "tags": ["storage", "emmc", "flash", "mobile", "hardware"],
     "relatedIds": ["ssd-vs-hdd", "what-is-nvme", "what-is-a-block-size"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — MultiMediaCard (eMMC)",
+        "url": "https://en.wikipedia.org/wiki/MultiMediaCard#eMMC"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -384,6 +448,12 @@
     ],
     "tags": ["storage", "block-size", "cluster", "fragmentation", "slack-space"],
     "relatedIds": ["what-is-a-file-system", "what-is-a-partition", "ssd-vs-hdd"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Block (data storage)",
+        "url": "https://en.wikipedia.org/wiki/Block_(data_storage)"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false

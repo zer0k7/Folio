@@ -1,0 +1,526 @@
+[
+  {
+    "id": "what-is-binary",
+    "title": "Binary Number System (Base 2)",
+    "category": "numbers",
+    "summary": "Binary represents numerical values using only two states (0 and 1), mapping directly onto physical transistor voltage states in digital electronics.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Binary (Base 2)",
+        "definition": "A positional numeral system with a radix of 2, representing all mathematical values using combinations of the binary digits 0 and 1."
+      },
+      {
+        "type": "paragraph",
+        "text": "Computers operate in binary because modern semiconductor transistors act as physical electronic switches: low voltage (0V) represents binary `0`, and high voltage (e.g. 1.2V) represents binary `1`. Logic gates (AND, OR, XOR) manipulate these electrical states to perform complex arithmetic."
+      },
+      {
+        "type": "heading",
+        "text": "Positional Powers of Two"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Bit Position", "Power of 2", "Decimal Value", "Binary Example (`1011_0010`)"],
+        "rows": [
+          {
+            "label": "Bit 7 (MSB)",
+            "values": ["2^7", "128", "1 (128)"]
+          },
+          {
+            "label": "Bit 5",
+            "values": ["2^5", "32", "1 (32)"]
+          },
+          {
+            "label": "Bit 4",
+            "values": ["2^4", "16", "1 (16)"]
+          },
+          {
+            "label": "Bit 1",
+            "values": ["2^1", "2", "1 (2)"]
+          },
+          {
+            "label": "Total Sum",
+            "values": ["-", "-", "178 in Decimal"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Bitwise operations (AND `&`, OR `|`, XOR `^`, bit shift `<<`) manipulate individual binary bits in a single CPU clock cycle."
+      }
+    ],
+    "tags": ["numbers", "binary", "base-2", "logic-gates", "bitwise", "transistors"],
+    "relatedIds": ["what-is-hexadecimal", "what-is-a-byte", "what-is-a-bit-and-nibble"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Binary number",
+        "url": "https://en.wikipedia.org/wiki/Binary_number"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-hexadecimal",
+    "title": "Hexadecimal (Base 16)",
+    "category": "numbers",
+    "summary": "Hexadecimal provides a compact human-readable representation of binary bytes, mapping exactly 4 binary bits to a single hex character (0-9, A-F).",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Hexadecimal (Base 16)",
+        "definition": "A positional numeral system with a radix of 16 using symbols `0–9` for values zero through nine and `A–F` for values ten through fifteen."
+      },
+      {
+        "type": "paragraph",
+        "text": "Reading 64-bit binary strings (`1111111100001010...`) is exhausting and error-prone for humans. Because 16 is an exact power of two (2^4 = 16), every 4 bits (nibble) converts directly into one hex digit. Thus, an entire 8-bit byte is represented cleanly by two hex characters (e.g. `0xFF` = `255`)."
+      },
+      {
+        "type": "heading",
+        "text": "Common Uses in Computing"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Memory Addresses: Pointers in C/C++ and debuggers (`0x7ffee4b2a190`).",
+          "Color Codes: Web CSS colors (`#FF5733` representing Red 255, Green 87, Blue 51).",
+          "MAC Addresses & UUIDs: Network device hardware addresses (`00:1A:2B:3C:4D:5E`)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The `0x` prefix in code (e.g. `0x1A`) is the standard C-style syntax indicating a hexadecimal literal value."
+      }
+    ],
+    "tags": ["numbers", "hexadecimal", "base-16", "bytes", "memory-addresses", "rgb"],
+    "relatedIds": ["what-is-binary", "what-is-a-byte", "what-is-utf-8"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Hexadecimal",
+        "url": "https://en.wikipedia.org/wiki/Hexadecimal"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-decimal-vs-binary",
+    "title": "Decimal (Base 10) vs Binary (Base 2)",
+    "category": "numbers",
+    "summary": "Decimal uses base 10 adapted for human counting, while binary uses base 2 adapted for electronic logic gates and memory addressing.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Radix / Base",
+        "definition": "The number of unique digits (including zero) that a positional numeral system uses to represent numbers."
+      },
+      {
+        "type": "paragraph",
+        "text": "Humans use decimal (Base 10) because we evolved with ten fingers. Computers use binary (Base 2) because electronic circuits can reliably distinguish between only two voltage states (on and off) amidst electrical noise and component tolerances."
+      },
+      {
+        "type": "heading",
+        "text": "Conversion Counting Table"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Decimal (Base 10)", "Binary (Base 2)", "Hexadecimal (Base 16)", "Octal (Base 8)"],
+        "rows": [
+          {
+            "label": "0",
+            "values": ["`0000`", "`0x0`", "`0`"]
+          },
+          {
+            "label": "5",
+            "values": ["`0101`", "`0x5`", "`5`"]
+          },
+          {
+            "label": "10",
+            "values": ["`1010`", "`0xA`", "`12`"]
+          },
+          {
+            "label": "15",
+            "values": ["`1111`", "`0xF`", "`17`"]
+          },
+          {
+            "label": "16",
+            "values": ["`0001 0000`", "`0x10`", "`20`"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Floating-point numbers in Base 10 (like `0.1`) cannot be represented with finite precision in Base 2 binary floating-point (IEEE 754), creating rounding inaccuracies in code."
+      }
+    ],
+    "tags": ["numbers", "decimal", "binary", "base-10", "base-2", "floating-point"],
+    "relatedIds": ["what-is-binary", "number-system-conversions"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Radix",
+        "url": "https://en.wikipedia.org/wiki/Radix"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-byte",
+    "title": "Bytes, Kilobytes (KB) & Kibibytes (KiB)",
+    "category": "numbers",
+    "summary": "A byte is the fundamental addressable 8-bit memory unit, with modern computing distinguishing between decimal (1000) and binary (1024) multipliers.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Byte (Octet)",
+        "definition": "A contiguous unit of digital information consisting of 8 binary bits, capable of representing 256 (2^8) distinct numerical states."
+      },
+      {
+        "type": "paragraph",
+        "text": "In 1998, the International Electrotechnical Commission (IEC) established standardized binary prefixes to resolve storage manufacturer marketing confusion. Storage drive manufacturers use decimal prefixes (1 KB = 1,000 bytes), while operating systems historically count in binary (1 KiB = 1,024 bytes)."
+      },
+      {
+        "type": "heading",
+        "text": "Prefix Systems Compared"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Unit Name", "Abbreviation", "Base", "Exact Bytes"],
+        "rows": [
+          {
+            "label": "Kilobyte (SI)",
+            "values": ["KB", "10^3", "1,000 bytes"]
+          },
+          {
+            "label": "Kibibyte (IEC)",
+            "values": ["KiB", "2^10", "1,024 bytes"]
+          },
+          {
+            "label": "Megabyte (SI)",
+            "values": ["MB", "10^6", "1,000,000 bytes"]
+          },
+          {
+            "label": "Mebibyte (IEC)",
+            "values": ["MiB", "2^20", "1,048,576 bytes"]
+          },
+          {
+            "label": "Gigabyte (SI)",
+            "values": ["GB", "10^9", "1,000,000,000 bytes"]
+          },
+          {
+            "label": "Gibibyte (IEC)",
+            "values": ["GiB", "2^30", "1,073,741,824 bytes"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "A 1 TB hard drive appears as ~931 GiB in Windows because Windows reports Gibibytes while labeling them with the GB abbreviation."
+      }
+    ],
+    "tags": ["numbers", "byte", "kilobyte", "kibibyte", "storage", "iec", "si"],
+    "relatedIds": ["what-is-a-bit-and-nibble", "what-is-binary"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Byte",
+        "url": "https://en.wikipedia.org/wiki/Byte"
+      },
+      {
+        "label": "Wikipedia — Binary prefix",
+        "url": "https://en.wikipedia.org/wiki/Binary_prefix"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-a-bit-and-nibble",
+    "title": "Bits, Nibbles & Word Sizes",
+    "category": "numbers",
+    "summary": "A bit is the atomic binary unit of information, a nibble is 4 bits, and a CPU word is the natural register width of the processor architecture.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Bit (Binary Digit)",
+        "definition": "The most basic, indivisible unit of information in computing and telecommunications, holding either the value 0 or 1."
+      },
+      {
+        "type": "paragraph",
+        "text": "John Tukey coined the portmanteau 'bit' in 1946. Collections of bits form higher-order structures: 4 bits form a 'nibble' (conveniently represented by a single hex digit), 8 bits form a 'byte', and 32 or 64 bits form an architectural 'word'."
+      },
+      {
+        "type": "heading",
+        "text": "Hierarchy of Data Units"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "1 Bit: Single 0 or 1 state.",
+          "1 Nibble (4 Bits): Holds values 0 to 15 (`0x0` to `0xF`).",
+          "1 Byte (8 Bits): Holds values 0 to 255 (or -128 to +127 signed).",
+          "1 Half-Word (16 Bits): Holds values 0 to 65,535.",
+          "1 Word (32 Bits): Holds values 0 to 4,294,967,295.",
+          "1 Double-Word (64 Bits): Holds values up to 18.4 quintillion."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Network bandwidth speeds are traditionally measured in bits per second (Mbps, Gbps), whereas storage file sizes are measured in bytes (MB, GB)."
+      }
+    ],
+    "tags": ["numbers", "bit", "nibble", "word-size", "registers", "data-types"],
+    "relatedIds": ["what-is-a-byte", "what-is-binary"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Bit",
+        "url": "https://en.wikipedia.org/wiki/Bit"
+      },
+      {
+        "label": "Wikipedia — Nibble",
+        "url": "https://en.wikipedia.org/wiki/Nibble"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-ascii",
+    "title": "ASCII Text Encoding",
+    "category": "numbers",
+    "summary": "ASCII was the foundational 7-bit character encoding standard mapping 128 English letters, digits, and control teletype codes to binary values.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "ASCII",
+        "definition": "American Standard Code for Information Interchange; a 7-bit character encoding standard published in 1963 defining 128 character codes (0–127)."
+      },
+      {
+        "type": "paragraph",
+        "text": "ASCII standardized digital communications across mainframe tele-typewriters. Codes 0–31 are non-printable device control characters (such as `0x0A` Line Feed `\\n`, `0x0D` Carriage Return `\\r`, and `0x00` Null Byte `\\0`). Codes 32–126 map uppercase/lowercase English alphabets, numbers, and basic punctuation."
+      },
+      {
+        "type": "heading",
+        "text": "Crucial ASCII Code Landmarks"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Decimal 32 (`0x20`): Space character.",
+          "Decimal 48 (`0x30`): Character '0' (numbers '0'-'9' run from 48 to 57).",
+          "Decimal 65 (`0x41`): Uppercase 'A' ('A'-'Z' run from 65 to 90).",
+          "Decimal 97 (`0x61`): Lowercase 'a' ('a'-'z' run from 97 to 122; exactly 32 offset from uppercase)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Toggling bit 5 (`0x20`) instantaneously converts between ASCII uppercase and lowercase characters in CPU assembly."
+      }
+    ],
+    "tags": ["numbers", "ascii", "text-encoding", "character-set", "ansi"],
+    "relatedIds": ["what-is-unicode", "what-is-utf-8"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — ASCII",
+        "url": "https://en.wikipedia.org/wiki/ASCII"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-unicode",
+    "title": "The Unicode Standard & Code Points",
+    "category": "numbers",
+    "summary": "Unicode unifies global text computing by assigning a unique mathematical Code Point (U+0000 to U+10FFFF) to every character and symbol in every human language.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Unicode Code Point",
+        "definition": "A standardized integer value formatted as `U+XXXX` assigned to a unique abstract character in the Universal Coded Character Set."
+      },
+      {
+        "type": "paragraph",
+        "text": "Before Unicode, global computing was plagued by conflicting 8-bit regional code pages (Shift-JIS, Windows-1252, ISO-8859). Opening a Japanese text file on a European computer resulted in unintelligible gibberish ('mojibake'). Unicode resolved this by creating a universal repertoire of over 149,000 characters spanning 17 code planes."
+      },
+      {
+        "type": "heading",
+        "text": "Unicode Planes"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Plane 0: Basic Multilingual Plane (BMP, `U+0000` to `U+FFFF`): Contains characters for virtually all modern living languages.",
+          "Plane 1: Supplementary Multilingual Plane (`U+10000` to `U+1FFFF`): Historic scripts, musical notation, and mathematical symbols.",
+          "Plane 2: Supplementary Ideographic Plane (`U+20000` to `U+2FFFF`): Rare CJK ideographs."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Unicode defines abstract code point numbers, while encodings (like UTF-8, UTF-16, UTF-32) define how those numbers are serialized into binary bytes."
+      }
+    ],
+    "tags": ["numbers", "unicode", "code-points", "utf-8", "internationalization", "mojibake"],
+    "relatedIds": ["what-is-utf-8", "what-is-ascii"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Unicode",
+        "url": "https://en.wikipedia.org/wiki/Unicode"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-utf-8",
+    "title": "UTF-8 Variable-Length Encoding",
+    "category": "numbers",
+    "summary": "UTF-8 encodes Unicode code points into 1 to 4 bytes, maintaining 100% backward compatibility with legacy 7-bit ASCII.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "UTF-8",
+        "definition": "A variable-width character encoding capable of encoding all 1,112,064 valid Unicode code points using one to four 8-bit bytes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Designed by Ken Thompson and Rob Pike in 1992 on a placemat in a diner, UTF-8 dominates the modern web (used on >98% of all websites). Any valid ASCII file is already valid UTF-8 byte-for-byte, eliminating migration headaches."
+      },
+      {
+        "type": "heading",
+        "text": "UTF-8 Byte Encoding Patterns"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Code Point Range", "Byte Count", "Binary Byte Pattern", "Sample Characters"],
+        "rows": [
+          {
+            "label": "`U+0000` – `U+007F`",
+            "values": ["1 byte", "`0xxxxxxx`", "Standard ASCII (`A`, `9`, `!`)"]
+          },
+          {
+            "label": "`U+0080` – `U+07FF`",
+            "values": ["2 bytes", "`110xxxxx 10xxxxxx`", "Greek, Arabic, Cyrillic (`Ω`, `Ж`)"]
+          },
+          {
+            "label": "`U+0800` – `U+FFFF`",
+            "values": ["3 bytes", "`1110xxxx 10xxxxxx 10xxxxxx`", "CJK ideographs, Hindi (`汉`, `क`)"]
+          },
+          {
+            "label": "`U+10000` – `U+10FFFF`",
+            "values": ["4 bytes", "`11110xxx 10xxxxxx 10xxxxxx 10xxxxxx`", "Rare scripts, historic symbols"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Continuation bytes always start with `10xxxxxx`, allowing UTF-8 decoders to resynchronize instantly if a byte in a stream is dropped or corrupted."
+      }
+    ],
+    "tags": ["numbers", "utf-8", "unicode", "ascii", "encoding", "web-standards"],
+    "relatedIds": ["what-is-unicode", "what-is-ascii", "what-is-base64"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — UTF-8",
+        "url": "https://en.wikipedia.org/wiki/UTF-8"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-base64",
+    "title": "Base64 Encoding & Binary-to-Text",
+    "category": "numbers",
+    "summary": "Base64 encodes arbitrary binary data into 64 safe ASCII characters, allowing images, keys, and attachments to pass through text-only protocols.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Base64",
+        "definition": "A binary-to-text encoding scheme that translates raw 8-bit binary data into an ASCII string using an alphabet of 64 printable characters (`A-Z`, `a-z`, `0-9`, `+`, `/`)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Legacy communication protocols (like SMTP email and HTTP headers) were designed strictly for 7-bit ASCII text and corrupt raw binary bytes. Base64 groups 3 binary bytes (24 bits) into 4 chunks of 6 bits each (2^6 = 64), mapping each 6-bit value to a safe printable character. This introduces a predictable 33% size overhead."
+      },
+      {
+        "type": "heading",
+        "text": "Common Base64 Applications"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "MIME Email Attachments: Encoding images and PDFs inside text email envelopes.",
+          "Data URLs in Web/CSS: Inlining tiny PNG icons directly inside HTML/CSS without separate HTTP requests (`data:image/png;base64,...`).",
+          "JSON Web Tokens (JWT): URL-safe Base64URL encoding of authentication headers and claims payloads."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Equal signs (`=`) at the end of a Base64 string are padding bytes used when input binary data is not an exact multiple of 3 bytes."
+      }
+    ],
+    "tags": ["numbers", "base64", "encoding", "mime", "jwt", "data-url"],
+    "relatedIds": ["what-is-ascii", "what-is-utf-8"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Base64",
+        "url": "https://en.wikipedia.org/wiki/Base64"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "number-system-conversions",
+    "title": "Number System Conversions & Radix Math",
+    "category": "numbers",
+    "summary": "Step-by-step algorithms for converting numbers between Decimal, Binary, Hexadecimal, and Octal using successive division and grouping.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Successive Division Method",
+        "definition": "The standard mathematical algorithm to convert an integer from Base 10 to Base R by repeatedly dividing by R and recording the remainders in reverse order."
+      },
+      {
+        "type": "paragraph",
+        "text": "Understanding manual radix conversion demystifies memory bitmasks, subnet subnetting, and byte alignment in low-level systems programming. Conversions between binary and hexadecimal are trivial because 4 binary bits map 1:1 to one hex digit."
+      },
+      {
+        "type": "heading",
+        "text": "Conversion Walkthrough: Decimal 156 to Hex & Binary"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Decimal to Binary: 156 / 2 = 78 (rem 0), 78 / 2 = 39 (rem 0), 39 / 2 = 19 (rem 1), 19 / 2 = 9 (rem 1), 9 / 2 = 4 (rem 1), 4 / 2 = 2 (rem 0), 2 / 2 = 1 (rem 0), 1 / 2 = 0 (rem 1) -> Binary `10011100`.",
+          "Binary to Hex: Split into 4-bit nibbles: `1001` (9) and `1100` (12 = C) -> Hex `0x9C`.",
+          "Hex to Decimal Check: `(9 * 16^1) + (12 * 16^0) = 144 + 12 = 156`."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Octal (Base 8) groups binary bits into chunks of 3 bits (e.g. Unix file permissions `755` = `111 101 101`)."
+      }
+    ],
+    "tags": ["numbers", "conversions", "math", "radix", "algorithms", "octal"],
+    "relatedIds": ["what-is-binary", "what-is-hexadecimal", "what-is-decimal-vs-binary"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Positional notation",
+        "url": "https://en.wikipedia.org/wiki/Positional_notation"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

@@ -1,0 +1,421 @@
+[
+  {
+    "id": "what-is-the-registry",
+    "title": "The Windows Registry",
+    "category": "windows",
+    "summary": "The Windows Registry is a centralized hierarchical database storing low-level operating system configuration, device drivers, and user preferences.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Windows Registry",
+        "definition": "A hierarchical database in Microsoft Windows that stores settings for the OS kernel, hardware drivers, Security Account Manager (SAM), and installed user applications."
+      },
+      {
+        "type": "paragraph",
+        "text": "Unlike Linux, which configures systems using plain-text files across `/etc/`, Windows consolidates configuration into binary hive files (like `SYSTEM`, `SOFTWARE`, `NTUSER.DAT`). The Registry editor (`regedit.exe`) exposes these hives through five root keys."
+      },
+      {
+        "type": "heading",
+        "text": "Root Registry Hives"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "`HKEY_LOCAL_MACHINE` (HKLM): Machine-wide hardware and OS configurations shared across all user accounts.",
+          "`HKEY_CURRENT_USER` (HKCU): Preferences and profile settings specific to the currently logged-in user.",
+          "`HKEY_CLASSES_ROOT` (HKCR): File extension associations and COM object registration data."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Registry writes are logged to transaction logs (`.LOG1`, `.LOG2`) to ensure atomicity and prevent corruption during sudden power losses."
+      }
+    ],
+    "tags": ["windows", "registry", "regedit", "hklm", "hkcu", "configuration"],
+    "relatedIds": ["what-is-system32", "what-is-uac"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Windows Registry",
+        "url": "https://en.wikipedia.org/wiki/Windows_Registry"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-task-manager",
+    "title": "Windows Task Manager & Process Diagnostics",
+    "category": "windows",
+    "summary": "Task Manager provides real-time telemetry on active processes, hardware utilization, startup programs, and kernel thread performance.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Task Manager (taskmgr.exe)",
+        "definition": "A built-in system monitoring utility in Windows that displays running processes, CPU/GPU/RAM metrics, handle counts, and system service states."
+      },
+      {
+        "type": "paragraph",
+        "text": "Task Manager exposes both high-level app performance and granular kernel diagnostics. Through the Details tab, users can inspect Process IDs (PID), memory commit sizes, handle allocations, and assign CPU affinity masks to pin processes to specific physical processor cores."
+      },
+      {
+        "type": "heading",
+        "text": "Key Memory Metrics in Task Manager"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Working Set: The amount of physical RAM currently actively referenced and assigned to a process.",
+          "Commit Charge (Commit Size): Total virtual memory allocated by a process that must be backed by either physical RAM or the pagefile.",
+          "Non-Paged Pool: Kernel memory reserved for core OS structures that can never be paged out to disk."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The Efficiency Mode toggle in Task Manager throttles background process thread priority using EcoQoS API calls to conserve laptop battery."
+      }
+    ],
+    "tags": ["windows", "task-manager", "processes", "diagnostics", "cpu", "ram"],
+    "relatedIds": ["what-is-pagefile", "what-is-bsod"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Task Manager (Windows)",
+        "url": "https://en.wikipedia.org/wiki/Task_Manager_(Windows)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-system32",
+    "title": "The System32 Directory & SysWOW64",
+    "category": "windows",
+    "summary": "System32 contains core 64-bit Windows operating system binaries and DLLs, while SysWOW64 hosts 32-bit compatibility binaries on 64-bit systems.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "System32 Directory",
+        "definition": "The primary system directory (`C:\\Windows\\System32`) containing essential Windows kernel binaries, system services, and dynamic link libraries (DLLs)."
+      },
+      {
+        "type": "paragraph",
+        "text": "System32 is the heart of the Windows operating system. Despite its '32' name (retained for backwards compatibility with legacy software), System32 on 64-bit Windows contains native 64-bit executables. The separate `SysWOW64` directory contains 32-bit binaries running under the 'Windows on Windows 64-bit' subsystem."
+      },
+      {
+        "type": "heading",
+        "text": "Critical System32 Components"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "`ntoskrnl.exe`: The Windows NT kernel and executive binary providing memory management and process scheduling.",
+          "`hal.dll`: Hardware Abstraction Layer interfacing the kernel with physical motherboard chipsets.",
+          "`csrss.exe` & `lsass.exe`: Client Server Runtime and Local Security Authority authentication services."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Deleting System32 breaks the Windows bootloader and kernel, rendering the operating system completely unbootable."
+      }
+    ],
+    "tags": ["windows", "system32", "syswow64", "kernel", "dll", "ntoskrnl"],
+    "relatedIds": ["what-is-the-registry", "what-is-bsod"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Windows NT",
+        "url": "https://en.wikipedia.org/wiki/Windows_NT"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-bsod",
+    "title": "Blue Screen of Death (BSOD) & Bug Checks",
+    "category": "windows",
+    "summary": "A BSOD is a kernel panic stop error executed by Windows to halt system operations and prevent data corruption when an unrecoverable hardware or driver fault occurs.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Bug Check (Stop Error)",
+        "definition": "A kernel crash mechanism in Windows that halts CPU execution, dumps system memory contents to a crash dump file (`MEMORY.DMP`), and displays diagnostic hexadecimal error codes."
+      },
+      {
+        "type": "paragraph",
+        "text": "When user-mode programs crash, Windows simply terminates the application. But when a kernel-mode driver (e.g. GPU, NVMe driver) or faulty physical RAM causes an illegal memory access (such as `PAGE_FAULT_IN_NONPAGED_AREA`), the OS halts immediately to avoid corrupting disk volumes."
+      },
+      {
+        "type": "heading",
+        "text": "Common BSOD Stop Codes"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Stop Code", "Hex Value", "Typical Root Cause"],
+        "rows": [
+          {
+            "label": "IRQL_NOT_LESS_OR_EQUAL",
+            "values": ["0x0000000A", "Driver accessing pageable memory at elevated interrupt level"]
+          },
+          {
+            "label": "KMODE_EXCEPTION_NOT_HANDLED",
+            "values": ["0x0000001E", "Buggy kernel driver executing unhandled CPU exception"]
+          },
+          {
+            "label": "MEMORY_MANAGEMENT",
+            "values": ["0x0000001A", "Physical RAM hardware corruption or severe memory leak"]
+          },
+          {
+            "label": "CRITICAL_PROCESS_DIED",
+            "values": ["0x000000EF", "Crucial system process (csrss, wininit) terminated"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Tools like WinDbg analyze the `.dmp` mini-dump file, pinpointing the exact offending `.sys` driver and instruction memory address."
+      }
+    ],
+    "tags": ["windows", "bsod", "kernel-panic", "bug-check", "crash-dump", "troubleshooting"],
+    "relatedIds": ["what-is-system32", "what-is-safe-mode-windows"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Blue screen of death",
+        "url": "https://en.wikipedia.org/wiki/Blue_screen_of_death"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-pagefile",
+    "title": "Windows Pagefile (pagefile.sys)",
+    "category": "windows",
+    "summary": "The Windows Pagefile is a hidden system file on the storage drive used as virtual memory to swap out inactive memory pages when physical RAM fills up.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Paging File (pagefile.sys)",
+        "definition": "A reserved file on secondary storage used by the Windows Virtual Memory Manager to back committed virtual memory allocations and record crash memory dumps."
+      },
+      {
+        "type": "paragraph",
+        "text": "Even on systems with 32 GB or 64 GB of RAM, disabling the pagefile is strongly discouraged. The Windows memory manager uses the pagefile to offload rarely accessed background pages, freeing fast physical RAM for active file caches, texture buffers, and foreground applications."
+      },
+      {
+        "type": "heading",
+        "text": "Virtual Memory Files in Windows"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "`pagefile.sys`: The primary virtual memory paging swap file.",
+          "`swapfile.sys`: A specialized lightweight pagefile optimized for suspending and resuming UWP modern apps.",
+          "`hiberfil.sys`: Dedicated storage file used during Hibernate to dump the entire physical RAM state to disk."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "If a system runs out of physical RAM and pagefile space simultaneously, Windows terminates apps with an 'Out of Memory' dialog."
+      }
+    ],
+    "tags": ["windows", "pagefile", "virtual-memory", "ram", "swap", "memory-management"],
+    "relatedIds": ["what-is-task-manager", "what-is-bsod"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Paging",
+        "url": "https://en.wikipedia.org/wiki/Paging"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-uac",
+    "title": "User Account Control (UAC)",
+    "category": "windows",
+    "summary": "UAC prevents unauthorized system changes by running user sessions with standard unprivileged tokens and prompting for explicit elevation prompts.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "User Account Control (UAC)",
+        "definition": "A Windows security architecture that enforces Least-Privilege User Access (LUA) by stripping administrative privileges from logon tokens until explicitly elevated."
+      },
+      {
+        "type": "paragraph",
+        "text": "Even when logged into an Administrator account on Windows, applications start with a filtered, unprivileged security token. When an installer or utility requires system access, UAC darkens the screen into a 'Secure Desktop' (which malware cannot click programmatically) and asks for permission."
+      },
+      {
+        "type": "heading",
+        "text": "UAC Protection Mechanisms"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Secure Desktop Isolation: Renders the elevation dialog on an isolated graphics desktop inaccessible to user-mode code injection.",
+          "File and Registry Virtualization: Redirects legacy write attempts to protected folders (like Program Files) into a safe user directory.",
+          "Mandatory Integrity Control (MIC): Restricts low-integrity processes (like web browsers) from sending window messages to high-integrity apps."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Disabling UAC leaves the operating system vulnerable to silent background administrative privilege escalation by rogue scripts."
+      }
+    ],
+    "tags": ["windows", "uac", "security", "elevation", "admin", "least-privilege"],
+    "relatedIds": ["what-is-the-registry", "what-is-system32"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — User Account Control",
+        "url": "https://en.wikipedia.org/wiki/User_Account_Control"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-wsl",
+    "title": "Windows Subsystem for Linux (WSL2)",
+    "category": "windows",
+    "summary": "WSL2 runs a genuine Linux kernel inside a lightweight Hyper-V virtual machine, integrating Linux CLI tools seamlessly with the Windows desktop.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Windows Subsystem for Linux 2 (WSL2)",
+        "definition": "A virtualization layer that runs an optimized Microsoft-compiled Linux kernel within a lightweight hypervisor container with full system call compatibility and dynamic resource sharing."
+      },
+      {
+        "type": "paragraph",
+        "text": "WSL1 translated Linux system calls into Windows NT kernel calls in real time. WSL2 replaced this with an actual Linux kernel inside a Hyper-V micro-VM that boots in under one second. It provides 100% Linux system call compatibility (including Docker, FUSE, and GPU CUDA acceleration)."
+      },
+      {
+        "type": "heading",
+        "text": "WSL1 vs WSL2 Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "WSL 1", "WSL 2"],
+        "rows": [
+          {
+            "label": "Linux Kernel",
+            "values": ["Emulation / Translation layer", "Genuine native Linux kernel in lightweight VM"]
+          },
+          {
+            "label": "File I/O Performance",
+            "values": ["Moderate across NTFS", "Fast native ext4 virtual disk (.vhdx)"]
+          },
+          {
+            "label": "Docker / Container Support",
+            "values": ["Not natively supported", "Full native Docker daemon and Kubernetes support"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "WSLg (WSL GUI) routes Wayland and X11 graphics commands over RDP sockets directly to the Windows DWM compositor, allowing Linux graphical apps to run seamlessly."
+      }
+    ],
+    "tags": ["windows", "wsl", "wsl2", "linux", "virtualization", "docker", "hyper-v"],
+    "relatedIds": ["what-is-task-manager", "what-is-system32"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Windows Subsystem for Linux",
+        "url": "https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-safe-mode-windows",
+    "title": "Windows Safe Mode",
+    "category": "windows",
+    "summary": "Safe Mode boots Windows with an absolute minimum set of generic drivers and system services to diagnose and repair corrupted systems.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Safe Mode",
+        "definition": "A diagnostic boot mode of the Windows operating system that disables non-essential startup applications, third-party drivers, and advanced graphics rendering."
+      },
+      {
+        "type": "paragraph",
+        "text": "If a corrupted graphics driver or malware infection prevents standard desktop boot, Safe Mode loads generic VGA drivers and standard keyboard/mouse input stacks. This creates a stable environment where administrators can uninstall offending updates, run anti-malware scans, or roll back device drivers."
+      },
+      {
+        "type": "heading",
+        "text": "Safe Mode Boot Varieties"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Standard Safe Mode: Minimal driver set with standard graphical interface; networking disabled.",
+          "Safe Mode with Networking: Loads network adapter drivers to allow Internet connectivity and remote support.",
+          "Safe Mode with Command Prompt: Bypasses Windows Explorer GUI shell entirely, launching directly into `cmd.exe`."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "On modern UEFI Windows systems, holding Shift while clicking 'Restart' enters the Windows Recovery Environment (WinRE) to trigger Safe Mode."
+      }
+    ],
+    "tags": ["windows", "safe-mode", "troubleshooting", "winre", "recovery", "drivers"],
+    "relatedIds": ["what-is-bsod", "what-is-system32"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Safe mode",
+        "url": "https://en.wikipedia.org/wiki/Safe_mode"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-prefetch",
+    "title": "Windows Prefetch & SuperFetch (SysMain)",
+    "category": "windows",
+    "summary": "Prefetch caches file access patterns during application launch to optimize disk read orders and accelerate startup times.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Prefetching",
+        "definition": "A performance feature in Windows that monitors application launch patterns, recording disk sector reads into `.pf` trace files in `C:\\Windows\\Prefetch` for speculative pre-loading."
+      },
+      {
+        "type": "paragraph",
+        "text": "When an application launches for the first time, Windows monitors which DLLs and code files are accessed. On subsequent launches, the Cache Manager reads these files sequentially ahead of time in large contiguous disk operations, reducing seek latency."
+      },
+      {
+        "type": "heading",
+        "text": "SuperFetch / SysMain"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "SuperFetch (SysMain service): Observes usage habits over days to preload frequently launched applications into spare standby RAM before you even click them.",
+          "ReadyBoost: Caches prefetch blocks to fast USB flash drives (primarily beneficial on legacy mechanical HDDs)."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "On fast NVMe SSDs, Windows automatically tones down aggressive prefetching because flash storage seek latency is negligible (<0.05ms)."
+      }
+    ],
+    "tags": ["windows", "prefetch", "superfetch", "sysmain", "caching", "performance"],
+    "relatedIds": ["what-is-pagefile", "what-is-task-manager"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Prefetcher",
+        "url": "https://en.wikipedia.org/wiki/Prefetcher"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  }
+]

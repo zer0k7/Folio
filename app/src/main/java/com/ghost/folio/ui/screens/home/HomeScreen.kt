@@ -40,19 +40,36 @@ import com.ghost.folio.R
 import com.ghost.folio.ui.components.ArticleCard
 import com.ghost.folio.ui.theme.Spacing
 
+import androidx.compose.ui.platform.LocalContext
+import com.ghost.folio.ui.components.UpdateBottomSheet
+
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel,
     onArticleClick: (String) -> Unit,
+    onSettingsClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val state by viewModel.uiState.collectAsState()
+    val updateInfo by viewModel.updateInfo.collectAsState()
+    val isDownloading by viewModel.isDownloading.collectAsState()
+    val downloadProgress by viewModel.downloadProgress.collectAsState()
+    val context = LocalContext.current
+
+    androidx.compose.runtime.LaunchedEffect(Unit) {
+        viewModel.checkForAppUpdates(context)
+    }
+
     val configuration = LocalConfiguration.current
     val screenWidth = configuration.screenWidthDp.dp
     val navBarBottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     val listBottomPadding = 84.dp + navBarBottomInset
-
-    val featuredCardWidth = (screenWidth * 0.75f).coerceIn(240.dp, 320.dp)
+    val featuredCardWidth = (screenWidth * 0.72f).coerceIn(240.dp, 300.dp)
 
     Column(
         modifier = modifier
@@ -61,17 +78,30 @@ fun HomeScreen(
             .windowInsetsPadding(WindowInsets.statusBars),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Box(
+        Row(
             modifier = Modifier
                 .widthIn(max = 680.dp)
                 .fillMaxWidth()
-                .padding(horizontal = Spacing.lg, vertical = Spacing.md)
+                .padding(horizontal = Spacing.lg, vertical = Spacing.md),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = stringResource(id = R.string.app_name),
                 style = MaterialTheme.typography.displayLarge,
                 color = MaterialTheme.colorScheme.onBackground
             )
+
+            IconButton(
+                onClick = onSettingsClick,
+                modifier = Modifier.defaultMinSize(minWidth = 48.dp, minHeight = 48.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Outlined.Settings,
+                    contentDescription = stringResource(R.string.settings_title),
+                    tint = MaterialTheme.colorScheme.onBackground
+                )
+            }
         }
 
         if (state.isLoading) {
@@ -192,6 +222,16 @@ fun HomeScreen(
                     }
                 }
             }
+        }
+
+        updateInfo?.let { info ->
+            UpdateBottomSheet(
+                updateInfo = info,
+                isDownloading = isDownloading,
+                downloadProgress = downloadProgress,
+                onDownloadClick = { viewModel.startDownload(context) },
+                onDismiss = { viewModel.dismissUpdate(context) }
+            )
         }
     }
 }

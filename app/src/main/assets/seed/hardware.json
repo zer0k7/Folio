@@ -35,6 +35,12 @@
     ],
     "tags": ["hardware", "soc", "silicon", "arm", "npu", "cpu"],
     "relatedIds": ["cpu-vs-gpu", "what-is-ram", "emmc-vs-ufs"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — System on a chip",
+        "url": "https://en.wikipedia.org/wiki/System_on_a_chip"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -87,6 +93,16 @@
     ],
     "tags": ["hardware", "cpu", "gpu", "parallelism", "simd"],
     "relatedIds": ["what-is-a-soc", "what-is-ram", "what-is-a-pixel"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Central processing unit",
+        "url": "https://en.wikipedia.org/wiki/Central_processing_unit"
+      },
+      {
+        "label": "Wikipedia — Graphics processing unit",
+        "url": "https://en.wikipedia.org/wiki/Graphics_processing_unit"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -121,6 +137,16 @@
     ],
     "tags": ["hardware", "ram", "dram", "lpddr", "memory"],
     "relatedIds": ["what-is-a-soc", "emmc-vs-ufs", "cpu-vs-gpu"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Random-access memory",
+        "url": "https://en.wikipedia.org/wiki/Random-access_memory"
+      },
+      {
+        "label": "Wikipedia — LPDDR",
+        "url": "https://en.wikipedia.org/wiki/LPDDR"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -169,7 +195,195 @@
     ],
     "tags": ["hardware", "storage", "ufs", "emmc", "flash", "nvme"],
     "relatedIds": ["what-is-a-soc", "what-is-ram", "cpu-vs-gpu"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Universal Flash Storage",
+        "url": "https://en.wikipedia.org/wiki/Universal_Flash_Storage"
+      },
+      {
+        "label": "Wikipedia — MultiMediaCard (eMMC)",
+        "url": "https://en.wikipedia.org/wiki/MultiMediaCard#eMMC"
+      }
+    ],
     "lastUpdated": "2024-01-01",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "mobile-battery-mah-internal-working",
+    "title": "Mobile Batteries & mAh: Internal Working & Chemistry",
+    "category": "hardware",
+    "summary": "A deep dive into Lithium-ion/Polymer smartphone batteries, the electrochemistry of anodes and cathodes, C-rates, and why milliampere-hours (mAh) measure charge rather than total energy.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Milliampere-Hour (mAh)",
+        "definition": "A unit of electric charge measuring how much current (in milliamperes) a battery cell can deliver continuously over the span of one hour at its operating voltage."
+      },
+      {
+        "type": "paragraph",
+        "text": "Smartphone batteries rely on Lithium-ion (Li-ion) or Lithium-polymer (Li-Po) chemistry. During discharge, lithium ions (Li+) de-intercalate from the negative graphite anode, migrate through an ion-permeable electrolyte and porous polymer separator, and intercalate into the positive lithium metal oxide cathode. Electrons are forced through the phone circuit to do work."
+      },
+      {
+        "type": "heading",
+        "text": "Charge vs Energy: Why mAh Needs Voltage"
+      },
+      {
+        "type": "paragraph",
+        "text": "Milliampere-hour (mAh) measures electrical charge (current multiplied by time), not total energy. Total stored energy is measured in Watt-hours (Wh) via the formula: Energy (Wh) = [Capacity (mAh) * Nominal Voltage (V)] / 1000. A 5,000 mAh battery operating at a nominal 3.85V holds 19.25 Wh of energy, whereas a dual-cell 5,000 mAh pack in series at 7.7V nominal holds 38.5 Wh."
+      },
+      {
+        "type": "heading",
+        "text": "Anatomy of a Smartphone Battery Cell"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Cathode (+): Lithium Cobalt Oxide (LiCoO2) or Nickel Manganese Cobalt (NMC) coated on aluminum foil.",
+          "Anode (-): Intercalated graphite or silicon-carbon composite coated on copper foil current collectors.",
+          "Separator: Microporous polyethylene/polypropylene membrane blocking electronic shorts while allowing Li+ transport.",
+          "Electrolyte: Lithium hexafluorophosphate (LiPF6) dissolved in organic carbonate solvents.",
+          "BMS (Battery Management System): Integrated protection PCB monitoring overvoltage, undervoltage, thermal thresholds, and coulomb-counting fuel gauging."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Charging Phases (CC/CV)"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Charging Phase", "Voltage State", "Current Behavior", "State of Charge (SoC)"],
+        "rows": [
+          {
+            "label": "Constant Current (CC)",
+            "values": ["Ramping up (3.0V to 4.2V/4.45V)", "Maximum peak amperage (e.g. 5A - 10A)", "0% to ~70-80%"]
+          },
+          {
+            "label": "Constant Voltage (CV)",
+            "values": ["Clamped at peak (4.2V - 4.45V)", "Decays exponentially toward cutoff", "80% to 100%"]
+          },
+          {
+            "label": "Trickle / Float",
+            "values": ["Maintenance float voltage", "Low microamp top-up current", "100% full"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Dual-cell split architectures (2S configuration) allow 65W to 120W+ ultra-fast charging by halving the charging current per cell, drastically reducing I^2R resistive heat losses."
+      },
+      {
+        "type": "heading",
+        "text": "Cell Degradation Mechanisms"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "SEI Layer Growth: Solid Electrolyte Interphase consumes active lithium over repeated charge-discharge cycles.",
+          "Lithium Plating: Fast charging at cold temperatures causes metallic lithium dendrites to deposit on anodes, risking internal micro-shorts.",
+          "Cathode Micro-cracking: Mechanical lattice strain during high-voltage expansion and contraction."
+        ]
+      }
+    ],
+    "tags": ["hardware", "battery", "mah", "lithium-ion", "fast-charging", "electronics"],
+    "relatedIds": ["laptop-battery-watt-hours-wh", "what-is-a-soc", "emmc-vs-ufs"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Lithium-ion battery",
+        "url": "https://en.wikipedia.org/wiki/Lithium-ion_battery"
+      },
+      {
+        "label": "Wikipedia — Battery management system",
+        "url": "https://en.wikipedia.org/wiki/Battery_management_system"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "laptop-battery-watt-hours-wh",
+    "title": "Laptop Batteries: Watt-Hours (Wh) & Multi-Cell Architecture",
+    "category": "hardware",
+    "summary": "Comprehensive guide to laptop battery architecture, multi-cell series/parallel pack topologies, Watt-Hour (Wh) energy calculations, Smart Battery System (SBS) bus protocols, and power delivery limits.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Watt-Hour (Wh)",
+        "definition": "A unit of electrical energy representing one watt of power consumed or supplied continuously for one hour (1 Wh = 1 V * 1 Ah = 3,600 Joules)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Laptops demand far more peak power (45W - 240W+) than smartphones (5W - 30W). Delivering 100W at a smartphone single-cell voltage of 3.8V would require over 26 Amperes, necessitating dangerously thick copper cables and generating massive resistive heat (P = I^2R). To solve this, laptops connect multiple cells in series to elevate pack voltage to 11.1V, 14.8V, or 15.4V."
+      },
+      {
+        "type": "heading",
+        "text": "Multi-Cell Pack Topology (Series & Parallel)"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "3S1P (3 Series, 1 Parallel): 3 cells connected in series. Pack nominal voltage = 3 * 3.7V = 11.1V. Capacity in mAh equals one cell, but voltage and total energy (Wh) are tripled.",
+          "4S1P (4 Series, 1 Parallel): 4 cells in series. Pack nominal voltage = 4 * 3.85V = 15.4V. Standard topology in modern ultraportables.",
+          "3S2P (3 Series, 2 Parallel): 6 cells arranged in two parallel strings of 3 series cells. Doubles both voltage (11.1V) and capacity (mAh)."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Converting mAh to Wh & The 99.9 Wh Flight Limit"
+      },
+      {
+        "type": "paragraph",
+        "text": "Formula: Watt-Hours = (Milliampere-Hours * Nominal Pack Voltage) / 1000. Aviation security agencies (FAA, EASA, IATA) enforce a strict 100 Wh limit on unapproved lithium-ion batteries in passenger carry-on luggage. As a result, 16-inch performance laptops ship with exactly 99.6 Wh to 99.9 Wh battery packs."
+      },
+      {
+        "type": "heading",
+        "text": "Cell Balancing & Smart Battery System (SBS)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Because chemical variations cause individual series cells to drift in internal resistance and voltage, unmanaged series cells can experience individual overcharging or reverse-polarity discharge. The laptop BMS includes dedicated cell-balancing circuitry communicating with the Embedded Controller (EC) via the SMBus / I2C protocol."
+      },
+      {
+        "type": "comparison",
+        "headers": ["Metric", "Smartphone Battery (1S / 2S)", "Laptop Battery (3S / 4S / 4S2P)"],
+        "rows": [
+          {
+            "label": "Primary Rating",
+            "values": ["Milliampere-Hours (mAh)", "Watt-Hours (Wh)"]
+          },
+          {
+            "label": "Nominal Pack Voltage",
+            "values": ["3.85V – 7.7V", "11.1V – 15.4V"]
+          },
+          {
+            "label": "Typical Energy",
+            "values": ["15 Wh – 25 Wh (4,000 – 6,000 mAh)", "50 Wh – 99.9 Wh"]
+          },
+          {
+            "label": "Cell Balancing Required",
+            "values": ["No (or 2-channel on dual-cell)", "Mandatory multi-channel active/passive balancing"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Bypass charging (supported on gaming and workstation laptops) powers the motherboard directly from the USB-C PD / barrel charger once at 100%, routing zero current through the battery to prevent heat-induced cyclic degradation."
+      }
+    ],
+    "tags": ["hardware", "laptop", "battery", "watt-hours", "smbus", "power-delivery"],
+    "relatedIds": ["mobile-battery-mah-internal-working", "what-is-a-soc", "cpu-vs-gpu"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Smart Battery Data Set",
+        "url": "https://en.wikipedia.org/wiki/Smart_Battery_Data_Set"
+      },
+      {
+        "label": "Wikipedia — Watt-hour",
+        "url": "https://en.wikipedia.org/wiki/Kilowatt-hour"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
   }

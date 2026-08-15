@@ -1,0 +1,397 @@
+[
+  {
+    "id": "watts-vs-volts-vs-amps",
+    "title": "Watts vs Volts vs Amps (Ohm's Law)",
+    "category": "power",
+    "summary": "Volts measure electrical pressure, Amps measure current flow, and Watts calculate total power delivered (Watts = Volts * Amps).",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Ohm's Law & Power Equation",
+        "definition": "Fundamental electronic relationships stating that Current (I) equals Voltage (V) divided by Resistance (R), and Power (P) in Watts equals Voltage multiplied by Current (P = V * I)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Using a water pipe analogy: Voltage is the water pressure pushing through the pipe, Amperage (Current) is the volume of water flowing per second, Resistance (Ohms) is the pipe constriction, and Wattage is the total kinetic work the water stream can perform."
+      },
+      {
+        "type": "heading",
+        "text": "Electrical Metrics Compared"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Unit", "Symbol", "What it Measures", "Charging Example"],
+        "rows": [
+          {
+            "label": "Volt (V)",
+            "values": ["V", "Electrical potential / pressure", "5V, 9V, 15V, 20V USB-PD voltage rails"]
+          },
+          {
+            "label": "Ampere (A)",
+            "values": ["I / A", "Electric current flow rate", "3A standard USB-C cable vs 5A e-marked cable"]
+          },
+          {
+            "label": "Watt (W)",
+            "values": ["P / W", "Total instantaneous power delivered", "65W laptop charger (20V * 3.25A = 65W)"]
+          },
+          {
+            "label": "Ohm (Ω)",
+            "values": ["R / Ω", "Resistance opposing current", "Cable conductor wire resistance generating heat"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Delivering high power by raising Voltage (e.g. 20V @ 3A = 60W) generates far less cable heat than raising Current (5V @ 12A = 60W) due to Joule heating (P_loss = I^2 * R)."
+      }
+    ],
+    "tags": ["power", "watts", "volts", "amps", "ohms-law", "electricity", "charging"],
+    "relatedIds": ["what-is-usb-power-delivery", "what-is-gan-charger", "what-is-watt-hour"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Ohm's law",
+        "url": "https://en.wikipedia.org/wiki/Ohm%27s_law"
+      },
+      {
+        "label": "Wikipedia — Watt",
+        "url": "https://en.wikipedia.org/wiki/Watt"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-usb-power-delivery",
+    "title": "USB Power Delivery (USB-PD 3.1 & EPR)",
+    "category": "power",
+    "summary": "USB-PD is an open charging protocol delivering up to 240W over USB-C cables through dynamic digital voltage negotiation.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "USB Power Delivery (USB-PD)",
+        "definition": "A standardized universal charging protocol developed by the USB-IF that enables bi-directional power delivery over USB Type-C Configuration Channel (CC) pins up to 240W."
+      },
+      {
+        "type": "paragraph",
+        "text": "Standard USB 2.0 capped power at 2.5W (5V @ 0.5A). USB-PD uses digital packet handshakes over the CC pin between charger, cable, and device to negotiate higher voltage tiers (5V, 9V, 15V, 20V, up to 48V under USB-PD 3.1 EPR)."
+      },
+      {
+        "type": "heading",
+        "text": "Power Range Tiers"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Standard Power Range (SPR): Fixed voltages up to 20V at 5A, delivering a maximum of 100W for smartphones and ultrabooks.",
+          "Extended Power Range (EPR): Adds 28V, 36V, and 48V rails at 5A, delivering up to 240W for gaming laptops and power tools.",
+          "Programmable Power Supply (PPS): Allows real-time dynamic voltage adjustments in granular 20mV increments."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Cables delivering over 3A (60W+) must contain an internal 'E-Marker' identification chip to confirm safe current capacity with the charger."
+      }
+    ],
+    "tags": ["power", "usb-pd", "usb-c", "fast-charging", "epr", "pps", "usb-if"],
+    "relatedIds": ["watts-vs-volts-vs-amps", "what-is-gan-charger"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — USB hardware #USB Power Delivery",
+        "url": "https://en.wikipedia.org/wiki/USB_hardware#USB_Power_Delivery"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-gan-charger",
+    "title": "Gallium Nitride (GaN) Chargers",
+    "category": "power",
+    "summary": "GaN semiconductors conduct electricity thousands of times faster than traditional silicon, enabling 50% smaller power adapters with higher efficiency.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Gallium Nitride (GaN)",
+        "definition": "A wide-bandgap (WBG) semiconductor material with high electron mobility, high breakdown voltage, and superior thermal efficiency compared to conventional silicon."
+      },
+      {
+        "type": "paragraph",
+        "text": "Power adapters step down 120V/240V AC wall current into DC output using high-frequency switching transistors and transformers. Because GaN transistors can switch on and off at megahertz frequencies with minimal resistance, internal inductors and capacitors can be shrunk dramatically, cutting charger physical volume in half."
+      },
+      {
+        "type": "heading",
+        "text": "Silicon vs GaN Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Metric", "Traditional Silicon (Si)", "Gallium Nitride (GaN)"],
+        "rows": [
+          {
+            "label": "Bandgap Energy",
+            "values": ["1.1 eV", "3.4 eV (Wide bandgap)"]
+          },
+          {
+            "label": "Switching Frequency",
+            "values": ["50 kHz – 100 kHz", "500 kHz – 1+ MHz"]
+          },
+          {
+            "label": "Energy Efficiency",
+            "values": ["85% – 90%", "95% – 98% (Generates far less waste heat)"]
+          },
+          {
+            "label": "Charger Size",
+            "values": ["Bulky brick form factor", "Compact pocketable size"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "GaN chargers run significantly cooler than silicon chargers of equivalent wattage because minimal power is lost as resistive thermal dissipation."
+      }
+    ],
+    "tags": ["power", "gan", "chargers", "semiconductors", "gallium-nitride", "efficiency"],
+    "relatedIds": ["watts-vs-volts-vs-amps", "what-is-usb-power-delivery"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Gallium nitride",
+        "url": "https://en.wikipedia.org/wiki/Gallium_nitride"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-wireless-charging",
+    "title": "Inductive vs Resonant Wireless Charging",
+    "category": "power",
+    "summary": "Wireless charging transfers electrical energy through magnetic fields across aligned transmitter and receiver copper induction coils.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Electromagnetic Induction",
+        "definition": "The generation of an electromotive force (voltage) across an electrical conductor situated in a changing magnetic field (Faraday's Law of Induction)."
+      },
+      {
+        "type": "paragraph",
+        "text": "A wireless charging pad runs alternating current through a transmitter coil to create an oscillating magnetic field. When a smartphone's internal receiver coil enters this field, the magnetic flux induces an alternating electric current, which is rectified to direct current (DC) to charge the battery."
+      },
+      {
+        "type": "heading",
+        "text": "Charging Technologies"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Inductive Coupling (Close contact, 100-300 kHz): Requires tight physical alignment (under 5mm); highest consumer efficiency (~70-80%).",
+          "Resonant Coupling (6.78 MHz): Allows spatial freedom across several centimeters, charging multiple devices on one pad with slightly lower efficiency.",
+          "Foreign Object Detection (FOD): Safety feature that detects metallic objects (coins, keys) on the pad to prevent induction-heated fires."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The roughly 20-30% energy lost during wireless charging dissipates entirely as heat, which is why wireless pads warm up the battery."
+      }
+    ],
+    "tags": ["power", "wireless-charging", "induction", "electromagnetism", "coils", "fod"],
+    "relatedIds": ["what-is-qi-standard", "what-is-magsafe"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Inductive charging",
+        "url": "https://en.wikipedia.org/wiki/Inductive_charging"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-qi-standard",
+    "title": "The Qi & Qi2 Wireless Standards",
+    "category": "power",
+    "summary": "Qi is the universal open wireless charging standard maintained by the WPC, with Qi2 standardizing magnetic ring alignment across all brands.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Qi Standard",
+        "definition": "An open universal interface standard developed by the Wireless Power Consortium (WPC) defining inductive power transfer protocols up to 15W+."
+      },
+      {
+        "type": "paragraph",
+        "text": "Before Qi, competing proprietary wireless charging standards fragmented the market. Today, Qi is built into billions of smartphones, earbuds, and wearables. The Qi protocol includes digital handshaking: the phone modulates charging coil load to transmit battery telemetry back to the charging base."
+      },
+      {
+        "type": "heading",
+        "text": "Qi vs Qi2 Comparison"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Feature", "Qi 1.x Baseline", "Qi2 (Magnetic Power Profile)"],
+        "rows": [
+          {
+            "label": "Alignment",
+            "values": ["Manual placement (Efficiency drops if misaligned)", "Magnetic ring locking coils in perfect alignment"]
+          },
+          {
+            "label": "Max Power",
+            "values": ["5W – 15W (Often capped at 7.5W due to thermal drift)", "Guaranteed 15W fast wireless charging"]
+          },
+          {
+            "label": "Thermal Efficiency",
+            "values": ["Higher heat buildup when off-center", "Cooler operation due to zero alignment offset"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Qi2 incorporates Apple's MagSafe magnetic ring architecture into an open industry standard available to Android and accessory makers alike."
+      }
+    ],
+    "tags": ["power", "qi", "qi2", "wpc", "wireless-charging", "magsafe"],
+    "relatedIds": ["what-is-wireless-charging", "what-is-magsafe"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Qi (standard)",
+        "url": "https://en.wikipedia.org/wiki/Qi_(standard)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-magsafe",
+    "title": "Apple MagSafe Architecture",
+    "category": "power",
+    "summary": "MagSafe uses an array of 18 rare-earth neodymium magnets surrounding an inductive charging coil to guarantee perfect alignment and snap-on accessories.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "MagSafe Array",
+        "definition": "A circular ring array of custom-shaped neodymium magnets and magnetic flux shielding integrated around a smartphone wireless receiver coil."
+      },
+      {
+        "type": "paragraph",
+        "text": "Traditional wireless charging suffers if a phone is placed even a few millimeters off-center, causing charging speeds to plummet and temperatures to spike. MagSafe eliminates alignment error by physically snapping the charger into the exact electromagnetic sweet spot."
+      },
+      {
+        "type": "heading",
+        "text": "MagSafe Hardware Stack"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Magnet Array: Circular ring of 18 radial magnets with alternating north/south polarity.",
+          "Alignment Magnet: A vertical pill magnet at the 6 o'clock position ensuring rotational orientation for wallets and stands.",
+          "NFC Antenna: Detects attached official accessories (cases, battery packs) and displays customized UI animations."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Nanocrystalline shielding sheets placed behind the coil prevent the intense alternating magnetic fields from interfering with the device's internal motherboard and battery."
+      }
+    ],
+    "tags": ["power", "magsafe", "qi2", "magnets", "wireless-charging", "apple"],
+    "relatedIds": ["what-is-qi-standard", "what-is-wireless-charging"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — MagSafe (wireless charger)",
+        "url": "https://en.wikipedia.org/wiki/MagSafe_(wireless_charger)"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-reverse-wireless-charging",
+    "title": "Reverse Wireless Charging",
+    "category": "power",
+    "summary": "Reverse wireless charging reverses power circuitry to turn a smartphone's internal receiver coil into an inductive transmitter to top up earbuds or smartwatches.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Reverse Wireless Power Transfer (Wireless PowerShare)",
+        "definition": "A bidirectional power circuit design enabling a smartphone to act as an inductive charging pad, supplying 4.5W to 10W of power from its battery to external Qi devices."
+      },
+      {
+        "type": "paragraph",
+        "text": "Normally, a phone's internal coil passes AC current through a full-bridge synchronous rectifier into the battery management IC. In reverse charging mode, the battery pumps DC back through a high-efficiency inverter H-bridge, oscillating the internal coil to emit a magnetic field."
+      },
+      {
+        "type": "heading",
+        "text": "Operational Constraints"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Output Power: Typically capped at 4.5W - 7.5W (optimal for earbuds and watches; slow for charging another phone).",
+          "Efficiency Overhead: Roughly 30-40% of the energy drawn from the host battery is lost to resistive heat and coil conversion.",
+          "Battery Threshold Cutoff: Android automatically disables reverse charging if the host phone battery drops below 30%."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Smartwatch charging coils are physically smaller than phone coils, requiring precise centering on the host phone's rear glass."
+      }
+    ],
+    "tags": ["power", "reverse-charging", "powershare", "qi", "wireless", "earbuds"],
+    "relatedIds": ["what-is-wireless-charging", "what-is-qi-standard"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Inductive charging",
+        "url": "https://en.wikipedia.org/wiki/Inductive_charging"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-watt-hour",
+    "title": "Watt-Hours (Wh) & Power Calculation",
+    "category": "power",
+    "summary": "A Watt-hour measures the total cumulative energy consumed or stored over time, calculated as Watts multiplied by Hours of continuous operation.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Watt-Hour (Wh)",
+        "definition": "A unit of measurement for energy equal to one watt (1 joule per second) of power sustained continuously for an interval of one hour (3,600 Joules)."
+      },
+      {
+        "type": "paragraph",
+        "text": "While Watts measure instantaneous power draw (like the speedometer in a car), Watt-hours measure the total distance traveled (total energy expended). A 100W lightbulb running for 10 hours consumes 1,000 Watt-hours (1 Kilowatt-hour / 1 kWh), the standard unit billed on residential electricity meters."
+      },
+      {
+        "type": "heading",
+        "text": "Device Energy Examples"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Smartphone Battery (5,000 mAh @ 3.85V): ~19.25 Wh.",
+          "Laptop Battery (99.9 Wh max): Can run a 20W workload for ~5 hours.",
+          "Home Solar Battery Pack (Tesla Powerwall): 13.5 kWh (13,500 Wh).",
+          "Electric Vehicle (EV Battery): 60 kWh to 100 kWh."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "1 Kilowatt-hour (kWh) is mathematically equal to 3.6 Megajoules (MJ) of energy."
+      }
+    ],
+    "tags": ["power", "watt-hour", "kwh", "joules", "energy", "batteries"],
+    "relatedIds": ["watts-vs-volts-vs-amps", "what-is-usb-power-delivery"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Kilowatt-hour",
+        "url": "https://en.wikipedia.org/wiki/Kilowatt-hour"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]

@@ -12,6 +12,7 @@ data class ArticleEntity(
     val bodyJson: String,
     val tagsJson: String,
     val relatedIdsJson: String,
+    val relatedLinksJson: String = "[]",
     val lastUpdated: String,
     val difficulty: String,
     val hasDiagram: Boolean,

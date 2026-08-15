@@ -47,6 +47,12 @@
     ],
     "tags": ["gaming", "fps", "framerate", "frametime", "performance", "gpu"],
     "relatedIds": ["what-is-frame-pacing", "what-is-input-lag", "what-is-vsync"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Frame rate",
+        "url": "https://en.wikipedia.org/wiki/Frame_rate"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -95,6 +101,16 @@
     ],
     "tags": ["gaming", "resolution", "4k", "1440p", "dlss", "fsr", "upscaling"],
     "relatedIds": ["what-is-fps", "what-is-anti-aliasing", "what-is-ray-tracing"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Display resolution",
+        "url": "https://en.wikipedia.org/wiki/Display_resolution"
+      },
+      {
+        "label": "Wikipedia — Deep Learning Super Sampling",
+        "url": "https://en.wikipedia.org/wiki/Deep_Learning_Super_Sampling"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -133,6 +149,12 @@
     ],
     "tags": ["gaming", "vsync", "screen-tearing", "vblank", "buffering", "latency"],
     "relatedIds": ["what-is-gsync-freesync", "what-is-input-lag", "what-is-fps"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Screen tearing (V-Sync)",
+        "url": "https://en.wikipedia.org/wiki/Screen_tearing"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -181,6 +203,16 @@
     ],
     "tags": ["gaming", "gsync", "freesync", "vrr", "adaptive-sync", "monitors"],
     "relatedIds": ["what-is-vsync", "what-is-fps", "what-is-input-lag"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Variable refresh rate",
+        "url": "https://en.wikipedia.org/wiki/Variable_refresh_rate"
+      },
+      {
+        "label": "Wikipedia — FreeSync",
+        "url": "https://en.wikipedia.org/wiki/FreeSync"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -219,6 +251,12 @@
     ],
     "tags": ["gaming", "ray-tracing", "rtx", "lighting", "bvh", "shaders", "gpu"],
     "relatedIds": ["what-is-resolution-gaming", "what-is-fps", "what-is-a-gpu-driver"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Ray tracing (graphics)",
+        "url": "https://en.wikipedia.org/wiki/Ray_tracing_(graphics)"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -271,6 +309,12 @@
     ],
     "tags": ["gaming", "anti-aliasing", "msaa", "taa", "fxaa", "jaggies", "graphics"],
     "relatedIds": ["what-is-resolution-gaming", "what-is-fps", "what-is-ray-tracing"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Spatial anti-aliasing",
+        "url": "https://en.wikipedia.org/wiki/Spatial_anti-aliasing"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -309,6 +353,16 @@
     ],
     "tags": ["gaming", "gpu-driver", "vulkan", "directx", "shaders", "nvidia", "amd"],
     "relatedIds": ["what-is-fps", "what-is-ray-tracing", "what-is-frame-pacing"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Device driver",
+        "url": "https://en.wikipedia.org/wiki/Device_driver"
+      },
+      {
+        "label": "Arch Wiki — Vulkan",
+        "url": "https://wiki.archlinux.org/title/Vulkan"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -348,6 +402,12 @@
     ],
     "tags": ["gaming", "input-lag", "latency", "reflex", "polling-rate", "esports"],
     "relatedIds": ["what-is-fps", "what-is-frame-pacing", "what-is-vsync"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Input lag",
+        "url": "https://en.wikipedia.org/wiki/Input_lag"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -387,6 +447,16 @@
     ],
     "tags": ["gaming", "frame-pacing", "micro-stutter", "frametime", "performance"],
     "relatedIds": ["what-is-fps", "what-is-input-lag", "what-is-vsync"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Micro stuttering",
+        "url": "https://en.wikipedia.org/wiki/Micro_stuttering"
+      },
+      {
+        "label": "Android Developers — Android Frame Pacing library",
+        "url": "https://developer.android.com/games/sdk/frame-pacing"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false

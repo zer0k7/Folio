@@ -39,6 +39,16 @@
     ],
     "tags": ["security", "encryption", "aes", "rsa", "cryptography"],
     "relatedIds": ["what-is-end-to-end-encryption", "what-is-ssl-tls", "what-is-hashing"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Encryption",
+        "url": "https://en.wikipedia.org/wiki/Encryption"
+      },
+      {
+        "label": "MDN Web Docs — Web Crypto API",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -78,6 +88,16 @@
     ],
     "tags": ["security", "tls", "ssl", "handshake", "cryptography", "pfs"],
     "relatedIds": ["what-is-https", "what-is-a-certificate", "what-is-encryption"],
+    "relatedLinks": [
+      {
+        "label": "MDN Web Docs — Transport Layer Security (TLS)",
+        "url": "https://developer.mozilla.org/en-US/docs/Glossary/TLS"
+      },
+      {
+        "label": "RFC 8446 — The Transport Layer Security (TLS) Protocol Version 1.3",
+        "url": "https://datatracker.ietf.org/doc/html/rfc8446"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -116,6 +136,16 @@
     ],
     "tags": ["security", "https", "tls", "web", "http", "privacy"],
     "relatedIds": ["what-is-ssl-tls", "what-is-a-certificate", "what-is-a-vpn"],
+    "relatedLinks": [
+      {
+        "label": "MDN Web Docs — HTTPS",
+        "url": "https://developer.mozilla.org/en-US/docs/Glossary/HTTPS"
+      },
+      {
+        "label": "RFC 9110 — HTTP Semantics",
+        "url": "https://datatracker.ietf.org/doc/html/rfc9110"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -164,6 +194,16 @@
     ],
     "tags": ["security", "firewall", "networking", "ports", "dpi"],
     "relatedIds": ["what-is-a-vpn", "what-is-a-rootkit", "what-is-phishing"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Firewall (computing)",
+        "url": "https://en.wikipedia.org/wiki/Firewall_(computing)"
+      },
+      {
+        "label": "Arch Wiki — Firewalls",
+        "url": "https://wiki.archlinux.org/title/Firewalls"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -202,6 +242,16 @@
     ],
     "tags": ["security", "2fa", "mfa", "totp", "fido2", "webauthn"],
     "relatedIds": ["what-is-phishing", "what-is-encryption", "what-is-a-certificate"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Multi-factor authentication",
+        "url": "https://en.wikipedia.org/wiki/Multi-factor_authentication"
+      },
+      {
+        "label": "RFC 6238 — TOTP Algorithm",
+        "url": "https://datatracker.ietf.org/doc/html/rfc6238"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -250,6 +300,16 @@
     ],
     "tags": ["security", "vpn", "wireguard", "openvpn", "tunneling", "privacy"],
     "relatedIds": ["what-is-encryption", "what-is-https", "what-is-a-firewall"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Virtual private network",
+        "url": "https://en.wikipedia.org/wiki/Virtual_private_network"
+      },
+      {
+        "label": "Arch Wiki — WireGuard",
+        "url": "https://wiki.archlinux.org/title/WireGuard"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -288,6 +348,12 @@
     ],
     "tags": ["security", "phishing", "social-engineering", "passkeys", "authentication"],
     "relatedIds": ["what-is-2fa", "what-is-a-certificate", "what-is-encryption"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Phishing",
+        "url": "https://en.wikipedia.org/wiki/Phishing"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -327,6 +393,16 @@
     ],
     "tags": ["security", "certificate", "x509", "pki", "ca", "tls"],
     "relatedIds": ["what-is-ssl-tls", "what-is-https", "what-is-encryption"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — X.509",
+        "url": "https://en.wikipedia.org/wiki/X.509"
+      },
+      {
+        "label": "RFC 5280 — Internet X.509 PKI Certificate Profile",
+        "url": "https://datatracker.ietf.org/doc/html/rfc5280"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -365,6 +441,12 @@
     ],
     "tags": ["security", "e2ee", "signal", "privacy", "messaging", "encryption"],
     "relatedIds": ["what-is-encryption", "what-is-ssl-tls", "what-is-hashing"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — End-to-end encryption",
+        "url": "https://en.wikipedia.org/wiki/End-to-end_encryption"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -413,6 +495,16 @@
     ],
     "tags": ["security", "hashing", "sha256", "argon2", "passwords", "integrity"],
     "relatedIds": ["what-is-encryption", "what-is-end-to-end-encryption", "what-is-a-certificate"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Cryptographic hash function",
+        "url": "https://en.wikipedia.org/wiki/Cryptographic_hash_function"
+      },
+      {
+        "label": "RFC 6234 — US Secure Hash Algorithms (SHA)",
+        "url": "https://datatracker.ietf.org/doc/html/rfc6234"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -451,6 +543,12 @@
     ],
     "tags": ["security", "rootkit", "malware", "kernel", "uefi", "secure-boot"],
     "relatedIds": ["what-is-a-firewall", "what-is-encryption", "what-is-a-kernel"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Rootkit",
+        "url": "https://en.wikipedia.org/wiki/Rootkit"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false

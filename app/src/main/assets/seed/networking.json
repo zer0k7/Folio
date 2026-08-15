@@ -38,6 +38,16 @@
     ],
     "tags": ["networking", "latency", "ping", "rtt", "bufferbloat"],
     "relatedIds": ["what-is-bandwidth", "what-is-throughput", "tcp-vs-udp"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Latency (engineering)",
+        "url": "https://en.wikipedia.org/wiki/Latency_(engineering)"
+      },
+      {
+        "label": "MDN Web Docs — Latency",
+        "url": "https://developer.mozilla.org/en-US/docs/Glossary/Latency"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": true
@@ -72,6 +82,16 @@
     ],
     "tags": ["networking", "bandwidth", "mbps", "capacity", "speed"],
     "relatedIds": ["what-is-throughput", "what-is-latency", "what-is-a-cdn"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Bandwidth (computing)",
+        "url": "https://en.wikipedia.org/wiki/Bandwidth_(computing)"
+      },
+      {
+        "label": "MDN Web Docs — Bandwidth",
+        "url": "https://developer.mozilla.org/en-US/docs/Glossary/Bandwidth"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -106,6 +126,12 @@
     ],
     "tags": ["networking", "throughput", "goodput", "bdp", "tcp"],
     "relatedIds": ["what-is-bandwidth", "what-is-latency", "tcp-vs-udp"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Throughput",
+        "url": "https://en.wikipedia.org/wiki/Throughput"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -149,6 +175,16 @@
     ],
     "tags": ["networking", "dns", "ip", "doh", "nameserver"],
     "relatedIds": ["what-is-a-cdn", "what-is-nat", "what-is-latency"],
+    "relatedLinks": [
+      {
+        "label": "MDN Web Docs — DNS",
+        "url": "https://developer.mozilla.org/en-US/docs/Glossary/DNS"
+      },
+      {
+        "label": "RFC 1035 — Domain Names",
+        "url": "https://datatracker.ietf.org/doc/html/rfc1035"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": true
@@ -197,6 +233,16 @@
     ],
     "tags": ["networking", "nat", "ipv4", "router", "port-forwarding"],
     "relatedIds": ["what-is-dns", "tcp-vs-udp", "what-is-latency"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Network address translation",
+        "url": "https://en.wikipedia.org/wiki/Network_address_translation"
+      },
+      {
+        "label": "RFC 3022 — Traditional IP NAT",
+        "url": "https://datatracker.ietf.org/doc/html/rfc3022"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "INTERMEDIATE",
     "hasDiagram": false
@@ -231,6 +277,20 @@
     ],
     "tags": ["networking", "tcp", "udp", "transport", "quic", "http3"],
     "relatedIds": ["what-is-latency", "what-is-throughput", "what-is-dns"],
+    "relatedLinks": [
+      {
+        "label": "MDN Web Docs — TCP",
+        "url": "https://developer.mozilla.org/en-US/docs/Glossary/TCP"
+      },
+      {
+        "label": "MDN Web Docs — UDP",
+        "url": "https://developer.mozilla.org/en-US/docs/Glossary/UDP"
+      },
+      {
+        "label": "RFC 9293 — Transmission Control Protocol",
+        "url": "https://datatracker.ietf.org/doc/html/rfc9293"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false
@@ -265,6 +325,16 @@
     ],
     "tags": ["networking", "cdn", "edge", "anycast", "caching"],
     "relatedIds": ["what-is-latency", "what-is-dns", "what-is-bandwidth"],
+    "relatedLinks": [
+      {
+        "label": "MDN Web Docs — CDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Glossary/CDN"
+      },
+      {
+        "label": "Wikipedia — Content delivery network",
+        "url": "https://en.wikipedia.org/wiki/Content_delivery_network"
+      }
+    ],
     "lastUpdated": "2024-01-01",
     "difficulty": "BASIC",
     "hasDiagram": false

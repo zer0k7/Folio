@@ -1,0 +1,344 @@
+[
+  {
+    "id": "what-is-arm-vs-x86",
+    "title": "ARM vs x86 Architecture",
+    "category": "chips",
+    "summary": "ARM utilizes a power-efficient Reduced Instruction Set (RISC), whereas x86 uses a Complex Instruction Set (CISC) optimized for peak raw throughput.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Instruction Set Architecture (ISA)",
+        "definition": "The abstract model of a computer that defines the supported data types, registers, memory architecture, and machine instructions executable by the processor."
+      },
+      {
+        "type": "paragraph",
+        "text": "The x86 architecture, developed by Intel and AMD, is CISC-based with variable-length instructions and dedicated hardware decoders. ARM is a RISC architecture that uses fixed-length, single-cycle instructions, minimizing silicon die size and thermal power dissipation for mobile and high-density server platforms."
+      },
+      {
+        "type": "heading",
+        "text": "Architectural Differences"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Attribute", "ARM (RISC)", "x86 / x86_64 (CISC)"],
+        "rows": [
+          {
+            "label": "Instruction Length",
+            "values": ["Fixed (32-bit or 64-bit standard)", "Variable (1 to 15 bytes)"]
+          },
+          {
+            "label": "Power Consumption",
+            "values": ["Ultra-low (0.5W - 30W typical)", "Moderate to High (15W - 300W+)"]
+          },
+          {
+            "label": "Primary Domain",
+            "values": ["Smartphones, tablets, Apple Silicon, embedded", "Desktops, workstations, legacy enterprise servers"]
+          },
+          {
+            "label": "Memory Access",
+            "values": ["Load/Store architecture only", "Instructions can directly access memory operands"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern high-end x86 cores internally decode complex CISC instructions into simpler RISC-like micro-operations (uops) before dispatching to execution units."
+      }
+    ],
+    "tags": ["chips", "arm", "x86", "risc", "cisc", "cpu", "isa"],
+    "relatedIds": ["what-is-32bit-vs-64bit", "what-is-process-node", "what-is-multicore"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — ARM architecture family",
+        "url": "https://en.wikipedia.org/wiki/ARM_architecture_family"
+      },
+      {
+        "label": "Wikipedia — x86",
+        "url": "https://en.wikipedia.org/wiki/X86"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-32bit-vs-64bit",
+    "title": "32-Bit vs 64-Bit Computing",
+    "category": "chips",
+    "summary": "64-bit processors use wider registers and memory addresses, breaking the 4 GB RAM limit of 32-bit systems to address over 18 quintillion bytes.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Word Size",
+        "definition": "The natural data width and register size that a CPU processor core can manipulate in a single native arithmetic operation."
+      },
+      {
+        "type": "paragraph",
+        "text": "A 32-bit register can reference 2^32 distinct memory addresses, creating a theoretical ceiling of 4,294,967,296 bytes (4 GB) of addressable physical RAM. A 64-bit processor (x86-64 / AArch64) expands addressable space to 2^64 bytes (16 Exabytes), enabling massive in-memory databases and virtualization."
+      },
+      {
+        "type": "heading",
+        "text": "Key Advantages of 64-Bit Architecture"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Dramatically expanded integer math precision without multi-instruction emulation.",
+          "Doubled general-purpose register count (e.g., 8 to 16 in x86-64, 31 in ARM64) reducing stack memory spills.",
+          "Hardware-enforced security features such as Address Space Layout Randomization (ASLR) entropy."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "64-bit pointers occupy 8 bytes of memory compared to 4 bytes on 32-bit systems, slightly increasing memory consumption for pointer-heavy data structures."
+      }
+    ],
+    "tags": ["chips", "32-bit", "64-bit", "registers", "memory-addressing"],
+    "relatedIds": ["what-is-arm-vs-x86", "what-is-cpu-cache-l1-l2-l3"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — 64-bit computing",
+        "url": "https://en.wikipedia.org/wiki/64-bit_computing"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-clock-speed",
+    "title": "CPU Clock Speed & IPC",
+    "category": "chips",
+    "summary": "Clock speed measures how many electrical cycles a processor completes per second, while IPC determines how many instructions execute per cycle.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Clock Frequency (Gigahertz)",
+        "definition": "The rate at which a crystal oscillator pulses the synchronous clock signal coordinating transistor transitions across a microprocessor."
+      },
+      {
+        "type": "paragraph",
+        "text": "A processor operating at 4.0 GHz pulses four billion clock cycles every second. However, clock speed alone does not determine real-world speed: performance is the product of Clock Speed multiplied by Instructions Per Cycle (IPC). An older 5.0 GHz CPU can be outpaced by a newer 3.5 GHz CPU with higher IPC."
+      },
+      {
+        "type": "heading",
+        "text": "Base vs Boost Clock"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Base Clock: Guaranteed sustainable operating frequency under continuous heavy multi-threaded workloads within thermal design limits (TDP).",
+          "Boost/Turbo Clock: Opportunistic high frequency reached on single or bursty cores when thermal and electrical power headroom allows."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Dynamic Frequency Scaling (DVFS) adjusts clock speed and core voltage hundreds of times per second based on workload demand to conserve energy."
+      }
+    ],
+    "tags": ["chips", "clock-speed", "ghz", "ipc", "performance", "cpu"],
+    "relatedIds": ["what-is-thermal-throttling", "what-is-cpu-cache-l1-l2-l3"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Clock rate",
+        "url": "https://en.wikipedia.org/wiki/Clock_rate"
+      },
+      {
+        "label": "Wikipedia — Instructions per cycle",
+        "url": "https://en.wikipedia.org/wiki/Instructions_per_cycle"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-cpu-cache-l1-l2-l3",
+    "title": "CPU Cache Hierarchy (L1, L2, L3)",
+    "category": "chips",
+    "summary": "CPU cache is ultra-fast static SRAM placed directly on the processor die to prevent execution cores from idling while waiting for slow main memory.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Static RAM (SRAM) Cache",
+        "definition": "High-speed volatile on-die memory built from 6-transistor flip-flop cells that retains data without needing periodic refresh cycles."
+      },
+      {
+        "type": "paragraph",
+        "text": "Fetching instructions from system RAM takes roughly 50 to 100 nanoseconds (~200 CPU cycles). To bridge this latency gap, processors maintain a multi-tier cache hierarchy holding recently referenced code and memory blocks according to spatial and temporal locality principles."
+      },
+      {
+        "type": "heading",
+        "text": "Cache Tiers Compared"
+      },
+      {
+        "type": "comparison",
+        "headers": ["Level", "Typical Size", "Latency", "Scope"],
+        "rows": [
+          {
+            "label": "L1 Cache",
+            "values": ["32 KB - 64 KB per core (Split I/D)", "0.5 - 1.5 ns (4-5 cycles)", "Private to each core"]
+          },
+          {
+            "label": "L2 Cache",
+            "values": ["512 KB - 2 MB per core", "3 - 8 ns (12-14 cycles)", "Private or shared cluster"]
+          },
+          {
+            "label": "L3 Cache",
+            "values": ["16 MB - 96 MB+", "10 - 20 ns (40-60 cycles)", "Shared across all cores on die"]
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "A cache miss forces the CPU memory controller to request data from the next cache tier or main DRAM, stalling pipeline execution."
+      }
+    ],
+    "tags": ["chips", "cache", "sram", "l1", "l2", "l3", "latency"],
+    "relatedIds": ["what-is-clock-speed", "what-is-multicore"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — CPU cache",
+        "url": "https://en.wikipedia.org/wiki/CPU_cache"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-thermal-throttling",
+    "title": "Thermal Throttling & TJMax",
+    "category": "chips",
+    "summary": "Thermal throttling is a hardware-level safety mechanism that automatically reduces processor clock speeds and voltages when operating temperatures exceed safe limits.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Thermal Junction Maximum (TJMax)",
+        "definition": "The maximum silicon junction temperature specified by silicon manufacturers before internal protective thermal throttling or emergency shutdown engages."
+      },
+      {
+        "type": "paragraph",
+        "text": "When silicon transistors conduct electrical current, resistance generates thermal dissipation. If the cooling subsystem (heatsink, fan, vapor chamber) cannot evacuate heat as fast as it is generated, on-die thermal sensors trigger throttling to prevent permanent chip degradation."
+      },
+      {
+        "type": "heading",
+        "text": "Throttling Stages"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Dynamic Downclocking: The CPU governor drops clock multiplier and voltage to reduce thermal output (P = C * V^2 * f).",
+          "Duty Cycle Skipping: Core clock pulses are deliberately dropped to decrease active execution time.",
+          "PROCHOT Trip & Hard Cutoff: If temperatures continue rising toward 105C - 115C, the power delivery circuit immediately cuts voltage to prevent catastrophic damage."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Mobile devices and slim laptops rely heavily on burst performance, intentionally throttling down by 20-40% during sustained gaming or rendering sessions."
+      }
+    ],
+    "tags": ["chips", "thermal-throttling", "cooling", "tjmax", "temperature"],
+    "relatedIds": ["what-is-clock-speed", "what-is-process-node"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Dynamic frequency scaling",
+        "url": "https://en.wikipedia.org/wiki/Dynamic_frequency_scaling"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-process-node",
+    "title": "Semiconductor Process Nodes (nm)",
+    "category": "chips",
+    "summary": "Process nodes measure silicon fabrication density and lithography milestones, allowing billions of smaller transistors to operate with higher efficiency.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Process Node",
+        "definition": "A specific generation of semiconductor manufacturing process characterized by transistor density, gate architecture (e.g. FinFET, GAAFET), and lithography resolution."
+      },
+      {
+        "type": "paragraph",
+        "text": "Historically, node names like '7nm' or '3nm' measured gate lengths. Today, node names are marketing designations for generational density improvements achieved using Extreme Ultraviolet (EUV) lithography and multi-patterning on silicon wafers."
+      },
+      {
+        "type": "heading",
+        "text": "Transistor Architectures"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Planar FET: Classic flat 2D transistor used down to the 28nm node before quantum tunneling leakage became unmanageable.",
+          "FinFET: 3D fin-shaped channel wrapped by the gate on three sides, dominating 22nm down to 3nm nodes.",
+          "GAAFET / Nanosheet: Gate-All-Around nanosheets wrapped on all four sides for maximum electrostatic control at 2nm and beyond."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Shrinking transistor dimensions lowers switching capacitance, enabling higher clock frequencies at reduced core operating voltages."
+      }
+    ],
+    "tags": ["chips", "process-node", "nanometer", "finfet", "gaafet", "semiconductor"],
+    "relatedIds": ["what-is-arm-vs-x86", "what-is-clock-speed"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Semiconductor device fabrication",
+        "url": "https://en.wikipedia.org/wiki/Semiconductor_device_fabrication"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "INTERMEDIATE",
+    "hasDiagram": false
+  },
+  {
+    "id": "what-is-multicore",
+    "title": "Multi-Core Processors & Heterogeneous Cores",
+    "category": "chips",
+    "summary": "Multi-core processors combine multiple independent execution cores on a single chip, utilizing symmetric or heterogeneous big.LITTLE topologies.",
+    "body": [
+      {
+        "type": "definition",
+        "term": "Multi-Core Processor",
+        "definition": "A single integrated circuit containing two or more independent execution micro-cores capable of running separate program threads concurrently."
+      },
+      {
+        "type": "paragraph",
+        "text": "When single-core clock scaling hit thermal limits (the 'Power Wall') in the mid-2000s, chip designers pivoted to parallelism. Multiple cores allow operating systems to distribute concurrent threads across cores simultaneously without driving clocks to extreme thermal thresholds."
+      },
+      {
+        "type": "heading",
+        "text": "Heterogeneous Core Topology (big.LITTLE)"
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Performance Cores (P-Cores): Out-of-order, wide-decode pipelines designed for maximum single-thread responsiveness and heavy math.",
+          "Efficiency Cores (E-Cores): In-order or compact micro-architectures dedicated to background OS services, audio streaming, and light tasks at minimal power."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Amdahl's Law dictates that the speedup from multi-core parallelism is strictly constrained by the sequential, non-parallelizable portions of software algorithms."
+      }
+    ],
+    "tags": ["chips", "multicore", "big-little", "p-cores", "e-cores", "parallelism"],
+    "relatedIds": ["what-is-arm-vs-x86", "what-is-cpu-cache-l1-l2-l3"],
+    "relatedLinks": [
+      {
+        "label": "Wikipedia — Multi-core processor",
+        "url": "https://en.wikipedia.org/wiki/Multi-core_processor"
+      },
+      {
+        "label": "Wikipedia — ARM big.LITTLE",
+        "url": "https://en.wikipedia.org/wiki/ARM_big.LITTLE"
+      }
+    ],
+    "lastUpdated": "2026-08-15",
+    "difficulty": "BASIC",
+    "hasDiagram": false
+  }
+]
