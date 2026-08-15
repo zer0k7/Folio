@@ -18,7 +18,6 @@
     <path
         android:strokeColor="@color/muted_dark"
         android:strokeWidth="2"
-        android:strokeDashArray="6,6"
         android:pathData="M 150,100 L 150,350" />
 
     <!-- Server Column -->
@@ -30,7 +29,6 @@
     <path
         android:strokeColor="@color/muted_dark"
         android:strokeWidth="2"
-        android:strokeDashArray="6,6"
         android:pathData="M 650,100 L 650,350" />
 
     <!-- Request Arrow (Client -> Server) -->

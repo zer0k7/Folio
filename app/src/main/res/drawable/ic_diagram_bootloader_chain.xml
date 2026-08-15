@@ -59,7 +59,6 @@
     <path
         android:strokeColor="@color/lavender_mist"
         android:strokeWidth="2"
-        android:strokeDashArray="4,4"
         android:pathData="M 125,110 L 690,110" />
     <path
         android:fillColor="@color/lavender_mist"

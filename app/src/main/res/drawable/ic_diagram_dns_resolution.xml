@@ -34,7 +34,6 @@
     <path
         android:strokeColor="@color/muted_dark"
         android:strokeWidth="2"
-        android:strokeDashArray="4,4"
         android:pathData="M 400,180 L 530,90" />
     <path
         android:fillColor="@color/surface_light"
@@ -46,7 +45,6 @@
     <path
         android:strokeColor="@color/muted_dark"
         android:strokeWidth="2"
-        android:strokeDashArray="4,4"
         android:pathData="M 400,210 L 530,210" />
     <path
         android:fillColor="@color/surface_light"
@@ -58,7 +56,6 @@
     <path
         android:strokeColor="@color/muted_dark"
         android:strokeWidth="2"
-        android:strokeDashArray="4,4"
         android:pathData="M 400,240 L 530,330" />
     <path
         android:fillColor="@color/lavender_mist"

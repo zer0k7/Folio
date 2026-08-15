@@ -56,6 +56,5 @@
     <path
         android:strokeColor="@color/muted_dark"
         android:strokeWidth="2"
-        android:strokeDashArray="6,6"
         android:pathData="M 550,265 L 720,265" />
 </vector>
