@@ -55,26 +55,50 @@ jobs:
             exit 1
           fi
 
+          APKSIGNER=$(find $ANDROID_SDK_ROOT/build-tools -name apksigner | sort -V | tail -n 1)
+          ZIPALIGN=$(find $ANDROID_SDK_ROOT/build-tools -name zipalign | sort -V | tail -n 1)
+
           if [ -n "$KEYSTORE_BASE64" ]; then
             echo "Keystore secret detected. Decoding and signing..."
             echo "$KEYSTORE_BASE64" | base64 -d > /tmp/release.keystore
-            
-            APKSIGNER=$(find $ANDROID_SDK_ROOT/build-tools -name apksigner | sort -V | tail -n 1)
-            ZIPALIGN=$(find $ANDROID_SDK_ROOT/build-tools -name zipalign | sort -V | tail -n 1)
-            
-            $ZIPALIGN -v -p 4 "$APK_PATH" /tmp/aligned.apk
-            $APKSIGNER sign --ks /tmp/release.keystore \
-              --ks-key-alias "$KEY_ALIAS" \
-              --ks-pass pass:"$STORE_PASSWORD" \
-              --key-pass pass:"$KEY_PASSWORD" \
-              --out "$OUTPUT_APK" \
-              /tmp/aligned.apk
-            
-            rm -f /tmp/release.keystore /tmp/aligned.apk
+            KEY_ALIAS_TO_USE="$KEY_ALIAS"
+            STORE_PASS_TO_USE="$STORE_PASSWORD"
+            KEY_PASS_TO_USE="$KEY_PASSWORD"
           else
-            echo "Keystore secret not provided, copying unsigned release APK..."
-            cp "$APK_PATH" "$OUTPUT_APK"
+            echo "Generating self-signed release keystore on runner..."
+            keytool -genkeypair -v \
+              -keystore /tmp/release.keystore \
+              -alias folio_release \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -storepass "foliopassword" \
+              -keypass "foliopassword" \
+              -dname "CN=Folio, OU=Mobile, O=Folio, L=City, ST=State, C=US"
+            KEY_ALIAS_TO_USE="folio_release"
+            STORE_PASS_TO_USE="foliopassword"
+            KEY_PASS_TO_USE="foliopassword"
           fi
+
+          echo "Aligning APK..."
+          $ZIPALIGN -f -v 4 "$APK_PATH" /tmp/aligned.apk
+
+          echo "Signing APK with v1, v2, v3 signature schemes..."
+          $APKSIGNER sign \
+            --ks /tmp/release.keystore \
+            --ks-key-alias "$KEY_ALIAS_TO_USE" \
+            --ks-pass "pass:$STORE_PASS_TO_USE" \
+            --key-pass "pass:$KEY_PASS_TO_USE" \
+            --v1-signing-enabled true \
+            --v2-signing-enabled true \
+            --v3-signing-enabled true \
+            --out "$OUTPUT_APK" \
+            /tmp/aligned.apk
+
+          echo "Verifying APK signature..."
+          $APKSIGNER verify --verbose "$OUTPUT_APK"
+
+          rm -f /tmp/release.keystore /tmp/aligned.apk
 
           echo "apk_file=$OUTPUT_APK" >> $GITHUB_OUTPUT
 
